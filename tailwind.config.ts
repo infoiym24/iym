@@ -99,6 +99,7 @@ export default {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-primary': 'linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%)',
         'shimmer': 'linear-gradient(90deg, transparent 0%, hsl(var(--primary) / 0.1) 50%, transparent 100%)',
+        'gradient-fire': 'linear-gradient(135deg, hsl(12 100% 55%) 0%, hsl(45 100% 55%) 50%, hsl(12 100% 45%) 100%)',
       },
     },
   },

@@ -3,18 +3,28 @@ import {
   Paintbrush, 
   Truck, 
   Home, 
-  Shield, 
-  Zap,
-  Hammer,
-  Leaf
+  Leaf,
+  Megaphone,
+  Car,
+  Droplets,
+  Trash2,
+  Package,
+  Sparkles,
+  Settings
 } from 'lucide-react';
 import ServiceCard from './ServiceCard';
 
 const services = [
   {
+    title: 'Marketing & Webdesign',
+    description: 'Social Media Marketing, Webdesign und digitale Präsenz für Ihr Unternehmen.',
+    icon: Megaphone,
+    href: '/services/marketing',
+  },
+  {
     title: 'Handwerk',
-    description: 'Professionelle Handwerksarbeiten für Ihr Zuhause oder Unternehmen. Qualität, die überzeugt.',
-    icon: Hammer,
+    description: 'Professionelle Handwerksarbeiten für Ihr Zuhause oder Unternehmen.',
+    icon: Wrench,
     href: '/services/handwerk',
   },
   {
@@ -25,39 +35,57 @@ const services = [
   },
   {
     title: 'Transport',
-    description: 'Zuverlässiger Transport- und Umzugsservice für alle Ihre Bedürfnisse.',
+    description: 'Zuverlässiger Transportservice für alle Ihre Bedürfnisse.',
     icon: Truck,
     href: '/services/transport',
   },
   {
-    title: 'Hausmeister',
+    title: 'Umzugsservice',
+    description: 'Stressfreier Umzug mit professioneller Unterstützung von A bis Z.',
+    icon: Package,
+    href: '/services/umzug',
+  },
+  {
+    title: 'Entrümpelung',
+    description: 'Schnelle und saubere Entrümpelung von Wohnungen und Gewerbeobjekten.',
+    icon: Trash2,
+    href: '/services/entruempelung',
+  },
+  {
+    title: 'Hausmeisterservice',
     description: 'Umfassender Hausmeisterservice für Ihr Gebäude oder Ihre Anlage.',
     icon: Home,
     href: '/services/hausmeister',
   },
   {
-    title: 'Reparaturen',
+    title: 'Reparaturservice',
     description: 'Schnelle und fachgerechte Reparaturen aller Art.',
-    icon: Wrench,
+    icon: Settings,
     href: '/services/reparaturen',
-  },
-  {
-    title: 'Sicherheit',
-    description: 'Sicherheitslösungen und Installation von Sicherheitstechnik.',
-    icon: Shield,
-    href: '/services/sicherheit',
-  },
-  {
-    title: 'Elektrik',
-    description: 'Elektrische Installationen und Reparaturen vom Fachmann.',
-    icon: Zap,
-    href: '/services/elektrik',
   },
   {
     title: 'Gartenpflege',
     description: 'Professionelle Garten- und Landschaftspflege rund ums Jahr.',
     icon: Leaf,
     href: '/services/gartenpflege',
+  },
+  {
+    title: 'Hochdruckreinigung',
+    description: 'Gründliche Reinigung von Terrassen, Fassaden und Einfahrten.',
+    icon: Droplets,
+    href: '/services/hochdruckreinigung',
+  },
+  {
+    title: 'Auto Service',
+    description: 'Mobiler Reifenwechsel, Zentralverriegelung und Einparkhilfe Einbau.',
+    icon: Car,
+    href: '/services/auto',
+  },
+  {
+    title: 'Car Detailing',
+    description: 'Professionelle Fahrzeugaufbereitung für Innen- und Außenbereich.',
+    icon: Sparkles,
+    href: '/services/car-detailing',
   },
 ];
 
@@ -83,7 +111,7 @@ const ServicesSection = () => {
         </div>
 
         {/* Services grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <ServiceCard
               key={service.title}
