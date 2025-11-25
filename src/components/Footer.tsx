@@ -1,7 +1,23 @@
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleAnchorClick = (href: string) => {
+    if (href.startsWith('#')) {
+      if (location.pathname === '/') {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        navigate('/' + href);
+      }
+    }
+  };
 
   const socialLinks = [
     { icon: Facebook, href: '#', label: 'Facebook' },
@@ -12,30 +28,20 @@ const Footer = () => {
 
   const footerLinks = [
     {
-      title: 'Services',
-      links: [
-        { name: 'Handwerk', href: '/services/handwerk' },
-        { name: 'Renovierung', href: '/services/renovierung' },
-        { name: 'Transport', href: '/services/transport' },
-        { name: 'Hausmeister', href: '/services/hausmeister' },
-      ],
-    },
-    {
       title: 'Unternehmen',
       links: [
-        { name: 'Über uns', href: '#about' },
-        { name: 'Kontakt', href: '#contact' },
-        { name: 'Karriere', href: '#' },
-        { name: 'Partner', href: '#' },
+        { name: 'Über uns', href: '/about', isRoute: true },
+        { name: 'Kontakt', href: '#contact', isAnchor: true },
+        { name: 'Karriere', href: '/karriere', isRoute: true },
       ],
     },
     {
       title: 'Rechtliches',
       links: [
-        { name: 'Impressum', href: '#' },
-        { name: 'Datenschutz', href: '#' },
-        { name: 'AGB', href: '#' },
-        { name: 'Cookie-Einstellungen', href: '#' },
+        { name: 'Impressum', href: '/impressum', isRoute: true },
+        { name: 'Datenschutz', href: '/datenschutz', isRoute: true },
+        { name: 'AGB', href: '/agb', isRoute: true },
+        { name: 'Cookie-Einstellungen', href: '/cookie-einstellungen', isRoute: true },
       ],
     },
   ];
@@ -46,14 +52,14 @@ const Footer = () => {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
 
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand column */}
           <div className="lg:col-span-2">
-            <a href="#" className="inline-block mb-6">
+            <Link to="/" className="inline-block mb-6">
               <span className="text-3xl font-bold font-space-grotesk text-gradient">
                 IYM
               </span>
-            </a>
+            </Link>
             <p className="text-muted-foreground mb-6 max-w-sm">
               Ihr zuverlässiger Partner für alle Dienstleistungen. 
               Qualität und Vertrauen seit über 10 Jahren.
@@ -82,12 +88,21 @@ const Footer = () => {
               <ul className="space-y-3">
                 {column.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <a
-                      href={link.href}
-                      className="text-muted-foreground hover:text-primary transition-colors duration-300"
-                    >
-                      {link.name}
-                    </a>
+                    {link.isRoute ? (
+                      <Link
+                        to={link.href}
+                        className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                      >
+                        {link.name}
+                      </Link>
+                    ) : (
+                      <button
+                        onClick={() => handleAnchorClick(link.href)}
+                        className="text-muted-foreground hover:text-primary transition-colors duration-300 bg-transparent border-none cursor-pointer"
+                      >
+                        {link.name}
+                      </button>
+                    )}
                   </li>
                 ))}
               </ul>
