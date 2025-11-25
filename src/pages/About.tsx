@@ -9,68 +9,53 @@ import {
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Users, Zap, Target, Wallet, Wrench, Shield } from 'lucide-react';
-
-const teamValues = [
-  {
-    icon: Zap,
-    title: 'Schnelligkeit',
-    description: 'Wir reagieren schnell und setzen Ihre Projekte effizient um.'
-  },
-  {
-    icon: Target,
-    title: 'Innovation',
-    description: 'Moderne Lösungen und kreative Ansätze für jede Herausforderung.'
-  },
-  {
-    icon: Shield,
-    title: 'Kompetenz',
-    description: 'Fundiertes Wissen aus verschiedensten Dienstleistungssektoren.'
-  },
-  {
-    icon: Wallet,
-    title: 'Faire Preise',
-    description: 'Transparente und ehrliche Preisgestaltung ohne versteckte Kosten.'
-  },
-  {
-    icon: Wrench,
-    title: 'Hands-On',
-    description: 'Wir scheuen uns nicht, unsere Hände dreckig zu machen.'
-  },
-  {
-    icon: Users,
-    title: 'Teamgeist',
-    description: 'Ein engagiertes Team, das gemeinsam für Ihren Erfolg arbeitet.'
-  }
-];
-
-const faqs = [
-  {
-    question: 'Welche Dienstleistungen bietet IYM an?',
-    answer: 'Wir bieten ein breites Spektrum an Services: Marketing & Webdesign, Handwerk, Renovierung, Transport, Umzugsservice, Entrümpelung, Hausmeisterservice, Reparaturen, Gartenpflege, Hochdruckreinigung, Auto Service und Car Detailing. Egal was Sie brauchen – wir sind Ihr Mann für den Job!'
-  },
-  {
-    question: 'Wie schnell können Sie einen Auftrag übernehmen?',
-    answer: 'Dank unserer flexiblen Struktur und unseres engagierten Teams können wir meist sehr kurzfristig reagieren. Kontaktieren Sie uns einfach und wir finden gemeinsam einen passenden Termin.'
-  },
-  {
-    question: 'Wie setzt sich der Preis zusammen?',
-    answer: 'Wir arbeiten mit transparenten und fairen Preisen. Je nach Dienstleistung erstellen wir Ihnen ein individuelles Angebot basierend auf Aufwand, Material und Zeitbedarf. Es gibt keine versteckten Kosten!'
-  },
-  {
-    question: 'In welchen Regionen sind Sie tätig?',
-    answer: 'Wir sind regional flexibel und können je nach Dienstleistung auch größere Entfernungen abdecken. Fragen Sie einfach nach – wir finden eine Lösung.'
-  },
-  {
-    question: 'Kann ich mehrere Services kombinieren?',
-    answer: 'Absolut! Viele unserer Kunden nutzen mehrere Dienstleistungen gleichzeitig. Ob Umzug mit anschließender Renovierung oder Gartenpflege mit Hochdruckreinigung – wir koordinieren alles aus einer Hand.'
-  },
-  {
-    question: 'Was unterscheidet IYM von anderen Anbietern?',
-    answer: 'Wir sind ein junges, dynamisches Team mit Erfahrung in verschiedensten Branchen. Das macht uns flexibel, innovativ und kompetent. Dazu kommen faire Preise und ein persönlicher Service – bei uns sind Sie keine Nummer!'
-  }
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const About = () => {
+  const { t } = useLanguage();
+  
+  const teamValues = [
+    {
+      icon: Zap,
+      title: t('about.value.speed'),
+      description: t('about.value.speed.desc')
+    },
+    {
+      icon: Target,
+      title: t('about.value.innovation'),
+      description: t('about.value.innovation.desc')
+    },
+    {
+      icon: Shield,
+      title: t('about.value.competence'),
+      description: t('about.value.competence.desc')
+    },
+    {
+      icon: Wallet,
+      title: t('about.value.fair'),
+      description: t('about.value.fair.desc')
+    },
+    {
+      icon: Wrench,
+      title: t('about.value.handson'),
+      description: t('about.value.handson.desc')
+    },
+    {
+      icon: Users,
+      title: t('about.value.team'),
+      description: t('about.value.team.desc')
+    }
+  ];
+
+  const faqs = [
+    { question: t('faq.q1'), answer: t('faq.a1') },
+    { question: t('faq.q2'), answer: t('faq.a2') },
+    { question: t('faq.q3'), answer: t('faq.a3') },
+    { question: t('faq.q4'), answer: t('faq.a4') },
+    { question: t('faq.q5'), answer: t('faq.a5') },
+    { question: t('faq.q6'), answer: t('faq.a6') }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -85,15 +70,13 @@ const About = () => {
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center max-w-4xl mx-auto">
               <span className="inline-block text-primary text-sm font-medium tracking-wider uppercase mb-4">
-                Über uns
+                {t('about.page.label')}
               </span>
               <h1 className="text-4xl md:text-6xl font-bold font-space-grotesk mb-6">
-                Wir sind <span className="text-gradient">IYM</span>
+                {t('about.page.title')} <span className="text-gradient">IYM</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Ein junges, engagiertes Team mit Erfahrung in verschiedensten 
-                Dienstleistungssektoren. Wir punkten mit Schnelligkeit, Innovation 
-                und Kompetenz – und das zu fairen Preisen.
+                {t('about.page.subtitle')}
               </p>
             </div>
           </div>
@@ -104,11 +87,10 @@ const About = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold font-space-grotesk mb-4">
-                Was uns <span className="text-gradient">auszeichnet</span>
+                {t('about.page.values.title')} <span className="text-gradient">{t('about.page.values.titleHighlight')}</span>
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Wir scheuen uns nicht, unsere Hände dreckig zu machen – für einen 
-                fairen Preis erhalten Sie Qualitätsarbeit mit Herzblut.
+                {t('about.page.values.subtitle')}
               </p>
             </div>
 
@@ -141,13 +123,13 @@ const About = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <span className="inline-block text-primary text-sm font-medium tracking-wider uppercase mb-4">
-                FAQ
+                {t('faq.label')}
               </span>
               <h2 className="text-3xl md:text-4xl font-bold font-space-grotesk mb-4">
-                Häufig gestellte <span className="text-gradient">Fragen</span>
+                {t('faq.title')} <span className="text-gradient">{t('faq.titleHighlight')}</span>
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Hier finden Sie Antworten auf die wichtigsten Fragen rund um IYM.
+                {t('faq.subtitle')}
               </p>
             </div>
 
@@ -175,11 +157,11 @@ const About = () => {
             {/* CTA */}
             <div className="text-center mt-16">
               <p className="text-muted-foreground mb-6">
-                Noch Fragen? Wir helfen Ihnen gerne weiter!
+                {t('faq.more')}
               </p>
               <Link to="/#contact">
                 <Button variant="hero" size="lg">
-                  Kontakt aufnehmen
+                  {t('faq.contact')}
                 </Button>
               </Link>
             </div>
