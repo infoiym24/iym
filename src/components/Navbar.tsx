@@ -2,33 +2,34 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLanguage } from '@/contexts/LanguageContext';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
     
     if (href.startsWith('#')) {
-      // If we're on the homepage, scroll to section
       if (location.pathname === '/') {
         const element = document.querySelector(href);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }
       } else {
-        // Navigate to homepage and then scroll
         navigate('/' + href);
       }
     }
   };
 
   const navLinks = [
-    { name: 'Services', href: '#services' },
-    { name: 'Über uns', href: '#about' },
-    { name: 'Kontakt', href: '#contact' },
+    { name: t('nav.services'), href: '#services' },
+    { name: t('nav.about'), href: '#about' },
+    { name: t('nav.contact'), href: '#contact' },
   ];
 
   return (
@@ -57,18 +58,22 @@ const Navbar = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </button>
             ))}
+            <LanguageSwitcher />
             <Button variant="glow" size="sm" onClick={() => handleNavClick('#contact')}>
-              Jetzt anfragen
+              {t('nav.request')}
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-foreground p-2"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex items-center gap-2 md:hidden">
+            <LanguageSwitcher />
+            <button
+              className="text-foreground p-2"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -85,7 +90,7 @@ const Navbar = () => {
                 </button>
               ))}
               <Button variant="glow" className="mt-2" onClick={() => handleNavClick('#contact')}>
-                Jetzt anfragen
+                {t('nav.request')}
               </Button>
             </div>
           </div>

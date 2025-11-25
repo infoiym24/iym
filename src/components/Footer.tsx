@@ -1,10 +1,12 @@
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const location = useLocation();
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const handleAnchorClick = (href: string) => {
     if (href.startsWith('#')) {
@@ -28,20 +30,20 @@ const Footer = () => {
 
   const footerLinks = [
     {
-      title: 'Unternehmen',
+      title: t('footer.company'),
       links: [
-        { name: 'Über uns', href: '/about', isRoute: true },
-        { name: 'Kontakt', href: '#contact', isAnchor: true },
-        { name: 'Karriere', href: '/karriere', isRoute: true },
+        { name: t('nav.about'), href: '/about', isRoute: true },
+        { name: t('nav.contact'), href: '#contact', isAnchor: true },
+        { name: t('footer.career'), href: '/karriere', isRoute: true },
       ],
     },
     {
-      title: 'Rechtliches',
+      title: t('footer.legal'),
       links: [
-        { name: 'Impressum', href: '/impressum', isRoute: true },
-        { name: 'Datenschutz', href: '/datenschutz', isRoute: true },
-        { name: 'AGB', href: '/agb', isRoute: true },
-        { name: 'Cookie-Einstellungen', href: '/cookie-einstellungen', isRoute: true },
+        { name: t('footer.imprint'), href: '/impressum', isRoute: true },
+        { name: t('footer.privacy'), href: '/datenschutz', isRoute: true },
+        { name: t('footer.terms'), href: '/agb', isRoute: true },
+        { name: t('footer.cookies'), href: '/cookie-einstellungen', isRoute: true },
       ],
     },
   ];
@@ -61,8 +63,7 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-muted-foreground mb-6 max-w-sm">
-              Ihr zuverlässiger Partner für alle Dienstleistungen. 
-              Qualität und Vertrauen seit über 10 Jahren.
+              {t('hero.description')}
             </p>
             {/* Social links */}
             <div className="flex gap-4">
@@ -113,10 +114,10 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">
-            © {currentYear} IYM – I'm Your Man. Alle Rechte vorbehalten.
+            © {currentYear} IYM – I'm Your Man. {t('footer.rights')}
           </p>
           <p className="text-muted-foreground text-sm">
-            Mit <span className="text-primary">♥</span> erstellt
+            {t('footer.made')} <span className="text-primary">♥</span> {t('footer.created')}
           </p>
         </div>
       </div>

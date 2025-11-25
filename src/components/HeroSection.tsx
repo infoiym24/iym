@@ -1,7 +1,10 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+  
   const words = [
     { text: "I'm", delay: 0.5 },
     { text: "Your", delay: 2.5 },
@@ -31,7 +34,7 @@ const HeroSection = () => {
         <div className="text-center max-w-5xl mx-auto">
           {/* Tagline - at the very top */}
           <p className="text-primary text-sm sm:text-base md:text-lg tracking-[0.3em] uppercase font-medium mb-6 opacity-0 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
-            Ihre Lösung für fast alle Dienstleistungen
+            {t('hero.tagline')}
           </p>
 
           {/* Main heading - IYM huge and prominent */}
@@ -56,20 +59,19 @@ const HeroSection = () => {
           </div>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 opacity-0 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
-            Ihr zuverlässiger Partner für professionelle Dienstleistungen. 
-            Qualität, Vertrauen und Effizienz – alles aus einer Hand.
+            {t('hero.description')}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>
             <Link to="/services">
               <Button variant="hero" size="xl">
-                Services entdecken
+                {t('hero.discover')}
               </Button>
             </Link>
             <Link to="/about">
               <Button variant="glass" size="xl">
-                Mehr erfahren
+                {t('hero.learn')}
               </Button>
             </Link>
           </div>
