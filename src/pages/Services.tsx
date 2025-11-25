@@ -1,3 +1,6 @@
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import ServiceCard from '@/components/ServiceCard';
 import { 
   Wrench, 
   Paintbrush, 
@@ -13,7 +16,6 @@ import {
   Settings,
   Search
 } from 'lucide-react';
-import ServiceCard from './ServiceCard';
 
 const services = [
   {
@@ -96,40 +98,46 @@ const services = [
   },
 ];
 
-const ServicesSection = () => {
+const Services = () => {
   return (
-    <section id="services" className="py-24 relative">
-      {/* Background decoration */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-      
-      <div className="container mx-auto px-4">
-        {/* Section header */}
-        <div className="text-center mb-16">
-          <span className="inline-block text-primary text-sm font-medium tracking-wider uppercase mb-4">
-            Was wir bieten
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold font-space-grotesk mb-6">
-            Unsere <span className="text-gradient">Services</span>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Entdecken Sie unser breites Spektrum an professionellen Dienstleistungen. 
-            Klicken Sie auf einen Service, um mehr zu erfahren.
-          </p>
-        </div>
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <main>
+        <section className="pt-32 pb-20 relative overflow-hidden">
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[100px]" />
+            <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px]" />
+          </div>
 
-        {/* Services grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {services.map((service, index) => (
-            <ServiceCard
-              key={service.title}
-              {...service}
-              delay={index * 100}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="text-center mb-16">
+              <span className="inline-block text-primary text-sm font-medium tracking-wider uppercase mb-4">
+                Alle Services
+              </span>
+              <h1 className="text-4xl md:text-6xl font-bold font-space-grotesk mb-6">
+                Unsere <span className="text-gradient">Dienstleistungen</span>
+              </h1>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                Entdecken Sie unser komplettes Angebot. Von Handwerk bis Marketing – 
+                wir sind Ihr Partner für alle Fälle, zu fairen Preisen.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {services.map((service, index) => (
+                <ServiceCard
+                  key={service.title}
+                  {...service}
+                  delay={index * 50}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
   );
 };
 
-export default ServicesSection;
+export default Services;
