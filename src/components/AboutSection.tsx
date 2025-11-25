@@ -1,22 +1,25 @@
 import { CheckCircle2, Users, Clock, Award, Wallet } from 'lucide-react';
-
-const stats = [
-  { icon: Users, value: '500+', label: 'Zufriedene Kunden' },
-  { icon: Clock, value: '24/7', label: 'Erreichbarkeit' },
-  { icon: Award, value: '10+', label: 'Jahre Erfahrung' },
-  { icon: Wallet, value: '100%', label: 'Faire Preise' },
-];
-
-const features = [
-  'Junges, engagiertes Team mit frischen Ideen',
-  'Faire und transparente Preisgestaltung',
-  'Erfahrung in verschiedensten Dienstleistungssektoren',
-  'Schnelligkeit, Innovation und Kompetenz',
-  'Persönliche Beratung ohne versteckte Kosten',
-  'Zufriedenheitsgarantie',
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const AboutSection = () => {
+  const { t } = useLanguage();
+  
+  const stats = [
+    { icon: Users, value: '500+', label: t('about.stat.customers') },
+    { icon: Clock, value: '24/7', label: t('about.stat.availability') },
+    { icon: Award, value: '10+', label: t('about.stat.experience') },
+    { icon: Wallet, value: '100%', label: t('about.stat.prices') },
+  ];
+
+  const features = [
+    t('about.feature.1'),
+    t('about.feature.2'),
+    t('about.feature.3'),
+    t('about.feature.4'),
+    t('about.feature.5'),
+    t('about.feature.6'),
+  ];
+
   return (
     <section id="about" className="py-24 relative">
       <div className="container mx-auto px-4">
@@ -24,17 +27,13 @@ const AboutSection = () => {
           {/* Left content */}
           <div>
             <span className="inline-block text-primary text-sm font-medium tracking-wider uppercase mb-4">
-              Über IYM
+              {t('about.section.label')}
             </span>
             <h2 className="text-4xl md:text-5xl font-bold font-space-grotesk mb-6">
-              Ihr Partner für <span className="text-gradient">alle Fälle</span>
+              {t('about.section.title')} <span className="text-gradient">{t('about.section.titleHighlight')}</span>
             </h2>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              IYM – I'm Your Man ist ein junges, engagiertes Team mit 
-              Erfahrung in verschiedensten Dienstleistungssektoren. Wir 
-              punkten mit Schnelligkeit, Innovation und Kompetenz – und 
-              das alles zu fairen Preisen ohne versteckte Kosten. Wir 
-              scheuen uns nicht, unsere Hände dreckig zu machen!
+              {t('about.section.description')}
             </p>
 
             {/* Features list */}
@@ -80,7 +79,7 @@ const AboutSection = () => {
               {/* Quote */}
               <div className="mt-12 pt-8 border-t border-border/50">
                 <blockquote className="text-lg italic text-foreground/80 text-center">
-                  "Was auch immer Sie brauchen – ich bin Ihr Mann für den Job."
+                  "{t('about.quote')}"
                 </blockquote>
               </div>
             </div>

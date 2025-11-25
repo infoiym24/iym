@@ -16,89 +16,92 @@ import {
   Settings,
   Search
 } from 'lucide-react';
-
-const services = [
-  {
-    title: 'Marketing & Webdesign',
-    description: 'Social Media Marketing, Webdesign und digitale Präsenz für Ihr Unternehmen.',
-    icon: Megaphone,
-    href: '/services/marketing',
-  },
-  {
-    title: 'Handwerk',
-    description: 'Professionelle Handwerksarbeiten für Ihr Zuhause oder Unternehmen.',
-    icon: Wrench,
-    href: '/services/handwerk',
-  },
-  {
-    title: 'Renovierung',
-    description: 'Komplett-Renovierungen und Modernisierungen nach Ihren Wünschen.',
-    icon: Paintbrush,
-    href: '/services/renovierung',
-  },
-  {
-    title: 'Transport',
-    description: 'Zuverlässiger Transportservice für alle Ihre Bedürfnisse.',
-    icon: Truck,
-    href: '/services/transport',
-  },
-  {
-    title: 'Umzugsservice',
-    description: 'Stressfreier Umzug mit professioneller Unterstützung von A bis Z.',
-    icon: Package,
-    href: '/services/umzug',
-  },
-  {
-    title: 'Entrümpelung',
-    description: 'Schnelle und saubere Entrümpelung von Wohnungen und Gewerbeobjekten.',
-    icon: Trash2,
-    href: '/services/entruempelung',
-  },
-  {
-    title: 'Hausmeisterservice',
-    description: 'Umfassender Hausmeisterservice für Ihr Gebäude oder Ihre Anlage.',
-    icon: Home,
-    href: '/services/hausmeister',
-  },
-  {
-    title: 'Reparaturservice',
-    description: 'Schnelle und fachgerechte Reparaturen aller Art.',
-    icon: Settings,
-    href: '/services/reparaturen',
-  },
-  {
-    title: 'Gartenpflege',
-    description: 'Professionelle Garten- und Landschaftspflege rund ums Jahr.',
-    icon: Leaf,
-    href: '/services/gartenpflege',
-  },
-  {
-    title: 'Hochdruckreinigung',
-    description: 'Gründliche Reinigung von Terrassen, Fassaden und Einfahrten.',
-    icon: Droplets,
-    href: '/services/hochdruckreinigung',
-  },
-  {
-    title: 'Auto Service',
-    description: 'Mobiler Reifenwechsel, Zentralverriegelung und Einparkhilfe Einbau.',
-    icon: Car,
-    href: '/services/auto',
-  },
-  {
-    title: 'Auto Find Service',
-    description: 'Professionelle Prüfung und Suche Ihres Traumwagens mit Expertise.',
-    icon: Search,
-    href: '/services/auto-find',
-  },
-  {
-    title: 'Car Detailing',
-    description: 'Professionelle Fahrzeugaufbereitung für Innen- und Außenbereich.',
-    icon: Sparkles,
-    href: '/services/car-detailing',
-  },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Services = () => {
+  const { t } = useLanguage();
+  
+  const services = [
+    {
+      title: t('service.marketing'),
+      description: t('service.marketing.desc'),
+      icon: Megaphone,
+      href: '/services/marketing',
+    },
+    {
+      title: t('service.handwerk'),
+      description: t('service.handwerk.desc'),
+      icon: Wrench,
+      href: '/services/handwerk',
+    },
+    {
+      title: t('service.renovierung'),
+      description: t('service.renovierung.desc'),
+      icon: Paintbrush,
+      href: '/services/renovierung',
+    },
+    {
+      title: t('service.transport'),
+      description: t('service.transport.desc'),
+      icon: Truck,
+      href: '/services/transport',
+    },
+    {
+      title: t('service.umzug'),
+      description: t('service.umzug.desc'),
+      icon: Package,
+      href: '/services/umzug',
+    },
+    {
+      title: t('service.entruempelung'),
+      description: t('service.entruempelung.desc'),
+      icon: Trash2,
+      href: '/services/entruempelung',
+    },
+    {
+      title: t('service.hausmeister'),
+      description: t('service.hausmeister.desc'),
+      icon: Home,
+      href: '/services/hausmeister',
+    },
+    {
+      title: t('service.reparatur'),
+      description: t('service.reparatur.desc'),
+      icon: Settings,
+      href: '/services/reparaturen',
+    },
+    {
+      title: t('service.garten'),
+      description: t('service.garten.desc'),
+      icon: Leaf,
+      href: '/services/gartenpflege',
+    },
+    {
+      title: t('service.hochdruck'),
+      description: t('service.hochdruck.desc'),
+      icon: Droplets,
+      href: '/services/hochdruckreinigung',
+    },
+    {
+      title: t('service.auto'),
+      description: t('service.auto.desc'),
+      icon: Car,
+      href: '/services/auto',
+    },
+    {
+      title: t('service.autofind'),
+      description: t('service.autofind.desc'),
+      icon: Search,
+      href: '/services/auto-find',
+    },
+    {
+      title: t('service.detailing'),
+      description: t('service.detailing.desc'),
+      icon: Sparkles,
+      href: '/services/car-detailing',
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -112,14 +115,13 @@ const Services = () => {
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-16">
               <span className="inline-block text-primary text-sm font-medium tracking-wider uppercase mb-4">
-                Alle Services
+                {t('services.page.label')}
               </span>
               <h1 className="text-4xl md:text-6xl font-bold font-space-grotesk mb-6">
-                Unsere <span className="text-gradient">Dienstleistungen</span>
+                {t('services.page.title')} <span className="text-gradient">{t('services.page.titleHighlight')}</span>
               </h1>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Entdecken Sie unser komplettes Angebot. Von Handwerk bis Marketing – 
-                wir sind Ihr Partner für alle Fälle, zu fairen Preisen.
+                {t('services.page.subtitle')}
               </p>
             </div>
 

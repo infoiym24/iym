@@ -1,8 +1,10 @@
 import { Phone, Mail, MapPin, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const ContactSection = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,14 +14,13 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     console.log('Form submitted:', formData);
   };
 
   const contactInfo = [
-    { icon: Phone, label: 'Telefon', value: '+49 123 456 789', href: 'tel:+49123456789' },
-    { icon: Mail, label: 'E-Mail', value: 'info@iym-service.de', href: 'mailto:info@iym-service.de' },
-    { icon: MapPin, label: 'Adresse', value: 'Musterstraße 1, 12345 Stadt', href: '#' },
+    { icon: Phone, label: t('contact.phone'), value: '+49 123 456 789', href: 'tel:+49123456789' },
+    { icon: Mail, label: t('contact.email'), value: 'info@iym-service.de', href: 'mailto:info@iym-service.de' },
+    { icon: MapPin, label: t('contact.address'), value: 'Musterstraße 1, 12345 Stadt', href: '#' },
   ];
 
   return (
@@ -31,14 +32,13 @@ const ContactSection = () => {
         {/* Section header */}
         <div className="text-center mb-16">
           <span className="inline-block text-primary text-sm font-medium tracking-wider uppercase mb-4">
-            Kontakt
+            {t('contact.section.label')}
           </span>
           <h2 className="text-4xl md:text-5xl font-bold font-space-grotesk mb-6">
-            Lassen Sie uns <span className="text-gradient">sprechen</span>
+            {t('contact.section.title')} <span className="text-gradient">{t('contact.section.titleHighlight')}</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Haben Sie Fragen oder benötigen Sie ein Angebot? 
-            Kontaktieren Sie uns – wir sind für Sie da.
+            {t('contact.section.subtitle')}
           </p>
         </div>
 
@@ -68,7 +68,7 @@ const ContactSection = () => {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
                   <MapPin className="w-12 h-12 text-primary mx-auto mb-2 animate-pulse" />
-                  <p className="text-muted-foreground">Karte wird geladen...</p>
+                  <p className="text-muted-foreground">{t('contact.map.loading')}</p>
                 </div>
               </div>
             </div>
@@ -77,65 +77,65 @@ const ContactSection = () => {
           {/* Contact form */}
           <div className="glass rounded-2xl p-8">
             <h3 className="text-2xl font-semibold font-space-grotesk mb-6">
-              Nachricht senden
+              {t('contact.form.title')}
             </h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-foreground/90 mb-2">
-                  Name
+                  {t('contact.form.name')}
                 </label>
                 <input
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full px-4 py-3 rounded-lg bg-secondary border border-border focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none"
-                  placeholder="Ihr Name"
+                  placeholder={t('contact.form.name.placeholder')}
                   required
                 />
               </div>
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-foreground/90 mb-2">
-                    E-Mail
+                    {t('contact.email')}
                   </label>
                   <input
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full px-4 py-3 rounded-lg bg-secondary border border-border focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none"
-                    placeholder="ihre@email.de"
+                    placeholder={t('contact.form.email.placeholder')}
                     required
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground/90 mb-2">
-                    Telefon
+                    {t('career.phone')}
                   </label>
                   <input
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full px-4 py-3 rounded-lg bg-secondary border border-border focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none"
-                    placeholder="+49 123 456 789"
+                    placeholder={t('contact.form.phone.placeholder')}
                   />
                 </div>
               </div>
               <div>
                 <label className="block text-sm font-medium text-foreground/90 mb-2">
-                  Ihre Nachricht
+                  {t('contact.form.message')}
                 </label>
                 <textarea
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full px-4 py-3 rounded-lg bg-secondary border border-border focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none resize-none"
                   rows={5}
-                  placeholder="Wie können wir Ihnen helfen?"
+                  placeholder={t('contact.form.message.placeholder')}
                   required
                 />
               </div>
               <Button variant="hero" size="lg" className="w-full">
                 <Send className="w-5 h-5 mr-2" />
-                Nachricht senden
+                {t('contact.form.submit')}
               </Button>
             </form>
           </div>
