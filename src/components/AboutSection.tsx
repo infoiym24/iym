@@ -1,17 +1,18 @@
-import { CheckCircle2, Users, Clock, Award } from 'lucide-react';
+import { CheckCircle2, Users, Clock, Award, Wallet } from 'lucide-react';
 
 const stats = [
   { icon: Users, value: '500+', label: 'Zufriedene Kunden' },
   { icon: Clock, value: '24/7', label: 'Erreichbarkeit' },
   { icon: Award, value: '10+', label: 'Jahre Erfahrung' },
+  { icon: Wallet, value: '100%', label: 'Faire Preise' },
 ];
 
 const features = [
-  'Persönliche Beratung und individuelle Lösungen',
+  'Junges, engagiertes Team mit frischen Ideen',
   'Faire und transparente Preisgestaltung',
-  'Zuverlässigkeit und Pünktlichkeit',
-  'Höchste Qualitätsstandards',
-  'Schnelle Reaktionszeiten',
+  'Erfahrung in verschiedensten Dienstleistungssektoren',
+  'Schnelligkeit, Innovation und Kompetenz',
+  'Persönliche Beratung ohne versteckte Kosten',
   'Zufriedenheitsgarantie',
 ];
 
@@ -29,11 +30,11 @@ const AboutSection = () => {
               Ihr Partner für <span className="text-gradient">alle Fälle</span>
             </h2>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              IYM – I'm Your Man steht für Zuverlässigkeit, Qualität und 
-              persönlichen Service. Wir sind Ihr Ansprechpartner für alle 
-              Dienstleistungen rund um Haus, Hof und mehr. Mit langjähriger 
-              Erfahrung und einem engagierten Team sorgen wir dafür, dass 
-              Ihre Projekte erfolgreich umgesetzt werden.
+              IYM – I'm Your Man ist ein junges, engagiertes Team mit 
+              Erfahrung in verschiedensten Dienstleistungssektoren. Wir 
+              punkten mit Schnelligkeit, Innovation und Kompetenz – und 
+              das alles zu fairen Preisen ohne versteckte Kosten. Wir 
+              scheuen uns nicht, unsere Hände dreckig zu machen!
             </p>
 
             {/* Features list */}
@@ -57,7 +58,7 @@ const AboutSection = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl blur-3xl" />
             
             <div className="relative glass rounded-3xl p-8 md:p-12">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
                 {stats.map((stat, index) => (
                   <div 
                     key={index}

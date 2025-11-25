@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   const words = [
@@ -61,12 +62,16 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>
-            <Button variant="hero" size="xl">
-              Services entdecken
-            </Button>
-            <Button variant="glass" size="xl">
-              Mehr erfahren
-            </Button>
+            <Link to="/services">
+              <Button variant="hero" size="xl">
+                Services entdecken
+              </Button>
+            </Link>
+            <Link to="/about">
+              <Button variant="glass" size="xl">
+                Mehr erfahren
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
