@@ -35,10 +35,8 @@ const translations: Record<Language, Record<string, string>> = {
     // Service Items
     'service.marketing': 'Marketing & Webdesign',
     'service.marketing.desc': 'Social Media Marketing, Webdesign und digitale Präsenz für Ihr Unternehmen.',
-    'service.handwerk': 'Handwerk',
-    'service.handwerk.desc': 'Professionelle Handwerksarbeiten für Ihr Zuhause oder Unternehmen.',
-    'service.renovierung': 'Renovierung',
-    'service.renovierung.desc': 'Komplett-Renovierungen und Modernisierungen nach Ihren Wünschen.',
+    'service.handwerk': 'Handwerk & Renovierung',
+    'service.handwerk.desc': 'Professionelle Handwerksarbeiten, Renovierungen, Bohren, Anbringen und mehr.',
     'service.transport': 'Transport',
     'service.transport.desc': 'Zuverlässiger Transportservice für alle Ihre Bedürfnisse.',
     'service.umzug': 'Umzugsservice',
@@ -119,8 +117,8 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Contact Section
     'contact.section.label': 'Kontakt',
-    'contact.section.title': 'Lassen Sie uns',
-    'contact.section.titleHighlight': 'sprechen',
+    'contact.section.title': 'Kontakt',
+    'contact.section.titleHighlight': '',
     'contact.section.subtitle': 'Haben Sie Fragen oder benötigen Sie ein Angebot? Kontaktieren Sie uns – wir sind für Sie da.',
     'contact.phone': 'Telefon',
     'contact.email': 'E-Mail',
@@ -197,10 +195,8 @@ const translations: Record<Language, Record<string, string>> = {
     // Service Items
     'service.marketing': 'Marketing & Web Design',
     'service.marketing.desc': 'Social media marketing, web design and digital presence for your business.',
-    'service.handwerk': 'Craftsmanship',
-    'service.handwerk.desc': 'Professional craftwork for your home or business.',
-    'service.renovierung': 'Renovation',
-    'service.renovierung.desc': 'Complete renovations and modernizations according to your wishes.',
+    'service.handwerk': 'Craftsmanship & Renovation',
+    'service.handwerk.desc': 'Professional craftwork, renovations, drilling, mounting and more.',
     'service.transport': 'Transport',
     'service.transport.desc': 'Reliable transport service for all your needs.',
     'service.umzug': 'Moving Service',
@@ -281,8 +277,8 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Contact Section
     'contact.section.label': 'Contact',
-    'contact.section.title': 'Let\'s',
-    'contact.section.titleHighlight': 'talk',
+    'contact.section.title': 'Contact',
+    'contact.section.titleHighlight': '',
     'contact.section.subtitle': 'Have questions or need a quote? Contact us – we are here for you.',
     'contact.phone': 'Phone',
     'contact.email': 'Email',
@@ -359,10 +355,8 @@ const translations: Record<Language, Record<string, string>> = {
     // Service Items
     'service.marketing': 'Маркетинг и веб-дизайн',
     'service.marketing.desc': 'Маркетинг в соцсетях, веб-дизайн и цифровое присутствие для вашего бизнеса.',
-    'service.handwerk': 'Ремесло',
-    'service.handwerk.desc': 'Профессиональные ремесленные работы для вашего дома или бизнеса.',
-    'service.renovierung': 'Ремонт',
-    'service.renovierung.desc': 'Полный ремонт и модернизация по вашим пожеланиям.',
+    'service.handwerk': 'Ремесло и ремонт',
+    'service.handwerk.desc': 'Профессиональные ремесленные работы, ремонт, сверление, монтаж и многое другое.',
     'service.transport': 'Транспорт',
     'service.transport.desc': 'Надежные транспортные услуги для всех ваших потребностей.',
     'service.umzug': 'Переезд',
@@ -442,9 +436,10 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.a6': 'Мы молодая, динамичная команда с опытом в различных отраслях. Это делает нас гибкими, инновационными и компетентными. Добавьте к этому справедливые цены и персональный сервис – у нас вы не просто номер!',
     
     // Contact Section
+    // Contact Section
     'contact.section.label': 'Контакт',
-    'contact.section.title': 'Давайте',
-    'contact.section.titleHighlight': 'поговорим',
+    'contact.section.title': 'Контакт',
+    'contact.section.titleHighlight': '',
     'contact.section.subtitle': 'Есть вопросы или нужно предложение? Свяжитесь с нами – мы здесь для вас.',
     'contact.phone': 'Телефон',
     'contact.email': 'Эл. почта',

@@ -35,7 +35,7 @@ const ContactSection = () => {
             {t('contact.section.label')}
           </span>
           <h2 className="text-4xl md:text-5xl font-bold font-space-grotesk mb-6">
-            {t('contact.section.title')} <span className="text-gradient">{t('contact.section.titleHighlight')}</span>
+            <span className="text-gradient">{t('contact.section.title')}</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             {t('contact.section.subtitle')}

@@ -33,12 +33,6 @@ const ServicesSection = () => {
       href: '/services/handwerk',
     },
     {
-      title: t('service.renovierung'),
-      description: t('service.renovierung.desc'),
-      icon: Paintbrush,
-      href: '/services/renovierung',
-    },
-    {
       title: t('service.transport'),
       description: t('service.transport.desc'),
       icon: Truck,
