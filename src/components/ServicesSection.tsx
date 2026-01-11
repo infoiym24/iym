@@ -60,7 +60,7 @@ const ServicesSection = () => {
       title: t('service.reparatur'),
       description: t('service.reparatur.desc'),
       icon: Settings,
-      href: '/services/reparaturen',
+      href: '/services/reparatur',
     },
     {
       title: t('service.garten'),
@@ -78,19 +78,19 @@ const ServicesSection = () => {
       title: t('service.auto'),
       description: t('service.auto.desc'),
       icon: Car,
-      href: '/services/auto',
+      href: '/services/autoservice',
     },
     {
       title: t('service.autofind'),
       description: t('service.autofind.desc'),
       icon: Search,
-      href: '/services/auto-find',
+      href: '/services/autofind',
     },
     {
       title: t('service.detailing'),
       description: t('service.detailing.desc'),
       icon: Sparkles,
-      href: '/services/car-detailing',
+      href: '/services/detailing',
     },
   ];
 

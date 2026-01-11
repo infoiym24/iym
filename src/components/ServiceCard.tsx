@@ -1,5 +1,6 @@
 import { LucideIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ServiceCardProps {
   title: string;
@@ -10,6 +11,10 @@ interface ServiceCardProps {
 }
 
 const ServiceCard = ({ title, description, icon: Icon, href, delay = 0 }: ServiceCardProps) => {
+  const { language } = useLanguage();
+  
+  const learnMore = language === 'en' ? 'Learn more' : language === 'ru' ? 'Узнать больше' : 'Mehr erfahren';
+  
   return (
     <Link 
       to={href}
@@ -44,8 +49,8 @@ const ServiceCard = ({ title, description, icon: Icon, href, delay = 0 }: Servic
           </p>
 
           {/* Arrow indicator */}
-          <div className="mt-6 flex items-center gap-2 text-primary opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
-            <span className="text-sm font-medium">Mehr erfahren</span>
+          <div className="mt-6 flex items-center gap-2 text-accent opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
+            <span className="text-sm font-medium">{learnMore}</span>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
