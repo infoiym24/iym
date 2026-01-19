@@ -4,8 +4,7 @@ import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { 
-  Megaphone, Hammer, Truck, Package, Trash2, Car, 
-  Home, Leaf, Wrench, CheckCircle2, ArrowLeft, ExternalLink
+  Megaphone, Trash2, Car, Wrench, CheckCircle2, ArrowLeft, ExternalLink
 } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
 
@@ -16,11 +15,12 @@ interface ServiceInfo {
   features: string[];
   featuresEn: string[];
   featuresRu: string[];
-  extendedDescription?: {
+  extendedDescription: {
     de: string;
     en: string;
     ru: string;
   };
+  images?: string[];
   references?: {
     title: string;
     url: string;
@@ -114,93 +114,6 @@ Our services include:
       }
     ]
   },
-  'handwerk': {
-    titleKey: 'service.handwerk',
-    descKey: 'service.handwerk.desc',
-    icon: Hammer,
-    features: [
-      'Renovierungsarbeiten',
-      'Bohren & Montage',
-      'Möbelaufbau',
-      'Reparaturarbeiten',
-      'Malerarbeiten',
-      'Fliesenarbeiten'
-    ],
-    featuresEn: [
-      'Renovation Work',
-      'Drilling & Assembly',
-      'Furniture Assembly',
-      'Repair Work',
-      'Painting',
-      'Tiling'
-    ],
-    featuresRu: [
-      'Ремонтные работы',
-      'Сверление и монтаж',
-      'Сборка мебели',
-      'Ремонтные работы',
-      'Малярные работы',
-      'Плиточные работы'
-    ]
-  },
-  'transport': {
-    titleKey: 'service.transport',
-    descKey: 'service.transport.desc',
-    icon: Truck,
-    features: [
-      'Warentransport',
-      'Möbeltransport',
-      'Express-Lieferungen',
-      'Kurierfahrten',
-      'Abholung & Zustellung',
-      'Deutschlandweite Transporte'
-    ],
-    featuresEn: [
-      'Goods Transport',
-      'Furniture Transport',
-      'Express Deliveries',
-      'Courier Services',
-      'Pickup & Delivery',
-      'Nationwide Transport'
-    ],
-    featuresRu: [
-      'Перевозка грузов',
-      'Перевозка мебели',
-      'Экспресс-доставка',
-      'Курьерские услуги',
-      'Забор и доставка',
-      'Перевозки по Германии'
-    ]
-  },
-  'umzug': {
-    titleKey: 'service.umzug',
-    descKey: 'service.umzug.desc',
-    icon: Package,
-    features: [
-      'Privatumzüge',
-      'Firmenumzüge',
-      'Möbelmontage',
-      'Verpackungsservice',
-      'Einlagerung',
-      'Umzugsplanung'
-    ],
-    featuresEn: [
-      'Private Moves',
-      'Commercial Moves',
-      'Furniture Assembly',
-      'Packing Service',
-      'Storage',
-      'Moving Planning'
-    ],
-    featuresRu: [
-      'Частные переезды',
-      'Офисные переезды',
-      'Сборка мебели',
-      'Услуги упаковки',
-      'Хранение',
-      'Планирование переезда'
-    ]
-  },
   'entruempelung': {
     titleKey: 'service.entruempelung',
     descKey: 'service.entruempelung.desc',
@@ -228,35 +141,39 @@ Our services include:
       'Ликвидация офисов',
       'Вывоз крупногабаритного мусора',
       'Быстрое выполнение'
-    ]
-  },
-  'hausmeister': {
-    titleKey: 'service.hausmeister',
-    descKey: 'service.hausmeister.desc',
-    icon: Home,
-    features: [
-      'Gebäudebetreuung',
-      'Kleinreparaturen',
-      'Winterdienst',
-      'Grünflächenpflege',
-      'Treppenhausreinigung',
-      'Notdienst'
     ],
-    featuresEn: [
-      'Building Maintenance',
-      'Minor Repairs',
-      'Winter Service',
-      'Green Area Care',
-      'Stairwell Cleaning',
-      'Emergency Service'
-    ],
-    featuresRu: [
-      'Обслуживание зданий',
-      'Мелкий ремонт',
-      'Зимняя служба',
-      'Уход за зелёными зонами',
-      'Уборка подъездов',
-      'Аварийная служба'
+    extendedDescription: {
+      de: `Ob Keller, Dachboden, Wohnung oder Geschäftsräume – wir räumen professionell und zuverlässig. Unser erfahrenes Team kümmert sich um die komplette Entrümpelung, von der Planung bis zur fachgerechten Entsorgung.
+
+Unsere Entrümpelungsleistungen:
+• **Haushaltsauflösungen** – Komplette Räumung von Wohnungen und Häusern, auch bei Nachlassauflösungen
+• **Kellerentrümpelung** – Befreiung Ihrer Kellerräume von angesammeltem Ballast
+• **Dachbodenräumung** – Professionelle Räumung auch schwer zugänglicher Bereiche
+• **Büro- & Gewerberäumungen** – Diskrete und effiziente Auflösung von Geschäftsräumen
+• **Umweltgerechte Entsorgung** – Fachgerechte Trennung und Entsorgung aller Materialien
+• **Besenreine Übergabe** – Wir hinterlassen Ihre Räume sauber und bezugsfertig`,
+      en: `Whether basement, attic, apartment or commercial space – we clear professionally and reliably. Our experienced team handles complete clearance, from planning to proper disposal.
+
+Our clearance services:
+• **Household Clearance** – Complete clearance of apartments and houses, including estate clearances
+• **Basement Clearing** – Freeing your basement from accumulated clutter
+• **Attic Clearance** – Professional clearing of hard-to-access areas
+• **Office & Commercial Clearance** – Discreet and efficient clearance of business premises
+• **Eco-Friendly Disposal** – Proper separation and disposal of all materials
+• **Clean Handover** – We leave your spaces clean and ready to move in`,
+      ru: `Будь то подвал, чердак, квартира или коммерческое помещение – мы убираем профессионально и надёжно. Наша опытная команда занимается полной расчисткой, от планирования до правильной утилизации.
+
+Наши услуги по расчистке:
+• **Расчистка домов** – Полная уборка квартир и домов, включая наследственные дела
+• **Уборка подвалов** – Освобождение подвальных помещений от накопившегося хлама
+• **Уборка чердаков** – Профессиональная уборка труднодоступных мест
+• **Офисная расчистка** – Дискретная и эффективная уборка коммерческих помещений
+• **Экологичная утилизация** – Правильная сортировка и утилизация всех материалов
+• **Чистая передача** – Мы оставляем помещения чистыми и готовыми к заселению`
+    },
+    images: [
+      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=500&fit=crop',
+      'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&h=500&fit=crop'
     ]
   },
   'reparatur': {
@@ -286,64 +203,39 @@ Our services include:
       'Двери и окна',
       'Замки и фурнитура',
       'Быстрый сервис'
-    ]
-  },
-  'gartenpflege': {
-    titleKey: 'service.garten',
-    descKey: 'service.garten.desc',
-    icon: Leaf,
-    features: [
-      'Rasenpflege',
-      'Heckenschnitt',
-      'Baumfällung',
-      'Gartengestaltung',
-      'Unkrautentfernung',
-      'Saisonale Pflege'
     ],
-    featuresEn: [
-      'Lawn Care',
-      'Hedge Trimming',
-      'Tree Felling',
-      'Garden Design',
-      'Weed Removal',
-      'Seasonal Care'
-    ],
-    featuresRu: [
-      'Уход за газоном',
-      'Стрижка кустов',
-      'Спил деревьев',
-      'Ландшафтный дизайн',
-      'Удаление сорняков',
-      'Сезонный уход'
-    ]
-  },
-  'hochdruckreinigung': {
-    titleKey: 'service.hochdruck',
-    descKey: 'service.hochdruck.desc',
-    icon: Wrench,
-    features: [
-      'Fassadenreinigung',
-      'Terrassenreinigung',
-      'Einfahrten & Wege',
-      'Graffiti-Entfernung',
-      'Pool-Reinigung',
-      'Industriereinigung'
-    ],
-    featuresEn: [
-      'Facade Cleaning',
-      'Terrace Cleaning',
-      'Driveways & Paths',
-      'Graffiti Removal',
-      'Pool Cleaning',
-      'Industrial Cleaning'
-    ],
-    featuresRu: [
-      'Мойка фасадов',
-      'Чистка террас',
-      'Подъезды и дорожки',
-      'Удаление граффити',
-      'Чистка бассейнов',
-      'Промышленная уборка'
+    extendedDescription: {
+      de: `Kleine Probleme können große Auswirkungen haben. Unser Reparaturservice bietet schnelle und zuverlässige Lösungen für alle alltäglichen Reparaturen in Haus und Wohnung.
+
+Unser Reparaturservice umfasst:
+• **Haushaltsgeräte** – Reparatur von Waschmaschinen, Trocknern, Geschirrspülern und mehr
+• **Elektro-Kleinarbeiten** – Steckdosen, Schalter, Lampen und andere elektrische Kleinreparaturen
+• **Sanitäranlagen** – Tropfende Wasserhähne, verstopfte Abflüsse, Toilettenreparaturen
+• **Türen & Fenster** – Klemmen, Quietschen, Dichtungen austauschen, Einstellungen
+• **Schlösser & Beschläge** – Schlossaustausch, Türgriffe, Scharniere und Möbelbeschläge
+• **Notfall-Reparaturen** – Schnelle Hilfe bei dringenden Problemen`,
+      en: `Small problems can have big effects. Our repair service offers fast and reliable solutions for all everyday repairs in house and apartment.
+
+Our repair service includes:
+• **Household Appliances** – Repair of washing machines, dryers, dishwashers and more
+• **Minor Electrical Work** – Outlets, switches, lamps and other small electrical repairs
+• **Plumbing** – Dripping faucets, clogged drains, toilet repairs
+• **Doors & Windows** – Sticking, squeaking, seal replacement, adjustments
+• **Locks & Fittings** – Lock replacement, door handles, hinges and furniture fittings
+• **Emergency Repairs** – Quick help for urgent problems`,
+      ru: `Маленькие проблемы могут иметь большие последствия. Наш ремонтный сервис предлагает быстрые и надёжные решения для всех повседневных ремонтов в доме и квартире.
+
+Наш ремонтный сервис включает:
+• **Бытовая техника** – Ремонт стиральных машин, сушилок, посудомоечных машин и многого другого
+• **Мелкие электроработы** – Розетки, выключатели, светильники и другой мелкий электроремонт
+• **Сантехника** – Капающие краны, забитые трубы, ремонт унитазов
+• **Двери и окна** – Заедание, скрип, замена уплотнителей, регулировка
+• **Замки и фурнитура** – Замена замков, дверных ручек, петель и мебельной фурнитуры
+• **Аварийный ремонт** – Быстрая помощь при срочных проблемах`
+    },
+    images: [
+      'https://images.unsplash.com/photo-1581092921461-eab62e97a2aa?w=800&h=500&fit=crop',
+      'https://images.unsplash.com/photo-1504148455328-c376907d081c?w=800&h=500&fit=crop'
     ]
   },
   'autoservice': {
@@ -373,6 +265,39 @@ Our services include:
       'Замена масла на месте',
       'Обслуживание аккумулятора',
       'Обслуживание кондиционера'
+    ],
+    extendedDescription: {
+      de: `Unser mobiler Auto Service kommt zu Ihnen – bequem, zeitsparend und professionell. Ob Reifenwechsel, Nachrüstungen oder Wartungsarbeiten, wir erledigen alles vor Ort.
+
+Unser Auto Service bietet:
+• **Mobiler Reifenwechsel** – Sommer- oder Winterreifen, wir kommen zu Ihrem Standort
+• **Zentralverriegelung** – Nachrüstung und Reparatur von Zentralverriegelungssystemen
+• **Einparkhilfe** – Installation von PDC-Sensoren und Rückfahrkameras
+• **Ölwechsel** – Professioneller Ölwechsel direkt bei Ihnen zu Hause oder am Arbeitsplatz
+• **Batterie-Service** – Überprüfung, Austausch und Starthilfe
+• **Klimaanlagen-Wartung** – Befüllung und Desinfektion der Klimaanlage`,
+      en: `Our mobile car service comes to you – convenient, time-saving and professional. Whether tire change, retrofits or maintenance work, we do everything on-site.
+
+Our car service offers:
+• **Mobile Tire Change** – Summer or winter tires, we come to your location
+• **Central Locking** – Retrofitting and repair of central locking systems
+• **Parking Assist** – Installation of PDC sensors and rear cameras
+• **Oil Change** – Professional oil change directly at your home or workplace
+• **Battery Service** – Inspection, replacement and jump start
+• **AC Maintenance** – Refilling and disinfection of air conditioning`,
+      ru: `Наш мобильный автосервис приезжает к вам – удобно, экономит время и профессионально. Замена шин, дооснащение или техобслуживание – мы делаем всё на месте.
+
+Наш автосервис предлагает:
+• **Мобильная замена шин** – Летние или зимние шины, мы приезжаем к вам
+• **Центральный замок** – Дооснащение и ремонт систем центрального замка
+• **Парктроник** – Установка датчиков PDC и камер заднего вида
+• **Замена масла** – Профессиональная замена масла прямо у вас дома или на работе
+• **Обслуживание аккумулятора** – Проверка, замена и запуск
+• **Обслуживание кондиционера** – Заправка и дезинфекция кондиционера`
+    },
+    images: [
+      'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&h=500&fit=crop',
+      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&h=500&fit=crop'
     ]
   },
   'autofind': {
@@ -402,6 +327,39 @@ Our services include:
       'Импорт-сервис',
       'Консультация по финансированию',
       'Передача и регистрация'
+    ],
+    extendedDescription: {
+      de: `Sie suchen Ihr Traumauto? Wir finden es für Sie! Unser Auto Find Service übernimmt die komplette Suche, Prüfung und Abwicklung – Sie lehnen sich entspannt zurück.
+
+Unser Auto Find Service bietet:
+• **Individuelle Suche** – Wir finden genau das Fahrzeug, das Ihren Wünschen entspricht
+• **Professionelle Fahrzeugprüfung** – Technische Begutachtung, Unfallcheck und Zustandsbewertung
+• **Preisverhandlung** – Wir verhandeln den besten Preis für Sie
+• **Import-Service** – Fahrzeuge aus dem Ausland mit kompletter Abwicklung
+• **Finanzierungsberatung** – Unterstützung bei Leasing und Finanzierungsoptionen
+• **Komplette Übergabe** – Von der Anmeldung bis zur Schlüsselübergabe`,
+      en: `Looking for your dream car? We'll find it for you! Our Auto Find Service handles the complete search, inspection and processing – you just sit back and relax.
+
+Our Auto Find Service offers:
+• **Individual Search** – We find exactly the vehicle that matches your wishes
+• **Professional Vehicle Inspection** – Technical assessment, accident check and condition evaluation
+• **Price Negotiation** – We negotiate the best price for you
+• **Import Service** – Vehicles from abroad with complete processing
+• **Financing Consultation** – Support with leasing and financing options
+• **Complete Handover** – From registration to key handover`,
+      ru: `Ищете автомобиль мечты? Мы найдём его для вас! Наш сервис Auto Find берёт на себя полный поиск, проверку и оформление – вы просто расслабляетесь.
+
+Наш сервис Auto Find предлагает:
+• **Индивидуальный поиск** – Мы найдём именно тот автомобиль, который соответствует вашим пожеланиям
+• **Профессиональная проверка** – Техническая оценка, проверка на ДТП и оценка состояния
+• **Переговоры о цене** – Мы договоримся о лучшей цене для вас
+• **Импорт-сервис** – Автомобили из-за рубежа с полным оформлением
+• **Консультация по финансированию** – Помощь с лизингом и вариантами финансирования
+• **Полная передача** – От регистрации до передачи ключей`
+    },
+    images: [
+      'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&h=500&fit=crop',
+      'https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&h=500&fit=crop'
     ]
   },
   'detailing': {
@@ -431,6 +389,39 @@ Our services include:
       'Обработка кожи',
       'Чистка дисков',
       'Мойка двигателя'
+    ],
+    extendedDescription: {
+      de: `Professionelles Car Detailing für höchste Ansprüche. Wir verwandeln Ihr Fahrzeug in einen Neuzustand – innen wie außen, mit Liebe zum Detail und Premium-Produkten.
+
+Unser Car Detailing Service:
+• **Innenraumaufbereitung** – Tiefenreinigung von Sitzen, Teppichen, Armaturenbrett und allen Oberflächen
+• **Außenpolitur** – Mehrfach-Politur zur Entfernung von Kratzern und Swirl-Marks
+• **Keramikversiegelung** – Langanhaltender Schutz und Hochglanz für Ihren Lack
+• **Lederaufbereitung** – Reinigung, Pflege und Imprägnierung von Ledersitzen
+• **Felgenaufbereitung** – Professionelle Reinigung und optional Versiegelung
+• **Motorwäsche** – Schonende Reinigung des Motorraums`,
+      en: `Professional car detailing for the highest standards. We transform your vehicle to new condition – inside and out, with attention to detail and premium products.
+
+Our Car Detailing Service:
+• **Interior Detailing** – Deep cleaning of seats, carpets, dashboard and all surfaces
+• **Exterior Polish** – Multi-stage polishing to remove scratches and swirl marks
+• **Ceramic Coating** – Long-lasting protection and high gloss for your paint
+• **Leather Conditioning** – Cleaning, care and waterproofing of leather seats
+• **Wheel Detailing** – Professional cleaning and optional sealing
+• **Engine Wash** – Gentle cleaning of the engine bay`,
+      ru: `Профессиональный детейлинг для самых высоких требований. Мы преображаем ваш автомобиль до состояния нового – внутри и снаружи, с вниманием к деталям и премиальными продуктами.
+
+Наш сервис Car Detailing:
+• **Детейлинг салона** – Глубокая чистка сидений, ковров, приборной панели и всех поверхностей
+• **Полировка кузова** – Многоступенчатая полировка для удаления царапин и голограмм
+• **Керамическое покрытие** – Долговременная защита и блеск для вашего лака
+• **Обработка кожи** – Чистка, уход и пропитка кожаных сидений
+• **Детейлинг дисков** – Профессиональная чистка и опционально защитное покрытие
+• **Мойка двигателя** – Бережная очистка моторного отсека`
+    },
+    images: [
+      'https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=800&h=500&fit=crop',
+      'https://images.unsplash.com/photo-1507136566006-cfc505b114fc?w=800&h=500&fit=crop'
     ]
   }
 };
@@ -442,6 +433,7 @@ const ServiceDetail = () => {
     name: '',
     email: '',
     phone: '',
+    service: '',
     message: ''
   });
 
@@ -497,6 +489,28 @@ const ServiceDetail = () => {
                          language === 'en' ? 'Visit Website' :
                          'Посетить сайт';
 
+  const impressionsLabel = language === 'de' ? 'Eindrücke unserer Arbeit' :
+                           language === 'en' ? 'Impressions of Our Work' :
+                           'Впечатления от нашей работы';
+
+  const serviceSelectLabel = language === 'de' ? 'Service auswählen' :
+                             language === 'en' ? 'Select Service' :
+                             'Выбрать услугу';
+
+  const otherServiceLabel = language === 'de' ? 'Andere Dienstleistung' :
+                            language === 'en' ? 'Other Service' :
+                            'Другая услуга';
+
+  const serviceOptions = [
+    { value: 'marketing', label: t('service.marketing') },
+    { value: 'entruempelung', label: t('service.entruempelung') },
+    { value: 'reparatur', label: t('service.reparatur') },
+    { value: 'autoservice', label: t('service.auto') },
+    { value: 'autofind', label: t('service.autofind') },
+    { value: 'detailing', label: t('service.detailing') },
+    { value: 'other', label: otherServiceLabel },
+  ];
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
@@ -536,7 +550,7 @@ const ServiceDetail = () => {
                 {t(service.descKey)}
               </p>
 
-              {/* Extended Description for Marketing */}
+              {/* Extended Description */}
               {extendedDesc && (
                 <div className="mb-10 glass rounded-2xl p-8">
                   <div className="prose prose-invert max-w-none">
@@ -571,6 +585,30 @@ const ServiceDetail = () => {
                   ))}
                 </div>
               </div>
+
+              {/* Image Gallery for non-marketing services */}
+              {service.images && service.images.length > 0 && (
+                <div className="mb-8">
+                  <h2 className="text-2xl font-semibold font-space-grotesk mb-6">{impressionsLabel}</h2>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {service.images.map((img, index) => (
+                      <div
+                        key={index}
+                        className="group block glass rounded-2xl overflow-hidden"
+                      >
+                        <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
+                          <img
+                            src={img}
+                            alt={`${t(service.titleKey)} - ${index + 1}`}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* References Section for Marketing */}
               {service.references && service.references.length > 0 && (
@@ -668,6 +706,25 @@ const ServiceDetail = () => {
                       placeholder={t('contact.form.phone.placeholder')}
                       className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                     />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm text-muted-foreground mb-2">
+                      {serviceSelectLabel}
+                    </label>
+                    <select
+                      value={formData.service}
+                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                      className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all appearance-none cursor-pointer"
+                      required
+                    >
+                      <option value="">{serviceSelectLabel}</option>
+                      {serviceOptions.map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.label}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                   
                   <div>

@@ -4,11 +4,12 @@ import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const ContactSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
+    service: '',
     message: '',
   });
 
@@ -21,6 +22,24 @@ const ContactSection = () => {
     { icon: Phone, label: t('contact.phone'), value: '+49 123 456 789', href: 'tel:+49123456789' },
     { icon: Mail, label: t('contact.email'), value: 'info@iym-service.de', href: 'mailto:info@iym-service.de' },
     { icon: MapPin, label: t('contact.address'), value: 'Musterstraße 1, 12345 Stadt', href: '#' },
+  ];
+
+  const serviceSelectLabel = language === 'de' ? 'Service auswählen (optional)' :
+                             language === 'en' ? 'Select Service (optional)' :
+                             'Выбрать услугу (опционально)';
+
+  const otherServiceLabel = language === 'de' ? 'Andere Dienstleistung' :
+                            language === 'en' ? 'Other Service' :
+                            'Другая услуга';
+
+  const serviceOptions = [
+    { value: 'marketing', label: t('service.marketing') },
+    { value: 'entruempelung', label: t('service.entruempelung') },
+    { value: 'reparatur', label: t('service.reparatur') },
+    { value: 'autoservice', label: t('service.auto') },
+    { value: 'autofind', label: t('service.autofind') },
+    { value: 'detailing', label: t('service.detailing') },
+    { value: 'other', label: otherServiceLabel },
   ];
 
   return (
@@ -119,6 +138,23 @@ const ContactSection = () => {
                     placeholder={t('contact.form.phone.placeholder')}
                   />
                 </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-foreground/90 mb-2">
+                  {serviceSelectLabel}
+                </label>
+                <select
+                  value={formData.service}
+                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                  className="w-full px-4 py-3 rounded-lg bg-secondary border border-border focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none appearance-none cursor-pointer"
+                >
+                  <option value="">{serviceSelectLabel}</option>
+                  {serviceOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
               </div>
               <div>
                 <label className="block text-sm font-medium text-foreground/90 mb-2">
