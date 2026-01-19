@@ -5,8 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { 
   Megaphone, Hammer, Truck, Package, Trash2, Car, 
-  Home, Leaf, Building, Shield, PaintBucket, Wrench,
-  CheckCircle2, ArrowLeft, ExternalLink
+  Home, Leaf, Wrench, CheckCircle2, ArrowLeft, ExternalLink
 } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
 
@@ -231,65 +230,65 @@ Our services include:
       'Быстрое выполнение'
     ]
   },
-  'autovermietung': {
-    titleKey: 'service.autovermietung',
-    descKey: 'service.autovermietung.desc',
-    icon: Car,
-    features: [
-      'PKW-Vermietung',
-      'Transporter-Vermietung',
-      'Tages- & Wochenmiete',
-      'Flexible Konditionen',
-      'Versicherung inklusive',
-      'Kilometerpaket nach Wahl'
-    ],
-    featuresEn: [
-      'Car Rental',
-      'Van Rental',
-      'Daily & Weekly Rates',
-      'Flexible Terms',
-      'Insurance Included',
-      'Mileage Packages'
-    ],
-    featuresRu: [
-      'Аренда легковых автомобилей',
-      'Аренда микроавтобусов',
-      'Посуточная и понедельная аренда',
-      'Гибкие условия',
-      'Страховка включена',
-      'Выбор пакета километров'
-    ]
-  },
-  'reinigung': {
-    titleKey: 'service.reinigung',
-    descKey: 'service.reinigung.desc',
+  'hausmeister': {
+    titleKey: 'service.hausmeister',
+    descKey: 'service.hausmeister.desc',
     icon: Home,
     features: [
-      'Wohnungsreinigung',
-      'Büroreinigung',
-      'Grundreinigung',
-      'Fensterreinigung',
-      'Endreinigung',
-      'Regelmäßige Reinigung'
+      'Gebäudebetreuung',
+      'Kleinreparaturen',
+      'Winterdienst',
+      'Grünflächenpflege',
+      'Treppenhausreinigung',
+      'Notdienst'
     ],
     featuresEn: [
-      'Apartment Cleaning',
-      'Office Cleaning',
-      'Deep Cleaning',
-      'Window Cleaning',
-      'Move-out Cleaning',
-      'Regular Cleaning'
+      'Building Maintenance',
+      'Minor Repairs',
+      'Winter Service',
+      'Green Area Care',
+      'Stairwell Cleaning',
+      'Emergency Service'
     ],
     featuresRu: [
-      'Уборка квартир',
-      'Уборка офисов',
-      'Генеральная уборка',
-      'Мытьё окон',
-      'Уборка при выезде',
-      'Регулярная уборка'
+      'Обслуживание зданий',
+      'Мелкий ремонт',
+      'Зимняя служба',
+      'Уход за зелёными зонами',
+      'Уборка подъездов',
+      'Аварийная служба'
     ]
   },
-  'garten': {
+  'reparatur': {
+    titleKey: 'service.reparatur',
+    descKey: 'service.reparatur.desc',
+    icon: Wrench,
+    features: [
+      'Haushaltsgeräte-Reparatur',
+      'Elektro-Kleinarbeiten',
+      'Sanitär-Reparaturen',
+      'Türen & Fenster',
+      'Schlösser & Beschläge',
+      'Schnellservice'
+    ],
+    featuresEn: [
+      'Appliance Repair',
+      'Minor Electrical Work',
+      'Plumbing Repairs',
+      'Doors & Windows',
+      'Locks & Fittings',
+      'Fast Service'
+    ],
+    featuresRu: [
+      'Ремонт бытовой техники',
+      'Мелкие электроработы',
+      'Сантехнический ремонт',
+      'Двери и окна',
+      'Замки и фурнитура',
+      'Быстрый сервис'
+    ]
+  },
+  'gartenpflege': {
     titleKey: 'service.garten',
     descKey: 'service.garten.desc',
     icon: Leaf,
@@ -318,120 +317,120 @@ Our services include:
       'Сезонный уход'
     ]
   },
-  'montage': {
-    titleKey: 'service.montage',
-    descKey: 'service.montage.desc',
-    icon: Building,
-    features: [
-      'Küchenmontage',
-      'Möbelaufbau',
-      'TV-Wandmontage',
-      'Regalsysteme',
-      'Lampeninstallation',
-      'Spiegel & Bilder'
-    ],
-    featuresEn: [
-      'Kitchen Assembly',
-      'Furniture Assembly',
-      'TV Wall Mounting',
-      'Shelving Systems',
-      'Lamp Installation',
-      'Mirrors & Pictures'
-    ],
-    featuresRu: [
-      'Сборка кухонь',
-      'Сборка мебели',
-      'Настенный монтаж ТВ',
-      'Системы стеллажей',
-      'Установка светильников',
-      'Зеркала и картины'
-    ]
-  },
-  'sicherheit': {
-    titleKey: 'service.sicherheit',
-    descKey: 'service.sicherheit.desc',
-    icon: Shield,
-    features: [
-      'Schlossaustausch',
-      'Sicherheitsschlösser',
-      'Türsicherungen',
-      'Schließanlagen',
-      'Notfall-Service',
-      'Beratung'
-    ],
-    featuresEn: [
-      'Lock Replacement',
-      'Security Locks',
-      'Door Security',
-      'Locking Systems',
-      'Emergency Service',
-      'Consultation'
-    ],
-    featuresRu: [
-      'Замена замков',
-      'Защитные замки',
-      'Дверная безопасность',
-      'Запирающие системы',
-      'Аварийная служба',
-      'Консультация'
-    ]
-  },
-  'malerarbeiten': {
-    titleKey: 'service.malerarbeiten',
-    descKey: 'service.malerarbeiten.desc',
-    icon: PaintBucket,
-    features: [
-      'Innenmalerei',
-      'Außenanstrich',
-      'Tapezieren',
-      'Lackierarbeiten',
-      'Fassadengestaltung',
-      'Farbberatung'
-    ],
-    featuresEn: [
-      'Interior Painting',
-      'Exterior Painting',
-      'Wallpapering',
-      'Lacquer Work',
-      'Facade Design',
-      'Color Consultation'
-    ],
-    featuresRu: [
-      'Внутренняя покраска',
-      'Наружная покраска',
-      'Поклейка обоев',
-      'Лакировочные работы',
-      'Дизайн фасадов',
-      'Консультация по цвету'
-    ]
-  },
-  'reparaturen': {
-    titleKey: 'service.reparaturen',
-    descKey: 'service.reparaturen.desc',
+  'hochdruckreinigung': {
+    titleKey: 'service.hochdruck',
+    descKey: 'service.hochdruck.desc',
     icon: Wrench,
     features: [
-      'Kleinreparaturen',
-      'Haushaltsgeräte',
-      'Sanitär-Notfälle',
-      'Elektro-Kleinarbeiten',
-      'Türen & Fenster',
-      'Schnellservice'
+      'Fassadenreinigung',
+      'Terrassenreinigung',
+      'Einfahrten & Wege',
+      'Graffiti-Entfernung',
+      'Pool-Reinigung',
+      'Industriereinigung'
     ],
     featuresEn: [
-      'Small Repairs',
-      'Household Appliances',
-      'Plumbing Emergencies',
-      'Minor Electrical Work',
-      'Doors & Windows',
-      'Fast Service'
+      'Facade Cleaning',
+      'Terrace Cleaning',
+      'Driveways & Paths',
+      'Graffiti Removal',
+      'Pool Cleaning',
+      'Industrial Cleaning'
     ],
     featuresRu: [
-      'Мелкий ремонт',
-      'Бытовая техника',
-      'Сантехника (аварийно)',
-      'Мелкие электроработы',
-      'Двери и окна',
-      'Быстрый сервис'
+      'Мойка фасадов',
+      'Чистка террас',
+      'Подъезды и дорожки',
+      'Удаление граффити',
+      'Чистка бассейнов',
+      'Промышленная уборка'
+    ]
+  },
+  'autoservice': {
+    titleKey: 'service.auto',
+    descKey: 'service.auto.desc',
+    icon: Car,
+    features: [
+      'Mobiler Reifenwechsel',
+      'Zentralverriegelung Einbau',
+      'Einparkhilfe Installation',
+      'Ölwechsel vor Ort',
+      'Batterie-Service',
+      'Klimaanlagen-Wartung'
+    ],
+    featuresEn: [
+      'Mobile Tire Change',
+      'Central Locking Installation',
+      'Parking Sensor Installation',
+      'On-site Oil Change',
+      'Battery Service',
+      'AC Maintenance'
+    ],
+    featuresRu: [
+      'Мобильная замена шин',
+      'Установка центрального замка',
+      'Установка парктроников',
+      'Замена масла на месте',
+      'Обслуживание аккумулятора',
+      'Обслуживание кондиционера'
+    ]
+  },
+  'autofind': {
+    titleKey: 'service.autofind',
+    descKey: 'service.autofind.desc',
+    icon: Car,
+    features: [
+      'Fahrzeugsuche nach Wunsch',
+      'Preisverhandlung',
+      'Fahrzeugprüfung',
+      'Import-Service',
+      'Finanzierungsberatung',
+      'Übergabe & Anmeldung'
+    ],
+    featuresEn: [
+      'Vehicle Search by Request',
+      'Price Negotiation',
+      'Vehicle Inspection',
+      'Import Service',
+      'Financing Consultation',
+      'Handover & Registration'
+    ],
+    featuresRu: [
+      'Поиск автомобиля по заказу',
+      'Переговоры о цене',
+      'Проверка автомобиля',
+      'Импорт-сервис',
+      'Консультация по финансированию',
+      'Передача и регистрация'
+    ]
+  },
+  'detailing': {
+    titleKey: 'service.detailing',
+    descKey: 'service.detailing.desc',
+    icon: Car,
+    features: [
+      'Innenraumreinigung',
+      'Außenpolitur',
+      'Keramikversiegelung',
+      'Lederaufbereitung',
+      'Felgenreinigung',
+      'Motorwäsche'
+    ],
+    featuresEn: [
+      'Interior Cleaning',
+      'Exterior Polish',
+      'Ceramic Coating',
+      'Leather Conditioning',
+      'Wheel Cleaning',
+      'Engine Wash'
+    ],
+    featuresRu: [
+      'Чистка салона',
+      'Полировка кузова',
+      'Керамическое покрытие',
+      'Обработка кожи',
+      'Чистка дисков',
+      'Мойка двигателя'
     ]
   }
 };
