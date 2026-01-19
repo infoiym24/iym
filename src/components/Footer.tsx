@@ -8,8 +8,11 @@ const Footer = () => {
   const navigate = useNavigate();
   const { t } = useLanguage();
 
-  const handleAnchorClick = (href: string) => {
-    if (href.startsWith('#')) {
+  const handleLinkClick = (href: string, isRoute: boolean) => {
+    if (isRoute) {
+      navigate(href);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (href.startsWith('#')) {
       if (location.pathname === '/') {
         const element = document.querySelector(href);
         if (element) {
@@ -89,21 +92,12 @@ const Footer = () => {
               <ul className="space-y-3">
                 {column.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    {link.isRoute ? (
-                      <Link
-                        to={link.href}
-                        className="text-muted-foreground hover:text-primary transition-colors duration-300"
-                      >
-                        {link.name}
-                      </Link>
-                    ) : (
-                      <button
-                        onClick={() => handleAnchorClick(link.href)}
-                        className="text-muted-foreground hover:text-primary transition-colors duration-300 bg-transparent border-none cursor-pointer"
-                      >
-                        {link.name}
-                      </button>
-                    )}
+                    <button
+                      onClick={() => handleLinkClick(link.href, !!link.isRoute)}
+                      className="text-muted-foreground hover:text-primary transition-colors duration-300 bg-transparent border-none cursor-pointer"
+                    >
+                      {link.name}
+                    </button>
                   </li>
                 ))}
               </ul>

@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Send } from 'lucide-react';
+import { Mail, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -18,12 +18,6 @@ const ContactSection = () => {
     console.log('Form submitted:', formData);
   };
 
-  const contactInfo = [
-    { icon: Phone, label: t('contact.phone'), value: '+49 123 456 789', href: 'tel:+49123456789' },
-    { icon: Mail, label: t('contact.email'), value: 'info@iym-service.de', href: 'mailto:info@iym-service.de' },
-    { icon: MapPin, label: t('contact.address'), value: 'Musterstraße 1, 12345 Stadt', href: '#' },
-  ];
-
   const serviceSelectLabel = language === 'de' ? 'Service auswählen (optional)' :
                              language === 'en' ? 'Select Service (optional)' :
                              'Выбрать услугу (опционально)';
@@ -31,6 +25,14 @@ const ContactSection = () => {
   const otherServiceLabel = language === 'de' ? 'Andere Dienstleistung' :
                             language === 'en' ? 'Other Service' :
                             'Другая услуга';
+
+  const phoneOptionalLabel = language === 'de' ? 'Telefon (optional)' :
+                             language === 'en' ? 'Phone (optional)' :
+                             'Телефон (опционально)';
+
+  const requiredNote = language === 'de' ? '* Pflichtfelder' :
+                       language === 'en' ? '* Required fields' :
+                       '* Обязательные поля';
 
   const serviceOptions = [
     { value: 'marketing', label: t('service.marketing') },
@@ -63,34 +65,19 @@ const ContactSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact info */}
-          <div>
-            <div className="space-y-6 mb-12">
-              {contactInfo.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.href}
-                  className="flex items-center gap-4 glass rounded-xl p-4 hover-glow group"
-                >
-                  <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                    <item.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-muted-foreground">{item.label}</div>
-                    <div className="text-foreground font-medium">{item.value}</div>
-                  </div>
-                </a>
-              ))}
-            </div>
-
-            {/* Map placeholder */}
-            <div className="glass rounded-2xl overflow-hidden h-64 relative">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="w-12 h-12 text-primary mx-auto mb-2 animate-pulse" />
-                  <p className="text-muted-foreground">{t('contact.map.loading')}</p>
-                </div>
+          <div className="flex flex-col justify-center">
+            <a
+              href="mailto:gazarov2004@mail.ru"
+              className="flex items-center gap-4 glass rounded-xl p-4 hover-glow group"
+            >
+              <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                <Mail className="w-6 h-6 text-primary" />
               </div>
-            </div>
+              <div>
+                <div className="text-sm text-muted-foreground">{t('contact.email')}</div>
+                <div className="text-foreground font-medium">gazarov2004@mail.ru</div>
+              </div>
+            </a>
           </div>
 
           {/* Contact form */}
@@ -101,7 +88,7 @@ const ContactSection = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-foreground/90 mb-2">
-                  {t('contact.form.name')}
+                  {t('contact.form.name')} <span className="text-primary">*</span>
                 </label>
                 <input
                   type="text"
@@ -115,7 +102,7 @@ const ContactSection = () => {
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-foreground/90 mb-2">
-                    {t('contact.email')}
+                    {t('contact.email')} <span className="text-primary">*</span>
                   </label>
                   <input
                     type="email"
@@ -128,7 +115,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground/90 mb-2">
-                    {t('career.phone')}
+                    {phoneOptionalLabel}
                   </label>
                   <input
                     type="tel"
@@ -158,7 +145,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <label className="block text-sm font-medium text-foreground/90 mb-2">
-                  {t('contact.form.message')}
+                  {t('contact.form.message')} <span className="text-primary">*</span>
                 </label>
                 <textarea
                   value={formData.message}
@@ -169,6 +156,7 @@ const ContactSection = () => {
                   required
                 />
               </div>
+              <p className="text-sm text-muted-foreground">{requiredNote}</p>
               <Button variant="hero" size="lg" className="w-full">
                 <Send className="w-5 h-5 mr-2" />
                 {t('contact.form.submit')}
