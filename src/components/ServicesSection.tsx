@@ -1,14 +1,7 @@
 import { 
-  Wrench, 
-  Paintbrush, 
-  Truck, 
-  Home, 
-  Leaf,
   Megaphone,
   Car,
-  Droplets,
   Trash2,
-  Package,
   Sparkles,
   Settings,
   Search
@@ -27,52 +20,16 @@ const ServicesSection = () => {
       href: '/services/marketing',
     },
     {
-      title: t('service.handwerk'),
-      description: t('service.handwerk.desc'),
-      icon: Wrench,
-      href: '/services/handwerk',
-    },
-    {
-      title: t('service.transport'),
-      description: t('service.transport.desc'),
-      icon: Truck,
-      href: '/services/transport',
-    },
-    {
-      title: t('service.umzug'),
-      description: t('service.umzug.desc'),
-      icon: Package,
-      href: '/services/umzug',
-    },
-    {
       title: t('service.entruempelung'),
       description: t('service.entruempelung.desc'),
       icon: Trash2,
       href: '/services/entruempelung',
     },
     {
-      title: t('service.hausmeister'),
-      description: t('service.hausmeister.desc'),
-      icon: Home,
-      href: '/services/hausmeister',
-    },
-    {
       title: t('service.reparatur'),
       description: t('service.reparatur.desc'),
       icon: Settings,
       href: '/services/reparatur',
-    },
-    {
-      title: t('service.garten'),
-      description: t('service.garten.desc'),
-      icon: Leaf,
-      href: '/services/gartenpflege',
-    },
-    {
-      title: t('service.hochdruck'),
-      description: t('service.hochdruck.desc'),
-      icon: Droplets,
-      href: '/services/hochdruckreinigung',
     },
     {
       title: t('service.auto'),
@@ -114,7 +71,7 @@ const ServicesSection = () => {
         </div>
 
         {/* Services grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <ServiceCard
               key={service.title}
