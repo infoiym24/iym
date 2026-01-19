@@ -14,12 +14,22 @@ const Footer = () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (href.startsWith('#')) {
       if (location.pathname === '/') {
-        const element = document.querySelector(href);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
+        // Small delay to ensure DOM is ready, then scroll to element
+        setTimeout(() => {
+          const element = document.querySelector(href);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
       } else {
-        navigate('/' + href);
+        navigate('/');
+        // After navigation, scroll to element
+        setTimeout(() => {
+          const element = document.querySelector(href);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 300);
       }
     }
   };
