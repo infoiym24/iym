@@ -17,9 +17,9 @@ const Impressum = () => {
               <section>
                 <h2 className="text-2xl font-semibold text-foreground mb-4">Angaben gemäß § 5 TMG</h2>
                 <p>
-                  IYM – I'm Your Man<br />
-                  Musterstraße 123<br />
-                  12345 Musterstadt<br />
+                  Dmitriy Gazarov<br />
+                  Hopfgartenstraße 10<br />
+                  01307 Dresden<br />
                   Deutschland
                 </p>
               </section>
@@ -27,62 +27,36 @@ const Impressum = () => {
               <section>
                 <h2 className="text-2xl font-semibold text-foreground mb-4">Kontakt</h2>
                 <p>
-                  Telefon: +49 (0) 123 456789<br />
-                  E-Mail: info@iym.de
+                  Telefon: 0163 8630704<br />
+                  E-Mail: <a href="mailto:gazarov2004@mail.ru" className="text-primary hover:underline">gazarov2004@mail.ru</a>
                 </p>
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">Vertreten durch</h2>
+                <h2 className="text-2xl font-semibold text-foreground mb-4">Umsatzsteuer</h2>
                 <p>
-                  Geschäftsführer: Max Mustermann
-                </p>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">Registereintrag</h2>
-                <p>
-                  Eintragung im Handelsregister<br />
-                  Registergericht: Amtsgericht Musterstadt<br />
-                  Registernummer: HRB 12345
-                </p>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">Umsatzsteuer-ID</h2>
-                <p>
-                  Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
-                  DE 123456789
-                </p>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">Berufsbezeichnung und berufsrechtliche Regelungen</h2>
-                <p>
-                  Berufsbezeichnung: Dienstleistungsunternehmen<br />
-                  Zuständige Kammer: Handwerkskammer Musterstadt<br />
-                  Verliehen in: Deutschland
+                  Kleinunternehmer gemäß § 19 UStG – es wird keine Umsatzsteuer ausgewiesen.
                 </p>
               </section>
 
               <section>
                 <h2 className="text-2xl font-semibold text-foreground mb-4">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
                 <p>
-                  Max Mustermann<br />
-                  Musterstraße 123<br />
-                  12345 Musterstadt
+                  Dmitriy Gazarov<br />
+                  Hopfgartenstraße 10<br />
+                  01307 Dresden
                 </p>
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">Streitschlichtung</h2>
+                <h2 className="text-2xl font-semibold text-foreground mb-4">EU-Streitschlichtung</h2>
                 <p>
                   Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
                   <a href="https://ec.europa.eu/consumers/odr/" className="text-primary hover:underline ml-1" target="_blank" rel="noopener noreferrer">
                     https://ec.europa.eu/consumers/odr/
                   </a>
                 </p>
-                <p>
+                <p className="mt-4">
                   Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer 
                   Verbraucherschlichtungsstelle teilzunehmen.
                 </p>
@@ -96,6 +70,12 @@ const Impressum = () => {
                   jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen 
                   oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
                 </p>
+                <p className="mt-4">
+                  Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen 
+                  Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt 
+                  der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden 
+                  Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
+                </p>
               </section>
 
               <section>
@@ -104,7 +84,13 @@ const Impressum = () => {
                   Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen 
                   Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. 
                   Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der 
-                  Seiten verantwortlich.
+                  Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche 
+                  Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.
+                </p>
+                <p className="mt-4">
+                  Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte 
+                  einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir 
+                  derartige Links umgehend entfernen.
                 </p>
               </section>
 
@@ -114,7 +100,15 @@ const Impressum = () => {
                   Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen 
                   dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art 
                   der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen 
-                  Zustimmung des jeweiligen Autors bzw. Erstellers.
+                  Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind 
+                  nur für den privaten, nicht kommerziellen Gebrauch gestattet.
+                </p>
+                <p className="mt-4">
+                  Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die 
+                  Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. 
+                  Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen 
+                  entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige 
+                  Inhalte umgehend entfernen.
                 </p>
               </section>
             </div>
