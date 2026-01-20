@@ -10,6 +10,8 @@ import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { Users, Zap, Target, Wallet, Wrench, Shield } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import teamImage from '@/assets/team-about.jpg';
+import serviceImage from '@/assets/hero-service.jpg';
 
 const About = () => {
   const { t } = useLanguage();
@@ -78,16 +80,26 @@ const About = () => {
           </div>
 
           <div className="container mx-auto px-4 relative z-10">
-            <div className="text-center max-w-4xl mx-auto">
-              <span className="inline-block text-primary text-sm font-medium tracking-wider uppercase mb-4">
-                {t('about.page.label')}
-              </span>
-              <h1 className="text-4xl md:text-6xl font-bold font-space-grotesk mb-6">
-                {t('about.page.title')} <span className="text-gradient">IYM</span>
-              </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                {t('about.page.subtitle')}
-              </p>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="text-center lg:text-left">
+                <span className="inline-block text-primary text-sm font-medium tracking-wider uppercase mb-4">
+                  {t('about.page.label')}
+                </span>
+                <h1 className="text-4xl md:text-6xl font-bold font-space-grotesk mb-6">
+                  {t('about.page.title')} <span className="text-gradient">IYM</span>
+                </h1>
+                <p className="text-xl text-muted-foreground leading-relaxed">
+                  {t('about.page.subtitle')}
+                </p>
+              </div>
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-3xl blur-2xl" />
+                <img 
+                  src={teamImage} 
+                  alt="Unser Team" 
+                  className="relative rounded-3xl shadow-2xl w-full object-cover aspect-square"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -122,6 +134,16 @@ const About = () => {
                   </p>
                 </div>
               ))}
+            </div>
+            
+            {/* Service Image */}
+            <div className="mt-16 relative max-w-4xl mx-auto">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl blur-2xl" />
+              <img 
+                src={serviceImage} 
+                alt="Unser Service" 
+                className="relative rounded-3xl shadow-2xl w-full object-cover aspect-video"
+              />
             </div>
           </div>
         </section>
