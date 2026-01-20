@@ -2,25 +2,19 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ServiceCard from '@/components/ServiceCard';
 import { 
-  Wrench, 
-  Paintbrush, 
-  Truck, 
-  Home, 
-  Leaf,
   Megaphone,
-  Car,
-  Droplets,
   Trash2,
-  Package,
-  Sparkles,
   Settings,
-  Search
+  Car,
+  Search,
+  Sparkles
 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Services = () => {
   const { t } = useLanguage();
   
+  // 6 core services
   const services = [
     {
       title: t('service.marketing'),
@@ -29,52 +23,16 @@ const Services = () => {
       href: '/services/marketing',
     },
     {
-      title: t('service.handwerk'),
-      description: t('service.handwerk.desc'),
-      icon: Wrench,
-      href: '/services/handwerk',
-    },
-    {
-      title: t('service.transport'),
-      description: t('service.transport.desc'),
-      icon: Truck,
-      href: '/services/transport',
-    },
-    {
-      title: t('service.umzug'),
-      description: t('service.umzug.desc'),
-      icon: Package,
-      href: '/services/umzug',
-    },
-    {
       title: t('service.entruempelung'),
       description: t('service.entruempelung.desc'),
       icon: Trash2,
       href: '/services/entruempelung',
     },
     {
-      title: t('service.hausmeister'),
-      description: t('service.hausmeister.desc'),
-      icon: Home,
-      href: '/services/hausmeister',
-    },
-    {
       title: t('service.reparatur'),
       description: t('service.reparatur.desc'),
       icon: Settings,
       href: '/services/reparatur',
-    },
-    {
-      title: t('service.garten'),
-      description: t('service.garten.desc'),
-      icon: Leaf,
-      href: '/services/gartenpflege',
-    },
-    {
-      title: t('service.hochdruck'),
-      description: t('service.hochdruck.desc'),
-      icon: Droplets,
-      href: '/services/hochdruckreinigung',
     },
     {
       title: t('service.auto'),
