@@ -11,8 +11,13 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { t } = useLanguage();
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (href: string, isRoute?: boolean) => {
     setIsOpen(false);
+    
+    if (isRoute) {
+      navigate(href);
+      return;
+    }
     
     if (href.startsWith('#')) {
       if (location.pathname === '/') {
@@ -27,31 +32,40 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { name: t('nav.services'), href: '#services' },
-    { name: t('nav.about'), href: '#about' },
-    { name: t('nav.contact'), href: '#contact' },
+    { name: t('nav.services'), href: '/services', isRoute: true },
+    { name: t('nav.about'), href: '#about', isRoute: false },
+    { name: t('nav.contact'), href: '#contact', isRoute: false },
   ];
+
+  const handleLogoClick = () => {
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+      setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          {/* Logo - navigates to homepage */}
-          <Link to="/" className="flex items-center gap-2 group">
+          {/* Logo - navigates to homepage top */}
+          <button onClick={handleLogoClick} className="flex items-center gap-2 group bg-transparent border-none cursor-pointer">
             <span className="text-2xl font-bold font-space-grotesk text-gradient">
               IYM
             </span>
             <span className="text-sm text-muted-foreground hidden sm:block group-hover:text-foreground transition-colors">
               I'm Your Man
             </span>
-          </Link>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <button
                 key={link.name}
-                onClick={() => handleNavClick(link.href)}
+                onClick={() => handleNavClick(link.href, link.isRoute)}
                 className="text-muted-foreground hover:text-primary transition-colors duration-300 relative group bg-transparent border-none cursor-pointer"
               >
                 {link.name}
@@ -83,7 +97,7 @@ const Navbar = () => {
               {navLinks.map((link) => (
                 <button
                   key={link.name}
-                  onClick={() => handleNavClick(link.href)}
+                  onClick={() => handleNavClick(link.href, link.isRoute)}
                   className="text-muted-foreground hover:text-primary transition-colors py-2 text-left bg-transparent border-none cursor-pointer"
                 >
                   {link.name}
