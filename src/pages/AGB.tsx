@@ -17,7 +17,7 @@ const AGB = () => {
               <section>
                 <h2 className="text-2xl font-semibold text-foreground mb-4">§ 1 Geltungsbereich</h2>
                 <p>
-                  (1) Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge zwischen IYM – I'm Your Man 
+                  (1) Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge zwischen IYM I'm Your Man 
                   (Dmitriy Gazarov, Hopfgartenstraße 10, 01307 Dresden) und dem Kunden über Dienstleistungen 
                   im Bereich Haushalts- und Alltagshilfe sowie verwandte Tätigkeiten.
                 </p>
