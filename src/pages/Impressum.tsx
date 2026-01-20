@@ -40,29 +40,6 @@ const Impressum = () => {
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
-                <p>
-                  Dmitriy Gazarov<br />
-                  Hopfgartenstraße 10<br />
-                  01307 Dresden
-                </p>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">EU-Streitschlichtung</h2>
-                <p>
-                  Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
-                  <a href="https://ec.europa.eu/consumers/odr/" className="text-primary hover:underline ml-1" target="_blank" rel="noopener noreferrer">
-                    https://ec.europa.eu/consumers/odr/
-                  </a>
-                </p>
-                <p className="mt-4">
-                  Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer 
-                  Verbraucherschlichtungsstelle teilzunehmen.
-                </p>
-              </section>
-
-              <section>
                 <h2 className="text-2xl font-semibold text-foreground mb-4">Haftung für Inhalte</h2>
                 <p>
                   Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach 
