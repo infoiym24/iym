@@ -33,10 +33,56 @@ const COOKIE_SETTINGS_KEY = 'iym_cookie_settings';
 // GA4 Measurement ID - replace with your actual ID
 const GA4_MEASUREMENT_ID = 'G-XXXXXXXXXX';
 
+type StoredConsentState = {
+  settings: CookieSettings;
+  hasConsented: boolean;
+  showBanner: boolean;
+};
+
+const loadStoredConsentState = (): StoredConsentState => {
+  // In Lovable/Vite this runs client-side, but keep it safe.
+  if (typeof window === 'undefined') {
+    return {
+      settings: defaultSettings,
+      hasConsented: false,
+      showBanner: false,
+    };
+  }
+
+  const savedConsent = localStorage.getItem(COOKIE_CONSENT_KEY);
+  const savedSettings = localStorage.getItem(COOKIE_SETTINGS_KEY);
+
+  if (savedConsent === 'true' && savedSettings) {
+    try {
+      const parsedSettings = JSON.parse(savedSettings);
+      return {
+        settings: { ...defaultSettings, ...parsedSettings, necessary: true },
+        hasConsented: true,
+        showBanner: false,
+      };
+    } catch {
+      // Corrupted settings -> show banner again
+      return {
+        settings: defaultSettings,
+        hasConsented: false,
+        showBanner: true,
+      };
+    }
+  }
+
+  // No consent yet -> show banner immediately
+  return {
+    settings: defaultSettings,
+    hasConsented: false,
+    showBanner: true,
+  };
+};
+
 export const CookieConsentProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [settings, setSettings] = useState<CookieSettings>(defaultSettings);
-  const [hasConsented, setHasConsented] = useState(false);
-  const [showBanner, setShowBanner] = useState(false);
+  const initialState = loadStoredConsentState();
+  const [settings, setSettings] = useState<CookieSettings>(initialState.settings);
+  const [hasConsented, setHasConsented] = useState(initialState.hasConsented);
+  const [showBanner, setShowBanner] = useState(initialState.showBanner);
 
   // Load GA4 script only when analytics consent is given
   const loadGoogleAnalytics = useCallback(() => {
@@ -99,25 +145,8 @@ export const CookieConsentProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   }, [settings.analytics, hasConsented, loadGoogleAnalytics, removeGoogleAnalytics]);
 
-  // Load saved consent on mount
-  useEffect(() => {
-    const savedConsent = localStorage.getItem(COOKIE_CONSENT_KEY);
-    const savedSettings = localStorage.getItem(COOKIE_SETTINGS_KEY);
-
-    if (savedConsent === 'true' && savedSettings) {
-      try {
-        const parsedSettings = JSON.parse(savedSettings);
-        setSettings({ ...defaultSettings, ...parsedSettings, necessary: true });
-        setHasConsented(true);
-        setShowBanner(false);
-      } catch {
-        setShowBanner(true);
-      }
-    } else {
-      // No consent yet - show banner
-      setShowBanner(true);
-    }
-  }, []);
+  // NOTE: Consent is loaded synchronously on first render via loadStoredConsentState()
+  // so the banner can appear immediately without a delay.
 
   const saveConsent = (newSettings: CookieSettings) => {
     localStorage.setItem(COOKIE_CONSENT_KEY, 'true');
