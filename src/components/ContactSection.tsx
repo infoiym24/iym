@@ -1,4 +1,4 @@
-import { Mail, Send } from 'lucide-react';
+import { Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -60,23 +60,9 @@ const ContactSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold font-space-grotesk mb-6">
             <span className="text-gradient">{t('contact.section.title')}</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             {t('contact.section.subtitle')}
           </p>
-          
-          {/* Email card centered above form */}
-          <a
-            href="mailto:gazarov2004@mail.ru"
-            className="inline-flex items-center gap-4 glass rounded-xl px-6 py-4 hover-glow group transition-all duration-300 hover:scale-105"
-          >
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:from-primary/30 group-hover:to-primary/10 transition-all duration-300">
-              <Mail className="w-6 h-6 text-primary" />
-            </div>
-            <div className="text-left">
-              <div className="text-sm text-muted-foreground">{t('contact.email')}</div>
-              <div className="text-foreground font-medium group-hover:text-primary transition-colors duration-300">gazarov2004@mail.ru</div>
-            </div>
-          </a>
         </div>
 
         {/* Contact form - centered */}
