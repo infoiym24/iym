@@ -2,71 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    /* Anthracite Stone Theme with Forest Green & Gold Accents */
-    --background: 210 8% 8%;
-    --foreground: 45 15% 92%;
+    /* Ultra Luxury Dark Forest & Gold Theme */
+    --background: 150 15% 6%;
+    --foreground: 40 30% 94%;
 
-    --card: 210 6% 11%;
-    --card-foreground: 45 15% 92%;
+    --card: 150 12% 8%;
+    --card-foreground: 40 30% 94%;
 
-    --popover: 210 6% 13%;
-    --popover-foreground: 45 15% 92%;
+    --popover: 150 12% 10%;
+    --popover-foreground: 40 30% 94%;
 
-    /* Forest Green Primary */
-    --primary: 145 45% 35%;
-    --primary-foreground: 45 15% 92%;
+    /* Deep Forest Green Primary */
+    --primary: 155 50% 25%;
+    --primary-foreground: 40 30% 94%;
+    --primary-glow: 145 60% 35%;
 
-    --secondary: 210 6% 15%;
-    --secondary-foreground: 45 15% 92%;
+    --secondary: 150 12% 12%;
+    --secondary-foreground: 40 30% 94%;
 
-    --muted: 210 5% 20%;
-    --muted-foreground: 210 5% 55%;
+    --muted: 150 8% 18%;
+    --muted-foreground: 150 8% 55%;
 
     /* Royal Gold Accent */
-    --accent: 45 85% 55%;
-    --accent-foreground: 210 8% 8%;
+    --accent: 43 80% 55%;
+    --accent-foreground: 150 15% 6%;
+    --accent-glow: 45 90% 65%;
 
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 45 15% 92%;
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 40 30% 94%;
 
-    --border: 210 6% 18%;
-    --input: 210 6% 18%;
-    --ring: 45 85% 55%;
+    --border: 150 10% 15%;
+    --input: 150 10% 15%;
+    --ring: 43 80% 55%;
 
     --radius: 0.75rem;
 
-    /* Custom design tokens */
-    --glow-primary: 145 45% 35%;
-    --glow-accent: 45 85% 55%;
-    --glass-bg: 210 6% 11% / 0.85;
-    --glass-border: 45 85% 55% / 0.12;
+    /* Custom luxury tokens */
+    --glow-primary: 155 50% 25%;
+    --glow-accent: 43 80% 55%;
+    --glass-bg: 150 12% 8% / 0.9;
+    --glass-border: 43 80% 55% / 0.15;
     
-    /* Stone/Gold colors */
-    --stone-dark: 210 8% 6%;
-    --stone-crack: 45 85% 55%;
-    --stone-texture: 210 6% 12%;
+    /* Stone/Marble colors */
+    --stone-dark: 150 15% 4%;
+    --stone-crack: 43 80% 55%;
+    --stone-texture: 150 10% 10%;
+    --marble-vein: 43 75% 50%;
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(145 45% 35%) 0%, hsl(45 85% 55%) 100%);
-    --gradient-dark: linear-gradient(180deg, hsl(210 8% 8%) 0%, hsl(210 10% 5%) 100%);
-    --gradient-glass: linear-gradient(135deg, hsl(45 85% 55% / 0.08) 0%, hsl(45 85% 55% / 0.02) 100%);
-    --gradient-stone: linear-gradient(135deg, hsl(210 8% 8%) 0%, hsl(210 6% 10%) 50%, hsl(210 8% 7%) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(45 85% 55%) 0%, hsl(40 90% 45%) 100%);
+    /* Luxury Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(155 50% 25%) 0%, hsl(145 60% 35%) 50%, hsl(43 80% 55%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(150 15% 6%) 0%, hsl(150 18% 4%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(43 80% 55% / 0.08) 0%, hsl(43 80% 55% / 0.02) 100%);
+    --gradient-stone: linear-gradient(135deg, hsl(150 15% 6%) 0%, hsl(150 12% 8%) 50%, hsl(150 15% 5%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(43 80% 55%) 0%, hsl(38 85% 50%) 50%, hsl(45 90% 60%) 100%);
+    --gradient-gold-shine: linear-gradient(90deg, transparent 0%, hsl(43 80% 65% / 0.3) 50%, transparent 100%);
+    --gradient-forest: linear-gradient(135deg, hsl(155 50% 20%) 0%, hsl(150 45% 15%) 100%);
     
-    /* Shadows */
-    --shadow-glow: 0 0 30px hsl(var(--glow-accent) / 0.2);
-    --shadow-glow-lg: 0 0 60px hsl(var(--glow-accent) / 0.3);
-    --shadow-glow-accent: 0 0 30px hsl(var(--glow-accent) / 0.25);
-    --shadow-gold: 0 0 20px hsl(45 85% 55% / 0.15);
+    /* Luxury Shadows */
+    --shadow-glow: 0 0 40px hsl(var(--glow-accent) / 0.25);
+    --shadow-glow-lg: 0 0 80px hsl(var(--glow-accent) / 0.35);
+    --shadow-glow-accent: 0 0 40px hsl(var(--glow-accent) / 0.3);
+    --shadow-gold: 0 0 30px hsl(43 80% 55% / 0.2);
+    --shadow-emerald: 0 0 30px hsl(155 50% 25% / 0.3);
   }
 
   .dark {
-    --background: 210 8% 8%;
-    --foreground: 45 15% 92%;
+    --background: 150 15% 6%;
+    --foreground: 40 30% 94%;
   }
 }
 
@@ -76,12 +82,13 @@
   }
 
   body {
-    @apply bg-background text-foreground font-outfit antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Montserrat', sans-serif;
     background: var(--gradient-dark);
     position: relative;
   }
 
-  /* Stone texture background with gold cracks */
+  /* Luxury marble texture background with gold veins - inspired by reference images */
   body::before {
     content: '';
     position: fixed;
@@ -92,21 +99,30 @@
     pointer-events: none;
     z-index: 0;
     background-image: 
-      /* Gold cracks/veins */
-      linear-gradient(45deg, transparent 48%, hsl(45 85% 55% / 0.08) 49%, hsl(45 85% 55% / 0.12) 50%, hsl(45 85% 55% / 0.08) 51%, transparent 52%),
-      linear-gradient(-45deg, transparent 48%, hsl(45 85% 55% / 0.06) 49%, hsl(45 85% 55% / 0.1) 50%, hsl(45 85% 55% / 0.06) 51%, transparent 52%),
-      linear-gradient(90deg, transparent 47%, hsl(45 85% 55% / 0.04) 49%, hsl(45 85% 55% / 0.08) 50%, hsl(45 85% 55% / 0.04) 51%, transparent 53%),
-      /* Stone texture noise */
-      radial-gradient(ellipse at 20% 30%, hsl(210 6% 12% / 0.5) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 20%, hsl(210 8% 10% / 0.4) 0%, transparent 45%),
-      radial-gradient(ellipse at 40% 80%, hsl(210 6% 11% / 0.5) 0%, transparent 50%),
-      radial-gradient(ellipse at 90% 70%, hsl(210 8% 9% / 0.4) 0%, transparent 40%),
-      /* Base anthracite gradient */
+      /* Gold marble veins - thick organic */
+      linear-gradient(23deg, transparent 45%, hsl(43 80% 55% / 0.12) 48%, hsl(43 80% 60% / 0.18) 50%, hsl(43 80% 55% / 0.12) 52%, transparent 55%),
+      linear-gradient(-35deg, transparent 44%, hsl(43 75% 50% / 0.1) 47%, hsl(43 80% 55% / 0.15) 50%, hsl(43 75% 50% / 0.1) 53%, transparent 56%),
+      linear-gradient(67deg, transparent 46%, hsl(43 80% 55% / 0.08) 49%, hsl(45 85% 58% / 0.12) 50%, hsl(43 80% 55% / 0.08) 51%, transparent 54%),
+      linear-gradient(-78deg, transparent 48%, hsl(38 85% 50% / 0.06) 49.5%, hsl(43 80% 55% / 0.1) 50%, hsl(38 85% 50% / 0.06) 50.5%, transparent 52%),
+      /* Branching veins */
+      linear-gradient(145deg, transparent 47%, hsl(43 80% 55% / 0.07) 49%, hsl(45 80% 55% / 0.1) 50%, hsl(43 80% 55% / 0.07) 51%, transparent 53%),
+      linear-gradient(-125deg, transparent 46%, hsl(43 75% 52% / 0.08) 49%, hsl(43 80% 55% / 0.12) 50%, hsl(43 75% 52% / 0.08) 51%, transparent 54%),
+      /* Deep forest texture overlay */
+      radial-gradient(ellipse at 15% 25%, hsl(155 50% 12% / 0.4) 0%, transparent 45%),
+      radial-gradient(ellipse at 85% 15%, hsl(150 45% 10% / 0.35) 0%, transparent 40%),
+      radial-gradient(ellipse at 35% 75%, hsl(155 50% 8% / 0.4) 0%, transparent 45%),
+      radial-gradient(ellipse at 75% 85%, hsl(150 40% 10% / 0.35) 0%, transparent 40%),
+      radial-gradient(ellipse at 50% 50%, hsl(155 45% 6% / 0.3) 0%, transparent 60%),
+      /* Base dark forest gradient */
       var(--gradient-dark);
     background-size: 
-      200px 200px,
-      150px 150px,
-      100px 300px,
+      350px 350px,
+      280px 280px,
+      200px 450px,
+      400px 200px,
+      250px 250px,
+      320px 320px,
+      100% 100%,
       100% 100%,
       100% 100%,
       100% 100%,
@@ -114,8 +130,12 @@
       100% 100%;
     background-position:
       0 0,
-      50px 50px,
-      25px 0,
+      100px 80px,
+      50px 20px,
+      -50px 150px,
+      200px 100px,
+      150px 200px,
+      0 0,
       0 0,
       0 0,
       0 0,
@@ -124,15 +144,43 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-space-grotesk;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.02em;
+  }
+
+  p, span, a, button, input, textarea, select, label {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .font-display {
+    font-family: 'Cinzel', serif;
+  }
+
+  .font-elegant {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .font-body {
+    font-family: 'Montserrat', sans-serif;
   }
 }
 
 @layer components {
   .glass {
-    @apply bg-card/85 backdrop-blur-xl border shadow-xl;
+    @apply backdrop-blur-xl border shadow-xl;
+    background: hsl(var(--glass-bg));
     border-color: hsl(var(--glass-border));
-    box-shadow: var(--shadow-gold), inset 0 1px 0 hsl(45 85% 55% / 0.05);
+    box-shadow: var(--shadow-gold), inset 0 1px 0 hsl(43 80% 55% / 0.08);
+  }
+
+  .glass-luxury {
+    @apply backdrop-blur-2xl border-2 shadow-2xl;
+    background: linear-gradient(135deg, hsl(150 12% 8% / 0.95) 0%, hsl(150 15% 6% / 0.9) 100%);
+    border-color: hsl(43 80% 55% / 0.2);
+    box-shadow: 
+      0 0 40px hsl(43 80% 55% / 0.15),
+      inset 0 1px 0 hsl(43 80% 55% / 0.1),
+      inset 0 -1px 0 hsl(155 50% 25% / 0.1);
   }
 
   .glow-border {
@@ -158,8 +206,23 @@
     background-image: var(--gradient-gold);
   }
 
+  .text-gold-shimmer {
+    @apply bg-clip-text text-transparent relative;
+    background-image: var(--gradient-gold);
+    animation: gold-text-shimmer 4s ease-in-out infinite;
+  }
+
   .gold-glow {
-    text-shadow: 0 0 20px hsl(45 85% 55% / 0.4), 0 0 40px hsl(45 85% 55% / 0.2);
+    text-shadow: 
+      0 0 20px hsl(43 80% 55% / 0.5), 
+      0 0 40px hsl(43 80% 55% / 0.3),
+      0 0 60px hsl(43 80% 55% / 0.15);
+  }
+
+  .emerald-glow {
+    text-shadow: 
+      0 0 20px hsl(155 50% 35% / 0.5), 
+      0 0 40px hsl(155 50% 35% / 0.3);
   }
 
   .stone-crack {
@@ -172,13 +235,13 @@
     top: 50%;
     left: 0;
     right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(45 85% 55% / 0.4), hsl(45 85% 55% / 0.6), hsl(45 85% 55% / 0.4), transparent);
-    box-shadow: 0 0 10px hsl(45 85% 55% / 0.3);
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(43 80% 55% / 0.5), hsl(43 85% 60% / 0.7), hsl(43 80% 55% / 0.5), transparent);
+    box-shadow: 0 0 15px hsl(43 80% 55% / 0.4);
   }
 
   .pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
+    animation: pulse-glow 3s ease-in-out infinite;
   }
 
   .hover-glow {
@@ -190,20 +253,87 @@
     transform: translateY(-4px);
   }
 
-  /* Gold crack divider */
+  /* Luxury gold crack divider */
   .gold-divider {
-    height: 2px;
+    height: 3px;
     background: linear-gradient(90deg, 
       transparent 0%, 
-      hsl(45 85% 55% / 0.2) 10%, 
-      hsl(45 85% 55% / 0.6) 30%, 
-      hsl(45 85% 55% / 0.8) 50%, 
-      hsl(45 85% 55% / 0.6) 70%, 
-      hsl(45 85% 55% / 0.2) 90%, 
+      hsl(43 80% 50% / 0.3) 10%, 
+      hsl(43 80% 55% / 0.7) 30%, 
+      hsl(45 90% 60% / 0.9) 50%, 
+      hsl(43 80% 55% / 0.7) 70%, 
+      hsl(43 80% 50% / 0.3) 90%, 
       transparent 100%
     );
-    box-shadow: 0 0 15px hsl(45 85% 55% / 0.3), 0 0 30px hsl(45 85% 55% / 0.15);
-    border-radius: 1px;
+    box-shadow: 
+      0 0 20px hsl(43 80% 55% / 0.4), 
+      0 0 40px hsl(43 80% 55% / 0.2);
+    border-radius: 2px;
+  }
+
+  /* Luxury button styling */
+  .btn-luxury {
+    @apply relative overflow-hidden;
+    background: linear-gradient(135deg, hsl(155 50% 25%) 0%, hsl(145 60% 30%) 100%);
+    border: 1px solid hsl(43 80% 55% / 0.3);
+    box-shadow: 
+      0 4px 20px hsl(155 50% 25% / 0.3),
+      inset 0 1px 0 hsl(43 80% 55% / 0.1);
+  }
+
+  .btn-luxury::before {
+    content: '';
+    @apply absolute inset-0;
+    background: var(--gradient-gold-shine);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  .btn-luxury:hover::before {
+    transform: translateX(100%);
+  }
+
+  .btn-gold {
+    @apply relative overflow-hidden;
+    background: var(--gradient-gold);
+    color: hsl(150 15% 6%);
+    border: none;
+    box-shadow: 
+      0 4px 25px hsl(43 80% 55% / 0.4),
+      inset 0 1px 0 hsl(45 90% 70% / 0.3);
+  }
+
+  /* Animated green sea with gold waves section */
+  .ocean-wave-section {
+    position: relative;
+    overflow: hidden;
+    min-height: 300px;
+  }
+
+  .ocean-wave-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(180deg, 
+        hsl(155 55% 20% / 0.8) 0%, 
+        hsl(160 60% 25% / 0.9) 30%,
+        hsl(165 65% 30% / 0.85) 50%,
+        hsl(155 55% 25% / 0.9) 70%,
+        hsl(150 50% 20% / 0.8) 100%
+      );
+    animation: ocean-flow 8s ease-in-out infinite;
+  }
+
+  .ocean-wave-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 30% 40%, hsl(43 80% 55% / 0.25) 0%, transparent 40%),
+      radial-gradient(ellipse at 70% 60%, hsl(43 85% 60% / 0.2) 0%, transparent 35%),
+      radial-gradient(ellipse at 50% 80%, hsl(45 90% 55% / 0.15) 0%, transparent 30%);
+    animation: gold-wave-shimmer 6s ease-in-out infinite;
   }
 }
 
@@ -213,11 +343,11 @@
   }
 
   .animate-pulse-slow {
-    animation: pulse-slow 3s ease-in-out infinite;
+    animation: pulse-slow 4s ease-in-out infinite;
   }
 
   .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
+    animation: glow 3s ease-in-out infinite alternate;
   }
 
   .animate-word-pop {
@@ -233,11 +363,23 @@
   }
 
   .animate-iym-glow {
-    animation: iym-glow 3s ease-in-out infinite alternate;
+    animation: iym-glow 4s ease-in-out infinite alternate;
   }
 
   .animate-gold-shimmer {
-    animation: gold-shimmer 3s ease-in-out infinite;
+    animation: gold-shimmer 4s ease-in-out infinite;
+  }
+
+  .animate-ocean-wave {
+    animation: ocean-wave 4s ease-in-out infinite;
+  }
+
+  .animate-gold-wave {
+    animation: gold-wave 5s ease-in-out infinite;
+  }
+
+  .animate-luxury-float {
+    animation: luxury-float 8s ease-in-out infinite;
   }
 }
 
@@ -255,25 +397,25 @@
     opacity: 1;
   }
   50% {
-    opacity: 0.7;
+    opacity: 0.6;
   }
 }
 
 @keyframes glow {
   0% {
-    box-shadow: 0 0 20px hsl(var(--glow-accent) / 0.15), 0 0 40px hsl(var(--glow-accent) / 0.08);
+    box-shadow: 0 0 25px hsl(var(--glow-accent) / 0.2), 0 0 50px hsl(var(--glow-accent) / 0.1);
   }
   100% {
-    box-shadow: 0 0 30px hsl(var(--glow-accent) / 0.3), 0 0 60px hsl(var(--glow-accent) / 0.15);
+    box-shadow: 0 0 40px hsl(var(--glow-accent) / 0.4), 0 0 80px hsl(var(--glow-accent) / 0.2);
   }
 }
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px hsl(var(--glow-accent) / 0.2);
+    box-shadow: 0 0 25px hsl(var(--glow-accent) / 0.25);
   }
   50% {
-    box-shadow: 0 0 40px hsl(var(--glow-accent) / 0.4), 0 0 80px hsl(var(--glow-accent) / 0.2);
+    box-shadow: 0 0 50px hsl(var(--glow-accent) / 0.5), 0 0 100px hsl(var(--glow-accent) / 0.25);
   }
 }
 
@@ -312,27 +454,101 @@
 
 @keyframes iym-glow {
   0% {
-    text-shadow: 0 0 20px hsl(var(--glow-accent) / 0.5), 0 0 40px hsl(var(--glow-accent) / 0.3), 0 0 60px hsl(var(--glow-accent) / 0.15);
+    text-shadow: 
+      0 0 25px hsl(var(--glow-accent) / 0.6), 
+      0 0 50px hsl(var(--glow-accent) / 0.4), 
+      0 0 80px hsl(var(--glow-accent) / 0.2);
     filter: brightness(1);
   }
   100% {
-    text-shadow: 0 0 30px hsl(var(--glow-accent) / 0.7), 0 0 60px hsl(var(--glow-accent) / 0.5), 0 0 100px hsl(var(--glow-accent) / 0.25);
-    filter: brightness(1.1);
+    text-shadow: 
+      0 0 40px hsl(var(--glow-accent) / 0.8), 
+      0 0 80px hsl(var(--glow-accent) / 0.6), 
+      0 0 120px hsl(var(--glow-accent) / 0.3);
+    filter: brightness(1.15);
   }
 }
 
 @keyframes gold-shimmer {
   0%, 100% {
-    opacity: 0.6;
+    opacity: 0.5;
   }
   50% {
     opacity: 1;
   }
 }
 
-/* Scrollbar styling */
+@keyframes gold-text-shimmer {
+  0%, 100% {
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    filter: brightness(1.3) saturate(1.2);
+  }
+}
+
+/* Ocean wave animations */
+@keyframes ocean-wave {
+  0%, 100% {
+    transform: translateX(0) scaleY(1);
+  }
+  25% {
+    transform: translateX(-2%) scaleY(1.02);
+  }
+  50% {
+    transform: translateX(0) scaleY(0.98);
+  }
+  75% {
+    transform: translateX(2%) scaleY(1.02);
+  }
+}
+
+@keyframes gold-wave {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes ocean-flow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes gold-wave-shimmer {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes luxury-float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-15px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(-8px) rotate(-1deg);
+  }
+}
+
+/* Scrollbar styling - luxury */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -340,10 +556,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted));
-  border-radius: 4px;
+  background: linear-gradient(180deg, hsl(155 50% 25%) 0%, hsl(43 80% 55%) 100%);
+  border-radius: 5px;
+  border: 2px solid hsl(var(--background));
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--accent));
+  background: linear-gradient(180deg, hsl(155 55% 30%) 0%, hsl(45 85% 60%) 100%);
 }
