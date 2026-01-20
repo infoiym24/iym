@@ -15,119 +15,107 @@ const AGB = () => {
             
             <div className="prose prose-invert max-w-none space-y-8 text-muted-foreground">
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">§1 Geltungsbereich</h2>
+                <h2 className="text-2xl font-semibold text-foreground mb-4">§ 1 Geltungsbereich</h2>
                 <p>
-                  Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge zwischen IYM – I'm Your Man 
-                  (nachfolgend "Anbieter") und dem Kunden (nachfolgend "Auftraggeber") über die Erbringung 
-                  von Dienstleistungen.
+                  (1) Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge zwischen IYM – I'm Your Man 
+                  (Dmitriy Gazarov, Hopfgartenstraße 10, 01307 Dresden) und dem Kunden über Dienstleistungen 
+                  im Bereich Haushalts- und Alltagshilfe sowie verwandte Tätigkeiten.
                 </p>
                 <p>
-                  Abweichende Bedingungen des Auftraggebers werden nicht anerkannt, es sei denn, der Anbieter 
-                  stimmt ihrer Geltung ausdrücklich schriftlich zu.
-                </p>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">§2 Vertragsschluss</h2>
-                <p>
-                  Die Darstellung der Dienstleistungen auf unserer Website stellt kein rechtlich bindendes 
-                  Angebot, sondern eine Aufforderung zur Angebotsabgabe dar.
-                </p>
-                <p>
-                  Der Vertrag kommt durch die Annahme des Angebots durch den Anbieter zustande. Die Annahme 
-                  erfolgt durch schriftliche Auftragsbestätigung oder durch Beginn der Leistungserbringung.
+                  (2) Abweichende Bedingungen des Kunden werden nicht anerkannt, es sei denn, IYM stimmt ihrer 
+                  Geltung ausdrücklich schriftlich zu.
                 </p>
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">§3 Preise und Zahlungsbedingungen</h2>
+                <h2 className="text-2xl font-semibold text-foreground mb-4">§ 2 Vertragsgegenstand</h2>
                 <p>
-                  Alle angegebenen Preise verstehen sich in Euro und enthalten die gesetzliche Mehrwertsteuer, 
-                  sofern nicht anders angegeben.
+                  (1) IYM erbringt Dienstleistungen im Bereich Haushalts- und Alltagshilfe, einschließlich aber 
+                  nicht beschränkt auf: Einkaufshilfe, Haushaltsarbeiten, Begleitservice, Besorgungen und 
+                  individuelle Unterstützungsleistungen.
                 </p>
                 <p>
-                  Die Zahlung ist, sofern nicht anders vereinbart, innerhalb von 14 Tagen nach 
-                  Rechnungsstellung ohne Abzug fällig.
-                </p>
-                <p>
-                  Bei Zahlungsverzug ist der Anbieter berechtigt, Verzugszinsen in Höhe von 5 Prozentpunkten 
-                  über dem Basiszinssatz zu berechnen.
+                  (2) Der genaue Leistungsumfang ergibt sich aus dem individuellen Angebot bzw. der Auftragsbestätigung.
                 </p>
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">§4 Leistungserbringung</h2>
+                <h2 className="text-2xl font-semibold text-foreground mb-4">§ 3 Vertragsschluss</h2>
                 <p>
-                  Der Anbieter verpflichtet sich, die vereinbarten Dienstleistungen sorgfältig und 
-                  fachgerecht auszuführen.
+                  (1) Die Darstellung der Dienstleistungen auf der Website stellt kein rechtlich bindendes 
+                  Angebot dar, sondern eine Aufforderung zur Abgabe eines Angebots.
                 </p>
                 <p>
-                  Termine und Fristen sind nur verbindlich, wenn sie ausdrücklich als verbindlich 
-                  vereinbart wurden.
-                </p>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">§5 Mitwirkungspflichten des Auftraggebers</h2>
-                <p>
-                  Der Auftraggeber ist verpflichtet, alle für die Durchführung des Auftrags erforderlichen 
-                  Informationen rechtzeitig und vollständig zur Verfügung zu stellen.
-                </p>
-                <p>
-                  Der Auftraggeber gewährt dem Anbieter Zugang zu den Räumlichkeiten, soweit dies für die 
-                  Leistungserbringung erforderlich ist.
+                  (2) Der Vertrag kommt durch die schriftliche Auftragsbestätigung von IYM oder durch 
+                  Beginn der Leistungserbringung zustande.
                 </p>
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">§6 Gewährleistung</h2>
+                <h2 className="text-2xl font-semibold text-foreground mb-4">§ 4 Preise und Zahlungsbedingungen</h2>
                 <p>
-                  Der Anbieter haftet für Mängel nach den gesetzlichen Vorschriften. Mängelansprüche 
-                  verjähren innerhalb von zwei Jahren ab Abnahme der Leistung.
+                  (1) Es gelten die im Angebot genannten Preise. Alle Preise verstehen sich netto und sind 
+                  gemäß Kleinunternehmerregelung (§ 19 UStG) von der Umsatzsteuer befreit.
                 </p>
                 <p>
-                  Der Auftraggeber ist verpflichtet, offensichtliche Mängel unverzüglich, spätestens 
-                  jedoch innerhalb von 14 Tagen nach Leistungserbringung, schriftlich anzuzeigen.
-                </p>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">§7 Haftung</h2>
-                <p>
-                  Der Anbieter haftet unbeschränkt für Vorsatz und grobe Fahrlässigkeit sowie für 
-                  Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit.
-                </p>
-                <p>
-                  Bei leichter Fahrlässigkeit haftet der Anbieter nur bei Verletzung wesentlicher 
-                  Vertragspflichten, begrenzt auf den vertragstypischen, vorhersehbaren Schaden.
+                  (2) Rechnungen sind innerhalb von 14 Tagen nach Erhalt ohne Abzug zahlbar, sofern nicht 
+                  anders vereinbart.
                 </p>
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">§8 Stornierung</h2>
+                <h2 className="text-2xl font-semibold text-foreground mb-4">§ 5 Mitwirkungspflichten des Kunden</h2>
                 <p>
-                  Bei Stornierung durch den Auftraggeber fallen folgende Gebühren an:
+                  (1) Der Kunde stellt alle für die Leistungserbringung erforderlichen Informationen, Zugänge 
+                  und Materialien rechtzeitig zur Verfügung.
                 </p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Bis 48 Stunden vor dem Termin: kostenlos</li>
-                  <li>24-48 Stunden vor dem Termin: 25% des vereinbarten Preises</li>
-                  <li>Weniger als 24 Stunden vor dem Termin: 50% des vereinbarten Preises</li>
-                </ul>
+                <p>
+                  (2) Der Kunde ist für die Richtigkeit und Vollständigkeit der bereitgestellten Informationen verantwortlich.
+                </p>
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">§9 Schlussbestimmungen</h2>
+                <h2 className="text-2xl font-semibold text-foreground mb-4">§ 6 Nutzungsrechte</h2>
                 <p>
-                  Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts.
+                  (1) IYM behält sich das Recht vor, anonymisierte Referenzen zu Werbezwecken zu verwenden, 
+                  sofern der Kunde nicht widerspricht.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-foreground mb-4">§ 7 Haftung</h2>
+                <p>
+                  (1) IYM haftet unbeschränkt für Vorsatz und grobe Fahrlässigkeit.
                 </p>
                 <p>
-                  Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Wirksamkeit der 
-                  übrigen Bestimmungen unberührt.
+                  (2) Bei leichter Fahrlässigkeit haftet IYM nur bei Verletzung wesentlicher Vertragspflichten 
+                  und begrenzt auf den vorhersehbaren, vertragstypischen Schaden.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-foreground mb-4">§ 8 Vertragslaufzeit und Kündigung</h2>
+                <p>
+                  (1) Die Vertragslaufzeit richtet sich nach der individuellen Vereinbarung.
+                </p>
+                <p>
+                  (2) Das Recht zur außerordentlichen Kündigung aus wichtigem Grund bleibt unberührt.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-foreground mb-4">§ 9 Schlussbestimmungen</h2>
+                <p>
+                  (1) Es gilt das Recht der Bundesrepublik Deutschland.
+                </p>
+                <p>
+                  (2) Sollten einzelne Bestimmungen unwirksam sein, bleibt die Wirksamkeit der übrigen 
+                  Bestimmungen unberührt.
                 </p>
               </section>
 
               <p className="text-sm mt-12">
-                Stand: November 2024
+                Stand: Januar 2026
               </p>
             </div>
           </div>
