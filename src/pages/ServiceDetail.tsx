@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { 
@@ -481,6 +481,11 @@ const ServiceDetail = () => {
     service: '',
     message: ''
   });
+
+  // Scroll to top on page load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [serviceId]);
 
   const service = serviceId ? serviceData[serviceId] : null;
 
