@@ -1,15 +1,9 @@
-import { CheckCircle2, Users, Clock, Award, Wallet } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import aboutPortrait from '@/assets/about-portrait.jpg';
 
 const AboutSection = () => {
   const { t } = useLanguage();
-  
-  const stats = [
-    { icon: Users, value: '100+', label: t('about.stat.customers') },
-    { icon: Clock, value: '24/7', label: t('about.stat.availability') },
-    { icon: Award, value: '5+', label: t('about.stat.experience') },
-    { icon: Wallet, value: '100%', label: t('about.stat.prices') },
-  ];
 
   const features = [
     t('about.feature.1'),
@@ -51,34 +45,30 @@ const AboutSection = () => {
             </div>
           </div>
 
-          {/* Right content - Stats cards */}
+          {/* Right content - Portrait Image */}
           <div className="relative">
             {/* Decorative background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl blur-3xl" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl blur-3xl" />
             
-            <div className="relative glass rounded-3xl p-8 md:p-12">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-                {stats.map((stat, index) => (
-                  <div 
-                    key={index}
-                    className="text-center group"
-                  >
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-secondary flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                      <stat.icon className="w-8 h-8 text-primary" />
-                    </div>
-                    <div className="text-3xl md:text-4xl font-bold font-space-grotesk text-gradient mb-2">
-                      {stat.value}
-                    </div>
-                    <div className="text-muted-foreground text-sm">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
+            <div className="relative">
+              {/* Image container with decorative elements */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <img 
+                  src={aboutPortrait} 
+                  alt="IYM Team" 
+                  className="w-full h-auto object-cover aspect-square"
+                />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
               </div>
-
-              {/* Quote */}
-              <div className="mt-12 pt-8 border-t border-border/50">
-                <blockquote className="text-lg italic text-foreground/80 text-center">
+              
+              {/* Decorative accent */}
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-2xl blur-xl" />
+              <div className="absolute -top-4 -left-4 w-32 h-32 bg-accent/20 rounded-full blur-2xl" />
+              
+              {/* Quote card overlay */}
+              <div className="absolute bottom-6 left-6 right-6 glass rounded-2xl p-6">
+                <blockquote className="text-lg italic text-foreground/90 text-center">
                   "{t('about.quote')}"
                 </blockquote>
               </div>
