@@ -55,6 +55,16 @@ export default {
           primary: "hsl(var(--glow-primary))",
           accent: "hsl(var(--glow-accent))",
         },
+        stone: {
+          DEFAULT: "hsl(var(--stone-dark))",
+          texture: "hsl(var(--stone-texture))",
+          crack: "hsl(var(--stone-crack))",
+        },
+        gold: {
+          DEFAULT: "hsl(45 85% 55%)",
+          light: "hsl(45 90% 65%)",
+          dark: "hsl(40 90% 45%)",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
