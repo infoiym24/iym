@@ -7,13 +7,23 @@ import {
   AccordionTrigger 
 } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Users, Zap, Target, Wallet, Wrench, Shield } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const About = () => {
   const { t } = useLanguage();
-  
+  const navigate = useNavigate();
+
+  const handleContactClick = () => {
+    navigate('/');
+    setTimeout(() => {
+      const contactSection = document.querySelector('#contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
   const teamValues = [
     {
       icon: Zap,
@@ -159,11 +169,9 @@ const About = () => {
               <p className="text-muted-foreground mb-6">
                 {t('faq.more')}
               </p>
-              <Link to="/#contact">
-                <Button variant="hero" size="lg">
-                  {t('faq.contact')}
-                </Button>
-              </Link>
+              <Button variant="hero" size="lg" onClick={handleContactClick}>
+                {t('faq.contact')}
+              </Button>
             </div>
           </div>
         </section>
