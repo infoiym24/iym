@@ -88,7 +88,7 @@
     position: relative;
   }
 
-  /* Luxury marble texture background with gold veins - inspired by reference images */
+  /* Clean matte anthracite background with fine gold lines */
   body::before {
     content: '';
     position: fixed;
@@ -98,49 +98,35 @@
     bottom: 0;
     pointer-events: none;
     z-index: 0;
-    background-image: 
-      /* Gold marble veins - thick organic */
-      linear-gradient(23deg, transparent 45%, hsl(43 80% 55% / 0.12) 48%, hsl(43 80% 60% / 0.18) 50%, hsl(43 80% 55% / 0.12) 52%, transparent 55%),
-      linear-gradient(-35deg, transparent 44%, hsl(43 75% 50% / 0.1) 47%, hsl(43 80% 55% / 0.15) 50%, hsl(43 75% 50% / 0.1) 53%, transparent 56%),
-      linear-gradient(67deg, transparent 46%, hsl(43 80% 55% / 0.08) 49%, hsl(45 85% 58% / 0.12) 50%, hsl(43 80% 55% / 0.08) 51%, transparent 54%),
-      linear-gradient(-78deg, transparent 48%, hsl(38 85% 50% / 0.06) 49.5%, hsl(43 80% 55% / 0.1) 50%, hsl(38 85% 50% / 0.06) 50.5%, transparent 52%),
-      /* Branching veins */
-      linear-gradient(145deg, transparent 47%, hsl(43 80% 55% / 0.07) 49%, hsl(45 80% 55% / 0.1) 50%, hsl(43 80% 55% / 0.07) 51%, transparent 53%),
-      linear-gradient(-125deg, transparent 46%, hsl(43 75% 52% / 0.08) 49%, hsl(43 80% 55% / 0.12) 50%, hsl(43 75% 52% / 0.08) 51%, transparent 54%),
-      /* Deep forest texture overlay */
-      radial-gradient(ellipse at 15% 25%, hsl(155 50% 12% / 0.4) 0%, transparent 45%),
-      radial-gradient(ellipse at 85% 15%, hsl(150 45% 10% / 0.35) 0%, transparent 40%),
-      radial-gradient(ellipse at 35% 75%, hsl(155 50% 8% / 0.4) 0%, transparent 45%),
-      radial-gradient(ellipse at 75% 85%, hsl(150 40% 10% / 0.35) 0%, transparent 40%),
-      radial-gradient(ellipse at 50% 50%, hsl(155 45% 6% / 0.3) 0%, transparent 60%),
-      /* Base dark forest gradient */
-      var(--gradient-dark);
-    background-size: 
-      350px 350px,
-      280px 280px,
-      200px 450px,
-      400px 200px,
-      250px 250px,
-      320px 320px,
-      100% 100%,
-      100% 100%,
-      100% 100%,
-      100% 100%,
-      100% 100%,
-      100% 100%;
-    background-position:
-      0 0,
-      100px 80px,
-      50px 20px,
-      -50px 150px,
-      200px 100px,
-      150px 200px,
-      0 0,
-      0 0,
-      0 0,
-      0 0,
-      0 0,
-      0 0;
+    background: 
+      /* Fine diagonal gold lines */
+      repeating-linear-gradient(
+        45deg,
+        transparent 0px,
+        transparent 80px,
+        hsl(43 80% 55% / 0.06) 80px,
+        hsl(43 80% 55% / 0.08) 81px,
+        transparent 81px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        transparent 0px,
+        transparent 120px,
+        hsl(43 75% 50% / 0.05) 120px,
+        hsl(43 80% 55% / 0.07) 121px,
+        transparent 121px
+      ),
+      /* Subtle horizontal accent lines */
+      repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        transparent 200px,
+        hsl(43 80% 55% / 0.03) 200px,
+        hsl(43 80% 55% / 0.05) 201px,
+        transparent 201px
+      ),
+      /* Matte anthracite base */
+      linear-gradient(180deg, hsl(0 0% 12%) 0%, hsl(0 0% 10%) 50%, hsl(0 0% 8%) 100%);
   }
 
   h1, h2, h3, h4, h5, h6 {
