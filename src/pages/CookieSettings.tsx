@@ -1,49 +1,78 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
-import { Cookie, Shield, BarChart, Target } from 'lucide-react';
+import { Cookie, Shield, BarChart, Target, CheckCircle } from 'lucide-react';
+import { useCookieConsent, CookieSettings as CookieSettingsType } from '@/contexts/CookieConsentContext';
+import { toast } from 'sonner';
 
 const CookieSettings = () => {
-  const [settings, setSettings] = useState({
+  const navigate = useNavigate();
+  const { settings: savedSettings, updateSettings, acceptAll, acceptNecessaryOnly } = useCookieConsent();
+  
+  const [localSettings, setLocalSettings] = useState<CookieSettingsType>({
     necessary: true,
-    functional: true,
+    functional: false,
     analytics: false,
     marketing: false,
   });
 
+  // Sync with saved settings on mount
+  useEffect(() => {
+    setLocalSettings(savedSettings);
+  }, [savedSettings]);
+
   const handleSave = () => {
-    // Save cookie preferences
-    localStorage.setItem('cookieSettings', JSON.stringify(settings));
-    alert('Cookie-Einstellungen gespeichert!');
+    updateSettings(localSettings);
+    toast.success('Cookie-Einstellungen gespeichert!', {
+      icon: <CheckCircle className="w-5 h-5 text-green-500" />,
+    });
+    navigate('/');
+  };
+
+  const handleAcceptAll = () => {
+    acceptAll();
+    toast.success('Alle Cookies akzeptiert!', {
+      icon: <CheckCircle className="w-5 h-5 text-green-500" />,
+    });
+    navigate('/');
+  };
+
+  const handleAcceptNecessary = () => {
+    acceptNecessaryOnly();
+    toast.success('Nur notwendige Cookies aktiviert!', {
+      icon: <CheckCircle className="w-5 h-5 text-green-500" />,
+    });
+    navigate('/');
   };
 
   const cookieTypes = [
     {
-      id: 'necessary',
+      id: 'necessary' as const,
       icon: Shield,
       title: 'Notwendige Cookies',
-      description: 'Diese Cookies sind für das Funktionieren der Website unbedingt erforderlich und können nicht deaktiviert werden.',
+      description: 'Diese Cookies sind für das Funktionieren der Website unbedingt erforderlich und können nicht deaktiviert werden. Sie speichern z.B. Ihre Cookie-Einstellungen.',
       required: true,
     },
     {
-      id: 'functional',
+      id: 'functional' as const,
       icon: Cookie,
       title: 'Funktionale Cookies',
-      description: 'Diese Cookies ermöglichen erweiterte Funktionen und Personalisierung, wie z.B. das Speichern Ihrer Präferenzen.',
+      description: 'Diese Cookies ermöglichen erweiterte Funktionen und Personalisierung, wie z.B. das Speichern Ihrer Spracheinstellungen.',
       required: false,
     },
     {
-      id: 'analytics',
+      id: 'analytics' as const,
       icon: BarChart,
       title: 'Analyse Cookies',
-      description: 'Diese Cookies helfen uns zu verstehen, wie Besucher mit unserer Website interagieren, um sie zu verbessern.',
+      description: 'Diese Cookies helfen uns zu verstehen, wie Besucher mit unserer Website interagieren (z.B. Google Analytics). Die Daten werden anonymisiert erhoben.',
       required: false,
     },
     {
-      id: 'marketing',
+      id: 'marketing' as const,
       icon: Target,
       title: 'Marketing Cookies',
       description: 'Diese Cookies werden verwendet, um Werbung relevanter für Sie und Ihre Interessen zu gestalten.',
@@ -94,9 +123,9 @@ const CookieSettings = () => {
                     <div className="flex items-center space-x-2">
                       <Switch
                         id={cookie.id}
-                        checked={settings[cookie.id as keyof typeof settings]}
+                        checked={localSettings[cookie.id]}
                         onCheckedChange={(checked) =>
-                          !cookie.required && setSettings({ ...settings, [cookie.id]: checked })
+                          !cookie.required && setLocalSettings({ ...localSettings, [cookie.id]: checked })
                         }
                         disabled={cookie.required}
                       />
@@ -115,14 +144,14 @@ const CookieSettings = () => {
               </Button>
               <Button
                 variant="outline"
-                onClick={() => setSettings({ necessary: true, functional: true, analytics: true, marketing: true })}
+                onClick={handleAcceptAll}
                 className="flex-1"
               >
                 Alle akzeptieren
               </Button>
               <Button
                 variant="ghost"
-                onClick={() => setSettings({ necessary: true, functional: false, analytics: false, marketing: false })}
+                onClick={handleAcceptNecessary}
                 className="flex-1"
               >
                 Nur notwendige
@@ -135,6 +164,11 @@ const CookieSettings = () => {
                 Cookies sind kleine Textdateien, die auf Ihrem Computer oder Mobilgerät gespeichert werden, 
                 wenn Sie eine Website besuchen. Sie werden häufig verwendet, um Websites effizienter zu 
                 gestalten und Informationen an die Eigentümer der Website zu übermitteln.
+              </p>
+              <p className="text-muted-foreground text-sm mb-4">
+                <strong>Hinweis zu Google Analytics:</strong> Wenn Sie Analyse-Cookies aktivieren, wird 
+                Google Analytics geladen, um anonymisierte Nutzungsstatistiken zu erfassen. Die IP-Adresse 
+                wird dabei gekürzt (IP-Anonymisierung).
               </p>
               <p className="text-muted-foreground text-sm">
                 Weitere Informationen finden Sie in unserer{' '}
