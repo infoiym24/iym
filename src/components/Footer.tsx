@@ -116,12 +116,9 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="pt-8 border-t border-border/50 flex items-center justify-center">
           <p className="text-muted-foreground text-sm">
-            © {currentYear} IYM – I'm Your Man. {t('footer.rights')}
-          </p>
-          <p className="text-muted-foreground text-sm">
-            {t('footer.made')} <span className="text-primary">♥</span> {t('footer.created')}
+            © 2026 IYM – I'm Your Man. Alle Rechte vorbehalten.
           </p>
         </div>
       </div>
