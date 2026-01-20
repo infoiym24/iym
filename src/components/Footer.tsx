@@ -118,7 +118,7 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-border/50 flex items-center justify-center">
           <p className="text-muted-foreground text-sm">
-            © 2026 IYM – I'm Your Man. Alle Rechte vorbehalten.
+            © 2026 IYM I'm Your Man. Alle Rechte vorbehalten.
           </p>
         </div>
       </div>

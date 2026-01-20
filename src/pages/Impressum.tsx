@@ -35,7 +35,7 @@ const Impressum = () => {
               <section>
                 <h2 className="text-2xl font-semibold text-foreground mb-4">Umsatzsteuer</h2>
                 <p>
-                  Kleinunternehmer gemäß § 19 UStG – es wird keine Umsatzsteuer ausgewiesen.
+                  Kleinunternehmer gemäß § 19 UStG, es wird keine Umsatzsteuer ausgewiesen.
                 </p>
               </section>
 
