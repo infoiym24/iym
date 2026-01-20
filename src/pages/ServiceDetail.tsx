@@ -8,6 +8,17 @@ import {
 } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
 
+// Import generated images
+import entruempelung1 from '@/assets/entruempelung-1.jpg';
+import entruempelung2 from '@/assets/entruempelung-2.jpg';
+import reparatur1 from '@/assets/reparatur-1.jpg';
+import reparatur2 from '@/assets/reparatur-2.jpg';
+import mechanicObd from '@/assets/mechanic-obd.jpg';
+import parkingSensors from '@/assets/parking-sensors.jpg';
+import audiA4 from '@/assets/audi-a4-2018.jpg';
+import bmwF10 from '@/assets/bmw-f10.jpg';
+import serviceDetailing from '@/assets/service-detailing.jpg';
+
 interface ServiceInfo {
   titleKey: string;
   descKey: string;
@@ -171,10 +182,7 @@ Our clearance services:
 • **Экологичная утилизация** – Правильная сортировка и утилизация всех материалов
 • **Чистая передача** – Мы оставляем помещения чистыми и готовыми к заселению`
     },
-    images: [
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=500&fit=crop',
-      'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&h=500&fit=crop'
-    ]
+    images: [entruempelung1, entruempelung2]
   },
   'reparatur': {
     titleKey: 'service.reparatur',
@@ -233,10 +241,7 @@ Our repair service includes:
 • **Замки и фурнитура** – Замена замков, дверных ручек, петель и мебельной фурнитуры
 • **Аварийный ремонт** – Быстрая помощь при срочных проблемах`
     },
-    images: [
-      'https://images.unsplash.com/photo-1581092921461-eab62e97a2aa?w=800&h=500&fit=crop',
-      'https://images.unsplash.com/photo-1504148455328-c376907d081c?w=800&h=500&fit=crop'
-    ]
+    images: [reparatur1, reparatur2]
   },
   'autoservice': {
     titleKey: 'service.auto',
@@ -248,7 +253,7 @@ Our repair service includes:
       'Einparkhilfe Installation',
       'Ölwechsel vor Ort',
       'Batterie-Service',
-      'Klimaanlagen-Wartung'
+      'Professionelle Auto Diagnose'
     ],
     featuresEn: [
       'Mobile Tire Change',
@@ -256,7 +261,7 @@ Our repair service includes:
       'Parking Sensor Installation',
       'On-site Oil Change',
       'Battery Service',
-      'AC Maintenance'
+      'Professional Car Diagnostics'
     ],
     featuresRu: [
       'Мобильная замена шин',
@@ -264,7 +269,7 @@ Our repair service includes:
       'Установка парктроников',
       'Замена масла на месте',
       'Обслуживание аккумулятора',
-      'Обслуживание кондиционера'
+      'Профессиональная диагностика авто'
     ],
     extendedDescription: {
       de: `Unser mobiler Auto Service kommt zu Ihnen – bequem, zeitsparend und professionell. Ob Reifenwechsel, Nachrüstungen oder Wartungsarbeiten, wir erledigen alles vor Ort.
@@ -275,7 +280,7 @@ Unser Auto Service bietet:
 • **Einparkhilfe** – Installation von PDC-Sensoren und Rückfahrkameras
 • **Ölwechsel** – Professioneller Ölwechsel direkt bei Ihnen zu Hause oder am Arbeitsplatz
 • **Batterie-Service** – Überprüfung, Austausch und Starthilfe
-• **Klimaanlagen-Wartung** – Befüllung und Desinfektion der Klimaanlage`,
+• **Professionelle Auto Diagnose** – Computergestützte Fehlerauslese mit modernen OBD-Diagnosegeräten`,
       en: `Our mobile car service comes to you – convenient, time-saving and professional. Whether tire change, retrofits or maintenance work, we do everything on-site.
 
 Our car service offers:
@@ -284,7 +289,7 @@ Our car service offers:
 • **Parking Assist** – Installation of PDC sensors and rear cameras
 • **Oil Change** – Professional oil change directly at your home or workplace
 • **Battery Service** – Inspection, replacement and jump start
-• **AC Maintenance** – Refilling and disinfection of air conditioning`,
+• **Professional Car Diagnostics** – Computer-based error reading with modern OBD diagnostic devices`,
       ru: `Наш мобильный автосервис приезжает к вам – удобно, экономит время и профессионально. Замена шин, дооснащение или техобслуживание – мы делаем всё на месте.
 
 Наш автосервис предлагает:
@@ -293,12 +298,9 @@ Our car service offers:
 • **Парктроник** – Установка датчиков PDC и камер заднего вида
 • **Замена масла** – Профессиональная замена масла прямо у вас дома или на работе
 • **Обслуживание аккумулятора** – Проверка, замена и запуск
-• **Обслуживание кондиционера** – Заправка и дезинфекция кондиционера`
+• **Профессиональная диагностика** – Компьютерная диагностика с современными OBD-устройствами`
     },
-    images: [
-      'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&h=500&fit=crop',
-      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&h=500&fit=crop'
-    ]
+    images: [mechanicObd, parkingSensors]
   },
   'autofind': {
     titleKey: 'service.autofind',
@@ -309,7 +311,6 @@ Our car service offers:
       'Preisverhandlung',
       'Fahrzeugprüfung',
       'Import-Service',
-      'Finanzierungsberatung',
       'Übergabe & Anmeldung'
     ],
     featuresEn: [
@@ -317,7 +318,6 @@ Our car service offers:
       'Price Negotiation',
       'Vehicle Inspection',
       'Import Service',
-      'Financing Consultation',
       'Handover & Registration'
     ],
     featuresRu: [
@@ -325,7 +325,6 @@ Our car service offers:
       'Переговоры о цене',
       'Проверка автомобиля',
       'Импорт-сервис',
-      'Консультация по финансированию',
       'Передача и регистрация'
     ],
     extendedDescription: {
@@ -336,7 +335,6 @@ Unser Auto Find Service bietet:
 • **Professionelle Fahrzeugprüfung** – Technische Begutachtung, Unfallcheck und Zustandsbewertung
 • **Preisverhandlung** – Wir verhandeln den besten Preis für Sie
 • **Import-Service** – Fahrzeuge aus dem Ausland mit kompletter Abwicklung
-• **Finanzierungsberatung** – Unterstützung bei Leasing und Finanzierungsoptionen
 • **Komplette Übergabe** – Von der Anmeldung bis zur Schlüsselübergabe`,
       en: `Looking for your dream car? We'll find it for you! Our Auto Find Service handles the complete search, inspection and processing – you just sit back and relax.
 
@@ -345,7 +343,6 @@ Our Auto Find Service offers:
 • **Professional Vehicle Inspection** – Technical assessment, accident check and condition evaluation
 • **Price Negotiation** – We negotiate the best price for you
 • **Import Service** – Vehicles from abroad with complete processing
-• **Financing Consultation** – Support with leasing and financing options
 • **Complete Handover** – From registration to key handover`,
       ru: `Ищете автомобиль мечты? Мы найдём его для вас! Наш сервис Auto Find берёт на себя полный поиск, проверку и оформление – вы просто расслабляетесь.
 
@@ -354,13 +351,9 @@ Our Auto Find Service offers:
 • **Профессиональная проверка** – Техническая оценка, проверка на ДТП и оценка состояния
 • **Переговоры о цене** – Мы договоримся о лучшей цене для вас
 • **Импорт-сервис** – Автомобили из-за рубежа с полным оформлением
-• **Консультация по финансированию** – Помощь с лизингом и вариантами финансирования
 • **Полная передача** – От регистрации до передачи ключей`
     },
-    images: [
-      'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&h=500&fit=crop',
-      'https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&h=500&fit=crop'
-    ]
+    images: [audiA4, bmwF10]
   },
   'detailing': {
     titleKey: 'service.detailing',
@@ -419,10 +412,7 @@ Our Car Detailing Service:
 • **Детейлинг дисков** – Профессиональная чистка и опционально защитное покрытие
 • **Мойка двигателя** – Бережная очистка моторного отсека`
     },
-    images: [
-      'https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=800&h=500&fit=crop',
-      'https://images.unsplash.com/photo-1507136566006-cfc505b114fc?w=800&h=500&fit=crop'
-    ]
+    images: [serviceDetailing]
   }
 };
 
@@ -669,7 +659,7 @@ const ServiceDetail = () => {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <label className="block text-sm text-muted-foreground mb-2">
-                      {t('contact.form.name')}
+                      {t('contact.form.name')} <span className="text-primary">*</span>
                     </label>
                     <input
                       type="text"
@@ -683,7 +673,7 @@ const ServiceDetail = () => {
                   
                   <div>
                     <label className="block text-sm text-muted-foreground mb-2">
-                      {t('contact.email')}
+                      {t('contact.email')} <span className="text-primary">*</span>
                     </label>
                     <input
                       type="email"
@@ -697,7 +687,7 @@ const ServiceDetail = () => {
                   
                   <div>
                     <label className="block text-sm text-muted-foreground mb-2">
-                      {t('contact.phone')}
+                      {t('contact.phone')} <span className="text-muted-foreground/60">({language === 'de' ? 'optional' : language === 'en' ? 'optional' : 'необязательно'})</span>
                     </label>
                     <input
                       type="tel"
@@ -729,7 +719,7 @@ const ServiceDetail = () => {
                   
                   <div>
                     <label className="block text-sm text-muted-foreground mb-2">
-                      {t('contact.form.message')}
+                      {t('contact.form.message')} <span className="text-primary">*</span>
                     </label>
                     <textarea
                       value={formData.message}
