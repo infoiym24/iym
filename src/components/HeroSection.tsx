@@ -1,9 +1,14 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { TextReveal, PopReveal, SlideReveal, GlowReveal } from './ScrollReveal';
 
 const HeroSection = () => {
   const { t } = useLanguage();
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { once: true });
   
   const words = [
     { text: "I'm", delay: 0.5 },
@@ -12,7 +17,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+    <section ref={sectionRef} className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
       {/* Luxury animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Deep emerald glow */}
@@ -41,51 +46,62 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto">
           {/* Main heading - IYM huge and prominent with gold shimmer */}
-          <h1 className="text-[8rem] sm:text-[10rem] md:text-[14rem] lg:text-[18rem] font-display font-bold leading-none mb-8 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
-            <span 
-              className="text-gold animate-iym-glow inline-block"
-              style={{
-                textShadow: '0 0 60px hsl(43 80% 55% / 0.6), 0 0 120px hsl(43 80% 55% / 0.4)',
-              }}
-            >
-              IYM
-            </span>
-          </h1>
+          <PopReveal delay={0.2} scale={0.3}>
+            <h1 className="text-[8rem] sm:text-[10rem] md:text-[14rem] lg:text-[18rem] font-display font-bold leading-none mb-8">
+              <span 
+                className="text-gold animate-iym-glow inline-block"
+                style={{
+                  textShadow: '0 0 60px hsl(43 80% 55% / 0.6), 0 0 120px hsl(43 80% 55% / 0.4)',
+                }}
+              >
+                IYM
+              </span>
+            </h1>
+          </PopReveal>
           
           {/* I'm Your Man - elegant words pop in with 2 second delays */}
           <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-10 mb-14 min-h-[80px] sm:min-h-[100px] md:min-h-[120px]">
             {words.map((word) => (
-              <span
+              <motion.span
                 key={word.text}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-semibold text-foreground animate-word-pop-smooth"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-semibold text-foreground"
+                initial={{ opacity: 0, scale: 0.3 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{
+                  delay: word.delay,
+                  duration: 1,
+                  ease: [0.34, 1.56, 0.64, 1],
+                }}
                 style={{ 
-                  animationDelay: `${word.delay}s`,
-                  animationFillMode: 'forwards',
                   textShadow: '0 0 30px hsl(43 80% 55% / 0.2)',
                 }}
               >
                 {word.text}
-              </span>
+              </motion.span>
             ))}
           </div>
 
-          <p className="text-lg md:text-xl font-elegant italic text-muted-foreground max-w-2xl mx-auto mb-14 opacity-0 animate-fade-in leading-relaxed" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
-            {t('hero.description')}
-          </p>
+          <SlideReveal delay={0.4}>
+            <p className="text-lg md:text-xl font-elegant italic text-muted-foreground max-w-2xl mx-auto mb-14 leading-relaxed">
+              {t('hero.description')}
+            </p>
+          </SlideReveal>
 
           {/* CTA Buttons - Luxury styled */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 opacity-0 animate-fade-in" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>
-            <Link to="/services">
-              <Button variant="gold" size="xl" className="min-w-[200px]">
-                {t('hero.discover')}
-              </Button>
-            </Link>
-            <Link to="/about">
-              <Button variant="glass" size="xl" className="min-w-[200px]">
-                {t('hero.learn')}
-              </Button>
-            </Link>
-          </div>
+          <SlideReveal delay={0.6}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
+              <Link to="/services">
+                <Button variant="gold" size="xl" className="min-w-[200px]">
+                  {t('hero.discover')}
+                </Button>
+              </Link>
+              <Link to="/about">
+                <Button variant="glass" size="xl" className="min-w-[200px]">
+                  {t('hero.learn')}
+                </Button>
+              </Link>
+            </div>
+          </SlideReveal>
         </div>
       </div>
 
