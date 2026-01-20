@@ -18,7 +18,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Hero
     'hero.tagline': 'Ihre Lösung für fast alle Dienstleistungen',
-    'hero.description': 'Was auch immer Sie brauchen, wir haben den Mann für Ihren Job.',
+    'hero.description': 'Ihr zuverlässiger Partner für professionelle Dienstleistungen. Qualität, Vertrauen und Effizienz, alles aus einer Hand.',
     'hero.discover': 'Services entdecken',
     'hero.learn': 'Mehr erfahren',
     
@@ -62,7 +62,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.section.label': 'Über IYM',
     'about.section.title': 'Ihr Partner für',
     'about.section.titleHighlight': 'alle Fälle',
-    'about.section.description': 'IYM I\'m Your Man ist ein junges, engagiertes Team mit Erfahrung in verschiedensten Dienstleistungssektoren. Wir punkten mit Schnelligkeit, Innovation und Kompetenz und das alles zu fairen Preisen ohne versteckte Kosten. Wir scheuen uns nicht, unsere Hände dreckig zu machen!',
+    'about.section.description': 'Was auch immer Sie brauchen, wir haben den Mann für Ihren Job.',
     'about.quote': 'Was auch immer Sie brauchen, ich bin Ihr Mann für den Job.',
     'about.stat.customers': 'Zufriedene Kunden',
     'about.stat.availability': 'Erreichbarkeit',
@@ -178,7 +178,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Hero
     'hero.tagline': 'Your Solution for Almost All Services',
-    'hero.description': 'Whatever you need, we have the man for your job.',
+    'hero.description': 'Your reliable partner for professional services. Quality, trust, and efficiency, all from one source.',
     'hero.discover': 'Discover Services',
     'hero.learn': 'Learn More',
     
@@ -222,7 +222,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.section.label': 'About IYM',
     'about.section.title': 'Your Partner for',
     'about.section.titleHighlight': 'All Cases',
-    'about.section.description': 'IYM I\'m Your Man is a young, dedicated team with experience in various service sectors. We score with speed, innovation and competence, all at fair prices without hidden costs. We are not afraid to get our hands dirty!',
+    'about.section.description': 'Whatever you need, we have the man for your job.',
     'about.quote': 'Whatever you need, I\'m your man for the job.',
     'about.stat.customers': 'Satisfied Customers',
     'about.stat.availability': 'Availability',
@@ -338,7 +338,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Hero
     'hero.tagline': 'Ваше решение для почти всех услуг',
-    'hero.description': 'Что бы вам ни понадобилось, у нас есть человек для вашей работы.',
+    'hero.description': 'Ваш надежный партнер в сфере профессиональных услуг. Качество, доверие и эффективность, всё в одном месте.',
     'hero.discover': 'Узнать услуги',
     'hero.learn': 'Узнать больше',
     
@@ -382,7 +382,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.section.label': 'О IYM',
     'about.section.title': 'Ваш партнер на',
     'about.section.titleHighlight': 'все случаи',
-    'about.section.description': 'IYM I\'m Your Man это молодая, увлеченная команда с опытом в различных секторах услуг. Мы отличаемся скоростью, инновациями и компетентностью и всё это по справедливым ценам без скрытых расходов. Мы не боимся испачкать руки!',
+    'about.section.description': 'Что бы вам ни понадобилось, у нас есть человек для вашей работы.',
     'about.quote': 'Что бы вам ни понадобилось, я ваш человек для этой работы.',
     'about.stat.customers': 'Довольных клиентов',
     'about.stat.availability': 'Доступность',
