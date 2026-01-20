@@ -15,61 +15,70 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-24 relative">
+    <section id="about" className="py-28 relative">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Left content */}
           <div>
-            <span className="inline-block text-primary text-sm font-medium tracking-wider uppercase mb-4">
+            <span className="inline-block text-accent text-sm font-body font-medium tracking-[0.2em] uppercase mb-4">
               {t('about.section.label')}
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold font-space-grotesk mb-6">
-              {t('about.section.title')} <span className="text-gradient">{t('about.section.titleHighlight')}</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 leading-tight">
+              {t('about.section.title')}{' '}
+              <span className="text-gold">{t('about.section.titleHighlight')}</span>
             </h2>
-            <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+            <p className="text-muted-foreground text-lg font-elegant italic mb-10 leading-relaxed">
               {t('about.section.description')}
             </p>
 
-            {/* Features list */}
-            <div className="grid sm:grid-cols-2 gap-4 mb-8">
+            {/* Features list - luxury styled */}
+            <div className="grid sm:grid-cols-2 gap-5 mb-8">
               {features.map((feature, index) => (
                 <div 
                   key={index}
-                  className="flex items-start gap-3 animate-fade-in"
+                  className="flex items-start gap-4 animate-fade-in group"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-foreground/90">{feature}</span>
+                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300">
+                    <CheckCircle2 className="w-4 h-4 text-background" />
+                  </div>
+                  <span className="text-foreground/90 font-body">{feature}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right content - Portrait Image */}
+          {/* Right content - Portrait Image with luxury treatment */}
           <div className="relative">
-            {/* Decorative background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl blur-3xl" />
+            {/* Decorative background glows */}
+            <div className="absolute -inset-8 bg-gradient-to-br from-primary/15 to-accent/15 rounded-[40px] blur-3xl" />
             
             <div className="relative">
-              {/* Image container with decorative elements */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              {/* Image container with luxury frame */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-accent/20">
                 <img 
                   src={aboutPortrait} 
                   alt="IYM Team" 
                   className="w-full h-auto object-cover aspect-square"
                 />
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                
+                {/* Gold corner accents */}
+                <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-accent/50 rounded-tl-3xl" />
+                <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-accent/50 rounded-br-3xl" />
               </div>
               
-              {/* Decorative accent */}
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-2xl blur-xl" />
-              <div className="absolute -top-4 -left-4 w-32 h-32 bg-accent/20 rounded-full blur-2xl" />
+              {/* Decorative accents */}
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/25 rounded-2xl blur-2xl" />
+              <div className="absolute -top-6 -left-6 w-40 h-40 bg-accent/20 rounded-full blur-3xl" />
               
-              {/* Quote card overlay */}
-              <div className="absolute bottom-6 left-6 right-6 glass rounded-2xl p-6">
-                <blockquote className="text-lg italic text-foreground/90 text-center">
-                  "{t('about.quote')}"
+              {/* Quote card overlay - luxury styled */}
+              <div className="absolute bottom-8 left-6 right-6 glass-luxury rounded-2xl p-6 border border-accent/20">
+                <blockquote className="text-lg font-elegant italic text-foreground/90 text-center">
+                  <span className="text-accent text-2xl">"</span>
+                  {t('about.quote')}
+                  <span className="text-accent text-2xl">"</span>
                 </blockquote>
               </div>
             </div>
