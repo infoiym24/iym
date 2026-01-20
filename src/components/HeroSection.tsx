@@ -32,12 +32,8 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto">
-          {/* Tagline - at the very top */}
-          <p className="text-primary text-sm sm:text-base md:text-lg tracking-[0.3em] uppercase font-medium mb-6 opacity-0 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
-            {t('hero.tagline')}
-          </p>
-
           {/* Main heading - IYM huge and prominent */}
+
           <h1 className="text-[8rem] sm:text-[10rem] md:text-[14rem] lg:text-[18rem] font-black font-space-grotesk leading-none mb-8 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
             <span className="text-gradient animate-iym-glow inline-block">IYM</span>
           </h1>
