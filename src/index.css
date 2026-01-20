@@ -88,7 +88,7 @@
     position: relative;
   }
 
-  /* Clean matte anthracite background with fine gold lines */
+  /* Clean matte anthracite background - brushed texture */
   body::before {
     content: '';
     position: fixed;
@@ -98,35 +98,7 @@
     bottom: 0;
     pointer-events: none;
     z-index: 0;
-    background: 
-      /* Fine diagonal gold lines */
-      repeating-linear-gradient(
-        45deg,
-        transparent 0px,
-        transparent 80px,
-        hsl(43 80% 55% / 0.06) 80px,
-        hsl(43 80% 55% / 0.08) 81px,
-        transparent 81px
-      ),
-      repeating-linear-gradient(
-        -45deg,
-        transparent 0px,
-        transparent 120px,
-        hsl(43 75% 50% / 0.05) 120px,
-        hsl(43 80% 55% / 0.07) 121px,
-        transparent 121px
-      ),
-      /* Subtle horizontal accent lines */
-      repeating-linear-gradient(
-        90deg,
-        transparent 0px,
-        transparent 200px,
-        hsl(43 80% 55% / 0.03) 200px,
-        hsl(43 80% 55% / 0.05) 201px,
-        transparent 201px
-      ),
-      /* Matte anthracite base */
-      linear-gradient(180deg, hsl(0 0% 12%) 0%, hsl(0 0% 10%) 50%, hsl(0 0% 8%) 100%);
+    background: hsl(0 0% 10%);
   }
 
   h1, h2, h3, h4, h5, h6 {
