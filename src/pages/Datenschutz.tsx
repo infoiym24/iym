@@ -13,7 +13,7 @@ const Datenschutz = () => {
               Datenschutzerklärung
             </h1>
             
-            <div className="prose prose-invert max-w-none space-y-8 text-muted-foreground">
+            <div className="prose prose-invert max-w-none space-y-8 text-foreground/90">
               <section>
                 <h2 className="text-2xl font-semibold text-foreground mb-4">1. Allgemeine Hinweise</h2>
                 <p>
