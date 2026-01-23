@@ -6,73 +6,73 @@
 
 @layer base {
   :root {
-    /* Ultra Luxury Dark Forest & Gold Theme */
-    --background: 0 0% 12%;
+    /* Anthracite Stone with Forest Green & Gold Theme */
+    --background: 0 0% 10%;
     --foreground: 0 0% 95%;
 
-    --card: 0 0% 14%;
+    --card: 0 0% 12%;
     --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 14%;
+    --popover: 0 0% 12%;
     --popover-foreground: 0 0% 95%;
 
     /* Deep Forest Green Primary */
-    --primary: 155 50% 35%;
+    --primary: 150 45% 30%;
     --primary-foreground: 0 0% 98%;
-    --primary-glow: 145 60% 40%;
+    --primary-glow: 145 55% 35%;
 
-    --secondary: 0 0% 16%;
+    --secondary: 0 0% 14%;
     --secondary-foreground: 0 0% 92%;
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 75%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 72%;
 
     /* Royal Gold Accent */
-    --accent: 43 80% 55%;
-    --accent-foreground: 0 0% 10%;
-    --accent-glow: 45 90% 65%;
+    --accent: 43 85% 50%;
+    --accent-foreground: 0 0% 8%;
+    --accent-glow: 45 90% 58%;
 
     --destructive: 0 70% 45%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 22%;
-    --input: 0 0% 18%;
-    --ring: 43 80% 55%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 43 85% 50%;
 
     --radius: 0.75rem;
 
     /* Custom luxury tokens */
-    --glow-primary: 155 50% 25%;
-    --glow-accent: 43 80% 55%;
-    --glass-bg: 150 12% 8% / 0.9;
-    --glass-border: 43 80% 55% / 0.15;
+    --glow-primary: 150 45% 30%;
+    --glow-accent: 43 85% 50%;
+    --glass-bg: 0 0% 10% / 0.95;
+    --glass-border: 43 85% 50% / 0.2;
     
     /* Stone/Marble colors */
-    --stone-dark: 150 15% 4%;
-    --stone-crack: 43 80% 55%;
-    --stone-texture: 150 10% 10%;
-    --marble-vein: 43 75% 50%;
+    --stone-dark: 0 0% 8%;
+    --stone-crack: 43 85% 50%;
+    --stone-texture: 0 0% 12%;
+    --marble-vein: 43 80% 48%;
     
     /* Luxury Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(155 50% 25%) 0%, hsl(145 60% 35%) 50%, hsl(43 80% 55%) 100%);
-    --gradient-dark: linear-gradient(180deg, hsl(150 15% 6%) 0%, hsl(150 18% 4%) 100%);
-    --gradient-glass: linear-gradient(135deg, hsl(43 80% 55% / 0.08) 0%, hsl(43 80% 55% / 0.02) 100%);
-    --gradient-stone: linear-gradient(135deg, hsl(150 15% 6%) 0%, hsl(150 12% 8%) 50%, hsl(150 15% 5%) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(43 80% 55%) 0%, hsl(38 85% 50%) 50%, hsl(45 90% 60%) 100%);
-    --gradient-gold-shine: linear-gradient(90deg, transparent 0%, hsl(43 80% 65% / 0.3) 50%, transparent 100%);
-    --gradient-forest: linear-gradient(135deg, hsl(155 50% 20%) 0%, hsl(150 45% 15%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(150 45% 25%) 0%, hsl(145 50% 32%) 50%, hsl(43 85% 50%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 10%) 0%, hsl(0 0% 8%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(43 85% 50% / 0.1) 0%, hsl(43 85% 50% / 0.03) 100%);
+    --gradient-stone: linear-gradient(135deg, hsl(0 0% 10%) 0%, hsl(0 0% 12%) 50%, hsl(0 0% 9%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(43 85% 50%) 0%, hsl(38 90% 45%) 50%, hsl(45 95% 55%) 100%);
+    --gradient-gold-shine: linear-gradient(90deg, transparent 0%, hsl(43 85% 60% / 0.4) 50%, transparent 100%);
+    --gradient-forest: linear-gradient(135deg, hsl(150 45% 25%) 0%, hsl(145 40% 20%) 100%);
     
     /* Luxury Shadows */
     --shadow-glow: 0 0 40px hsl(var(--glow-accent) / 0.25);
     --shadow-glow-lg: 0 0 80px hsl(var(--glow-accent) / 0.35);
     --shadow-glow-accent: 0 0 40px hsl(var(--glow-accent) / 0.3);
-    --shadow-gold: 0 0 30px hsl(43 80% 55% / 0.2);
-    --shadow-emerald: 0 0 30px hsl(155 50% 25% / 0.3);
+    --shadow-gold: 0 0 30px hsl(43 85% 50% / 0.25);
+    --shadow-emerald: 0 0 30px hsl(150 45% 30% / 0.3);
   }
 
   .dark {
-    --background: 150 15% 6%;
-    --foreground: 40 30% 94%;
+    --background: 0 0% 8%;
+    --foreground: 0 0% 94%;
   }
 }
 
@@ -84,11 +84,12 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Montserrat', sans-serif;
-    background: var(--gradient-dark);
+    background: hsl(0 0% 10%);
     position: relative;
+    overflow-x: hidden;
   }
 
-  /* Clean matte anthracite background with blurred stone pattern */
+  /* Anthracite stone base layer */
   body::before {
     content: '';
     position: fixed;
@@ -99,9 +100,16 @@
     pointer-events: none;
     z-index: 0;
     background: 
-      hsl(0 0% 12%);
+      /* Stone texture - dark anthracite patches */
+      radial-gradient(ellipse 80% 60% at 15% 20%, hsl(0 0% 8%) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 80% at 85% 75%, hsl(0 0% 7%) 0%, transparent 45%),
+      radial-gradient(ellipse 70% 50% at 50% 50%, hsl(0 0% 11%) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 70% at 75% 25%, hsl(0 0% 9%) 0%, transparent 40%),
+      radial-gradient(ellipse 90% 40% at 25% 80%, hsl(0 0% 8%) 0%, transparent 50%),
+      hsl(0 0% 10%);
   }
 
+  /* Gold-filled cracks and forest green veins */
   body::after {
     content: '';
     position: fixed;
@@ -112,14 +120,24 @@
     pointer-events: none;
     z-index: 0;
     background: 
-      radial-gradient(ellipse at 20% 30%, hsl(0 0% 15% / 0.6) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 20%, hsl(0 0% 18% / 0.5) 0%, transparent 45%),
-      radial-gradient(ellipse at 60% 70%, hsl(0 0% 14% / 0.7) 0%, transparent 55%),
-      radial-gradient(ellipse at 30% 80%, hsl(0 0% 16% / 0.5) 0%, transparent 40%),
-      radial-gradient(ellipse at 90% 60%, hsl(0 0% 13% / 0.6) 0%, transparent 50%),
-      radial-gradient(ellipse at 10% 60%, hsl(0 0% 17% / 0.4) 0%, transparent 45%);
-    filter: blur(60px);
-    opacity: 0.8;
+      /* Gold cracks - diagonal */
+      linear-gradient(155deg, transparent 20%, hsl(43 85% 50% / 0.08) 20.5%, hsl(43 85% 50% / 0.15) 21%, transparent 21.5%),
+      linear-gradient(135deg, transparent 45%, hsl(43 85% 50% / 0.1) 45.3%, hsl(43 85% 50% / 0.18) 45.6%, transparent 46%),
+      linear-gradient(165deg, transparent 65%, hsl(43 85% 50% / 0.06) 65.2%, hsl(43 85% 50% / 0.12) 65.5%, transparent 66%),
+      linear-gradient(125deg, transparent 30%, hsl(43 85% 50% / 0.08) 30.3%, hsl(43 85% 50% / 0.14) 30.6%, transparent 31%),
+      linear-gradient(145deg, transparent 80%, hsl(43 85% 50% / 0.1) 80.2%, hsl(43 85% 50% / 0.16) 80.5%, transparent 81%),
+      /* Forest green veins */
+      linear-gradient(170deg, transparent 35%, hsl(150 45% 25% / 0.1) 35.3%, hsl(150 45% 30% / 0.15) 35.6%, transparent 36%),
+      linear-gradient(140deg, transparent 55%, hsl(145 50% 28% / 0.08) 55.2%, hsl(145 50% 32% / 0.12) 55.5%, transparent 56%),
+      linear-gradient(160deg, transparent 75%, hsl(150 45% 26% / 0.1) 75.2%, hsl(150 45% 30% / 0.14) 75.5%, transparent 76%),
+      /* Subtle gold glow spots at crack intersections */
+      radial-gradient(circle at 25% 35%, hsl(43 85% 50% / 0.08) 0%, transparent 15%),
+      radial-gradient(circle at 70% 60%, hsl(43 85% 50% / 0.06) 0%, transparent 12%),
+      radial-gradient(circle at 45% 85%, hsl(43 85% 50% / 0.07) 0%, transparent 10%),
+      radial-gradient(circle at 85% 20%, hsl(43 85% 50% / 0.05) 0%, transparent 8%),
+      /* Forest green accent glows */
+      radial-gradient(circle at 15% 70%, hsl(150 45% 30% / 0.06) 0%, transparent 12%),
+      radial-gradient(circle at 60% 30%, hsl(145 50% 28% / 0.05) 0%, transparent 10%);
   }
 
   h1, h2, h3, h4, h5, h6 {
