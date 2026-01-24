@@ -39,7 +39,7 @@ const Datenschutz = () => {
                 </p>
                 <p>
                   Telefon: 0163 8630704<br />
-                  E-Mail: gazarov2004@mail.ru
+                  E-Mail: info.iym24@gmail.com
                 </p>
               </section>
 
