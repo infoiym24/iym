@@ -41,7 +41,7 @@ const AboutSection = () => {
             <TrainReveal
               lines={[`${sectionTitle} ${sectionHighlight}`]}
               className="mb-6"
-              lineClassName="text-4xl md:text-5xl font-semibold font-playfair tracking-tight text-gradient-gold"
+              lineClassName="text-4xl md:text-5xl font-semibold font-playfair tracking-tight text-gradient-gold whitespace-normal"
               wordDelay={0.08}
               lineDelay={0.3}
             />
