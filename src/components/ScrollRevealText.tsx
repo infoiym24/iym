@@ -69,7 +69,7 @@ export const ScrollRevealText = ({
         <motion.span
           key={index}
           variants={wordReveal}
-          className="inline-block mr-[0.3em]"
+          className="inline-block mr-[0.3em] whitespace-nowrap"
         >
           {word}
         </motion.span>
@@ -217,7 +217,7 @@ export const TrainReveal = ({
             {words.map((word, wordIndex) => (
               <motion.span
                 key={wordIndex}
-                className="inline-block mr-[0.3em]"
+                className="inline-block mr-[0.3em] whitespace-nowrap"
                 initial={{ 
                   opacity: 0.12, 
                   filter: 'blur(12px)',
