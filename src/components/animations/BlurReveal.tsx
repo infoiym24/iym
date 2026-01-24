@@ -105,7 +105,7 @@ export const GoldenHeading = ({
   return (
     <div
       ref={ref}
-      className={`${className} text-gradient-gold flex flex-wrap`}
+      className={`${className} flex flex-wrap`}
       style={{ gap: '0.35em' }}
     >
       {wordsWithDelays.map((wordData, wordIndex) => (
@@ -118,6 +118,12 @@ export const GoldenHeading = ({
             <motion.span
               key={charIndex}
               className="inline-block"
+              style={{
+                background: 'linear-gradient(135deg, hsl(42 85% 60%) 0%, hsl(38 75% 48%) 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
               initial={{ opacity: 0.1, filter: 'blur(6px)' }}
               animate={isInView ? { 
                 opacity: 1, 
