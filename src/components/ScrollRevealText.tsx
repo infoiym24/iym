@@ -12,23 +12,23 @@ interface ScrollRevealTextProps {
   onComplete?: () => void;
 }
 
-// Elegant blur-to-focus reveal animation
 export const ScrollRevealText = ({
   children,
   className = '',
   as: Component = 'p',
   delay = 0,
-  staggerDelay = 0.08,
-  wordByWord = true,
+  staggerDelay = 0.03,
+  wordByWord = false,
   onComplete,
 }: ScrollRevealTextProps) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
   
   const words = children.split(' ');
+  const letters = children.split('');
 
   const container: Variants = {
-    hidden: { opacity: 1 },
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
@@ -38,40 +38,64 @@ export const ScrollRevealText = ({
     },
   };
 
-  // Blur-to-focus animation for each word
-  const wordReveal: Variants = {
+  const child: Variants = {
     hidden: {
-      opacity: 0.15,
-      filter: 'blur(10px)',
-      y: 4,
+      opacity: 0,
+      y: 20,
+      filter: 'blur(4px)',
     },
     visible: {
       opacity: 1,
-      filter: 'blur(0px)',
       y: 0,
+      filter: 'blur(0px)',
       transition: {
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        type: 'spring',
+        damping: 20,
+        stiffness: 100,
       },
     },
   };
 
+  if (wordByWord) {
+    return (
+      <motion.div
+        ref={ref}
+        className={`${className} flex flex-wrap`}
+        variants={container}
+        initial="hidden"
+        animate={isInView ? 'visible' : 'hidden'}
+        onAnimationComplete={() => onComplete?.()}
+      >
+        {words.map((word, index) => (
+          <motion.span
+            key={index}
+            variants={child}
+            className="inline-block mr-[0.25em]"
+          >
+            {word}
+          </motion.span>
+        ))}
+      </motion.div>
+    );
+  }
+
   return (
     <motion.div
       ref={ref}
-      className={`${className} flex flex-wrap`}
+      className={className}
       variants={container}
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}
       onAnimationComplete={() => onComplete?.()}
     >
-      {words.map((word, index) => (
+      {letters.map((letter, index) => (
         <motion.span
           key={index}
-          variants={wordReveal}
-          className="inline-block mr-[0.3em] whitespace-nowrap"
+          variants={child}
+          className="inline-block"
+          style={{ whiteSpace: letter === ' ' ? 'pre' : 'normal' }}
         >
-          {word}
+          {letter === ' ' ? '\u00A0' : letter}
         </motion.span>
       ))}
     </motion.div>
@@ -87,13 +111,13 @@ interface SequentialRevealProps {
 export const SequentialReveal = ({
   children,
   className = '',
-  staggerDelay = 0.15,
+  staggerDelay = 0.2,
 }: SequentialRevealProps) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   const container: Variants = {
-    hidden: { opacity: 1 },
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
@@ -103,18 +127,14 @@ export const SequentialReveal = ({
   };
 
   const item: Variants = {
-    hidden: { 
-      opacity: 0.1, 
-      filter: 'blur(6px)',
-      y: 15 
-    },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
-      filter: 'blur(0px)',
       y: 0,
       transition: {
-        duration: 0.5,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        type: 'spring',
+        damping: 25,
+        stiffness: 100,
       },
     },
   };
@@ -142,35 +162,20 @@ interface PopRevealProps {
   delay?: number;
 }
 
-// Refined glow reveal instead of pop
 export const PopReveal = ({ children, className = '', delay = 0 }: PopRevealProps) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-60px' });
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
 
   return (
     <motion.div
       ref={ref}
       className={className}
-      initial={{ 
-        opacity: 0.1, 
-        filter: 'blur(8px) brightness(0.6)',
-        scale: 0.98,
-        y: 20 
-      }}
-      animate={isInView ? { 
-        opacity: 1, 
-        filter: 'blur(0px) brightness(1)',
-        scale: 1, 
-        y: 0 
-      } : { 
-        opacity: 0.1, 
-        filter: 'blur(8px) brightness(0.6)',
-        scale: 0.98, 
-        y: 20 
-      }}
+      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+      animate={isInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.8, y: 20 }}
       transition={{
-        duration: 0.7,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        type: 'spring',
+        damping: 15,
+        stiffness: 150,
         delay,
       }}
     >
@@ -183,104 +188,55 @@ interface TrainRevealProps {
   lines: string[];
   className?: string;
   lineClassName?: string;
-  wordDelay?: number;
+  charDelay?: number;
   lineDelay?: number;
 }
 
-// Elegant word-by-word blur reveal (like a "train" effect)
 export const TrainReveal = ({
   lines,
   className = '',
   lineClassName = '',
-  wordDelay = 0.06,
-  lineDelay = 0.3,
+  charDelay = 0.02,
+  lineDelay = 0.1,
 }: TrainRevealProps) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-60px' });
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
 
-  let totalWords = 0;
+  let totalChars = 0;
 
   return (
     <div ref={ref} className={className}>
       {lines.map((line, lineIndex) => {
-        const words = line.split(' ');
-        const lineStartDelay = totalWords * wordDelay + lineIndex * lineDelay;
-        totalWords += words.length;
+        const lineStartDelay = totalChars * charDelay + lineIndex * lineDelay;
+        const chars = line.split('');
+        totalChars += chars.length;
 
         return (
           <motion.div
             key={lineIndex}
-            className={`${lineClassName} flex flex-wrap`}
+            className={lineClassName}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
           >
-            {words.map((word, wordIndex) => (
+            {chars.map((char, charIndex) => (
               <motion.span
-                key={wordIndex}
-                className="inline-block mr-[0.3em] whitespace-nowrap"
-                initial={{ 
-                  opacity: 0.12, 
-                  filter: 'blur(12px)',
-                  y: 6
-                }}
-                animate={isInView ? { 
-                  opacity: 1, 
-                  filter: 'blur(0px)',
-                  y: 0
-                } : { 
-                  opacity: 0.12, 
-                  filter: 'blur(12px)',
-                  y: 6
-                }}
+                key={charIndex}
+                className="inline-block"
+                style={{ whiteSpace: char === ' ' ? 'pre' : 'normal' }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
                 transition={{
-                  duration: 0.5,
-                  delay: lineStartDelay + wordIndex * wordDelay,
-                  ease: [0.25, 0.46, 0.45, 0.94],
+                  duration: 0.1,
+                  delay: lineStartDelay + charIndex * charDelay,
+                  ease: 'easeOut',
                 }}
               >
-                {word}
+                {char === ' ' ? '\u00A0' : char}
               </motion.span>
             ))}
           </motion.div>
         );
       })}
     </div>
-  );
-};
-
-interface GlowRevealProps {
-  children: ReactNode;
-  className?: string;
-  delay?: number;
-}
-
-// Premium glow-in reveal for special elements
-export const GlowReveal = ({ children, className = '', delay = 0 }: GlowRevealProps) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
-
-  return (
-    <motion.div
-      ref={ref}
-      className={className}
-      initial={{ 
-        opacity: 0, 
-        filter: 'blur(15px) brightness(0.3)',
-      }}
-      animate={isInView ? { 
-        opacity: 1, 
-        filter: 'blur(0px) brightness(1)',
-      } : { 
-        opacity: 0, 
-        filter: 'blur(15px) brightness(0.3)',
-      }}
-      transition={{
-        duration: 1,
-        ease: [0.25, 0.46, 0.45, 0.94],
-        delay,
-      }}
-    >
-      {children}
-    </motion.div>
   );
 };
