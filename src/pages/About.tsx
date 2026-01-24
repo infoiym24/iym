@@ -191,7 +191,7 @@ const About = () => {
               <p className="text-muted-foreground mb-6">
                 {t('faq.more')}
               </p>
-              <Button variant="hero" size="lg" onClick={handleContactClick}>
+              <Button variant="luxury" size="lg" onClick={handleContactClick}>
                 {t('faq.contact')}
               </Button>
             </div>
