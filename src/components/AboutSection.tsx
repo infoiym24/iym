@@ -1,13 +1,13 @@
 import { CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import aboutPortrait from '@/assets/about-portrait.jpg';
-import { TrainReveal, PopReveal, SequentialReveal } from './ScrollRevealText';
+import { BlurRevealText, SlideUpReveal, StaggerContainer } from './animations/BlurReveal';
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { useInView } from 'framer-motion';
 
 const AboutSection = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const imageRef = useRef(null);
   const imageInView = useInView(imageRef, { once: true, margin: '-100px' });
 
@@ -21,108 +21,91 @@ const AboutSection = () => {
   ];
 
   const sectionLabel = t('about.section.label');
-  const sectionTitle = t('about.section.title');
-  const sectionHighlight = t('about.section.titleHighlight');
+  const sectionTitle = `${t('about.section.title')} ${t('about.section.titleHighlight')}`;
   const sectionDescription = t('about.section.description');
 
   return (
-    <section id="about" className="py-24 relative">
+    <section id="about" className="py-28 relative">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Left content */}
           <div>
-            <TrainReveal
-              lines={[sectionLabel]}
-              className="mb-4"
-              lineClassName="text-primary text-sm font-medium tracking-[0.3em] uppercase font-montserrat inline-block"
-              charDelay={0.04}
-            />
+            <SlideUpReveal delay={0}>
+              <span className="text-forest-light text-sm font-medium tracking-[0.25em] uppercase mb-4 block">
+                {sectionLabel}
+              </span>
+            </SlideUpReveal>
             
-            <TrainReveal
-              lines={[`${sectionTitle} ${sectionHighlight}`]}
-              className="mb-6"
-              lineClassName="text-4xl md:text-5xl font-bold font-cinzel tracking-wide text-gradient-gold"
-              charDelay={0.025}
-              lineDelay={0.3}
-            />
+            <BlurRevealText
+              className="text-4xl md:text-5xl font-display font-semibold text-gradient-gold mb-6 leading-tight"
+              delay={0.1}
+              staggerDelay={0.1}
+            >
+              {sectionTitle}
+            </BlurRevealText>
             
-            <div className="gold-divider max-w-xs mb-6" />
+            <div className="gold-divider max-w-[200px] mb-8" />
             
-            <TrainReveal
-              lines={sectionDescription.split('. ').filter(s => s).map(s => s + '.')}
-              className="mb-8"
-              lineClassName="text-muted-foreground text-lg leading-relaxed font-montserrat block mb-2"
-              charDelay={0.012}
-              lineDelay={0.15}
-            />
+            <SlideUpReveal delay={0.3}>
+              <p className="text-muted-foreground text-lg leading-relaxed mb-10">
+                {sectionDescription}
+              </p>
+            </SlideUpReveal>
 
-            {/* Features list with sequential reveal */}
-            <SequentialReveal 
-              className="grid sm:grid-cols-2 gap-4 mb-8"
-              staggerDelay={0.15}
+            {/* Features list */}
+            <StaggerContainer 
+              className="grid sm:grid-cols-2 gap-4"
+              staggerDelay={0.1}
+              initialDelay={0.4}
             >
               {features.map((feature, index) => (
                 <div 
                   key={index}
                   className="flex items-start gap-3"
                 >
-                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-foreground/90 font-montserrat">{feature}</span>
+                  <CheckCircle2 className="w-5 h-5 text-forest-light flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground/85">{feature}</span>
                 </div>
               ))}
-            </SequentialReveal>
+            </StaggerContainer>
           </div>
 
-          {/* Right content - Portrait Image with pop effect */}
+          {/* Right content - Portrait Image */}
           <div className="relative" ref={imageRef}>
-            {/* Decorative background */}
+            {/* Decorative background glow */}
             <motion.div 
-              className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-3xl"
+              className="absolute inset-0 bg-gradient-to-br from-forest/20 to-primary/10 rounded-2xl blur-3xl"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={imageInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 1 }}
             />
             
             <motion.div 
               className="relative"
-              initial={{ opacity: 0, scale: 0.9, y: 30 }}
-              animate={imageInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.9, y: 30 }}
-              transition={{ duration: 0.8, delay: 0.2, type: 'spring', damping: 20 }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={imageInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              {/* Image container with decorative elements */}
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-primary/20">
+              {/* Image container */}
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/30">
                 <img 
                   src={aboutPortrait} 
                   alt="IYM Team" 
                   className="w-full h-auto object-cover aspect-square"
                 />
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
               </div>
-              
-              {/* Decorative accent */}
-              <motion.div 
-                className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-xl blur-xl"
-                initial={{ opacity: 0 }}
-                animate={imageInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ delay: 0.5, duration: 0.5 }}
-              />
-              <motion.div 
-                className="absolute -top-4 -left-4 w-32 h-32 bg-primary/10 rounded-full blur-2xl"
-                initial={{ opacity: 0 }}
-                animate={imageInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ delay: 0.6, duration: 0.5 }}
-              />
               
               {/* Quote card overlay */}
               <motion.div 
-                className="absolute bottom-6 left-6 right-6 glass-luxury rounded-xl p-6"
+                className="absolute bottom-6 left-6 right-6 glass-forest rounded-xl p-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={imageInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ delay: 0.7, duration: 0.5 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
               >
-                <blockquote className="text-lg italic text-foreground/90 text-center font-cormorant">
-                  "{t('about.quote')}"
+                <blockquote className="text-lg italic text-foreground/90 text-center font-display">
+                  "Was auch immer Sie brauchen, wir haben den Mann für Ihren Job."
                 </blockquote>
               </motion.div>
             </motion.div>

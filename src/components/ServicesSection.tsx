@@ -8,10 +8,10 @@ import {
 } from 'lucide-react';
 import ServiceCard from './ServiceCard';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { TrainReveal, PopReveal } from './ScrollRevealText';
+import { BlurRevealText, SlideUpReveal, StaggerContainer } from './animations/BlurReveal';
 
 const ServicesSection = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   
   const services = [
     {
@@ -53,55 +53,54 @@ const ServicesSection = () => {
   ];
 
   const sectionLabel = t('services.section.label');
-  const sectionTitle = t('services.section.title');
-  const sectionHighlight = t('services.section.titleHighlight');
+  const sectionTitle = `${t('services.section.title')} ${t('services.section.titleHighlight')}`;
   const sectionSubtitle = t('services.section.subtitle');
 
   return (
-    <section id="services" className="py-24 relative">
-      {/* Background decoration */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+    <section id="services" className="py-28 relative">
+      {/* Top decorative line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-forest/40 to-transparent" />
       
       <div className="container mx-auto px-4">
-        {/* Section header with train reveal */}
-        <div className="text-center mb-16">
-          <TrainReveal
-            lines={[sectionLabel]}
-            className="mb-4"
-            lineClassName="text-primary text-sm font-medium tracking-[0.3em] uppercase font-montserrat"
-            charDelay={0.03}
-          />
+        {/* Section header */}
+        <div className="text-center mb-20">
+          <SlideUpReveal delay={0}>
+            <span className="text-forest-light text-sm font-medium tracking-[0.25em] uppercase mb-4 block">
+              {sectionLabel}
+            </span>
+          </SlideUpReveal>
           
-          <TrainReveal
-            lines={[`${sectionTitle} ${sectionHighlight}`]}
-            className="mb-6"
-            lineClassName="text-4xl md:text-5xl font-bold font-cinzel tracking-wide text-gradient-gold"
-            charDelay={0.02}
-            lineDelay={0.5}
-          />
+          <BlurRevealText
+            className="text-4xl md:text-5xl font-display font-semibold text-gradient-gold mb-6 justify-center"
+            delay={0.1}
+            staggerDelay={0.1}
+          >
+            {sectionTitle}
+          </BlurRevealText>
           
-          <div className="gold-divider max-w-xs mx-auto mb-6" />
+          <div className="gold-divider max-w-[200px] mx-auto mb-6" />
           
-          <TrainReveal
-            lines={[sectionSubtitle]}
-            className="max-w-2xl mx-auto"
-            lineClassName="text-muted-foreground text-lg font-montserrat"
-            charDelay={0.015}
-            lineDelay={0.8}
-          />
+          <SlideUpReveal delay={0.3}>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              {sectionSubtitle}
+            </p>
+          </SlideUpReveal>
         </div>
 
-        {/* Services grid with pop reveal */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <PopReveal key={service.title} delay={index * 0.1}>
-              <ServiceCard
-                {...service}
-                delay={0}
-              />
-            </PopReveal>
+        {/* Services grid */}
+        <StaggerContainer 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          staggerDelay={0.1}
+          initialDelay={0.4}
+        >
+          {services.map((service) => (
+            <ServiceCard
+              key={service.title}
+              {...service}
+              delay={0}
+            />
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

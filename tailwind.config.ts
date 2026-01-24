@@ -14,11 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        'cinzel': ['Cinzel', 'serif'],
-        'cormorant': ['Cormorant Garamond', 'serif'],
-        'montserrat': ['Montserrat', 'sans-serif'],
-        'outfit': ['Outfit', 'sans-serif'],
-        'space-grotesk': ['Space Grotesk', 'sans-serif'],
+        'sans': ['DM Sans', 'Inter', 'system-ui', 'sans-serif'],
+        'display': ['Playfair Display', 'Georgia', 'serif'],
+        'mono': ['JetBrains Mono', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -54,19 +52,15 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        glow: {
-          primary: "hsl(var(--glow-primary))",
-          accent: "hsl(var(--glow-accent))",
-        },
         gold: {
-          light: "hsl(42 90% 65%)",
-          DEFAULT: "hsl(42 85% 55%)",
-          dark: "hsl(38 80% 45%)",
+          light: "hsl(42 80% 60%)",
+          DEFAULT: "hsl(42 75% 50%)",
+          dark: "hsl(38 70% 40%)",
         },
         forest: {
-          light: "hsl(150 30% 20%)",
-          DEFAULT: "hsl(150 40% 15%)",
-          dark: "hsl(150 35% 8%)",
+          light: "hsl(155 40% 30%)",
+          DEFAULT: "hsl(155 45% 20%)",
+          dark: "hsl(155 35% 12%)",
         },
       },
       borderRadius: {
@@ -95,10 +89,6 @@ export default {
           "0%": { transform: "translateY(100%)", opacity: "0" },
           "100%": { transform: "translateY(0)", opacity: "1" },
         },
-        "shimmer": {
-          "0%": { backgroundPosition: "-200% 0" },
-          "100%": { backgroundPosition: "200% 0" },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -106,15 +96,11 @@ export default {
         "fade-in": "fade-in 0.6s ease-out forwards",
         "scale-in": "scale-in 0.4s ease-out forwards",
         "slide-up": "slide-up 0.6s ease-out forwards",
-        "shimmer": "shimmer 2s linear infinite",
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-primary': 'linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%)',
-        'shimmer': 'linear-gradient(90deg, transparent 0%, hsl(var(--primary) / 0.1) 50%, transparent 100%)',
-        'gradient-forest': 'linear-gradient(135deg, hsl(150 25% 4%) 0%, hsl(140 30% 8%) 50%, hsl(150 25% 4%) 100%)',
-        'gradient-gold': 'linear-gradient(135deg, hsl(42 90% 60%) 0%, hsl(38 80% 45%) 100%)',
-        'gradient-luxury': 'linear-gradient(135deg, hsl(150 15% 10%) 0%, hsl(150 12% 6%) 100%)',
+        'gradient-gold': 'linear-gradient(135deg, hsl(42 80% 55%) 0%, hsl(38 70% 42%) 100%)',
+        'gradient-forest': 'linear-gradient(135deg, hsl(155 40% 12%) 0%, hsl(155 45% 22%) 50%, hsl(155 40% 12%) 100%)',
       },
     },
   },
