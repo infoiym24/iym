@@ -28,7 +28,7 @@ const Impressum = () => {
                 <h2 className="text-2xl font-semibold text-foreground mb-4">Kontakt</h2>
                 <p>
                   Telefon: 0163 8630704<br />
-                  E-Mail: <a href="mailto:gazarov2004@mail.ru" className="text-primary hover:underline">gazarov2004@mail.ru</a>
+                  E-Mail: <a href="mailto:info.iym24@gmail.com" className="text-primary hover:underline">info.iym24@gmail.com</a>
                 </p>
               </section>
 
