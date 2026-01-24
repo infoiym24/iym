@@ -1,11 +1,11 @@
-import { Send } from 'lucide-react';
+import { Send, Loader2, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { TrainReveal, PopReveal } from './ScrollRevealText';
-import { motion } from 'framer-motion';
-import { useRef } from 'react';
-import { useInView } from 'framer-motion';
+import { TrainReveal } from './ScrollRevealText';
+import { motion, useInView } from 'framer-motion';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
 
 const ContactSection = () => {
   const { t, language } = useLanguage();
@@ -18,10 +18,47 @@ const ContactSection = () => {
     service: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || undefined,
+          service: formData.service || undefined,
+          message: formData.message,
+        },
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+      
+      const successMessage = language === 'de' ? 'Nachricht erfolgreich gesendet!' :
+                            language === 'en' ? 'Message sent successfully!' :
+                            'Сообщение успешно отправлено!';
+      toast.success(successMessage);
+
+      // Reset success state after 5 seconds
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (error: any) {
+      console.error('Error sending message:', error);
+      const errorMessage = language === 'de' ? 'Fehler beim Senden. Bitte versuchen Sie es erneut.' :
+                          language === 'en' ? 'Failed to send. Please try again.' :
+                          'Ошибка отправки. Пожалуйста, попробуйте снова.';
+      toast.error(errorMessage);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const serviceSelectLabel = language === 'de' ? 'Service auswählen (optional)' :
@@ -218,10 +255,29 @@ const ContactSection = () => {
                 animate={formInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ delay: 0.7, duration: 0.4 }}
               >
-                <Button variant="luxury" size="lg" className="w-full group relative overflow-hidden">
+                <Button 
+                  variant="luxury" 
+                  size="lg" 
+                  className="w-full group relative overflow-hidden"
+                  disabled={isSubmitting || isSubmitted}
+                >
                   <span className="relative z-10 flex items-center justify-center">
-                    <Send className="w-5 h-5 mr-2 transition-transform duration-300 group-hover:translate-x-1" />
-                    {t('contact.form.submit')}
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                        {language === 'de' ? 'Wird gesendet...' : language === 'en' ? 'Sending...' : 'Отправка...'}
+                      </>
+                    ) : isSubmitted ? (
+                      <>
+                        <CheckCircle className="w-5 h-5 mr-2" />
+                        {language === 'de' ? 'Gesendet!' : language === 'en' ? 'Sent!' : 'Отправлено!'}
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5 mr-2 transition-transform duration-300 group-hover:translate-x-1" />
+                        {t('contact.form.submit')}
+                      </>
+                    )}
                   </span>
                 </Button>
               </motion.div>
