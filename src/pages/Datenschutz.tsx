@@ -38,7 +38,6 @@ const Datenschutz = () => {
                   Deutschland
                 </p>
                 <p>
-                  Telefon: 0163 8630704<br />
                   E-Mail: info.iym24@gmail.com
                 </p>
               </section>
