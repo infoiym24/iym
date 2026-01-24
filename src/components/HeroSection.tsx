@@ -15,27 +15,26 @@ const HeroSection = () => {
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[100px] animate-pulse-slow" />
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-accent/15 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '1.5s' }} />
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] animate-pulse-slow" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] animate-pulse-slow" style={{ animationDelay: '1.5s' }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-primary/5 to-transparent rounded-full" />
       </div>
 
-      {/* Grid pattern overlay */}
+      {/* Elegant grid pattern overlay */}
       <div 
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0 opacity-5"
         style={{
-          backgroundImage: `linear-gradient(hsl(var(--primary) / 0.2) 1px, transparent 1px),
-                           linear-gradient(90deg, hsl(var(--primary) / 0.2) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px',
+          backgroundImage: `linear-gradient(hsl(42 85% 55% / 0.3) 1px, transparent 1px),
+                           linear-gradient(90deg, hsl(42 85% 55% / 0.3) 1px, transparent 1px)`,
+          backgroundSize: '80px 80px',
         }}
       />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto">
           {/* Main heading - IYM huge and prominent */}
-
-          <h1 className="text-[8rem] sm:text-[10rem] md:text-[14rem] lg:text-[18rem] font-black font-space-grotesk leading-none mb-8 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
-            <span className="text-gradient animate-iym-glow inline-block">IYM</span>
+          <h1 className="text-[8rem] sm:text-[10rem] md:text-[14rem] lg:text-[18rem] font-black font-cinzel leading-none mb-8 opacity-0 animate-fade-in tracking-widest" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
+            <span className="text-gradient-gold animate-iym-glow inline-block">IYM</span>
           </h1>
           
           {/* I'm Your Man - words pop in with 2 second delays */}
@@ -43,7 +42,7 @@ const HeroSection = () => {
             {words.map((word) => (
               <span
                 key={word.text}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground animate-word-pop-smooth"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-foreground font-cormorant italic animate-word-pop-smooth"
                 style={{ 
                   animationDelay: `${word.delay}s`,
                   animationFillMode: 'forwards'
@@ -54,19 +53,19 @@ const HeroSection = () => {
             ))}
           </div>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 opacity-0 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 opacity-0 animate-fade-in font-montserrat" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
             {t('hero.description')}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>
             <Link to="/services">
-              <Button variant="hero" size="xl">
+              <Button variant="luxury" size="xl">
                 {t('hero.discover')}
               </Button>
             </Link>
             <Link to="/about">
-              <Button variant="glass" size="xl">
+              <Button variant="gold" size="xl">
                 {t('hero.learn')}
               </Button>
             </Link>

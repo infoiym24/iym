@@ -49,15 +49,15 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass">
+    <nav className="fixed top-0 left-0 right-0 z-50 glass-luxury">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo - navigates to homepage top */}
-          <button onClick={handleLogoClick} className="flex items-center gap-2 group bg-transparent border-none cursor-pointer">
-            <span className="text-2xl font-bold font-space-grotesk text-gradient">
+          <button onClick={handleLogoClick} className="flex items-center gap-3 group bg-transparent border-none cursor-pointer">
+            <span className="text-3xl font-bold font-cinzel text-gradient-gold tracking-widest">
               IYM
             </span>
-            <span className="text-sm text-muted-foreground hidden sm:block group-hover:text-foreground transition-colors">
+            <span className="text-sm text-muted-foreground hidden sm:block group-hover:text-primary transition-colors font-cormorant italic">
               I'm Your Man
             </span>
           </button>
@@ -68,14 +68,14 @@ const Navbar = () => {
               <button
                 key={link.name}
                 onClick={() => handleNavClick(link.href, link.isRoute)}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 relative group bg-transparent border-none cursor-pointer"
+                className="text-muted-foreground hover:text-primary transition-colors duration-300 relative group bg-transparent border-none cursor-pointer font-montserrat tracking-wide text-sm uppercase"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-gold-light transition-all duration-300 group-hover:w-full" />
               </button>
             ))}
             <LanguageSwitcher />
-            <Button variant="glow" size="sm" onClick={() => handleNavClick('#contact')}>
+            <Button variant="luxury" size="sm" onClick={() => handleNavClick('#contact')}>
               {t('nav.request')}
             </Button>
           </div>
@@ -100,12 +100,12 @@ const Navbar = () => {
                 <button
                   key={link.name}
                   onClick={() => handleNavClick(link.href, link.isRoute)}
-                  className="text-muted-foreground hover:text-primary transition-colors py-2 text-left bg-transparent border-none cursor-pointer"
+                  className="text-muted-foreground hover:text-primary transition-colors py-2 text-left bg-transparent border-none cursor-pointer font-montserrat tracking-wide text-sm uppercase"
                 >
                   {link.name}
                 </button>
               ))}
-              <Button variant="glow" className="mt-2" onClick={() => handleNavClick('#contact')}>
+              <Button variant="luxury" className="mt-2" onClick={() => handleNavClick('#contact')}>
                 {t('nav.request')}
               </Button>
             </div>

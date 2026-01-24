@@ -14,6 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
+        'cinzel': ['Cinzel', 'serif'],
+        'cormorant': ['Cormorant Garamond', 'serif'],
+        'montserrat': ['Montserrat', 'sans-serif'],
         'outfit': ['Outfit', 'sans-serif'],
         'space-grotesk': ['Space Grotesk', 'sans-serif'],
       },
@@ -54,6 +57,16 @@ export default {
         glow: {
           primary: "hsl(var(--glow-primary))",
           accent: "hsl(var(--glow-accent))",
+        },
+        gold: {
+          light: "hsl(42 90% 65%)",
+          DEFAULT: "hsl(42 85% 55%)",
+          dark: "hsl(38 80% 45%)",
+        },
+        forest: {
+          light: "hsl(150 30% 20%)",
+          DEFAULT: "hsl(150 40% 15%)",
+          dark: "hsl(150 35% 8%)",
         },
       },
       borderRadius: {
@@ -100,7 +113,8 @@ export default {
         'gradient-primary': 'linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%)',
         'shimmer': 'linear-gradient(90deg, transparent 0%, hsl(var(--primary) / 0.1) 50%, transparent 100%)',
         'gradient-forest': 'linear-gradient(135deg, hsl(150 25% 4%) 0%, hsl(140 30% 8%) 50%, hsl(150 25% 4%) 100%)',
-        'gradient-ochre': 'linear-gradient(135deg, hsl(35 75% 55%) 0%, hsl(40 80% 45%) 100%)',
+        'gradient-gold': 'linear-gradient(135deg, hsl(42 90% 60%) 0%, hsl(38 80% 45%) 100%)',
+        'gradient-luxury': 'linear-gradient(135deg, hsl(150 15% 10%) 0%, hsl(150 12% 6%) 100%)',
       },
     },
   },

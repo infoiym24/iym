@@ -64,18 +64,18 @@ const Footer = () => {
   return (
     <footer className="relative pt-24 pb-8">
       {/* Top border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand column */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
-              <span className="text-3xl font-bold font-space-grotesk text-gradient">
+              <span className="text-3xl font-bold font-cinzel text-gradient-gold tracking-widest">
                 IYM
               </span>
             </Link>
-            <p className="text-muted-foreground mb-6 max-w-sm">
+            <p className="text-muted-foreground mb-6 max-w-sm font-montserrat">
               {t('hero.description')}
             </p>
             {/* Social links */}
@@ -85,7 +85,7 @@ const Footer = () => {
                   key={index}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
+                  className="w-10 h-10 rounded-lg bg-secondary border border-primary/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 hover:border-primary/30 transition-all duration-300"
                 >
                   <social.icon className="w-5 h-5" />
                 </a>
@@ -96,15 +96,16 @@ const Footer = () => {
           {/* Links columns */}
           {footerLinks.map((column, index) => (
             <div key={index}>
-              <h4 className="font-semibold font-space-grotesk mb-4 text-foreground">
+              <h4 className="font-semibold font-cinzel mb-4 text-foreground tracking-wide">
                 {column.title}
               </h4>
+              <div className="gold-divider mb-4 opacity-30" />
               <ul className="space-y-3">
                 {column.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
                     <button
                       onClick={() => handleLinkClick(link.href, !!link.isRoute)}
-                      className="text-muted-foreground hover:text-primary transition-colors duration-300 bg-transparent border-none cursor-pointer"
+                      className="text-muted-foreground hover:text-primary transition-colors duration-300 bg-transparent border-none cursor-pointer font-montserrat text-sm"
                     >
                       {link.name}
                     </button>
@@ -116,8 +117,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-border/50 flex items-center justify-center">
-          <p className="text-muted-foreground text-sm">
+        <div className="pt-8 border-t border-border/30 flex items-center justify-center">
+          <p className="text-muted-foreground text-sm font-montserrat">
             © 2026 IYM I'm Your Man. Alle Rechte vorbehalten.
           </p>
         </div>
