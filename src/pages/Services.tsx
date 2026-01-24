@@ -72,8 +72,8 @@ const Services = () => {
       <main>
         <section className="pt-32 pb-20 relative overflow-hidden">
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[100px]" />
-            <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px]" />
+            <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-forest/15 rounded-full blur-[100px]" />
+            <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-accent/15 rounded-full blur-[100px]" />
           </div>
 
           <div className="container mx-auto px-4 relative z-10">
@@ -81,32 +81,32 @@ const Services = () => {
               <TrainReveal
                 lines={[pageLabel]}
                 className="mb-4"
-                lineClassName="text-primary text-sm font-medium tracking-[0.3em] uppercase font-montserrat inline-block"
-                charDelay={0.04}
+                lineClassName="text-accent text-sm font-medium tracking-[0.3em] uppercase font-inter inline-block"
+                wordDelay={0.1}
               />
               
               <TrainReveal
                 lines={[`${pageTitle} ${pageHighlight}`]}
                 className="mb-6"
-                lineClassName="text-4xl md:text-6xl font-bold font-cinzel tracking-wide text-gradient-gold"
-                charDelay={0.025}
+                lineClassName="text-4xl md:text-6xl font-semibold font-playfair tracking-tight text-gradient-gold"
+                wordDelay={0.1}
                 lineDelay={0.3}
               />
               
-              <div className="gold-divider max-w-xs mx-auto mb-6" />
+              <div className="forest-divider max-w-xs mx-auto mb-6" />
               
               <TrainReveal
                 lines={[pageSubtitle]}
                 className="max-w-2xl mx-auto"
-                lineClassName="text-muted-foreground text-lg font-montserrat"
-                charDelay={0.015}
+                lineClassName="text-muted-foreground text-lg font-inter"
+                wordDelay={0.05}
                 lineDelay={0.5}
               />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {services.map((service, index) => (
-                <PopReveal key={service.title} delay={index * 0.1}>
+                <PopReveal key={service.title} delay={index * 0.08}>
                   <ServiceCard
                     {...service}
                     delay={0}

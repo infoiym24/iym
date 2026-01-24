@@ -29,7 +29,7 @@ const GreenSeaSection = () => {
       particle.className = 'absolute rounded-full animate-float-particle';
       particle.style.width = `${Math.random() * 6 + 2}px`;
       particle.style.height = particle.style.width;
-      particle.style.background = `radial-gradient(circle, hsl(42 85% 55% / ${Math.random() * 0.4 + 0.2}), transparent)`;
+      particle.style.background = `radial-gradient(circle, hsl(160 50% 40% / ${Math.random() * 0.4 + 0.2}), transparent)`;
       particle.style.left = `${Math.random() * 100}%`;
       particle.style.top = `${Math.random() * 100}%`;
       particle.style.animationDelay = `${Math.random() * 10}s`;
@@ -46,16 +46,16 @@ const GreenSeaSection = () => {
   return (
     <motion.div 
       ref={sectionRef}
-      className="relative w-full overflow-hidden my-12"
+      className="relative w-full overflow-hidden my-16"
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.8 }}
     >
       <div 
         ref={containerRef}
-        className="relative w-full h-[500px] overflow-hidden rounded-2xl mx-auto max-w-7xl"
+        className="relative w-full h-[500px] overflow-hidden rounded-3xl mx-auto max-w-7xl"
       >
-        {/* Deep green sea background */}
+        {/* Deep forest green sea background */}
         <div className="absolute inset-0 bg-gradient-to-b from-forest-dark via-forest to-forest-dark" />
         
         {/* Animated wave layers */}
@@ -68,15 +68,15 @@ const GreenSeaSection = () => {
               scaleY: [1, 1.05, 0.98, 1.02, 1],
             }}
             transition={{
-              duration: 8,
+              duration: 10,
               repeat: Infinity,
               ease: 'easeInOut',
             }}
             style={{
               background: `
-                radial-gradient(ellipse 100% 60% at 50% 100%, hsl(42 85% 55% / 0.15) 0%, transparent 70%),
-                radial-gradient(ellipse 80% 40% at 30% 80%, hsl(42 90% 60% / 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse 80% 40% at 70% 85%, hsl(42 80% 50% / 0.12) 0%, transparent 50%)
+                radial-gradient(ellipse 100% 60% at 50% 100%, hsl(42 75% 50% / 0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 80% 40% at 30% 80%, hsl(45 80% 55% / 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse 80% 40% at 70% 85%, hsl(42 70% 45% / 0.1) 0%, transparent 50%)
               `,
             }}
           />
@@ -89,15 +89,15 @@ const GreenSeaSection = () => {
               scaleY: [1, 0.98, 1.03, 0.99, 1],
             }}
             transition={{
-              duration: 10,
+              duration: 12,
               repeat: Infinity,
               ease: 'easeInOut',
               delay: 2,
             }}
             style={{
               background: `
-                radial-gradient(ellipse 120% 50% at 50% 100%, hsl(42 85% 55% / 0.1) 0%, transparent 60%),
-                radial-gradient(ellipse 60% 30% at 20% 90%, hsl(45 80% 55% / 0.08) 0%, transparent 45%)
+                radial-gradient(ellipse 120% 50% at 50% 100%, hsl(42 75% 50% / 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 30% at 20% 90%, hsl(45 80% 55% / 0.06) 0%, transparent 45%)
               `,
             }}
           />
@@ -109,14 +109,14 @@ const GreenSeaSection = () => {
               y: [0, -5, 8, -3, 0],
             }}
             transition={{
-              duration: 12,
+              duration: 14,
               repeat: Infinity,
               ease: 'easeInOut',
               delay: 4,
             }}
             style={{
               background: `
-                radial-gradient(ellipse 150% 40% at 50% 100%, hsl(42 90% 60% / 0.08) 0%, transparent 55%)
+                radial-gradient(ellipse 150% 40% at 50% 100%, hsl(45 85% 55% / 0.06) 0%, transparent 55%)
               `,
             }}
           />
@@ -124,19 +124,19 @@ const GreenSeaSection = () => {
 
         {/* Gold shimmer line on water */}
         <motion.div 
-          className="absolute bottom-[30%] left-0 right-0 h-1"
+          className="absolute bottom-[30%] left-0 right-0 h-0.5"
           animate={{
             backgroundPosition: ['-200% 0', '200% 0'],
           }}
           transition={{
-            duration: 4,
+            duration: 5,
             repeat: Infinity,
             ease: 'linear',
           }}
           style={{
-            background: 'linear-gradient(90deg, transparent 0%, hsl(42 85% 55% / 0.4) 25%, hsl(42 90% 65% / 0.6) 50%, hsl(42 85% 55% / 0.4) 75%, transparent 100%)',
+            background: 'linear-gradient(90deg, transparent 0%, hsl(42 75% 50% / 0.3) 25%, hsl(45 80% 55% / 0.5) 50%, hsl(42 75% 50% / 0.3) 75%, transparent 100%)',
             backgroundSize: '200% 100%',
-            filter: 'blur(2px)',
+            filter: 'blur(1px)',
           }}
         />
 
@@ -146,14 +146,14 @@ const GreenSeaSection = () => {
             <TrainReveal
               lines={[title]}
               className="mb-6"
-              lineClassName="font-cinzel text-4xl md:text-5xl lg:text-6xl text-gradient-gold tracking-wider"
-              charDelay={0.04}
+              lineClassName="font-playfair text-4xl md:text-5xl lg:text-6xl text-gradient-gold tracking-tight"
+              wordDelay={0.15}
             />
             <motion.p 
-              className="font-cormorant text-xl md:text-2xl text-foreground/80 italic max-w-2xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ delay: 1.5, duration: 0.6 }}
+              className="font-playfair text-xl md:text-2xl text-foreground/80 italic max-w-2xl mx-auto"
+              initial={{ opacity: 0, filter: 'blur(10px)', y: 20 }}
+              animate={isInView ? { opacity: 1, filter: 'blur(0px)', y: 0 } : { opacity: 0, filter: 'blur(10px)', y: 20 }}
+              transition={{ delay: 1.2, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               {subtitle}
             </motion.p>
@@ -164,7 +164,7 @@ const GreenSeaSection = () => {
         <div 
           className="absolute top-0 left-0 right-0 h-32"
           style={{
-            background: 'linear-gradient(to bottom, hsl(0 0% 10%), transparent)',
+            background: 'linear-gradient(to bottom, hsl(0 0% 8%), transparent)',
           }}
         />
         
@@ -172,7 +172,7 @@ const GreenSeaSection = () => {
         <div 
           className="absolute bottom-0 left-0 right-0 h-32"
           style={{
-            background: 'linear-gradient(to top, hsl(0 0% 10%), transparent)',
+            background: 'linear-gradient(to top, hsl(0 0% 8%), transparent)',
           }}
         />
       </div>
