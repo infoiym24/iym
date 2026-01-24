@@ -92,10 +92,14 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-28 relative overflow-hidden">
-      {/* Background decorations with gold accents */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/8 rounded-full blur-3xl" />
-      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      {/* Forest green background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-forest-dark via-forest to-forest-dark" />
+      
+      {/* Gold accent decorations */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-primary/8 rounded-full blur-3xl" />
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
@@ -116,7 +120,7 @@ const ContactSection = () => {
           <div className="gold-divider max-w-[200px] mx-auto mb-6" />
           
           <SlideUpReveal delay={0.3}>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-foreground/80 text-lg max-w-2xl mx-auto">
               {sectionSubtitle}
             </p>
           </SlideUpReveal>
@@ -125,7 +129,7 @@ const ContactSection = () => {
         {/* Contact form */}
         <div className="max-w-2xl mx-auto" ref={formRef}>
           <motion.div 
-            className="glass-luxury rounded-2xl p-8 md:p-10 border border-primary/15"
+            className="rounded-2xl p-8 md:p-10 bg-card/90 backdrop-blur-xl border border-primary/20"
             initial={{ opacity: 0, y: 40 }}
             animate={formInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -148,7 +152,7 @@ const ContactSection = () => {
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3.5 rounded-lg bg-background/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none hover:border-primary/50"
+                  className="w-full px-4 py-3.5 rounded-lg bg-card border border-primary/30 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none hover:border-primary/50 text-foreground"
                   placeholder={t('contact.form.name.placeholder')}
                   required
                 />
@@ -167,7 +171,7 @@ const ContactSection = () => {
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3.5 rounded-lg bg-background/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none hover:border-primary/50"
+                    className="w-full px-4 py-3.5 rounded-lg bg-card border border-primary/30 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none hover:border-primary/50 text-foreground"
                     placeholder={t('contact.form.email.placeholder')}
                     required
                   />
@@ -185,7 +189,7 @@ const ContactSection = () => {
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-3.5 rounded-lg bg-background/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none hover:border-primary/50"
+                    className="w-full px-4 py-3.5 rounded-lg bg-card border border-primary/30 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none hover:border-primary/50 text-foreground"
                     placeholder={t('contact.form.phone.placeholder')}
                   />
                 </motion.div>
@@ -203,7 +207,7 @@ const ContactSection = () => {
                   <select
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full px-4 py-3.5 rounded-lg bg-background/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none appearance-none cursor-pointer hover:border-primary/50"
+                    className="w-full px-4 py-3.5 rounded-lg bg-card border border-primary/30 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none appearance-none cursor-pointer hover:border-primary/50 text-foreground"
                   >
                     <option value="">{serviceSelectLabel}</option>
                     {serviceOptions.map((option) => (
@@ -231,7 +235,7 @@ const ContactSection = () => {
                 <textarea
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3.5 rounded-lg bg-background/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none resize-none hover:border-primary/50"
+                  className="w-full px-4 py-3.5 rounded-lg bg-card border border-primary/30 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none resize-none hover:border-primary/50 text-foreground"
                   rows={5}
                   placeholder={t('contact.form.message.placeholder')}
                   required
