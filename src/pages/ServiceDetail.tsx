@@ -427,9 +427,15 @@ const ServiceDetail = () => {
     message: ''
   });
 
-  // Scroll to top when serviceId changes
+  // Scroll to top when component mounts or serviceId changes
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Immediate scroll
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+    // Fallback with timeout for edge cases
+    const timeoutId = setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+    }, 0);
+    return () => clearTimeout(timeoutId);
   }, [serviceId]);
 
   const service = serviceId ? serviceData[serviceId] : null;

@@ -1,5 +1,5 @@
 import { LucideIcon } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ServiceCardProps {
@@ -12,13 +12,22 @@ interface ServiceCardProps {
 
 const ServiceCard = ({ title, description, icon: Icon, href, delay = 0 }: ServiceCardProps) => {
   const { language } = useLanguage();
+  const navigate = useNavigate();
   
   const learnMore = language === 'en' ? 'Learn more' : language === 'ru' ? 'Узнать больше' : 'Mehr erfahren';
   
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    // Scroll to top first, then navigate
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+    navigate(href);
+  };
+  
   return (
-    <Link 
-      to={href}
-      className="group block animate-fade-in"
+    <a 
+      href={href}
+      onClick={handleClick}
+      className="group block animate-fade-in cursor-pointer"
       style={{ animationDelay: `${delay}ms` }}
     >
       <div className="relative glass-luxury rounded-xl p-8 h-full transition-all duration-500 hover:scale-[1.02] overflow-hidden">
@@ -63,7 +72,7 @@ const ServiceCard = ({ title, description, icon: Icon, href, delay = 0 }: Servic
           </div>
         </div>
       </div>
-    </Link>
+    </a>
   );
 };
 
