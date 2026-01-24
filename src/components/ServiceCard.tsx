@@ -29,19 +29,19 @@ const ServiceCard = ({ title, description, icon: Icon, href }: ServiceCardProps)
       className="group block cursor-pointer"
     >
       <div className="relative luxury-card rounded-xl p-8 h-full transition-all duration-500 hover-lift overflow-hidden">
-        {/* Forest green glow effect on hover */}
+        {/* Gold glow effect on hover */}
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          <div className="absolute inset-0 bg-gradient-to-br from-forest/15 via-transparent to-primary/10" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5" />
         </div>
 
-        {/* Top accent line */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-forest/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        {/* Top accent line - gold */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
         {/* Content */}
         <div className="relative z-10">
-          {/* Icon */}
-          <div className="w-14 h-14 rounded-lg bg-forest/15 border border-forest/30 flex items-center justify-center mb-6 group-hover:bg-forest/25 group-hover:border-forest/50 transition-all duration-500">
-            <Icon className="w-7 h-7 text-forest-light group-hover:scale-110 transition-transform duration-500" />
+          {/* Icon - gold themed */}
+          <div className="w-14 h-14 rounded-lg bg-primary/10 border border-primary/25 flex items-center justify-center mb-6 group-hover:bg-primary/20 group-hover:border-primary/40 transition-all duration-500">
+            <Icon className="w-7 h-7 text-primary group-hover:scale-110 transition-transform duration-500" />
           </div>
 
           {/* Title */}
@@ -49,16 +49,16 @@ const ServiceCard = ({ title, description, icon: Icon, href }: ServiceCardProps)
             {title}
           </h3>
 
-          {/* Divider */}
-          <div className="forest-divider mb-4 opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+          {/* Divider - gold */}
+          <div className="gold-divider mb-4 opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
 
           {/* Description */}
           <p className="text-muted-foreground leading-relaxed">
             {description}
           </p>
 
-          {/* Arrow indicator */}
-          <div className="mt-6 flex items-center gap-2 text-forest-light opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
+          {/* Arrow indicator - gold */}
+          <div className="mt-6 flex items-center gap-2 text-primary opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
             <span className="text-sm font-medium tracking-wide">{learnMore}</span>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

@@ -1,6 +1,142 @@
-import { motion, Variants } from 'framer-motion';
+import { motion, Variants, useScroll, useTransform } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef, ReactNode } from 'react';
+import { useRef, ReactNode, useMemo } from 'react';
+
+interface TrainRevealTextProps {
+  children: string;
+  className?: string;
+  charDelay?: number;
+}
+
+/**
+ * TrainRevealText - Sequential letter-by-letter reveal with brightness animation
+ * Each letter brightens smoothly, word by word, line by line
+ * Next word doesn't start until previous is complete
+ */
+export const TrainRevealText = ({
+  children,
+  className = '',
+  charDelay = 0.03,
+}: TrainRevealTextProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  
+  const words = children.split(' ');
+  
+  // Calculate cumulative delay for each character
+  let cumulativeDelay = 0;
+  const wordsWithDelays = words.map((word) => {
+    const chars = word.split('').map((char, charIndex) => {
+      const delay = cumulativeDelay + charIndex * charDelay;
+      return { char, delay };
+    });
+    cumulativeDelay += word.length * charDelay + charDelay * 2; // Extra delay between words
+    return { word, chars };
+  });
+
+  return (
+    <div
+      ref={ref}
+      className={`${className} flex flex-wrap`}
+      style={{ gap: '0.3em' }}
+    >
+      {wordsWithDelays.map((wordData, wordIndex) => (
+        <span
+          key={wordIndex}
+          className="inline-flex"
+          style={{ whiteSpace: 'nowrap' }}
+        >
+          {wordData.chars.map((charData, charIndex) => (
+            <motion.span
+              key={charIndex}
+              className="inline-block"
+              initial={{ opacity: 0.12, filter: 'blur(4px)' }}
+              animate={isInView ? { 
+                opacity: 1, 
+                filter: 'blur(0px)',
+              } : {}}
+              transition={{
+                duration: 0.4,
+                delay: charData.delay,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+            >
+              {charData.char}
+            </motion.span>
+          ))}
+        </span>
+      ))}
+    </div>
+  );
+};
+
+interface GoldenHeadingProps {
+  children: string;
+  className?: string;
+  as?: 'h1' | 'h2' | 'h3' | 'h4';
+  charDelay?: number;
+}
+
+/**
+ * GoldenHeading - Golden text that reveals letter by letter
+ * Perfect for section headings
+ */
+export const GoldenHeading = ({
+  children,
+  className = '',
+  as: Component = 'h2',
+  charDelay = 0.025,
+}: GoldenHeadingProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  
+  const words = children.split(' ');
+  
+  let cumulativeDelay = 0;
+  const wordsWithDelays = words.map((word) => {
+    const chars = word.split('').map((char, charIndex) => {
+      const delay = cumulativeDelay + charIndex * charDelay;
+      return { char, delay };
+    });
+    cumulativeDelay += word.length * charDelay + charDelay * 3;
+    return { word, chars };
+  });
+
+  return (
+    <div
+      ref={ref}
+      className={`${className} text-gradient-gold flex flex-wrap`}
+      style={{ gap: '0.35em' }}
+    >
+      {wordsWithDelays.map((wordData, wordIndex) => (
+        <span
+          key={wordIndex}
+          className="inline-flex"
+          style={{ whiteSpace: 'nowrap' }}
+        >
+          {wordData.chars.map((charData, charIndex) => (
+            <motion.span
+              key={charIndex}
+              className="inline-block"
+              initial={{ opacity: 0.1, filter: 'blur(6px)' }}
+              animate={isInView ? { 
+                opacity: 1, 
+                filter: 'blur(0px)',
+              } : {}}
+              transition={{
+                duration: 0.5,
+                delay: charData.delay,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+            >
+              {charData.char}
+            </motion.span>
+          ))}
+        </span>
+      ))}
+    </div>
+  );
+};
 
 interface BlurRevealTextProps {
   children: string;
@@ -12,7 +148,7 @@ interface BlurRevealTextProps {
 }
 
 /**
- * BlurReveal - Text reveals from blurred to clear, word by word
+ * BlurRevealText - Text reveals from blurred to clear, word by word
  * Inspired by modern luxury sites like Fullstack.de
  */
 export const BlurRevealText = ({

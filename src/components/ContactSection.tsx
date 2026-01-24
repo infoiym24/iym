@@ -2,7 +2,7 @@ import { Send, Loader2, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { BlurRevealText, SlideUpReveal } from './animations/BlurReveal';
+import { GoldenHeading, SlideUpReveal } from './animations/BlurReveal';
 import { motion, useInView } from 'framer-motion';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
@@ -92,27 +92,26 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-28 relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-forest/40 to-transparent" />
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-forest/10 rounded-full blur-3xl" />
+      {/* Background decorations with gold accents */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/8 rounded-full blur-3xl" />
       <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
         <div className="text-center mb-16">
           <SlideUpReveal delay={0}>
-            <span className="text-forest-light text-sm font-medium tracking-[0.25em] uppercase mb-4 block">
+            <span className="text-primary text-sm font-medium tracking-[0.25em] uppercase mb-4 block">
               {sectionLabel}
             </span>
           </SlideUpReveal>
           
-          <BlurRevealText
-            className="text-4xl md:text-5xl font-display font-semibold text-gradient-gold mb-6 justify-center"
-            delay={0.1}
-            staggerDelay={0.1}
+          <GoldenHeading
+            className="text-4xl md:text-5xl font-display font-semibold mb-6 justify-center"
+            charDelay={0.025}
           >
             {sectionTitle}
-          </BlurRevealText>
+          </GoldenHeading>
           
           <div className="gold-divider max-w-[200px] mx-auto mb-6" />
           
@@ -126,15 +125,15 @@ const ContactSection = () => {
         {/* Contact form */}
         <div className="max-w-2xl mx-auto" ref={formRef}>
           <motion.div 
-            className="glass-forest rounded-2xl p-8 md:p-10"
+            className="glass-luxury rounded-2xl p-8 md:p-10 border border-primary/15"
             initial={{ opacity: 0, y: 40 }}
             animate={formInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <h3 className="text-2xl font-semibold font-display mb-8 text-center">
+            <h3 className="text-2xl font-semibold font-display mb-8 text-center text-gradient-gold">
               {t('contact.form.title')}
             </h3>
-            <div className="forest-divider mb-8" />
+            <div className="gold-divider mb-8" />
             <form onSubmit={handleSubmit} className="space-y-6">
               <motion.div 
                 className="group"
@@ -143,13 +142,13 @@ const ContactSection = () => {
                 transition={{ delay: 0.2, duration: 0.5 }}
               >
                 <label className="block text-sm font-medium text-foreground/90 mb-2 tracking-wide">
-                  {t('contact.form.name')} <span className="text-forest-light">*</span>
+                  {t('contact.form.name')} <span className="text-primary">*</span>
                 </label>
                 <input
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3.5 rounded-lg bg-background/50 border border-border focus:border-forest focus:ring-2 focus:ring-forest/20 transition-all duration-300 outline-none hover:border-forest/50"
+                  className="w-full px-4 py-3.5 rounded-lg bg-background/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none hover:border-primary/50"
                   placeholder={t('contact.form.name.placeholder')}
                   required
                 />
@@ -162,13 +161,13 @@ const ContactSection = () => {
                   transition={{ delay: 0.3, duration: 0.5 }}
                 >
                   <label className="block text-sm font-medium text-foreground/90 mb-2 tracking-wide">
-                    {t('contact.email')} <span className="text-forest-light">*</span>
+                    {t('contact.email')} <span className="text-primary">*</span>
                   </label>
                   <input
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3.5 rounded-lg bg-background/50 border border-border focus:border-forest focus:ring-2 focus:ring-forest/20 transition-all duration-300 outline-none hover:border-forest/50"
+                    className="w-full px-4 py-3.5 rounded-lg bg-background/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none hover:border-primary/50"
                     placeholder={t('contact.form.email.placeholder')}
                     required
                   />
@@ -186,7 +185,7 @@ const ContactSection = () => {
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-3.5 rounded-lg bg-background/50 border border-border focus:border-forest focus:ring-2 focus:ring-forest/20 transition-all duration-300 outline-none hover:border-forest/50"
+                    className="w-full px-4 py-3.5 rounded-lg bg-background/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none hover:border-primary/50"
                     placeholder={t('contact.form.phone.placeholder')}
                   />
                 </motion.div>
@@ -204,7 +203,7 @@ const ContactSection = () => {
                   <select
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full px-4 py-3.5 rounded-lg bg-background/50 border border-border focus:border-forest focus:ring-2 focus:ring-forest/20 transition-all duration-300 outline-none appearance-none cursor-pointer hover:border-forest/50"
+                    className="w-full px-4 py-3.5 rounded-lg bg-background/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none appearance-none cursor-pointer hover:border-primary/50"
                   >
                     <option value="">{serviceSelectLabel}</option>
                     {serviceOptions.map((option) => (
@@ -227,12 +226,12 @@ const ContactSection = () => {
                 transition={{ delay: 0.45, duration: 0.5 }}
               >
                 <label className="block text-sm font-medium text-foreground/90 mb-2 tracking-wide">
-                  {t('contact.form.message')} <span className="text-forest-light">*</span>
+                  {t('contact.form.message')} <span className="text-primary">*</span>
                 </label>
                 <textarea
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3.5 rounded-lg bg-background/50 border border-border focus:border-forest focus:ring-2 focus:ring-forest/20 transition-all duration-300 outline-none resize-none hover:border-forest/50"
+                  className="w-full px-4 py-3.5 rounded-lg bg-background/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none resize-none hover:border-primary/50"
                   rows={5}
                   placeholder={t('contact.form.message.placeholder')}
                   required

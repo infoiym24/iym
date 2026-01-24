@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import ServiceCard from './ServiceCard';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { BlurRevealText, SlideUpReveal, StaggerContainer } from './animations/BlurReveal';
+import { GoldenHeading, SlideUpReveal, StaggerContainer } from './animations/BlurReveal';
 
 const ServicesSection = () => {
   const { t } = useLanguage();
@@ -58,25 +58,24 @@ const ServicesSection = () => {
 
   return (
     <section id="services" className="py-28 relative">
-      {/* Top decorative line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-forest/40 to-transparent" />
+      {/* Top decorative line with gold */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
       
       <div className="container mx-auto px-4">
         {/* Section header */}
         <div className="text-center mb-20">
           <SlideUpReveal delay={0}>
-            <span className="text-forest-light text-sm font-medium tracking-[0.25em] uppercase mb-4 block">
+            <span className="text-primary text-sm font-medium tracking-[0.25em] uppercase mb-4 block">
               {sectionLabel}
             </span>
           </SlideUpReveal>
           
-          <BlurRevealText
-            className="text-4xl md:text-5xl font-display font-semibold text-gradient-gold mb-6 justify-center"
-            delay={0.1}
-            staggerDelay={0.1}
+          <GoldenHeading
+            className="text-4xl md:text-5xl font-display font-semibold mb-6 justify-center"
+            charDelay={0.025}
           >
             {sectionTitle}
-          </BlurRevealText>
+          </GoldenHeading>
           
           <div className="gold-divider max-w-[200px] mx-auto mb-6" />
           

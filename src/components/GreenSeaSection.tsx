@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { BlurRevealText } from './animations/BlurReveal';
+import { GoldenHeading, TrainRevealText } from './animations/BlurReveal';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const GreenSeaSection = () => {
@@ -26,16 +26,16 @@ const GreenSeaSection = () => {
       transition={{ duration: 0.8 }}
     >
       <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden rounded-2xl mx-auto max-w-7xl">
-        {/* Forest green gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-forest-dark via-forest to-forest-dark" />
+        {/* Dark anthracite with gold accent background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-card via-background to-card" />
         
-        {/* Animated accent layers */}
+        {/* Animated gold accent layers */}
         <div className="absolute inset-0">
           <motion.div 
             className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full"
             animate={{
               scale: [1, 1.1, 1],
-              opacity: [0.1, 0.2, 0.1],
+              opacity: [0.08, 0.15, 0.08],
             }}
             transition={{
               duration: 6,
@@ -43,14 +43,14 @@ const GreenSeaSection = () => {
               ease: 'easeInOut',
             }}
             style={{
-              background: 'radial-gradient(circle, hsl(42 75% 50% / 0.15) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, hsl(42 75% 50% / 0.2) 0%, transparent 70%)',
             }}
           />
           <motion.div 
             className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] rounded-full"
             animate={{
               scale: [1.1, 1, 1.1],
-              opacity: [0.15, 0.1, 0.15],
+              opacity: [0.12, 0.08, 0.12],
             }}
             transition={{
               duration: 8,
@@ -59,7 +59,7 @@ const GreenSeaSection = () => {
               delay: 2,
             }}
             style={{
-              background: 'radial-gradient(circle, hsl(155 45% 35% / 0.2) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, hsl(42 70% 45% / 0.18) 0%, transparent 70%)',
             }}
           />
         </div>
@@ -76,7 +76,7 @@ const GreenSeaSection = () => {
             ease: 'linear',
           }}
           style={{
-            background: 'linear-gradient(90deg, transparent 0%, hsl(42 75% 50% / 0.3) 25%, hsl(42 80% 55% / 0.5) 50%, hsl(42 75% 50% / 0.3) 75%, transparent 100%)',
+            background: 'linear-gradient(90deg, transparent 0%, hsl(42 75% 50% / 0.4) 25%, hsl(42 80% 55% / 0.6) 50%, hsl(42 75% 50% / 0.4) 75%, transparent 100%)',
             backgroundSize: '200% 100%',
           }}
         />
@@ -84,20 +84,24 @@ const GreenSeaSection = () => {
         {/* Content overlay */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center px-6 max-w-3xl">
-            <BlurRevealText
-              className="font-display text-4xl md:text-5xl lg:text-6xl text-gradient-gold tracking-tight mb-8 justify-center"
-              staggerDelay={0.1}
+            <GoldenHeading
+              className="font-display text-4xl md:text-5xl lg:text-6xl tracking-tight mb-8 justify-center"
+              charDelay={0.03}
             >
               {title}
-            </BlurRevealText>
-            <motion.p 
-              className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed"
+            </GoldenHeading>
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ delay: 1.2, duration: 0.8 }}
+              transition={{ delay: 1.5, duration: 0.8 }}
             >
-              {subtitle}
-            </motion.p>
+              <TrainRevealText
+                className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed justify-center"
+                charDelay={0.012}
+              >
+                {subtitle}
+              </TrainRevealText>
+            </motion.div>
           </div>
         </div>
 
