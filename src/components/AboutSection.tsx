@@ -1,7 +1,7 @@
 import { CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import aboutPortrait from '@/assets/about-portrait.jpg';
-import { BlurRevealText, SlideUpReveal, StaggerContainer } from './animations/BlurReveal';
+import { GoldenHeading, TrainRevealText, SlideUpReveal, StaggerContainer } from './animations/BlurReveal';
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { useInView } from 'framer-motion';
@@ -31,25 +31,27 @@ const AboutSection = () => {
           {/* Left content */}
           <div>
             <SlideUpReveal delay={0}>
-              <span className="text-forest-light text-sm font-medium tracking-[0.25em] uppercase mb-4 block">
+              <span className="text-primary text-sm font-medium tracking-[0.25em] uppercase mb-4 block">
                 {sectionLabel}
               </span>
             </SlideUpReveal>
             
-            <BlurRevealText
-              className="text-4xl md:text-5xl font-display font-semibold text-gradient-gold mb-6 leading-tight"
-              delay={0.1}
-              staggerDelay={0.1}
+            <GoldenHeading
+              className="text-4xl md:text-5xl font-display font-semibold mb-6 leading-tight"
+              charDelay={0.025}
             >
               {sectionTitle}
-            </BlurRevealText>
+            </GoldenHeading>
             
             <div className="gold-divider max-w-[200px] mb-8" />
             
             <SlideUpReveal delay={0.3}>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-10">
+              <TrainRevealText 
+                className="text-foreground/90 text-lg leading-relaxed mb-10"
+                charDelay={0.015}
+              >
                 {sectionDescription}
-              </p>
+              </TrainRevealText>
             </SlideUpReveal>
 
             {/* Features list */}
@@ -63,7 +65,7 @@ const AboutSection = () => {
                   key={index}
                   className="flex items-start gap-3"
                 >
-                  <CheckCircle2 className="w-5 h-5 text-forest-light flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                   <span className="text-foreground/85">{feature}</span>
                 </div>
               ))}
@@ -74,7 +76,7 @@ const AboutSection = () => {
           <div className="relative" ref={imageRef}>
             {/* Decorative background glow */}
             <motion.div 
-              className="absolute inset-0 bg-gradient-to-br from-forest/20 to-primary/10 rounded-2xl blur-3xl"
+              className="absolute inset-0 bg-gradient-to-br from-primary/15 to-forest/10 rounded-2xl blur-3xl"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={imageInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
               transition={{ duration: 1 }}
@@ -87,7 +89,7 @@ const AboutSection = () => {
               transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               {/* Image container */}
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/30">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-primary/20">
                 <img 
                   src={aboutPortrait} 
                   alt="IYM Team" 
@@ -99,12 +101,12 @@ const AboutSection = () => {
               
               {/* Quote card overlay */}
               <motion.div 
-                className="absolute bottom-6 left-6 right-6 glass-forest rounded-xl p-6"
+                className="absolute bottom-6 left-6 right-6 glass-luxury rounded-xl p-6 border border-primary/20"
                 initial={{ opacity: 0, y: 20 }}
                 animate={imageInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
               >
-                <blockquote className="text-lg italic text-foreground/90 text-center font-display">
+                <blockquote className="text-lg italic text-primary text-center font-display">
                   "Was auch immer Sie brauchen, wir haben den Mann für Ihren Job."
                 </blockquote>
               </motion.div>
