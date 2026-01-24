@@ -92,12 +92,85 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-28 relative overflow-hidden">
+      {/* Smooth transition gradient from previous section */}
+      <div className="absolute -top-32 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-forest-dark pointer-events-none" />
+      
       {/* Forest green background */}
       <div className="absolute inset-0 bg-gradient-to-br from-forest-dark via-forest to-forest-dark" />
       
+      {/* Animated floating particles/orbs */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div 
+          className="absolute top-1/4 left-1/5 w-64 h-64 rounded-full"
+          animate={{
+            y: [0, -30, 0],
+            opacity: [0.15, 0.25, 0.15],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+          style={{
+            background: 'radial-gradient(circle, hsl(42 75% 50% / 0.2) 0%, transparent 70%)',
+          }}
+        />
+        <motion.div 
+          className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full"
+          animate={{
+            y: [0, 20, 0],
+            opacity: [0.1, 0.2, 0.1],
+            scale: [1.1, 1, 1.1],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            delay: 2,
+          }}
+          style={{
+            background: 'radial-gradient(circle, hsl(42 70% 45% / 0.18) 0%, transparent 70%)',
+          }}
+        />
+        <motion.div 
+          className="absolute top-2/3 left-1/3 w-48 h-48 rounded-full"
+          animate={{
+            x: [-10, 10, -10],
+            opacity: [0.12, 0.18, 0.12],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            delay: 1,
+          }}
+          style={{
+            background: 'radial-gradient(circle, hsl(155 45% 35% / 0.15) 0%, transparent 70%)',
+          }}
+        />
+      </div>
+      
+      {/* Animated gold line across */}
+      <motion.div 
+        className="absolute top-1/2 left-0 right-0 h-px opacity-40"
+        animate={{
+          backgroundPosition: ['-200% 0', '200% 0'],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: 'linear',
+        }}
+        style={{
+          background: 'linear-gradient(90deg, transparent 0%, hsl(42 75% 50% / 0.5) 25%, hsl(42 80% 55% / 0.7) 50%, hsl(42 75% 50% / 0.5) 75%, transparent 100%)',
+          backgroundSize: '200% 100%',
+        }}
+      />
+      
       {/* Gold accent decorations */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-primary/8 rounded-full blur-3xl" />
       

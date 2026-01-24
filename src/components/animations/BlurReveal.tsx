@@ -16,10 +16,10 @@ interface TrainRevealTextProps {
 export const TrainRevealText = ({
   children,
   className = '',
-  charDelay = 0.03,
+  charDelay = 0.015,
 }: TrainRevealTextProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const isInView = useInView(ref, { once: false, margin: '-30px' });
   
   const words = children.split(' ');
   
@@ -30,7 +30,7 @@ export const TrainRevealText = ({
       const delay = cumulativeDelay + charIndex * charDelay;
       return { char, delay };
     });
-    cumulativeDelay += word.length * charDelay + charDelay * 2; // Extra delay between words
+    cumulativeDelay += word.length * charDelay + charDelay; // Faster between words
     return { word, chars };
   });
 
@@ -50,14 +50,19 @@ export const TrainRevealText = ({
             <motion.span
               key={charIndex}
               className="inline-block"
-              initial={{ opacity: 0.12, filter: 'blur(4px)' }}
+              initial={{ opacity: 0.12, filter: 'blur(4px)', y: 8 }}
               animate={isInView ? { 
                 opacity: 1, 
                 filter: 'blur(0px)',
-              } : {}}
+                y: 0,
+              } : { 
+                opacity: 0.12, 
+                filter: 'blur(4px)',
+                y: 8,
+              }}
               transition={{
-                duration: 0.4,
-                delay: charData.delay,
+                duration: 0.25,
+                delay: isInView ? charData.delay : 0,
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
             >
@@ -85,10 +90,10 @@ export const GoldenHeading = ({
   children,
   className = '',
   as: Component = 'h2',
-  charDelay = 0.025,
+  charDelay = 0.012,
 }: GoldenHeadingProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const isInView = useInView(ref, { once: false, margin: '-30px' });
   
   const words = children.split(' ');
   
@@ -98,7 +103,7 @@ export const GoldenHeading = ({
       const delay = cumulativeDelay + charIndex * charDelay;
       return { char, delay };
     });
-    cumulativeDelay += word.length * charDelay + charDelay * 3;
+    cumulativeDelay += word.length * charDelay + charDelay * 2;
     return { word, chars };
   });
 
@@ -124,14 +129,19 @@ export const GoldenHeading = ({
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
               }}
-              initial={{ opacity: 0.1, filter: 'blur(6px)' }}
+              initial={{ opacity: 0.1, filter: 'blur(6px)', y: 10 }}
               animate={isInView ? { 
                 opacity: 1, 
                 filter: 'blur(0px)',
-              } : {}}
+                y: 0,
+              } : { 
+                opacity: 0.1, 
+                filter: 'blur(6px)',
+                y: 10,
+              }}
               transition={{
-                duration: 0.5,
-                delay: charData.delay,
+                duration: 0.3,
+                delay: isInView ? charData.delay : 0,
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
             >
