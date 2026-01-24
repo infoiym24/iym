@@ -92,11 +92,8 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-28 relative overflow-hidden">
-      {/* Smooth transition gradient from previous section */}
-      <div className="absolute -top-32 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-forest-dark pointer-events-none" />
-      
-      {/* Forest green background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-forest-dark via-forest to-forest-dark" />
+      {/* Forest green background with softer edges */}
+      <div className="absolute inset-0 bg-forest-dark" />
       
       {/* Animated floating particles/orbs */}
       <div className="absolute inset-0 overflow-hidden">

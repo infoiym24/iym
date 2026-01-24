@@ -26,9 +26,6 @@ const AboutSection = () => {
 
   return (
     <section id="about" className="py-28 relative">
-      {/* Bottom transition gradient to Contact section */}
-      <div className="absolute -bottom-16 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-forest-dark pointer-events-none z-10" />
-      
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Left content */}
