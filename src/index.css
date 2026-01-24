@@ -2,64 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
 @layer base {
   :root {
-    /* Dark Forest Theme with Ochre/Orange Accents */
-    --background: 150 25% 4%;
-    --foreground: 45 20% 95%;
+    /* Luxury Dark Forest & Gold Theme */
+    --background: 0 0% 10%;
+    --foreground: 40 30% 92%;
 
-    --card: 150 20% 7%;
-    --card-foreground: 45 20% 95%;
+    --card: 150 15% 8%;
+    --card-foreground: 40 30% 92%;
 
-    --popover: 150 20% 9%;
-    --popover-foreground: 45 20% 95%;
+    --popover: 150 15% 10%;
+    --popover-foreground: 40 30% 92%;
 
-    /* Forest Green Primary */
-    --primary: 140 50% 40%;
-    --primary-foreground: 45 20% 95%;
+    /* Rich Gold Primary */
+    --primary: 42 85% 55%;
+    --primary-foreground: 150 30% 5%;
 
-    --secondary: 150 15% 12%;
-    --secondary-foreground: 45 20% 95%;
+    --secondary: 150 12% 12%;
+    --secondary-foreground: 40 30% 92%;
 
-    --muted: 150 10% 18%;
-    --muted-foreground: 45 10% 55%;
+    --muted: 150 8% 20%;
+    --muted-foreground: 40 15% 60%;
 
-    /* Matte Ochre/Orange Accent */
-    --accent: 35 75% 55%;
-    --accent-foreground: 150 25% 4%;
+    /* Deep Forest Green Accent */
+    --accent: 150 40% 25%;
+    --accent-foreground: 40 30% 92%;
 
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 45 20% 95%;
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 40 30% 92%;
 
-    --border: 150 15% 15%;
-    --input: 150 15% 15%;
-    --ring: 140 50% 40%;
+    --border: 42 30% 20%;
+    --input: 150 12% 15%;
+    --ring: 42 85% 55%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Custom design tokens */
-    --glow-primary: 140 50% 40%;
-    --glow-accent: 35 75% 55%;
-    --glass-bg: 150 20% 7% / 0.8;
-    --glass-border: 45 20% 95% / 0.08;
+    /* Luxury design tokens */
+    --glow-primary: 42 85% 55%;
+    --glow-accent: 42 90% 60%;
+    --glass-bg: 150 15% 8% / 0.85;
+    --glass-border: 42 85% 55% / 0.15;
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(140 50% 40%) 0%, hsl(35 75% 55%) 100%);
-    --gradient-dark: linear-gradient(180deg, hsl(150 25% 4%) 0%, hsl(150 30% 2%) 100%);
-    --gradient-glass: linear-gradient(135deg, hsl(45 20% 95% / 0.06) 0%, hsl(45 20% 95% / 0.02) 100%);
-    --gradient-forest: linear-gradient(135deg, hsl(150 25% 4%) 0%, hsl(140 30% 8%) 50%, hsl(150 25% 4%) 100%);
+    /* Premium Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(42 85% 55%) 0%, hsl(42 70% 40%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(42 90% 60%) 0%, hsl(38 80% 45%) 50%, hsl(42 85% 55%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 10%) 0%, hsl(150 15% 6%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(42 85% 55% / 0.08) 0%, hsl(42 85% 55% / 0.02) 100%);
+    --gradient-forest: linear-gradient(135deg, hsl(150 30% 6%) 0%, hsl(145 25% 10%) 50%, hsl(150 30% 6%) 100%);
+    --gradient-sea: linear-gradient(180deg, hsl(150 35% 8%) 0%, hsl(160 40% 12%) 50%, hsl(150 35% 8%) 100%);
     
     /* Shadows */
-    --shadow-glow: 0 0 30px hsl(var(--glow-primary) / 0.25);
-    --shadow-glow-lg: 0 0 60px hsl(var(--glow-primary) / 0.35);
-    --shadow-glow-accent: 0 0 30px hsl(var(--glow-accent) / 0.25);
+    --shadow-glow: 0 0 40px hsl(var(--glow-primary) / 0.3);
+    --shadow-glow-lg: 0 0 80px hsl(var(--glow-primary) / 0.4);
+    --shadow-glow-accent: 0 0 40px hsl(var(--glow-accent) / 0.3);
+    --shadow-luxury: 0 25px 50px -12px hsl(0 0% 0% / 0.5);
   }
 
   .dark {
-    --background: 150 25% 4%;
-    --foreground: 45 20% 95%;
+    --background: 0 0% 10%;
+    --foreground: 40 30% 92%;
   }
 }
 
@@ -69,18 +70,50 @@
   }
 
   body {
-    @apply bg-background text-foreground font-outfit antialiased;
-    background: var(--gradient-dark);
+    @apply bg-background text-foreground font-montserrat antialiased;
+    background: hsl(var(--background));
+    position: relative;
+  }
+
+  /* Stone/marble texture effect through pseudo-elements */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(ellipse 80% 50% at 20% 40%, hsl(150 20% 15% / 0.4) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 20%, hsl(150 25% 12% / 0.3) 0%, transparent 50%),
+      radial-gradient(ellipse 70% 60% at 50% 80%, hsl(145 20% 10% / 0.4) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 30% at 70% 60%, hsl(155 15% 14% / 0.3) 0%, transparent 45%);
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: -1;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-space-grotesk;
+    @apply font-cinzel tracking-wide;
+  }
+
+  p, span, a, button, li {
+    @apply font-montserrat;
   }
 }
 
 @layer components {
   .glass {
-    @apply bg-card/80 backdrop-blur-xl border border-white/5 shadow-xl;
+    @apply bg-card/80 backdrop-blur-xl border border-primary/10 shadow-xl;
+  }
+
+  .glass-luxury {
+    @apply bg-card/70 backdrop-blur-2xl border border-primary/20 shadow-2xl;
+    background: linear-gradient(135deg, hsl(150 15% 10% / 0.9) 0%, hsl(150 15% 8% / 0.95) 100%);
+    box-shadow: 
+      0 4px 30px hsl(0 0% 0% / 0.3),
+      inset 0 1px 0 hsl(42 85% 55% / 0.1),
+      0 0 60px hsl(42 85% 55% / 0.05);
   }
 
   .glow-border {
@@ -90,7 +123,7 @@
   .glow-border::before {
     content: '';
     @apply absolute inset-0 rounded-[inherit] p-[1px] -z-10;
-    background: var(--gradient-primary);
+    background: var(--gradient-gold);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
     -webkit-mask-composite: xor;
@@ -98,7 +131,13 @@
 
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-primary);
+    background-image: var(--gradient-gold);
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background: linear-gradient(135deg, hsl(42 90% 65%) 0%, hsl(38 85% 50%) 50%, hsl(45 80% 60%) 100%);
+    -webkit-background-clip: text;
   }
 
   .pulse-glow {
@@ -112,6 +151,32 @@
   .hover-glow:hover {
     box-shadow: var(--shadow-glow-lg);
     transform: translateY(-4px);
+  }
+
+  /* Gold divider line */
+  .gold-divider {
+    @apply h-px w-full;
+    background: linear-gradient(90deg, transparent 0%, hsl(42 85% 55% / 0.6) 50%, transparent 100%);
+  }
+
+  /* Premium card style */
+  .luxury-card {
+    @apply relative rounded-xl overflow-hidden;
+    background: linear-gradient(145deg, hsl(150 15% 10%) 0%, hsl(150 12% 8%) 100%);
+    border: 1px solid hsl(42 85% 55% / 0.15);
+    box-shadow: 
+      0 20px 40px hsl(0 0% 0% / 0.3),
+      inset 0 1px 0 hsl(42 85% 55% / 0.1);
+  }
+
+  .luxury-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(42 85% 55% / 0.5), transparent);
   }
 }
 
@@ -143,6 +208,18 @@
   .animate-iym-glow {
     animation: iym-glow 3s ease-in-out infinite alternate;
   }
+
+  .animate-sea-wave {
+    animation: sea-wave 8s ease-in-out infinite;
+  }
+
+  .animate-gold-shimmer {
+    animation: gold-shimmer 4s ease-in-out infinite;
+  }
+
+  .animate-float-particle {
+    animation: float-particle 10s ease-in-out infinite;
+  }
 }
 
 @keyframes float {
@@ -165,19 +242,19 @@
 
 @keyframes glow {
   0% {
-    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.15), 0 0 40px hsl(var(--glow-primary) / 0.08);
+    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.2), 0 0 40px hsl(var(--glow-primary) / 0.1);
   }
   100% {
-    box-shadow: 0 0 30px hsl(var(--glow-primary) / 0.3), 0 0 60px hsl(var(--glow-primary) / 0.15);
+    box-shadow: 0 0 40px hsl(var(--glow-primary) / 0.4), 0 0 80px hsl(var(--glow-primary) / 0.2);
   }
 }
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.2);
+    box-shadow: 0 0 30px hsl(var(--glow-primary) / 0.25);
   }
   50% {
-    box-shadow: 0 0 40px hsl(var(--glow-primary) / 0.4), 0 0 80px hsl(var(--glow-primary) / 0.2);
+    box-shadow: 0 0 60px hsl(var(--glow-primary) / 0.5), 0 0 100px hsl(var(--glow-primary) / 0.25);
   }
 }
 
@@ -216,12 +293,56 @@
 
 @keyframes iym-glow {
   0% {
-    text-shadow: 0 0 20px hsl(var(--glow-accent) / 0.4), 0 0 40px hsl(var(--glow-accent) / 0.2), 0 0 60px hsl(var(--glow-accent) / 0.1);
+    text-shadow: 0 0 30px hsl(42 90% 60% / 0.5), 0 0 60px hsl(42 85% 55% / 0.3), 0 0 90px hsl(42 80% 50% / 0.15);
     filter: brightness(1);
   }
   100% {
-    text-shadow: 0 0 30px hsl(var(--glow-accent) / 0.6), 0 0 60px hsl(var(--glow-accent) / 0.4), 0 0 100px hsl(var(--glow-accent) / 0.2);
-    filter: brightness(1.1);
+    text-shadow: 0 0 50px hsl(42 90% 65% / 0.7), 0 0 100px hsl(42 85% 55% / 0.5), 0 0 150px hsl(42 80% 50% / 0.3);
+    filter: brightness(1.15);
+  }
+}
+
+/* Green Sea Wave Animation */
+@keyframes sea-wave {
+  0%, 100% {
+    transform: translateY(0) scaleY(1);
+  }
+  25% {
+    transform: translateY(-10px) scaleY(1.05);
+  }
+  50% {
+    transform: translateY(5px) scaleY(0.98);
+  }
+  75% {
+    transform: translateY(-5px) scaleY(1.02);
+  }
+}
+
+@keyframes gold-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes float-particle {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translate(20px, -30px) rotate(90deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-10px, -50px) rotate(180deg);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translate(15px, -25px) rotate(270deg);
+    opacity: 0.5;
   }
 }
 
@@ -235,10 +356,16 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted));
+  background: hsl(var(--primary) / 0.4);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--primary));
+  background: hsl(var(--primary) / 0.6);
+}
+
+/* Selection styling */
+::selection {
+  background: hsl(var(--primary) / 0.3);
+  color: hsl(var(--foreground));
 }

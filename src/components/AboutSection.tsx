@@ -20,13 +20,14 @@ const AboutSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left content */}
           <div>
-            <span className="inline-block text-primary text-sm font-medium tracking-wider uppercase mb-4">
+            <span className="inline-block text-primary text-sm font-medium tracking-[0.3em] uppercase mb-4 font-montserrat">
               {t('about.section.label')}
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold font-space-grotesk mb-6">
-              {t('about.section.title')} <span className="text-gradient">{t('about.section.titleHighlight')}</span>
+            <h2 className="text-4xl md:text-5xl font-bold font-cinzel mb-6 tracking-wide">
+              {t('about.section.title')} <span className="text-gradient-gold">{t('about.section.titleHighlight')}</span>
             </h2>
-            <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+            <div className="gold-divider max-w-xs mb-6" />
+            <p className="text-muted-foreground text-lg mb-8 leading-relaxed font-montserrat">
               {t('about.section.description')}
             </p>
 
@@ -39,7 +40,7 @@ const AboutSection = () => {
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-foreground/90">{feature}</span>
+                  <span className="text-foreground/90 font-montserrat">{feature}</span>
                 </div>
               ))}
             </div>
@@ -48,27 +49,27 @@ const AboutSection = () => {
           {/* Right content - Portrait Image */}
           <div className="relative">
             {/* Decorative background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl blur-3xl" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-3xl" />
             
             <div className="relative">
               {/* Image container with decorative elements */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-primary/20">
                 <img 
                   src={aboutPortrait} 
                   alt="IYM Team" 
                   className="w-full h-auto object-cover aspect-square"
                 />
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
               </div>
               
               {/* Decorative accent */}
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-2xl blur-xl" />
-              <div className="absolute -top-4 -left-4 w-32 h-32 bg-accent/20 rounded-full blur-2xl" />
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-xl blur-xl" />
+              <div className="absolute -top-4 -left-4 w-32 h-32 bg-primary/10 rounded-full blur-2xl" />
               
               {/* Quote card overlay */}
-              <div className="absolute bottom-6 left-6 right-6 glass rounded-2xl p-6">
-                <blockquote className="text-lg italic text-foreground/90 text-center">
+              <div className="absolute bottom-6 left-6 right-6 glass-luxury rounded-xl p-6">
+                <blockquote className="text-lg italic text-foreground/90 text-center font-cormorant">
                   "{t('about.quote')}"
                 </blockquote>
               </div>

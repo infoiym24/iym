@@ -54,18 +54,19 @@ const ServicesSection = () => {
   return (
     <section id="services" className="py-24 relative">
       {/* Background decoration */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
       
       <div className="container mx-auto px-4">
         {/* Section header */}
         <div className="text-center mb-16">
-          <span className="inline-block text-primary text-sm font-medium tracking-wider uppercase mb-4">
+          <span className="inline-block text-primary text-sm font-medium tracking-[0.3em] uppercase mb-4 font-montserrat">
             {t('services.section.label')}
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold font-space-grotesk mb-6">
-            {t('services.section.title')} <span className="text-gradient">{t('services.section.titleHighlight')}</span>
+          <h2 className="text-4xl md:text-5xl font-bold font-cinzel mb-6 tracking-wide">
+            {t('services.section.title')} <span className="text-gradient-gold">{t('services.section.titleHighlight')}</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <div className="gold-divider max-w-xs mx-auto mb-6" />
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-montserrat">
             {t('services.section.subtitle')}
           </p>
         </div>
