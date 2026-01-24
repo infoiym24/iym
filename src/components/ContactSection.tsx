@@ -2,9 +2,15 @@ import { Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { TrainReveal, PopReveal } from './ScrollRevealText';
+import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { useInView } from 'framer-motion';
 
 const ContactSection = () => {
   const { t, language } = useLanguage();
+  const formRef = useRef(null);
+  const formInView = useInView(formRef, { once: true, margin: '-100px' });
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -44,6 +50,10 @@ const ContactSection = () => {
     { value: 'other', label: otherServiceLabel },
   ];
 
+  const sectionLabel = t('contact.section.label');
+  const sectionTitle = t('contact.section.title');
+  const sectionSubtitle = t('contact.section.subtitle');
+
   return (
     <section id="contact" className="py-24 relative overflow-hidden">
       {/* Background decorations */}
@@ -54,27 +64,51 @@ const ContactSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
         <div className="text-center mb-12">
-          <span className="inline-block text-primary text-sm font-medium tracking-[0.3em] uppercase mb-4 animate-fade-in font-montserrat">
-            {t('contact.section.label')}
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold font-cinzel mb-6 tracking-wide">
-            <span className="text-gradient-gold">{t('contact.section.title')}</span>
-          </h2>
+          <TrainReveal
+            lines={[sectionLabel]}
+            className="mb-4"
+            lineClassName="text-primary text-sm font-medium tracking-[0.3em] uppercase font-montserrat inline-block"
+            charDelay={0.04}
+          />
+          
+          <TrainReveal
+            lines={[sectionTitle]}
+            className="mb-6"
+            lineClassName="text-4xl md:text-5xl font-bold font-cinzel tracking-wide text-gradient-gold"
+            charDelay={0.03}
+            lineDelay={0.3}
+          />
+          
           <div className="gold-divider max-w-xs mx-auto mb-6" />
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-montserrat">
-            {t('contact.section.subtitle')}
-          </p>
+          
+          <TrainReveal
+            lines={[sectionSubtitle]}
+            className="max-w-2xl mx-auto"
+            lineClassName="text-muted-foreground text-lg font-montserrat"
+            charDelay={0.015}
+            lineDelay={0.5}
+          />
         </div>
 
-        {/* Contact form - centered */}
-        <div className="max-w-2xl mx-auto">
-          <div className="glass-luxury rounded-2xl p-8 md:p-10 animate-fade-in">
+        {/* Contact form - centered with pop effect */}
+        <div className="max-w-2xl mx-auto" ref={formRef}>
+          <motion.div 
+            className="glass-luxury rounded-2xl p-8 md:p-10"
+            initial={{ opacity: 0, scale: 0.95, y: 30 }}
+            animate={formInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.95, y: 30 }}
+            transition={{ duration: 0.6, type: 'spring', damping: 20 }}
+          >
             <h3 className="text-2xl font-semibold font-cinzel mb-8 text-center tracking-wide">
               {t('contact.form.title')}
             </h3>
             <div className="gold-divider mb-8" />
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="group">
+              <motion.div 
+                className="group"
+                initial={{ opacity: 0, x: -20 }}
+                animate={formInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                transition={{ delay: 0.2, duration: 0.4 }}
+              >
                 <label className="block text-sm font-medium text-foreground/90 mb-2 font-montserrat tracking-wide">
                   {t('contact.form.name')} <span className="text-primary">*</span>
                 </label>
@@ -86,9 +120,14 @@ const ContactSection = () => {
                   placeholder={t('contact.form.name.placeholder')}
                   required
                 />
-              </div>
+              </motion.div>
               <div className="grid sm:grid-cols-2 gap-6">
-                <div className="group">
+                <motion.div 
+                  className="group"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={formInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                  transition={{ delay: 0.3, duration: 0.4 }}
+                >
                   <label className="block text-sm font-medium text-foreground/90 mb-2 font-montserrat tracking-wide">
                     {t('contact.email')} <span className="text-primary">*</span>
                   </label>
@@ -100,8 +139,13 @@ const ContactSection = () => {
                     placeholder={t('contact.form.email.placeholder')}
                     required
                   />
-                </div>
-                <div className="group">
+                </motion.div>
+                <motion.div 
+                  className="group"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={formInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+                  transition={{ delay: 0.3, duration: 0.4 }}
+                >
                   <label className="block text-sm font-medium text-foreground/90 mb-2 font-montserrat tracking-wide">
                     {phoneOptionalLabel}
                   </label>
@@ -112,9 +156,14 @@ const ContactSection = () => {
                     className="w-full px-4 py-3.5 rounded-lg bg-secondary/50 border border-primary/20 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none hover:border-primary/40 font-montserrat"
                     placeholder={t('contact.form.phone.placeholder')}
                   />
-                </div>
+                </motion.div>
               </div>
-              <div className="group">
+              <motion.div 
+                className="group"
+                initial={{ opacity: 0, x: -20 }}
+                animate={formInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                transition={{ delay: 0.4, duration: 0.4 }}
+              >
                 <label className="block text-sm font-medium text-foreground/90 mb-2 font-montserrat tracking-wide">
                   {serviceSelectLabel}
                 </label>
@@ -137,8 +186,13 @@ const ContactSection = () => {
                     </svg>
                   </div>
                 </div>
-              </div>
-              <div className="group">
+              </motion.div>
+              <motion.div 
+                className="group"
+                initial={{ opacity: 0, x: -20 }}
+                animate={formInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                transition={{ delay: 0.5, duration: 0.4 }}
+              >
                 <label className="block text-sm font-medium text-foreground/90 mb-2 font-montserrat tracking-wide">
                   {t('contact.form.message')} <span className="text-primary">*</span>
                 </label>
@@ -150,18 +204,29 @@ const ContactSection = () => {
                   placeholder={t('contact.form.message.placeholder')}
                   required
                 />
-              </div>
-              <div className="flex items-center justify-between pt-2">
+              </motion.div>
+              <motion.div 
+                className="flex items-center justify-between pt-2"
+                initial={{ opacity: 0 }}
+                animate={formInView ? { opacity: 1 } : { opacity: 0 }}
+                transition={{ delay: 0.6, duration: 0.4 }}
+              >
                 <p className="text-sm text-muted-foreground font-montserrat">{requiredNote}</p>
-              </div>
-              <Button variant="luxury" size="lg" className="w-full group relative overflow-hidden">
-                <span className="relative z-10 flex items-center justify-center">
-                  <Send className="w-5 h-5 mr-2 transition-transform duration-300 group-hover:translate-x-1" />
-                  {t('contact.form.submit')}
-                </span>
-              </Button>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={formInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ delay: 0.7, duration: 0.4 }}
+              >
+                <Button variant="luxury" size="lg" className="w-full group relative overflow-hidden">
+                  <span className="relative z-10 flex items-center justify-center">
+                    <Send className="w-5 h-5 mr-2 transition-transform duration-300 group-hover:translate-x-1" />
+                    {t('contact.form.submit')}
+                  </span>
+                </Button>
+              </motion.div>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

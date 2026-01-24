@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ServiceCard from '@/components/ServiceCard';
@@ -10,9 +11,15 @@ import {
   Sparkles
 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { TrainReveal, PopReveal } from '@/components/ScrollRevealText';
 
 const Services = () => {
   const { t } = useLanguage();
+  
+  // Scroll to top on mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   
   // 6 core services
   const services = [
@@ -54,6 +61,11 @@ const Services = () => {
     },
   ];
 
+  const pageLabel = t('services.page.label');
+  const pageTitle = t('services.page.title');
+  const pageHighlight = t('services.page.titleHighlight');
+  const pageSubtitle = t('services.page.subtitle');
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -66,24 +78,40 @@ const Services = () => {
 
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-16">
-              <span className="inline-block text-primary text-sm font-medium tracking-wider uppercase mb-4">
-                {t('services.page.label')}
-              </span>
-              <h1 className="text-4xl md:text-6xl font-bold font-space-grotesk mb-6">
-                {t('services.page.title')} <span className="text-gradient">{t('services.page.titleHighlight')}</span>
-              </h1>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                {t('services.page.subtitle')}
-              </p>
+              <TrainReveal
+                lines={[pageLabel]}
+                className="mb-4"
+                lineClassName="text-primary text-sm font-medium tracking-[0.3em] uppercase font-montserrat inline-block"
+                charDelay={0.04}
+              />
+              
+              <TrainReveal
+                lines={[`${pageTitle} ${pageHighlight}`]}
+                className="mb-6"
+                lineClassName="text-4xl md:text-6xl font-bold font-cinzel tracking-wide text-gradient-gold"
+                charDelay={0.025}
+                lineDelay={0.3}
+              />
+              
+              <div className="gold-divider max-w-xs mx-auto mb-6" />
+              
+              <TrainReveal
+                lines={[pageSubtitle]}
+                className="max-w-2xl mx-auto"
+                lineClassName="text-muted-foreground text-lg font-montserrat"
+                charDelay={0.015}
+                lineDelay={0.5}
+              />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {services.map((service, index) => (
-                <ServiceCard
-                  key={service.title}
-                  {...service}
-                  delay={index * 50}
-                />
+                <PopReveal key={service.title} delay={index * 0.1}>
+                  <ServiceCard
+                    {...service}
+                    delay={0}
+                  />
+                </PopReveal>
               ))}
             </div>
           </div>

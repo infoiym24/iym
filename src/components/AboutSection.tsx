@@ -1,9 +1,15 @@
 import { CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import aboutPortrait from '@/assets/about-portrait.jpg';
+import { TrainReveal, PopReveal, SequentialReveal } from './ScrollRevealText';
+import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { useInView } from 'framer-motion';
 
 const AboutSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const imageRef = useRef(null);
+  const imageInView = useInView(imageRef, { once: true, margin: '-100px' });
 
   const features = [
     t('about.feature.1'),
@@ -14,44 +20,75 @@ const AboutSection = () => {
     t('about.feature.6'),
   ];
 
+  const sectionLabel = t('about.section.label');
+  const sectionTitle = t('about.section.title');
+  const sectionHighlight = t('about.section.titleHighlight');
+  const sectionDescription = t('about.section.description');
+
   return (
     <section id="about" className="py-24 relative">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left content */}
           <div>
-            <span className="inline-block text-primary text-sm font-medium tracking-[0.3em] uppercase mb-4 font-montserrat">
-              {t('about.section.label')}
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold font-cinzel mb-6 tracking-wide">
-              {t('about.section.title')} <span className="text-gradient-gold">{t('about.section.titleHighlight')}</span>
-            </h2>
+            <TrainReveal
+              lines={[sectionLabel]}
+              className="mb-4"
+              lineClassName="text-primary text-sm font-medium tracking-[0.3em] uppercase font-montserrat inline-block"
+              charDelay={0.04}
+            />
+            
+            <TrainReveal
+              lines={[`${sectionTitle} ${sectionHighlight}`]}
+              className="mb-6"
+              lineClassName="text-4xl md:text-5xl font-bold font-cinzel tracking-wide text-gradient-gold"
+              charDelay={0.025}
+              lineDelay={0.3}
+            />
+            
             <div className="gold-divider max-w-xs mb-6" />
-            <p className="text-muted-foreground text-lg mb-8 leading-relaxed font-montserrat">
-              {t('about.section.description')}
-            </p>
+            
+            <TrainReveal
+              lines={sectionDescription.split('. ').filter(s => s).map(s => s + '.')}
+              className="mb-8"
+              lineClassName="text-muted-foreground text-lg leading-relaxed font-montserrat block mb-2"
+              charDelay={0.012}
+              lineDelay={0.15}
+            />
 
-            {/* Features list */}
-            <div className="grid sm:grid-cols-2 gap-4 mb-8">
+            {/* Features list with sequential reveal */}
+            <SequentialReveal 
+              className="grid sm:grid-cols-2 gap-4 mb-8"
+              staggerDelay={0.15}
+            >
               {features.map((feature, index) => (
                 <div 
                   key={index}
-                  className="flex items-start gap-3 animate-fade-in"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  className="flex items-start gap-3"
                 >
                   <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                   <span className="text-foreground/90 font-montserrat">{feature}</span>
                 </div>
               ))}
-            </div>
+            </SequentialReveal>
           </div>
 
-          {/* Right content - Portrait Image */}
-          <div className="relative">
+          {/* Right content - Portrait Image with pop effect */}
+          <div className="relative" ref={imageRef}>
             {/* Decorative background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-3xl" />
+            <motion.div 
+              className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-3xl"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={imageInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.8 }}
+            />
             
-            <div className="relative">
+            <motion.div 
+              className="relative"
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              animate={imageInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.9, y: 30 }}
+              transition={{ duration: 0.8, delay: 0.2, type: 'spring', damping: 20 }}
+            >
               {/* Image container with decorative elements */}
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-primary/20">
                 <img 
@@ -64,16 +101,31 @@ const AboutSection = () => {
               </div>
               
               {/* Decorative accent */}
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-xl blur-xl" />
-              <div className="absolute -top-4 -left-4 w-32 h-32 bg-primary/10 rounded-full blur-2xl" />
+              <motion.div 
+                className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-xl blur-xl"
+                initial={{ opacity: 0 }}
+                animate={imageInView ? { opacity: 1 } : { opacity: 0 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+              />
+              <motion.div 
+                className="absolute -top-4 -left-4 w-32 h-32 bg-primary/10 rounded-full blur-2xl"
+                initial={{ opacity: 0 }}
+                animate={imageInView ? { opacity: 1 } : { opacity: 0 }}
+                transition={{ delay: 0.6, duration: 0.5 }}
+              />
               
               {/* Quote card overlay */}
-              <div className="absolute bottom-6 left-6 right-6 glass-luxury rounded-xl p-6">
+              <motion.div 
+                className="absolute bottom-6 left-6 right-6 glass-luxury rounded-xl p-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={imageInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ delay: 0.7, duration: 0.5 }}
+              >
                 <blockquote className="text-lg italic text-foreground/90 text-center font-cormorant">
                   "{t('about.quote')}"
                 </blockquote>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </div>

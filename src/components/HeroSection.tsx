@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { motion } from 'framer-motion';
 
 const HeroSection = () => {
   const { t } = useLanguage();
@@ -33,32 +34,52 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto">
           {/* Main heading - IYM huge and prominent */}
-          <h1 className="text-[8rem] sm:text-[10rem] md:text-[14rem] lg:text-[18rem] font-black font-cinzel leading-none mb-8 opacity-0 animate-fade-in tracking-widest" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
+          <motion.h1 
+            className="text-[8rem] sm:text-[10rem] md:text-[14rem] lg:text-[18rem] font-black font-cinzel leading-none mb-8 tracking-widest"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+          >
             <span className="text-gradient-gold animate-iym-glow inline-block">IYM</span>
-          </h1>
+          </motion.h1>
           
           {/* I'm Your Man - words pop in with 2 second delays */}
           <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-10 mb-12 min-h-[80px] sm:min-h-[100px] md:min-h-[120px]">
-            {words.map((word) => (
-              <span
+            {words.map((word, index) => (
+              <motion.span
                 key={word.text}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-foreground font-cormorant italic animate-word-pop-smooth"
-                style={{ 
-                  animationDelay: `${word.delay}s`,
-                  animationFillMode: 'forwards'
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-foreground font-cormorant italic"
+                initial={{ opacity: 0, scale: 0.3, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ 
+                  delay: word.delay,
+                  duration: 0.6,
+                  type: 'spring',
+                  damping: 15,
+                  stiffness: 100
                 }}
               >
                 {word.text}
-              </span>
+              </motion.span>
             ))}
           </div>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 opacity-0 animate-fade-in font-montserrat" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
+          <motion.p 
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 font-montserrat"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
             {t('hero.description')}
-          </p>
+          </motion.p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>
+          <motion.div 
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
             <Link to="/services">
               <Button variant="luxury" size="xl">
                 {t('hero.discover')}
@@ -69,7 +90,7 @@ const HeroSection = () => {
                 {t('hero.learn')}
               </Button>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
