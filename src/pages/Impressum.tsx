@@ -13,7 +13,7 @@ const Impressum = () => {
               Impressum
             </h1>
             
-            <div className="prose prose-invert max-w-none space-y-8 text-foreground/90">
+            <div className="prose prose-invert max-w-none space-y-8 text-muted-foreground">
               <section>
                 <h2 className="text-2xl font-semibold text-foreground mb-4">Angaben gemäß § 5 TMG</h2>
                 <p>

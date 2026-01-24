@@ -1,14 +1,12 @@
 import { useParams, Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { 
   Megaphone, Trash2, Car, Wrench, CheckCircle2, ArrowLeft, ExternalLink
 } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
-import { motion, useInView } from 'framer-motion';
-import { TextReveal, PopReveal, SlideReveal, StaggerReveal, StaggerItem, GlowReveal, LetterReveal } from '@/components/ScrollReveal';
 
 // Import generated images
 import entruempelung1 from '@/assets/entruempelung-1.jpg';
@@ -418,59 +416,6 @@ Our Car Detailing Service:
   }
 };
 
-// Animated paragraph component for extended description
-const AnimatedParagraph = ({ text, delay = 0 }: { text: string; delay?: number }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-30px' });
-  const words = text.split(' ');
-  
-  return (
-    <motion.p
-      ref={ref}
-      className="text-muted-foreground mb-4 last:mb-0"
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={{
-        hidden: {},
-        visible: {
-          transition: {
-            staggerChildren: 0.02,
-            delayChildren: delay,
-          }
-        }
-      }}
-    >
-      {words.map((word, index) => {
-        // Handle bold text
-        const isBold = word.includes('**');
-        const cleanWord = word.replace(/\*\*/g, '');
-        const hasBullet = cleanWord.startsWith('•');
-        
-        return (
-          <motion.span
-            key={index}
-            className={`inline-block mr-[0.25em] ${isBold ? 'text-foreground font-semibold' : ''}`}
-            variants={{
-              hidden: { opacity: 0, y: 10, filter: 'blur(4px)' },
-              visible: { 
-                opacity: 1, 
-                y: 0, 
-                filter: 'blur(0px)',
-                transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }
-              }
-            }}
-            dangerouslySetInnerHTML={{
-              __html: hasBullet 
-                ? `<span class="text-accent">•</span>${cleanWord.slice(1)}`
-                : cleanWord
-            }}
-          />
-        );
-      })}
-    </motion.p>
-  );
-};
-
 const ServiceDetail = () => {
   const { serviceId } = useParams<{ serviceId: string }>();
   const { t, language } = useLanguage();
@@ -481,11 +426,6 @@ const ServiceDetail = () => {
     service: '',
     message: ''
   });
-
-  // Scroll to top on page load
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [serviceId]);
 
   const service = serviceId ? serviceData[serviceId] : null;
 
@@ -564,6 +504,7 @@ const ServiceDetail = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
+    // Handle form submission
   };
 
   const extendedDesc = service.extendedDescription?.[language] || service.extendedDescription?.de;
@@ -575,269 +516,229 @@ const ServiceDetail = () => {
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           {/* Back Link */}
-          <SlideReveal delay={0} direction="right">
-            <Link 
-              to="/services" 
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              {backLabel}
-            </Link>
-          </SlideReveal>
+          <Link 
+            to="/services" 
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            {backLabel}
+          </Link>
 
           {/* Service Header */}
           <div className="flex flex-col lg:flex-row gap-12 items-start">
             {/* Left: Service Info */}
             <div className="flex-1">
-              <PopReveal delay={0.1} scale={0.5}>
-                <motion.div 
-                  className="w-20 h-20 rounded-2xl bg-primary/20 flex items-center justify-center mb-6"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Icon className="w-10 h-10 text-primary" />
-                </motion.div>
-              </PopReveal>
+              <div className="w-20 h-20 rounded-2xl bg-primary/20 flex items-center justify-center mb-6">
+                <Icon className="w-10 h-10 text-primary" />
+              </div>
               
-              <PopReveal delay={0.2} scale={0.6}>
-                <h1 className="text-4xl md:text-5xl font-bold font-display mb-6">
-                  <GlowReveal className="text-gold" delay={0.4}>
-                    {t(service.titleKey)}
-                  </GlowReveal>
-                </h1>
-              </PopReveal>
+              <h1 className="text-4xl md:text-5xl font-bold font-space-grotesk mb-6">
+                <span className="text-gradient">{t(service.titleKey)}</span>
+              </h1>
               
-              <TextReveal
-                className="text-xl text-muted-foreground mb-8 max-w-2xl"
-                delay={0.3}
-                staggerDelay={0.03}
-              >
+              <p className="text-xl text-muted-foreground mb-8 max-w-2xl">
                 {t(service.descKey)}
-              </TextReveal>
+              </p>
 
               {/* Extended Description */}
               {extendedDesc && (
-                <SlideReveal delay={0.4}>
-                  <div className="mb-10 glass-luxury rounded-2xl p-8 border border-accent/20">
-                    <div className="prose prose-invert max-w-none">
-                      {extendedDesc.split('\n').map((paragraph, index) => (
-                        <AnimatedParagraph 
-                          key={index} 
-                          text={paragraph}
-                          delay={index * 0.1}
-                        />
-                      ))}
-                    </div>
+                <div className="mb-10 glass rounded-2xl p-8">
+                  <div className="prose prose-invert max-w-none">
+                    {extendedDesc.split('\n').map((paragraph, index) => (
+                      <p 
+                        key={index} 
+                        className="text-muted-foreground mb-4 last:mb-0"
+                        dangerouslySetInnerHTML={{ 
+                          __html: paragraph
+                            .replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground">$1</strong>')
+                            .replace(/• /g, '<span class="text-accent">•</span> ')
+                        }}
+                      />
+                    ))}
                   </div>
-                </SlideReveal>
+                </div>
               )}
 
               {/* Features */}
               <div className="mb-8">
-                <PopReveal delay={0.5} scale={0.8}>
-                  <h2 className="text-2xl font-semibold font-display mb-6">{includedLabel}</h2>
-                </PopReveal>
-                <StaggerReveal className="grid sm:grid-cols-2 gap-4" staggerDelay={0.1}>
+                <h2 className="text-2xl font-semibold font-space-grotesk mb-6">{includedLabel}</h2>
+                <div className="grid sm:grid-cols-2 gap-4">
                   {features.map((feature, index) => (
-                    <StaggerItem key={index}>
-                      <motion.div 
-                        className="flex items-center gap-3 p-4 glass-luxury rounded-xl border border-accent/10"
-                        whileHover={{ scale: 1.02, borderColor: 'hsl(43 80% 55% / 0.3)' }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <motion.div
-                          whileHover={{ rotate: 360 }}
-                          transition={{ duration: 0.5 }}
-                        >
-                          <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0" />
-                        </motion.div>
-                        <span>{feature}</span>
-                      </motion.div>
-                    </StaggerItem>
+                    <div 
+                      key={index}
+                      className="flex items-center gap-3 p-4 glass rounded-xl animate-fade-in"
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    >
+                      <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0" />
+                      <span>{feature}</span>
+                    </div>
                   ))}
-                </StaggerReveal>
+                </div>
               </div>
 
               {/* Image Gallery for non-marketing services */}
               {service.images && service.images.length > 0 && (
                 <div className="mb-8">
-                  <PopReveal delay={0.6} scale={0.8}>
-                    <h2 className="text-2xl font-semibold font-display mb-6">{impressionsLabel}</h2>
-                  </PopReveal>
-                  <StaggerReveal className="grid md:grid-cols-2 gap-6" staggerDelay={0.15}>
+                  <h2 className="text-2xl font-semibold font-space-grotesk mb-6">{impressionsLabel}</h2>
+                  <div className="grid md:grid-cols-2 gap-6">
                     {service.images.map((img, index) => (
-                      <StaggerItem key={index}>
-                        <motion.div
-                          className="group block glass-luxury rounded-2xl overflow-hidden border border-accent/10"
-                          whileHover={{ scale: 1.02 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
-                            <img
-                              src={img}
-                              alt={`${t(service.titleKey)} - ${index + 1}`}
-                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
-                          </div>
-                        </motion.div>
-                      </StaggerItem>
+                      <div
+                        key={index}
+                        className="group block glass rounded-2xl overflow-hidden"
+                      >
+                        <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
+                          <img
+                            src={img}
+                            alt={`${t(service.titleKey)} - ${index + 1}`}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                        </div>
+                      </div>
                     ))}
-                  </StaggerReveal>
+                  </div>
                 </div>
               )}
 
               {/* References Section for Marketing */}
               {service.references && service.references.length > 0 && (
                 <div className="mb-8">
-                  <PopReveal delay={0.6} scale={0.8}>
-                    <h2 className="text-2xl font-semibold font-display mb-6">{referencesLabel}</h2>
-                  </PopReveal>
-                  <StaggerReveal className="grid md:grid-cols-2 gap-6" staggerDelay={0.15}>
+                  <h2 className="text-2xl font-semibold font-space-grotesk mb-6">{referencesLabel}</h2>
+                  <div className="grid md:grid-cols-2 gap-6">
                     {service.references.map((ref, index) => (
-                      <StaggerItem key={index}>
-                        <motion.a
-                          href={ref.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group block glass-luxury rounded-2xl overflow-hidden border border-accent/10 hover:border-accent/30 transition-all duration-300"
-                          whileHover={{ scale: 1.02 }}
-                        >
-                          {/* Screenshot Preview */}
-                          <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
-                            <img
-                              src={ref.image}
-                              alt={ref.title}
-                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
-                            
-                            {/* Overlay on hover */}
-                            <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                              <div className="flex items-center gap-2 bg-background/90 px-4 py-2 rounded-full">
-                                <ExternalLink className="w-4 h-4 text-primary" />
-                                <span className="text-sm font-medium">{visitSiteLabel}</span>
-                              </div>
-                            </div>
-                          </div>
+                      <a
+                        key={index}
+                        href={ref.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group block glass rounded-2xl overflow-hidden hover:ring-2 hover:ring-primary/50 transition-all duration-300 transform hover:scale-[1.02]"
+                      >
+                        {/* Screenshot Preview */}
+                        <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
+                          <img
+                            src={ref.image}
+                            alt={ref.title}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
                           
-                          {/* Info */}
-                          <div className="p-6">
-                            <h3 className="text-xl font-semibold font-display mb-2 group-hover:text-accent transition-colors">
-                              {ref.title}
-                            </h3>
-                            <p className="text-muted-foreground text-sm">
-                              {ref.description[language] || ref.description.de}
-                            </p>
-                            <div className="mt-4 flex items-center gap-2 text-primary text-sm font-medium">
-                              <span>{ref.url.replace('https://', '').replace('www.', '').replace(/\/$/, '')}</span>
-                              <ExternalLink className="w-3 h-3" />
+                          {/* Overlay on hover */}
+                          <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div className="flex items-center gap-2 bg-background/90 px-4 py-2 rounded-full">
+                              <ExternalLink className="w-4 h-4 text-primary" />
+                              <span className="text-sm font-medium">{visitSiteLabel}</span>
                             </div>
                           </div>
-                        </motion.a>
-                      </StaggerItem>
+                        </div>
+                        
+                        {/* Info */}
+                        <div className="p-6">
+                          <h3 className="text-xl font-semibold font-space-grotesk mb-2 group-hover:text-primary transition-colors">
+                            {ref.title}
+                          </h3>
+                          <p className="text-muted-foreground text-sm">
+                            {ref.description[language] || ref.description.de}
+                          </p>
+                          <div className="mt-4 flex items-center gap-2 text-primary text-sm font-medium">
+                            <span>{ref.url.replace('https://', '').replace('www.', '').replace(/\/$/, '')}</span>
+                            <ExternalLink className="w-3 h-3" />
+                          </div>
+                        </div>
+                      </a>
                     ))}
-                  </StaggerReveal>
+                  </div>
                 </div>
               )}
             </div>
 
             {/* Right: Contact Form */}
             <div className="w-full lg:w-[450px] lg:sticky lg:top-32">
-              <SlideReveal delay={0.3} direction="left">
-                <motion.div 
-                  className="glass-luxury rounded-2xl p-8 border border-accent/20"
-                  whileHover={{ boxShadow: '0 0 40px hsl(43 80% 55% / 0.15)' }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <h3 className="text-2xl font-semibold font-display mb-6">{formTitle}</h3>
+              <div className="glass rounded-2xl p-8">
+                <h3 className="text-2xl font-semibold font-space-grotesk mb-6">{formTitle}</h3>
+                
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <label className="block text-sm text-muted-foreground mb-2">
+                      {t('contact.form.name')} <span className="text-primary">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder={t('contact.form.name.placeholder')}
+                      className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                      required
+                    />
+                  </div>
                   
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
-                      <label className="block text-sm text-muted-foreground mb-2">
-                        {t('contact.form.name')} <span className="text-accent">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder={t('contact.form.name.placeholder')}
-                        className="w-full px-4 py-3 bg-secondary/50 border-2 border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all"
-                        required
-                      />
-                    </div>
-                    
-                    <div>
-                      <label className="block text-sm text-muted-foreground mb-2">
-                        {t('contact.email')} <span className="text-accent">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder={t('contact.form.email.placeholder')}
-                        className="w-full px-4 py-3 bg-secondary/50 border-2 border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all"
-                        required
-                      />
-                    </div>
-                    
-                    <div>
-                      <label className="block text-sm text-muted-foreground mb-2">
-                        {t('contact.phone')} <span className="text-muted-foreground/60">({language === 'de' ? 'optional' : language === 'en' ? 'optional' : 'необязательно'})</span>
-                      </label>
-                      <input
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder={t('contact.form.phone.placeholder')}
-                        className="w-full px-4 py-3 bg-secondary/50 border-2 border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all"
-                      />
-                    </div>
+                  <div>
+                    <label className="block text-sm text-muted-foreground mb-2">
+                      {t('contact.email')} <span className="text-primary">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder={t('contact.form.email.placeholder')}
+                      className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm text-muted-foreground mb-2">
+                      {t('contact.phone')} <span className="text-muted-foreground/60">({language === 'de' ? 'optional' : language === 'en' ? 'optional' : 'необязательно'})</span>
+                    </label>
+                    <input
+                      type="tel"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder={t('contact.form.phone.placeholder')}
+                      className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                    />
+                  </div>
 
-                    <div>
-                      <label className="block text-sm text-muted-foreground mb-2">
-                        {serviceSelectLabel}
-                      </label>
-                      <select
-                        value={formData.service}
-                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                        className="w-full px-4 py-3 bg-secondary/50 border-2 border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all appearance-none cursor-pointer"
-                        required
-                      >
-                        <option value="">{serviceSelectLabel}</option>
-                        {serviceOptions.map((option) => (
-                          <option key={option.value} value={option.value}>
-                            {option.label}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    
-                    <div>
-                      <label className="block text-sm text-muted-foreground mb-2">
-                        {t('contact.form.message')} <span className="text-accent">*</span>
-                      </label>
-                      <textarea
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder={t('contact.form.message.placeholder')}
-                        rows={4}
-                        className="w-full px-4 py-3 bg-secondary/50 border-2 border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all resize-none"
-                        required
-                      />
-                    </div>
-                    
-                    <motion.button
-                      type="submit"
-                      className="w-full bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-background font-medium py-3 px-6 rounded-xl transition-all duration-200"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
+                  <div>
+                    <label className="block text-sm text-muted-foreground mb-2">
+                      {serviceSelectLabel}
+                    </label>
+                    <select
+                      value={formData.service}
+                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                      className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all appearance-none cursor-pointer"
+                      required
                     >
-                      {submitLabel}
-                    </motion.button>
-                  </form>
-                </motion.div>
-              </SlideReveal>
+                      <option value="">{serviceSelectLabel}</option>
+                      {serviceOptions.map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm text-muted-foreground mb-2">
+                      {t('contact.form.message')} <span className="text-primary">*</span>
+                    </label>
+                    <textarea
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      placeholder={t('contact.form.message.placeholder')}
+                      rows={4}
+                      className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none"
+                      required
+                    />
+                  </div>
+                  
+                  <button
+                    type="submit"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-3 px-6 rounded-xl transition-all duration-200 hover:scale-[1.02]"
+                  >
+                    {submitLabel}
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
         </div>

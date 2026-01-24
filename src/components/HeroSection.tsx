@@ -1,14 +1,9 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { TextReveal, PopReveal, SlideReveal, GlowReveal } from './ScrollReveal';
 
 const HeroSection = () => {
   const { t } = useLanguage();
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: true });
   
   const words = [
     { text: "I'm", delay: 0.5 },
@@ -17,97 +12,66 @@ const HeroSection = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
-      {/* Luxury animated background elements */}
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+      {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Deep emerald glow */}
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] animate-pulse-slow" />
-        {/* Gold glow */}
-        <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-accent/15 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '2s' }} />
-        {/* Central radial */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-gradient-radial from-primary/8 to-transparent rounded-full" />
-        {/* Floating gold particles */}
-        <div className="absolute top-20 left-20 w-3 h-3 bg-accent/40 rounded-full blur-sm animate-luxury-float" />
-        <div className="absolute top-40 right-32 w-2 h-2 bg-accent/50 rounded-full blur-sm animate-luxury-float" style={{ animationDelay: '-3s' }} />
-        <div className="absolute bottom-40 left-1/3 w-2 h-2 bg-accent/45 rounded-full blur-sm animate-luxury-float" style={{ animationDelay: '-5s' }} />
-        <div className="absolute bottom-60 right-1/4 w-3 h-3 bg-accent/35 rounded-full blur-sm animate-luxury-float" style={{ animationDelay: '-7s' }} />
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[100px] animate-pulse-slow" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-accent/15 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '1.5s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-primary/5 to-transparent rounded-full" />
       </div>
 
-      {/* Elegant grid pattern overlay */}
+      {/* Grid pattern overlay */}
       <div 
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-10"
         style={{
-          backgroundImage: `linear-gradient(hsl(43 80% 55%) 1px, transparent 1px),
-                           linear-gradient(90deg, hsl(43 80% 55%) 1px, transparent 1px)`,
-          backgroundSize: '80px 80px',
+          backgroundImage: `linear-gradient(hsl(var(--primary) / 0.2) 1px, transparent 1px),
+                           linear-gradient(90deg, hsl(var(--primary) / 0.2) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px',
         }}
       />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto">
-          {/* Main heading - IYM huge and prominent with gold shimmer */}
-          <PopReveal delay={0.2} scale={0.3}>
-            <h1 className="text-[8rem] sm:text-[10rem] md:text-[14rem] lg:text-[18rem] font-display font-bold leading-none mb-8">
-              <span 
-                className="text-gold animate-iym-glow inline-block"
-                style={{
-                  textShadow: '0 0 60px hsl(43 80% 55% / 0.6), 0 0 120px hsl(43 80% 55% / 0.4)',
-                }}
-              >
-                IYM
-              </span>
-            </h1>
-          </PopReveal>
+          {/* Main heading - IYM huge and prominent */}
+
+          <h1 className="text-[8rem] sm:text-[10rem] md:text-[14rem] lg:text-[18rem] font-black font-space-grotesk leading-none mb-8 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
+            <span className="text-gradient animate-iym-glow inline-block">IYM</span>
+          </h1>
           
-          {/* I'm Your Man - elegant words pop in with 2 second delays */}
-          <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-10 mb-14 min-h-[80px] sm:min-h-[100px] md:min-h-[120px]">
+          {/* I'm Your Man - words pop in with 2 second delays */}
+          <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-10 mb-12 min-h-[80px] sm:min-h-[100px] md:min-h-[120px]">
             {words.map((word) => (
-              <motion.span
+              <span
                 key={word.text}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-semibold text-foreground"
-                initial={{ opacity: 0, scale: 0.3 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{
-                  delay: word.delay,
-                  duration: 1,
-                  ease: [0.34, 1.56, 0.64, 1],
-                }}
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground animate-word-pop-smooth"
                 style={{ 
-                  textShadow: '0 0 30px hsl(43 80% 55% / 0.2)',
+                  animationDelay: `${word.delay}s`,
+                  animationFillMode: 'forwards'
                 }}
               >
                 {word.text}
-              </motion.span>
+              </span>
             ))}
           </div>
 
-          <SlideReveal delay={0.4}>
-            <p className="text-lg md:text-xl font-elegant italic text-muted-foreground max-w-2xl mx-auto mb-14 leading-relaxed">
-              {t('hero.description')}
-            </p>
-          </SlideReveal>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 opacity-0 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
+            {t('hero.description')}
+          </p>
 
-          {/* CTA Buttons - Luxury styled */}
-          <SlideReveal delay={0.6}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-              <Link to="/services">
-                <Button variant="gold" size="xl" className="min-w-[200px]">
-                  {t('hero.discover')}
-                </Button>
-              </Link>
-              <Link to="/about">
-                <Button variant="glass" size="xl" className="min-w-[200px]">
-                  {t('hero.learn')}
-                </Button>
-              </Link>
-            </div>
-          </SlideReveal>
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>
+            <Link to="/services">
+              <Button variant="hero" size="xl">
+                {t('hero.discover')}
+              </Button>
+            </Link>
+            <Link to="/about">
+              <Button variant="glass" size="xl">
+                {t('hero.learn')}
+              </Button>
+            </Link>
+          </div>
         </div>
-      </div>
-
-      {/* Bottom gold accent line */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <div className="gold-divider" />
       </div>
     </section>
   );
