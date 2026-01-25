@@ -13,9 +13,13 @@ const GreenSeaSection = () => {
                 language === 'en' ? 'Quality Meets Passion' :
                 'Качество Встречает Страсть';
                 
-  const subtitle = language === 'de' ? 'Professionelle Dienstleistungen mit persönlichem Engagement.\nFür Ergebnisse, die überzeugen.' :
-                   language === 'en' ? 'Professional services with personal commitment.\nFor results that convince.' :
-                   'Профессиональные услуги с личной приверженностью.\nДля результатов, которые убеждают.';
+  const subtitleLine1 = language === 'de' ? 'Professionelle Dienstleistungen mit persönlichem Engagement.' :
+                        language === 'en' ? 'Professional services with personal commitment.' :
+                        'Профессиональные услуги с личной приверженностью.';
+  
+  const subtitleLine2 = language === 'de' ? 'Für Ergebnisse, die überzeugen.' :
+                        language === 'en' ? 'For results that convince.' :
+                        'Для результатов, которые убеждают.';
 
   return (
     <motion.div 
@@ -95,12 +99,20 @@ const GreenSeaSection = () => {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 1.5, duration: 0.8 }}
             >
-              <TrainRevealText
-                className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed justify-center"
-                charDelay={0.012}
-              >
-                {subtitle}
-              </TrainRevealText>
+              <div className="flex flex-col items-center gap-2">
+                <TrainRevealText
+                  className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed justify-center"
+                  charDelay={0.012}
+                >
+                  {subtitleLine1}
+                </TrainRevealText>
+                <TrainRevealText
+                  className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed justify-center"
+                  charDelay={0.012}
+                >
+                  {subtitleLine2}
+                </TrainRevealText>
+              </div>
             </motion.div>
           </div>
         </div>
