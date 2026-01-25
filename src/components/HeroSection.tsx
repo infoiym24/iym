@@ -2,12 +2,10 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
-import heroLogoBanner from '@/assets/hero-logo-banner.png';
+import heroLogoComplete from '@/assets/hero-logo-complete.png';
 
 const HeroSection = () => {
   const { t } = useLanguage();
-
-  const words = ["I'm", "Your", "Man"];
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
@@ -19,55 +17,19 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto">
-          {/* Logo with banner and I'm Your Man text */}
-          <div className="relative inline-flex items-center justify-center mb-8">
-            {/* Shield Logo with empty banner */}
-            <motion.img 
-              src={heroLogoBanner}
-              alt="IYM Logo"
+          {/* Complete Logo with I'm Your Man already included */}
+          <motion.div 
+            className="inline-flex items-center justify-center mb-8"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            <img 
+              src={heroLogoComplete}
+              alt="I'm Your Man"
               className="w-72 sm:w-96 md:w-[28rem] lg:w-[34rem] xl:w-[40rem] h-auto drop-shadow-2xl"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
             />
-            
-            {/* I'm Your Man text - positioned in the banner box at the bottom */}
-            <div className="absolute bottom-[8%] sm:bottom-[9%] left-1/2 -translate-x-1/2 flex items-center justify-center gap-2 sm:gap-3 md:gap-4">
-              {words.map((word, index) => (
-                <motion.span
-                  key={word}
-                  className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-display font-bold text-gradient-gold tracking-wide"
-                  style={{ 
-                    textShadow: '0 2px 15px rgba(212, 175, 55, 0.5), 0 0 30px rgba(212, 175, 55, 0.3)',
-                  }}
-                  initial={{ 
-                    opacity: 0, 
-                    scale: 0,
-                    y: 20,
-                    rotateX: -90
-                  }}
-                  animate={{ 
-                    opacity: 1, 
-                    scale: 1,
-                    y: 0,
-                    rotateX: 0
-                  }}
-                  transition={{ 
-                    delay: 1.0 + index * 0.4,
-                    duration: 0.7,
-                    ease: [0.34, 1.56, 0.64, 1], // Strong bounce effect
-                    scale: {
-                      type: "spring",
-                      stiffness: 200,
-                      damping: 10
-                    }
-                  }}
-                >
-                  {word}
-                </motion.span>
-              ))}
-            </div>
-          </div>
+          </motion.div>
 
           {/* Description */}
           <motion.p 
