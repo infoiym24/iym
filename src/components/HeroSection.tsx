@@ -81,6 +81,9 @@ const HeroSection = () => {
               </Button>
             </Link>
           </motion.div>
+          
+          {/* Extra spacing before section divider */}
+          <div className="mt-24 sm:mt-32 lg:mt-40"></div>
         </div>
       </div>
 
