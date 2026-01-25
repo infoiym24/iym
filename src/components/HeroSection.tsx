@@ -17,48 +17,34 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto">
-          {/* Logo with I'm Your Man overlay */}
-          <div className="relative inline-block mb-8">
-            {/* Shield Logo */}
-            <motion.img 
-              src={heroLogo}
-              alt="IYM Logo"
-              className="w-64 sm:w-80 md:w-96 lg:w-[28rem] h-auto mx-auto drop-shadow-2xl"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
-            />
-            
-            {/* I'm Your Man text overlay - positioned at the golden ring */}
-            <motion.div 
-              className="absolute left-1/2 -translate-x-1/2 bottom-[18%] sm:bottom-[20%] w-full"
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ 
-                delay: 0.8,
-                duration: 0.8,
-                ease: [0.34, 1.56, 0.64, 1] // Bounce effect
-              }}
-            >
-              <div className="flex items-center justify-center gap-1 sm:gap-2">
-                {["I'm", "Your", "Man"].map((word, index) => (
-                  <motion.span
-                    key={word}
-                    className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-display font-bold text-gradient-gold tracking-wide"
-                    style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ 
-                      delay: 1.2 + index * 0.2,
-                      duration: 0.5,
-                      ease: [0.25, 0.46, 0.45, 0.94],
-                    }}
-                  >
-                    {word}
-                  </motion.span>
-                ))}
-              </div>
-            </motion.div>
+          {/* Shield Logo */}
+          <motion.img 
+            src={heroLogo}
+            alt="IYM Logo"
+            className="w-64 sm:w-80 md:w-96 lg:w-[28rem] h-auto mx-auto drop-shadow-2xl mb-4"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
+          />
+          
+          {/* I'm Your Man text - centered below logo */}
+          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-4">
+            {["I'm", "Your", "Man"].map((word, index) => (
+              <motion.span
+                key={word}
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-gradient-gold tracking-wide"
+                style={{ textShadow: '0 2px 15px rgba(0,0,0,0.8)' }}
+                initial={{ opacity: 0, scale: 0.3, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ 
+                  delay: 1.0 + index * 0.35,
+                  duration: 0.8,
+                  ease: [0.34, 1.56, 0.64, 1],
+                }}
+              >
+                {word}
+              </motion.span>
+            ))}
           </div>
 
           {/* Description */}
@@ -66,7 +52,7 @@ const HeroSection = () => {
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 font-sans leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.8, duration: 0.8 }}
+            transition={{ delay: 2.2, duration: 0.8 }}
           >
             {t('hero.description')}
           </motion.p>
