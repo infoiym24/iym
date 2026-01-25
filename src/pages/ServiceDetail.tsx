@@ -176,7 +176,7 @@ Our services include:
             'Social Media Einbindung',
             'Erweiterte SEO-Optimierung',
             '2 Korrekturschleifen',
-            '3 Monate Support'
+            '1 Monat Support'
           ],
           en: [
             'Multi-page Website (up to 5 pages)',
@@ -186,7 +186,7 @@ Our services include:
             'Social Media Integration',
             'Advanced SEO Optimization',
             '2 Revision Rounds',
-            '3 Months Support'
+            '1 Month Support'
           ],
           ru: [
             'Многостраничный сайт (до 5 страниц)',
@@ -196,7 +196,7 @@ Our services include:
             'Интеграция соцсетей',
             'Расширенная SEO-оптимизация',
             '2 раунда правок',
-            '3 месяца поддержки'
+            '1 месяц поддержки'
           ]
         }
       },
@@ -212,9 +212,7 @@ Our services include:
             'Newsletter-System',
             'Mehrsprachigkeit',
             'Blog / News-Bereich',
-            'Umfassende SEO-Strategie',
-            'Unbegrenzte Korrekturschleifen',
-            '6 Monate Support & Wartung'
+            '3 Monate Support & Wartung'
           ],
           en: [
             'Complete Online Shop or Comprehensive Website',
@@ -224,9 +222,7 @@ Our services include:
             'Newsletter System',
             'Multi-language Support',
             'Blog / News Section',
-            'Comprehensive SEO Strategy',
-            'Unlimited Revision Rounds',
-            '6 Months Support & Maintenance'
+            '3 Months Support & Maintenance'
           ],
           ru: [
             'Полный интернет-магазин или комплексный сайт',
@@ -236,9 +232,7 @@ Our services include:
             'Система рассылки',
             'Многоязычность',
             'Блог / раздел новостей',
-            'Комплексная SEO-стратегия',
-            'Неограниченные правки',
-            '6 месяцев поддержки и обслуживания'
+            '3 месяца поддержки и обслуживания'
           ]
         }
       }
