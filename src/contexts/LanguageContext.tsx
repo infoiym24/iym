@@ -18,7 +18,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Hero
     'hero.tagline': 'Ihre Lösung für fast alle Dienstleistungen',
-    'hero.description': 'Ihr zuverlässiger Partner für professionelle Dienstleistungen. Qualität, Vertrauen und Effizienz, alles aus einer Hand.',
+    'hero.description': 'Ihr zuverlässiger Partner für professionelle Dienstleistungen. Qualität, Vertrauen und Effizienz, alles aus einer Hand. Die meisten Services werden für Sachsen angeboten.',
     'hero.discover': 'Services entdecken',
     'hero.learn': 'Mehr erfahren',
     
@@ -178,7 +178,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Hero
     'hero.tagline': 'Your Solution for Almost All Services',
-    'hero.description': 'Your reliable partner for professional services. Quality, trust, and efficiency, all from one source.',
+    'hero.description': 'Your reliable partner for professional services. Quality, trust, and efficiency, all from one source. Most services are offered for Saxony.',
     'hero.discover': 'Discover Services',
     'hero.learn': 'Learn More',
     
@@ -338,7 +338,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Hero
     'hero.tagline': 'Ваше решение для почти всех услуг',
-    'hero.description': 'Ваш надежный партнер в сфере профессиональных услуг. Качество, доверие и эффективность, всё в одном месте.',
+    'hero.description': 'Ваш надежный партнер в сфере профессиональных услуг. Качество, доверие и эффективность, всё в одном месте. Большинство услуг предлагаются для Саксонии.',
     'hero.discover': 'Узнать услуги',
     'hero.learn': 'Узнать больше',
     
