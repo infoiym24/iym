@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
-import heroLogoComplete from '@/assets/hero-logo-complete.png';
+import heroLogo from '@/assets/hero-logo.png';
 
 const HeroSection = () => {
   const { t } = useLanguage();
@@ -17,19 +17,49 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto">
-          {/* Complete Logo with I'm Your Man already included */}
-          <motion.div 
-            className="inline-flex items-center justify-center mb-8"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
-          >
-            <img 
-              src={heroLogoComplete}
-              alt="I'm Your Man"
-              className="w-72 sm:w-96 md:w-[28rem] lg:w-[34rem] xl:w-[40rem] h-auto drop-shadow-2xl"
+          {/* Logo with I'm Your Man overlay */}
+          <div className="relative inline-block mb-8">
+            {/* Shield Logo */}
+            <motion.img 
+              src={heroLogo}
+              alt="IYM Logo"
+              className="w-64 sm:w-80 md:w-96 lg:w-[28rem] h-auto mx-auto drop-shadow-2xl"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
             />
-          </motion.div>
+            
+            {/* I'm Your Man text overlay - positioned at the golden ring */}
+            <motion.div 
+              className="absolute left-1/2 -translate-x-1/2 bottom-[18%] sm:bottom-[20%] w-full"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ 
+                delay: 0.8,
+                duration: 0.8,
+                ease: [0.34, 1.56, 0.64, 1] // Bounce effect
+              }}
+            >
+              <div className="flex items-center justify-center gap-1 sm:gap-2">
+                {["I'm", "Your", "Man"].map((word, index) => (
+                  <motion.span
+                    key={word}
+                    className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-display font-bold text-gradient-gold tracking-wide"
+                    style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ 
+                      delay: 1.2 + index * 0.2,
+                      duration: 0.5,
+                      ease: [0.25, 0.46, 0.45, 0.94],
+                    }}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+          </div>
 
           {/* Description */}
           <motion.p 
