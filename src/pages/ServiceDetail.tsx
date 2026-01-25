@@ -784,31 +784,31 @@ const ServiceDetail = () => {
                     {service.pricingPackages.map((pkg, index) => (
                       <div
                         key={index}
-                        className={`relative glass rounded-2xl p-6 flex flex-col transition-all duration-300 hover:scale-[1.02] ${
+                        className={`relative glass rounded-2xl p-6 flex flex-col transition-all duration-300 hover:scale-[1.02] overflow-hidden ${
                           pkg.highlighted 
                             ? 'ring-2 ring-primary shadow-lg shadow-primary/20' 
                             : 'hover:ring-1 hover:ring-primary/30'
                         }`}
                       >
                         {pkg.highlighted && (
-                          <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded-full">
+                          <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap">
                             {language === 'de' ? 'Beliebt' : language === 'en' ? 'Popular' : 'Популярный'}
                           </div>
                         )}
                         
-                        <h3 className="text-xl font-semibold font-space-grotesk mb-2">
+                        <h3 className="text-xl font-semibold font-space-grotesk mb-2 break-words">
                           {pkg.name[language] || pkg.name.de}
                         </h3>
                         
-                        <p className="text-3xl font-bold text-primary mb-6">
+                        <p className="text-3xl font-bold text-primary mb-6 break-words">
                           {pkg.price}
                         </p>
                         
-                        <ul className="space-y-3 flex-1">
+                        <ul className="space-y-3 flex-1 min-w-0">
                           {(pkg.features[language] || pkg.features.de).map((feature, fIndex) => (
                             <li key={fIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
                               <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                              <span>{feature}</span>
+                              <span className="break-words min-w-0">{feature}</span>
                             </li>
                           ))}
                         </ul>
