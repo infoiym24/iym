@@ -172,7 +172,6 @@ Our services include:
             'Mehrseitige Website (bis 5 Seiten)',
             'Individuelles Design',
             'Kontaktformular mit E-Mail-Benachrichtigung',
-            'Google Analytics Integration',
             'Social Media Einbindung',
             'Erweiterte SEO-Optimierung',
             '2 Korrekturschleifen',
@@ -182,7 +181,6 @@ Our services include:
             'Multi-page Website (up to 5 pages)',
             'Custom Design',
             'Contact Form with Email Notifications',
-            'Google Analytics Integration',
             'Social Media Integration',
             'Advanced SEO Optimization',
             '2 Revision Rounds',
@@ -192,7 +190,6 @@ Our services include:
             'Многостраничный сайт (до 5 страниц)',
             'Индивидуальный дизайн',
             'Контактная форма с email-уведомлениями',
-            'Интеграция Google Analytics',
             'Интеграция соцсетей',
             'Расширенная SEO-оптимизация',
             '2 раунда правок',
@@ -209,6 +206,7 @@ Our services include:
             'Terminbuchungssystem / Kalender',
             'Kundenverwaltung & Dashboard',
             'Payment-Integration (Stripe, PayPal)',
+            'Google Analytics Integration',
             'Newsletter-System',
             'Mehrsprachigkeit',
             'Blog / News-Bereich',
@@ -219,6 +217,7 @@ Our services include:
             'Appointment Booking System / Calendar',
             'Customer Management & Dashboard',
             'Payment Integration (Stripe, PayPal)',
+            'Google Analytics Integration',
             'Newsletter System',
             'Multi-language Support',
             'Blog / News Section',
@@ -229,6 +228,7 @@ Our services include:
             'Система бронирования / календарь',
             'Управление клиентами и панель управления',
             'Интеграция оплаты (Stripe, PayPal)',
+            'Интеграция Google Analytics',
             'Система рассылки',
             'Многоязычность',
             'Блог / раздел новостей',
@@ -796,19 +796,19 @@ const ServiceDetail = () => {
                           </div>
                         )}
                         
-                        <h3 className="text-xl font-semibold font-space-grotesk mb-2 break-words">
+                        <h3 className="text-xl font-semibold font-space-grotesk mb-2">
                           {pkg.name[language] || pkg.name.de}
                         </h3>
                         
-                        <p className="text-3xl font-bold text-primary mb-6 break-words">
+                        <p className="text-3xl font-bold text-primary mb-6">
                           {pkg.price}
                         </p>
                         
-                        <ul className="space-y-3 flex-1 min-w-0">
+                        <ul className="space-y-3 flex-1">
                           {(pkg.features[language] || pkg.features.de).map((feature, fIndex) => (
                             <li key={fIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
                               <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                              <span className="break-words min-w-0">{feature}</span>
+                              <span className="hyphens-none">{feature}</span>
                             </li>
                           ))}
                         </ul>
