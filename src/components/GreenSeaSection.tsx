@@ -13,9 +13,9 @@ const GreenSeaSection = () => {
                 language === 'en' ? 'Quality Meets Passion' :
                 'Качество Встречает Страсть';
                 
-  const subtitle = language === 'de' ? 'Professionelle Dienstleistungen mit persönlichem Engagement — für Ergebnisse, die überzeugen.' :
-                   language === 'en' ? 'Professional services with personal commitment — for results that convince.' :
-                   'Профессиональные услуги с личной приверженностью — для результатов, которые убеждают.';
+  const subtitle = language === 'de' ? 'Professionelle Dienstleistungen mit persönlichem Engagement.\nFür Ergebnisse, die überzeugen.' :
+                   language === 'en' ? 'Professional services with personal commitment.\nFor results that convince.' :
+                   'Профессиональные услуги с личной приверженностью.\nДля результатов, которые убеждают.';
 
   return (
     <motion.div 
