@@ -27,8 +27,8 @@ const HeroSection = () => {
             transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
           />
           
-          {/* I'm Your Man text - very close to shield bottom */}
-          <div className="flex items-center justify-center gap-3 sm:gap-4 -mt-2 sm:-mt-3 mb-8">
+          {/* I'm Your Man text - with proper spacing below shield */}
+          <div className="flex items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-8 mb-8">
             {["I'M", "YOUR", "MAN"].map((word, index) => (
               <motion.span
                 key={word}
