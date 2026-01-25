@@ -17,35 +17,41 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto">
-          {/* Shield Logo */}
-          <motion.img 
-            src={heroLogo}
-            alt="IYM Logo"
-            className="w-64 sm:w-80 md:w-96 lg:w-[28rem] h-auto mx-auto drop-shadow-2xl"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
-          />
-          
-          {/* I'm Your Man text - with proper spacing below shield */}
-          <div className="flex items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-8 mb-8">
-            {["I'M", "YOUR", "MAN"].map((word, index) => (
-              <motion.span
-                key={word}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gradient-gold tracking-widest"
-                style={{ textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 40px rgba(212,175,55,0.3)' }}
-                initial={{ opacity: 0, scale: 0.3, y: 30 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ 
-                  delay: 1.0 + index * 0.35,
-                  duration: 0.8,
-                  ease: [0.34, 1.56, 0.64, 1],
-                }}
-              >
-                {word}
-              </motion.span>
-            ))}
+          {/* Logo and Text Container - layered */}
+          <div className="relative inline-block">
+            {/* Shield Logo - Background layer */}
+            <motion.img 
+              src={heroLogo}
+              alt="IYM Logo"
+              className="w-64 sm:w-80 md:w-96 lg:w-[28rem] h-auto mx-auto drop-shadow-2xl relative z-10"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
+            />
+            
+            {/* I'm Your Man text - Foreground layer, positioned at bottom of shield */}
+            <div className="absolute left-1/2 -translate-x-1/2 bottom-[-8%] z-20 flex items-center justify-center gap-2 sm:gap-3 md:gap-4 whitespace-nowrap">
+              {["I'M", "YOUR", "MAN"].map((word, index) => (
+                <motion.span
+                  key={word}
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold text-gradient-gold tracking-widest"
+                  style={{ textShadow: '0 4px 20px rgba(0,0,0,0.9), 0 0 40px rgba(212,175,55,0.4)' }}
+                  initial={{ opacity: 0, scale: 0.3, y: 30 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ 
+                    delay: 1.0 + index * 0.35,
+                    duration: 0.8,
+                    ease: [0.34, 1.56, 0.64, 1],
+                  }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </div>
           </div>
+          
+          {/* Spacer for content below */}
+          <div className="mt-16 sm:mt-20"></div>
 
           {/* Description */}
           <motion.p 
