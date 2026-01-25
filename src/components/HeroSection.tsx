@@ -27,12 +27,12 @@ const HeroSection = () => {
             transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
           />
           
-          {/* I'm Your Man text - directly below shield with minimal gap */}
-          <div className="flex items-center justify-center gap-3 sm:gap-4 mt-1 mb-8">
-            {["I'm", "Your", "Man"].map((word, index) => (
+          {/* I'm Your Man text - very close to shield bottom */}
+          <div className="flex items-center justify-center gap-3 sm:gap-4 -mt-2 sm:-mt-3 mb-8">
+            {["I'M", "YOUR", "MAN"].map((word, index) => (
               <motion.span
                 key={word}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gradient-gold tracking-wider uppercase"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gradient-gold tracking-widest"
                 style={{ textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 40px rgba(212,175,55,0.3)' }}
                 initial={{ opacity: 0, scale: 0.3, y: 30 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
