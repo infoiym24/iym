@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
+import iymLogo from '@/assets/iym-logo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,12 +54,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <button onClick={handleLogoClick} className="flex items-center gap-3 group bg-transparent border-none cursor-pointer">
-            <span className="text-3xl font-bold font-display text-gradient-gold tracking-tight">
-              IYM
-            </span>
-            <span className="text-sm text-muted-foreground hidden sm:block group-hover:text-foreground transition-colors font-display italic">
-              I'm Your Man
-            </span>
+            <img 
+              src={iymLogo} 
+              alt="I'm Your Man Logo" 
+              className="h-14 w-auto object-contain"
+            />
           </button>
 
           {/* Desktop Navigation */}
