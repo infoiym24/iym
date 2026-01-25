@@ -28,15 +28,15 @@ const HeroSection = () => {
           
           {/* I'm Your Man - elegant fade-in with stagger */}
           <div className="flex items-center justify-center gap-3 sm:gap-5 md:gap-8 mb-10 min-h-[70px] sm:min-h-[90px]">
-            {["I'm", "Your", "Man"].map((word, index) => (
+          {["I'm", "Your", "Man"].map((word, index) => (
               <motion.span
                 key={word}
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display italic text-foreground/90"
                 initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 transition={{ 
-                  delay: 0.8 + index * 0.3,
-                  duration: 0.8,
+                  delay: 1.0 + index * 0.6,
+                  duration: 1.2,
                   ease: [0.25, 0.46, 0.45, 0.94],
                 }}
               >

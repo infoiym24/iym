@@ -38,7 +38,7 @@ const AboutSection = () => {
             
             <GoldenHeading
               className="text-4xl md:text-5xl font-display font-semibold mb-6 leading-tight"
-              charDelay={0.025}
+              charDelay={0.008}
             >
               {sectionTitle}
             </GoldenHeading>
