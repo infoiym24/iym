@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -11,6 +11,18 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { t } = useLanguage();
+
+  // Handle hash navigation after page load
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const element = document.querySelector(location.hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 150);
+    }
+  }, [location]);
 
   const handleNavClick = (href: string, isRoute?: boolean) => {
     setIsOpen(false);
