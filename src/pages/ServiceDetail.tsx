@@ -780,18 +780,18 @@ const ServiceDetail = () => {
                   <h2 className="text-2xl font-semibold font-space-grotesk mb-6">
                     {language === 'de' ? 'Unsere Pakete' : language === 'en' ? 'Our Packages' : 'Наши пакеты'}
                   </h2>
-                  <div className="grid md:grid-cols-3 gap-6">
+                  <div className="grid md:grid-cols-3 gap-6 pt-4">
                     {service.pricingPackages.map((pkg, index) => (
                       <div
                         key={index}
-                        className={`relative glass rounded-2xl p-6 flex flex-col transition-all duration-300 hover:scale-[1.02] overflow-hidden ${
+                        className={`relative glass rounded-2xl p-6 flex flex-col transition-all duration-300 hover:scale-[1.02] ${
                           pkg.highlighted 
                             ? 'ring-2 ring-primary shadow-lg shadow-primary/20' 
                             : 'hover:ring-1 hover:ring-primary/30'
                         }`}
                       >
                         {pkg.highlighted && (
-                          <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap">
+                          <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap z-10">
                             {language === 'de' ? 'Beliebt' : language === 'en' ? 'Popular' : 'Популярный'}
                           </div>
                         )}
@@ -808,7 +808,7 @@ const ServiceDetail = () => {
                           {(pkg.features[language] || pkg.features.de).map((feature, fIndex) => (
                             <li key={fIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
                               <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                              <span className="hyphens-none">{feature}</span>
+                              <span>{feature}</span>
                             </li>
                           ))}
                         </ul>
