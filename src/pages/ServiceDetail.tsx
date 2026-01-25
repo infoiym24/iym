@@ -19,6 +19,13 @@ import audiA4 from '@/assets/audi-a4-2018.jpg';
 import bmwF10 from '@/assets/bmw-f10.jpg';
 import serviceDetailing from '@/assets/service-detailing.jpg';
 
+interface PricingPackage {
+  name: { de: string; en: string; ru: string };
+  price: string;
+  features: { de: string[]; en: string[]; ru: string[] };
+  highlighted?: boolean;
+}
+
 interface ServiceInfo {
   titleKey: string;
   descKey: string;
@@ -42,6 +49,7 @@ interface ServiceInfo {
       ru: string;
     };
   }[];
+  pricingPackages?: PricingPackage[];
 }
 
 const serviceData: Record<string, ServiceInfo> = {
@@ -121,6 +129,117 @@ Our services include:
           de: 'Dynamische Marketing-Agentur Website mit ansprechendem Layout und starker visueller Identität.',
           en: 'Dynamic marketing agency website with attractive layout and strong visual identity.',
           ru: 'Динамичный сайт маркетингового агентства с привлекательным дизайном и сильной визуальной идентичностью.'
+        }
+      }
+    ],
+    pricingPackages: [
+      {
+        name: { de: 'Starter', en: 'Starter', ru: 'Стартер' },
+        price: 'Ab 500€',
+        features: {
+          de: [
+            'One-Page Website',
+            'Responsives Design (Mobil & Desktop)',
+            'Kontaktformular',
+            'Basis SEO-Optimierung',
+            'SSL-Zertifikat',
+            '1 Korrekturschleife'
+          ],
+          en: [
+            'One-Page Website',
+            'Responsive Design (Mobile & Desktop)',
+            'Contact Form',
+            'Basic SEO Optimization',
+            'SSL Certificate',
+            '1 Revision Round'
+          ],
+          ru: [
+            'Одностраничный сайт',
+            'Адаптивный дизайн (мобильный и десктоп)',
+            'Контактная форма',
+            'Базовая SEO-оптимизация',
+            'SSL-сертификат',
+            '1 раунд правок'
+          ]
+        }
+      },
+      {
+        name: { de: 'Business', en: 'Business', ru: 'Бизнес' },
+        price: 'Ab 1.000€',
+        highlighted: true,
+        features: {
+          de: [
+            'Mehrseitige Website (bis 5 Seiten)',
+            'Individuelles Design',
+            'Kontaktformular mit E-Mail-Benachrichtigung',
+            'Google Analytics Integration',
+            'Social Media Einbindung',
+            'Erweiterte SEO-Optimierung',
+            '2 Korrekturschleifen',
+            '3 Monate Support'
+          ],
+          en: [
+            'Multi-page Website (up to 5 pages)',
+            'Custom Design',
+            'Contact Form with Email Notifications',
+            'Google Analytics Integration',
+            'Social Media Integration',
+            'Advanced SEO Optimization',
+            '2 Revision Rounds',
+            '3 Months Support'
+          ],
+          ru: [
+            'Многостраничный сайт (до 5 страниц)',
+            'Индивидуальный дизайн',
+            'Контактная форма с email-уведомлениями',
+            'Интеграция Google Analytics',
+            'Интеграция соцсетей',
+            'Расширенная SEO-оптимизация',
+            '2 раунда правок',
+            '3 месяца поддержки'
+          ]
+        }
+      },
+      {
+        name: { de: 'Premium', en: 'Premium', ru: 'Премиум' },
+        price: 'Ab 2.500€',
+        features: {
+          de: [
+            'Kompletter Online-Shop oder umfangreiche Website',
+            'Terminbuchungssystem / Kalender',
+            'Kundenverwaltung & Dashboard',
+            'Payment-Integration (Stripe, PayPal)',
+            'Newsletter-System',
+            'Mehrsprachigkeit',
+            'Blog / News-Bereich',
+            'Umfassende SEO-Strategie',
+            'Unbegrenzte Korrekturschleifen',
+            '6 Monate Support & Wartung'
+          ],
+          en: [
+            'Complete Online Shop or Comprehensive Website',
+            'Appointment Booking System / Calendar',
+            'Customer Management & Dashboard',
+            'Payment Integration (Stripe, PayPal)',
+            'Newsletter System',
+            'Multi-language Support',
+            'Blog / News Section',
+            'Comprehensive SEO Strategy',
+            'Unlimited Revision Rounds',
+            '6 Months Support & Maintenance'
+          ],
+          ru: [
+            'Полный интернет-магазин или комплексный сайт',
+            'Система бронирования / календарь',
+            'Управление клиентами и панель управления',
+            'Интеграция оплаты (Stripe, PayPal)',
+            'Система рассылки',
+            'Многоязычность',
+            'Блог / раздел новостей',
+            'Комплексная SEO-стратегия',
+            'Неограниченные правки',
+            '6 месяцев поддержки и обслуживания'
+          ]
         }
       }
     ]
@@ -658,6 +777,57 @@ const ServiceDetail = () => {
                       </a>
                     ))}
                   </div>
+                </div>
+              )}
+
+              {/* Pricing Packages Section */}
+              {service.pricingPackages && service.pricingPackages.length > 0 && (
+                <div className="mb-8">
+                  <h2 className="text-2xl font-semibold font-space-grotesk mb-6">
+                    {language === 'de' ? 'Unsere Pakete' : language === 'en' ? 'Our Packages' : 'Наши пакеты'}
+                  </h2>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    {service.pricingPackages.map((pkg, index) => (
+                      <div
+                        key={index}
+                        className={`relative glass rounded-2xl p-6 flex flex-col transition-all duration-300 hover:scale-[1.02] ${
+                          pkg.highlighted 
+                            ? 'ring-2 ring-primary shadow-lg shadow-primary/20' 
+                            : 'hover:ring-1 hover:ring-primary/30'
+                        }`}
+                      >
+                        {pkg.highlighted && (
+                          <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded-full">
+                            {language === 'de' ? 'Beliebt' : language === 'en' ? 'Popular' : 'Популярный'}
+                          </div>
+                        )}
+                        
+                        <h3 className="text-xl font-semibold font-space-grotesk mb-2">
+                          {pkg.name[language] || pkg.name.de}
+                        </h3>
+                        
+                        <p className="text-3xl font-bold text-primary mb-6">
+                          {pkg.price}
+                        </p>
+                        
+                        <ul className="space-y-3 flex-1">
+                          {(pkg.features[language] || pkg.features.de).map((feature, fIndex) => (
+                            <li key={fIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
+                              <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                              <span>{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="mt-6 text-sm text-muted-foreground text-center">
+                    {language === 'de' 
+                      ? 'Alle Preise verstehen sich als Startpreise. Der finale Preis richtet sich nach Ihren individuellen Anforderungen.' 
+                      : language === 'en' 
+                      ? 'All prices are starting prices. The final price depends on your individual requirements.'
+                      : 'Все цены являются начальными. Итоговая цена зависит от ваших индивидуальных требований.'}
+                  </p>
                 </div>
               )}
             </div>
