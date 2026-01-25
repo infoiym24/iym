@@ -1,6 +1,7 @@
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
+import iymLogo from '@/assets/iym-logo.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -69,9 +70,11 @@ const Footer = () => {
           {/* Brand column */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
-              <span className="text-3xl font-bold font-display text-gradient-gold tracking-tight">
-                IYM
-              </span>
+              <img 
+                src={iymLogo} 
+                alt="I'm Your Man Logo" 
+                className="h-20 w-auto object-contain"
+              />
             </Link>
             <p className="text-muted-foreground mb-6 max-w-sm">
               {t('hero.description')}
