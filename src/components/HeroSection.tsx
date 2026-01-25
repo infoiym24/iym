@@ -18,46 +18,36 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto">
           {/* Logo with I'm Your Man overlay */}
-          <div className="relative inline-block mb-8">
-            {/* Shield Logo */}
+          <div className="relative inline-flex items-center justify-center mb-8">
+            {/* Shield Logo as background */}
             <motion.img 
               src={heroLogo}
               alt="IYM Logo"
-              className="w-64 sm:w-80 md:w-96 lg:w-[28rem] h-auto mx-auto drop-shadow-2xl"
+              className="w-72 sm:w-96 md:w-[28rem] lg:w-[34rem] h-auto drop-shadow-2xl"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
             />
             
-            {/* I'm Your Man text overlay - positioned at the golden ring */}
+            {/* I'm Your Man text - centered on the logo */}
             <motion.div 
-              className="absolute left-1/2 -translate-x-1/2 bottom-[18%] sm:bottom-[20%] w-full"
-              initial={{ opacity: 0, scale: 0.5 }}
+              className="absolute inset-0 flex items-center justify-center"
+              initial={{ opacity: 0, scale: 0.3 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ 
                 delay: 0.8,
-                duration: 0.8,
-                ease: [0.34, 1.56, 0.64, 1] // Bounce effect
+                duration: 0.6,
+                ease: [0.34, 1.56, 0.64, 1] // Bounce/pop effect
               }}
             >
-              <div className="flex items-center justify-center gap-1 sm:gap-2">
-                {["I'm", "Your", "Man"].map((word, index) => (
-                  <motion.span
-                    key={word}
-                    className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-display font-bold text-gradient-gold tracking-wide"
-                    style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ 
-                      delay: 1.2 + index * 0.2,
-                      duration: 0.5,
-                      ease: [0.25, 0.46, 0.45, 0.94],
-                    }}
-                  >
-                    {word}
-                  </motion.span>
-                ))}
-              </div>
+              <h1 
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold text-gradient-gold tracking-wider whitespace-nowrap"
+                style={{ 
+                  textShadow: '0 4px 20px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.8)',
+                }}
+              >
+                I'm Your Man
+              </h1>
             </motion.div>
           </div>
 
