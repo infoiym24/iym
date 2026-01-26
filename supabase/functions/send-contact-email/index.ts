@@ -8,6 +8,72 @@ const allowedOrigins = [
   "https://id-preview--7f09f87b-0a00-40f4-9231-2c88c63203b8.lovable.app"
 ];
 
+// Rate limiting configuration
+const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute window
+const MAX_REQUESTS_PER_WINDOW = 3; // Max 3 requests per minute per IP
+const ipRequestLog = new Map<string, { count: number; windowStart: number }>();
+
+// Clean up old entries periodically (every 5 minutes)
+const CLEANUP_INTERVAL_MS = 5 * 60 * 1000;
+let lastCleanup = Date.now();
+
+function cleanupOldEntries() {
+  const now = Date.now();
+  if (now - lastCleanup < CLEANUP_INTERVAL_MS) return;
+  
+  lastCleanup = now;
+  for (const [ip, data] of ipRequestLog.entries()) {
+    if (now - data.windowStart > RATE_LIMIT_WINDOW_MS * 2) {
+      ipRequestLog.delete(ip);
+    }
+  }
+}
+
+function isRateLimited(ip: string): boolean {
+  cleanupOldEntries();
+  
+  const now = Date.now();
+  const entry = ipRequestLog.get(ip);
+  
+  if (!entry) {
+    ipRequestLog.set(ip, { count: 1, windowStart: now });
+    return false;
+  }
+  
+  // Check if we're still in the same window
+  if (now - entry.windowStart < RATE_LIMIT_WINDOW_MS) {
+    if (entry.count >= MAX_REQUESTS_PER_WINDOW) {
+      return true; // Rate limited
+    }
+    entry.count++;
+    return false;
+  }
+  
+  // Start a new window
+  ipRequestLog.set(ip, { count: 1, windowStart: now });
+  return false;
+}
+
+function getClientIP(req: Request): string {
+  // Try various headers that might contain the real IP
+  const forwardedFor = req.headers.get("x-forwarded-for");
+  if (forwardedFor) {
+    return forwardedFor.split(",")[0].trim();
+  }
+  
+  const realIP = req.headers.get("x-real-ip");
+  if (realIP) {
+    return realIP;
+  }
+  
+  const cfConnectingIP = req.headers.get("cf-connecting-ip");
+  if (cfConnectingIP) {
+    return cfConnectingIP;
+  }
+  
+  return "unknown";
+}
+
 function getCorsHeaders(origin: string | null): Record<string, string> {
   const isAllowed = origin && (allowedOrigins.includes(origin) || origin.includes("lovable.app"));
   return {
@@ -63,6 +129,25 @@ const handler = async (req: Request): Promise<Response> => {
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
+  }
+
+  // Check rate limiting
+  const clientIP = getClientIP(req);
+  if (isRateLimited(clientIP)) {
+    console.log(`Rate limit exceeded for IP: ${clientIP}`);
+    return new Response(
+      JSON.stringify({ 
+        error: "Too many requests. Please wait a moment before trying again." 
+      }),
+      {
+        status: 429,
+        headers: { 
+          "Content-Type": "application/json",
+          "Retry-After": "60",
+          ...corsHeaders 
+        },
+      }
+    );
   }
 
   try {
