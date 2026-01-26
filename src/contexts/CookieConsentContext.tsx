@@ -30,8 +30,8 @@ const CookieConsentContext = createContext<CookieConsentContextType | undefined>
 const COOKIE_CONSENT_KEY = 'iym_cookie_consent';
 const COOKIE_SETTINGS_KEY = 'iym_cookie_settings';
 
-// GA4 Measurement ID - replace with your actual ID
-const GA4_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+// GA4 Measurement ID
+const GA4_MEASUREMENT_ID = 'G-KJ0BGK49YS';
 
 export const CookieConsentProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [settings, setSettings] = useState<CookieSettings>(defaultSettings);
