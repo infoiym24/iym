@@ -1,12 +1,27 @@
 import { useParams, Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useState, useEffect } from 'react';
+import DOMPurify from 'dompurify';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { 
   Megaphone, Wrench, CheckCircle2, ArrowLeft, ExternalLink
 } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
+
+// Helper function to safely render formatted text without XSS vulnerability
+const sanitizeAndFormatText = (text: string): string => {
+  // First apply formatting transformations
+  const formatted = text
+    .replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground">$1</strong>')
+    .replace(/• /g, '<span class="text-accent">•</span> ');
+  
+  // Then sanitize to prevent XSS attacks
+  return DOMPurify.sanitize(formatted, {
+    ALLOWED_TAGS: ['strong', 'span', 'em', 'b', 'i'],
+    ALLOWED_ATTR: ['class']
+  });
+};
 
 // Import generated images
 import reparatur1 from '@/assets/reparatur-1.jpg';
@@ -424,9 +439,7 @@ const ServiceDetail = () => {
                         key={index} 
                         className="text-muted-foreground mb-4 last:mb-0"
                         dangerouslySetInnerHTML={{ 
-                          __html: paragraph
-                            .replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground">$1</strong>')
-                            .replace(/• /g, '<span class="text-accent">•</span> ')
+                          __html: sanitizeAndFormatText(paragraph)
                         }}
                       />
                     ))}
