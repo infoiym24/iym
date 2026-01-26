@@ -1,10 +1,6 @@
 import { 
   Megaphone,
-  Car,
-  Trash2,
-  Sparkles,
-  Settings,
-  Search
+  Wrench
 } from 'lucide-react';
 import ServiceCard from './ServiceCard';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -21,34 +17,10 @@ const ServicesSection = () => {
       href: '/services/marketing',
     },
     {
-      title: t('service.entruempelung'),
-      description: t('service.entruempelung.desc'),
-      icon: Trash2,
-      href: '/services/entruempelung',
-    },
-    {
-      title: t('service.reparatur'),
-      description: t('service.reparatur.desc'),
-      icon: Settings,
-      href: '/services/reparatur',
-    },
-    {
-      title: t('service.auto'),
-      description: t('service.auto.desc'),
-      icon: Car,
-      href: '/services/autoservice',
-    },
-    {
-      title: t('service.autofind'),
-      description: t('service.autofind.desc'),
-      icon: Search,
-      href: '/services/autofind',
-    },
-    {
-      title: t('service.detailing'),
-      description: t('service.detailing.desc'),
-      icon: Sparkles,
-      href: '/services/detailing',
+      title: t('service.installation'),
+      description: t('service.installation.desc'),
+      icon: Wrench,
+      href: '/services/installation',
     },
   ];
 
@@ -88,7 +60,7 @@ const ServicesSection = () => {
 
         {/* Services grid */}
         <StaggerContainer 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto"
           staggerDelay={0.1}
           initialDelay={0.4}
         >

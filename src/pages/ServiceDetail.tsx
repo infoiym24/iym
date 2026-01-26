@@ -4,20 +4,13 @@ import { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { 
-  Megaphone, Trash2, Car, Wrench, CheckCircle2, ArrowLeft, ExternalLink
+  Megaphone, Wrench, CheckCircle2, ArrowLeft, ExternalLink
 } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
 
 // Import generated images
-import entruempelung1 from '@/assets/entruempelung-1.jpg';
-import entruempelung2 from '@/assets/entruempelung-2.jpg';
 import reparatur1 from '@/assets/reparatur-1.jpg';
 import reparatur2 from '@/assets/reparatur-2.jpg';
-import mechanicObd from '@/assets/mechanic-obd.jpg';
-import parkingSensors from '@/assets/parking-sensors.jpg';
-import audiA4 from '@/assets/audi-a4-2018.jpg';
-import bmwF10 from '@/assets/bmw-f10.jpg';
-import serviceDetailing from '@/assets/service-detailing.jpg';
 
 interface PricingPackage {
   name: { de: string; en: string; ru: string };
@@ -238,294 +231,52 @@ Our services include:
       }
     ]
   },
-  'entruempelung': {
-    titleKey: 'service.entruempelung',
-    descKey: 'service.entruempelung.desc',
-    icon: Trash2,
-    features: [
-      'Haushaltsauflösungen',
-      'Kellerentrümpelung',
-      'Dachbodenräumung',
-      'Büroauflösungen',
-      'Sperrmüllentsorgung',
-      'Schnelle Abwicklung'
-    ],
-    featuresEn: [
-      'Household Clearance',
-      'Basement Clearing',
-      'Attic Clearance',
-      'Office Clearance',
-      'Bulky Waste Disposal',
-      'Quick Processing'
-    ],
-    featuresRu: [
-      'Расчистка домов',
-      'Уборка подвалов',
-      'Уборка чердаков',
-      'Ликвидация офисов',
-      'Вывоз крупногабаритного мусора',
-      'Быстрое выполнение'
-    ],
-    extendedDescription: {
-      de: `Ob Keller, Dachboden, Wohnung oder Geschäftsräume – wir räumen professionell und zuverlässig. Unser erfahrenes Team kümmert sich um die komplette Entrümpelung, von der Planung bis zur fachgerechten Entsorgung.
-
-Unsere Entrümpelungsleistungen:
-• **Haushaltsauflösungen** – Komplette Räumung von Wohnungen und Häusern, auch bei Nachlassauflösungen
-• **Kellerentrümpelung** – Befreiung Ihrer Kellerräume von angesammeltem Ballast
-• **Dachbodenräumung** – Professionelle Räumung auch schwer zugänglicher Bereiche
-• **Büro- & Gewerberäumungen** – Diskrete und effiziente Auflösung von Geschäftsräumen
-• **Umweltgerechte Entsorgung** – Fachgerechte Trennung und Entsorgung aller Materialien
-• **Besenreine Übergabe** – Wir hinterlassen Ihre Räume sauber und bezugsfertig`,
-      en: `Whether basement, attic, apartment or commercial space – we clear professionally and reliably. Our experienced team handles complete clearance, from planning to proper disposal.
-
-Our clearance services:
-• **Household Clearance** – Complete clearance of apartments and houses, including estate clearances
-• **Basement Clearing** – Freeing your basement from accumulated clutter
-• **Attic Clearance** – Professional clearing of hard-to-access areas
-• **Office & Commercial Clearance** – Discreet and efficient clearance of business premises
-• **Eco-Friendly Disposal** – Proper separation and disposal of all materials
-• **Clean Handover** – We leave your spaces clean and ready to move in`,
-      ru: `Будь то подвал, чердак, квартира или коммерческое помещение – мы убираем профессионально и надёжно. Наша опытная команда занимается полной расчисткой, от планирования до правильной утилизации.
-
-Наши услуги по расчистке:
-• **Расчистка домов** – Полная уборка квартир и домов, включая наследственные дела
-• **Уборка подвалов** – Освобождение подвальных помещений от накопившегося хлама
-• **Уборка чердаков** – Профессиональная уборка труднодоступных мест
-• **Офисная расчистка** – Дискретная и эффективная уборка коммерческих помещений
-• **Экологичная утилизация** – Правильная сортировка и утилизация всех материалов
-• **Чистая передача** – Мы оставляем помещения чистыми и готовыми к заселению`
-    },
-    images: [entruempelung1, entruempelung2]
-  },
-  'reparatur': {
-    titleKey: 'service.reparatur',
-    descKey: 'service.reparatur.desc',
+  'installation': {
+    titleKey: 'service.installation',
+    descKey: 'service.installation.desc',
     icon: Wrench,
     features: [
-      'Haushaltsgeräte-Reparatur',
       'Elektro-Kleinarbeiten',
-      'Sanitär-Reparaturen',
       'Türen & Fenster',
       'Schlösser & Beschläge',
-      'Schnellservice'
+      'Notfall-Reparaturen'
     ],
     featuresEn: [
-      'Appliance Repair',
-      'Minor Electrical Work',
-      'Plumbing Repairs',
+      'Electrical Work',
       'Doors & Windows',
       'Locks & Fittings',
-      'Fast Service'
+      'Emergency Repairs'
     ],
     featuresRu: [
-      'Ремонт бытовой техники',
-      'Мелкие электроработы',
-      'Сантехнический ремонт',
+      'Электроработы',
       'Двери и окна',
       'Замки и фурнитура',
-      'Быстрый сервис'
+      'Аварийный ремонт'
     ],
     extendedDescription: {
-      de: `Kleine Probleme können große Auswirkungen haben. Unser Reparaturservice bietet schnelle und zuverlässige Lösungen für alle alltäglichen Reparaturen in Haus und Wohnung.
+      de: `Unser Installations & Reparaturservice bietet schnelle und zuverlässige Lösungen für alle alltäglichen Reparaturen und Installationen in Haus und Wohnung.
 
-Unser Reparaturservice umfasst:
-• **Haushaltsgeräte** – Reparatur von Waschmaschinen, Trocknern, Geschirrspülern und mehr
+Unsere Leistungen im Überblick:
 • **Elektro-Kleinarbeiten** – Steckdosen, Schalter, Lampen und andere elektrische Kleinreparaturen
-• **Sanitäranlagen** – Tropfende Wasserhähne, verstopfte Abflüsse, Toilettenreparaturen
 • **Türen & Fenster** – Klemmen, Quietschen, Dichtungen austauschen, Einstellungen
 • **Schlösser & Beschläge** – Schlossaustausch, Türgriffe, Scharniere und Möbelbeschläge
 • **Notfall-Reparaturen** – Schnelle Hilfe bei dringenden Problemen`,
-      en: `Small problems can have big effects. Our repair service offers fast and reliable solutions for all everyday repairs in house and apartment.
+      en: `Our Installation & Repair Service offers fast and reliable solutions for all everyday repairs and installations in house and apartment.
 
-Our repair service includes:
-• **Household Appliances** – Repair of washing machines, dryers, dishwashers and more
-• **Minor Electrical Work** – Outlets, switches, lamps and other small electrical repairs
-• **Plumbing** – Dripping faucets, clogged drains, toilet repairs
+Our services at a glance:
+• **Electrical Work** – Outlets, switches, lamps and other small electrical repairs
 • **Doors & Windows** – Sticking, squeaking, seal replacement, adjustments
 • **Locks & Fittings** – Lock replacement, door handles, hinges and furniture fittings
 • **Emergency Repairs** – Quick help for urgent problems`,
-      ru: `Маленькие проблемы могут иметь большие последствия. Наш ремонтный сервис предлагает быстрые и надёжные решения для всех повседневных ремонтов в доме и квартире.
+      ru: `Наш сервис монтажа и ремонта предлагает быстрые и надёжные решения для всех повседневных ремонтов и установок в доме и квартире.
 
-Наш ремонтный сервис включает:
-• **Бытовая техника** – Ремонт стиральных машин, сушилок, посудомоечных машин и многого другого
-• **Мелкие электроработы** – Розетки, выключатели, светильники и другой мелкий электроремонт
-• **Сантехника** – Капающие краны, забитые трубы, ремонт унитазов
+Наши услуги:
+• **Электроработы** – Розетки, выключатели, светильники и другой мелкий электроремонт
 • **Двери и окна** – Заедание, скрип, замена уплотнителей, регулировка
 • **Замки и фурнитура** – Замена замков, дверных ручек, петель и мебельной фурнитуры
 • **Аварийный ремонт** – Быстрая помощь при срочных проблемах`
     },
     images: [reparatur1, reparatur2]
-  },
-  'autoservice': {
-    titleKey: 'service.auto',
-    descKey: 'service.auto.desc',
-    icon: Car,
-    features: [
-      'Mobiler Reifenwechsel',
-      'Zentralverriegelung Einbau',
-      'Einparkhilfe Installation',
-      'Ölwechsel vor Ort',
-      'Batterie-Service',
-      'Professionelle Auto Diagnose'
-    ],
-    featuresEn: [
-      'Mobile Tire Change',
-      'Central Locking Installation',
-      'Parking Sensor Installation',
-      'On-site Oil Change',
-      'Battery Service',
-      'Professional Car Diagnostics'
-    ],
-    featuresRu: [
-      'Мобильная замена шин',
-      'Установка центрального замка',
-      'Установка парктроников',
-      'Замена масла на месте',
-      'Обслуживание аккумулятора',
-      'Профессиональная диагностика авто'
-    ],
-    extendedDescription: {
-      de: `Unser mobiler Auto Service kommt zu Ihnen – bequem, zeitsparend und professionell. Ob Reifenwechsel, Nachrüstungen oder Wartungsarbeiten, wir erledigen alles vor Ort.
-
-Unser Auto Service bietet:
-• **Mobiler Reifenwechsel** – Sommer- oder Winterreifen, wir kommen zu Ihrem Standort
-• **Zentralverriegelung** – Nachrüstung und Reparatur von Zentralverriegelungssystemen
-• **Einparkhilfe** – Installation von PDC-Sensoren und Rückfahrkameras
-• **Ölwechsel** – Professioneller Ölwechsel direkt bei Ihnen zu Hause oder am Arbeitsplatz
-• **Batterie-Service** – Überprüfung, Austausch und Starthilfe
-• **Professionelle Auto Diagnose** – Computergestützte Fehlerauslese mit modernen OBD-Diagnosegeräten`,
-      en: `Our mobile car service comes to you – convenient, time-saving and professional. Whether tire change, retrofits or maintenance work, we do everything on-site.
-
-Our car service offers:
-• **Mobile Tire Change** – Summer or winter tires, we come to your location
-• **Central Locking** – Retrofitting and repair of central locking systems
-• **Parking Assist** – Installation of PDC sensors and rear cameras
-• **Oil Change** – Professional oil change directly at your home or workplace
-• **Battery Service** – Inspection, replacement and jump start
-• **Professional Car Diagnostics** – Computer-based error reading with modern OBD diagnostic devices`,
-      ru: `Наш мобильный автосервис приезжает к вам – удобно, экономит время и профессионально. Замена шин, дооснащение или техобслуживание – мы делаем всё на месте.
-
-Наш автосервис предлагает:
-• **Мобильная замена шин** – Летние или зимние шины, мы приезжаем к вам
-• **Центральный замок** – Дооснащение и ремонт систем центрального замка
-• **Парктроник** – Установка датчиков PDC и камер заднего вида
-• **Замена масла** – Профессиональная замена масла прямо у вас дома или на работе
-• **Обслуживание аккумулятора** – Проверка, замена и запуск
-• **Профессиональная диагностика** – Компьютерная диагностика с современными OBD-устройствами`
-    },
-    images: [mechanicObd, parkingSensors]
-  },
-  'autofind': {
-    titleKey: 'service.autofind',
-    descKey: 'service.autofind.desc',
-    icon: Car,
-    features: [
-      'Fahrzeugsuche nach Wunsch',
-      'Preisverhandlung',
-      'Fahrzeugprüfung',
-      'Import-Service',
-      'Übergabe & Anmeldung'
-    ],
-    featuresEn: [
-      'Vehicle Search by Request',
-      'Price Negotiation',
-      'Vehicle Inspection',
-      'Import Service',
-      'Handover & Registration'
-    ],
-    featuresRu: [
-      'Поиск автомобиля по заказу',
-      'Переговоры о цене',
-      'Проверка автомобиля',
-      'Импорт-сервис',
-      'Передача и регистрация'
-    ],
-    extendedDescription: {
-      de: `Sie suchen Ihr Traumauto? Wir finden es für Sie! Unser Auto Find Service übernimmt die komplette Suche, Prüfung und Abwicklung – Sie lehnen sich entspannt zurück.
-
-Unser Auto Find Service bietet:
-• **Individuelle Suche** – Wir finden genau das Fahrzeug, das Ihren Wünschen entspricht
-• **Professionelle Fahrzeugprüfung** – Technische Begutachtung, Unfallcheck und Zustandsbewertung
-• **Preisverhandlung** – Wir verhandeln den besten Preis für Sie
-• **Import-Service** – Fahrzeuge aus dem Ausland mit kompletter Abwicklung
-• **Komplette Übergabe** – Von der Anmeldung bis zur Schlüsselübergabe`,
-      en: `Looking for your dream car? We'll find it for you! Our Auto Find Service handles the complete search, inspection and processing – you just sit back and relax.
-
-Our Auto Find Service offers:
-• **Individual Search** – We find exactly the vehicle that matches your wishes
-• **Professional Vehicle Inspection** – Technical assessment, accident check and condition evaluation
-• **Price Negotiation** – We negotiate the best price for you
-• **Import Service** – Vehicles from abroad with complete processing
-• **Complete Handover** – From registration to key handover`,
-      ru: `Ищете автомобиль мечты? Мы найдём его для вас! Наш сервис Auto Find берёт на себя полный поиск, проверку и оформление – вы просто расслабляетесь.
-
-Наш сервис Auto Find предлагает:
-• **Индивидуальный поиск** – Мы найдём именно тот автомобиль, который соответствует вашим пожеланиям
-• **Профессиональная проверка** – Техническая оценка, проверка на ДТП и оценка состояния
-• **Переговоры о цене** – Мы договоримся о лучшей цене для вас
-• **Импорт-сервис** – Автомобили из-за рубежа с полным оформлением
-• **Полная передача** – От регистрации до передачи ключей`
-    },
-    images: [audiA4, bmwF10]
-  },
-  'detailing': {
-    titleKey: 'service.detailing',
-    descKey: 'service.detailing.desc',
-    icon: Car,
-    features: [
-      'Innenraumreinigung',
-      'Außenpolitur',
-      'Keramikversiegelung',
-      'Lederaufbereitung',
-      'Felgenreinigung',
-      'Motorwäsche'
-    ],
-    featuresEn: [
-      'Interior Cleaning',
-      'Exterior Polish',
-      'Ceramic Coating',
-      'Leather Conditioning',
-      'Wheel Cleaning',
-      'Engine Wash'
-    ],
-    featuresRu: [
-      'Чистка салона',
-      'Полировка кузова',
-      'Керамическое покрытие',
-      'Обработка кожи',
-      'Чистка дисков',
-      'Мойка двигателя'
-    ],
-    extendedDescription: {
-      de: `Professionelles Car Detailing für höchste Ansprüche. Wir verwandeln Ihr Fahrzeug in einen Neuzustand – innen wie außen, mit Liebe zum Detail und Premium-Produkten.
-
-Unser Car Detailing Service:
-• **Innenraumaufbereitung** – Tiefenreinigung von Sitzen, Teppichen, Armaturenbrett und allen Oberflächen
-• **Außenpolitur** – Mehrfach-Politur zur Entfernung von Kratzern und Swirl-Marks
-• **Keramikversiegelung** – Langanhaltender Schutz und Hochglanz für Ihren Lack
-• **Lederaufbereitung** – Reinigung, Pflege und Imprägnierung von Ledersitzen
-• **Felgenaufbereitung** – Professionelle Reinigung und optional Versiegelung
-• **Motorwäsche** – Schonende Reinigung des Motorraums`,
-      en: `Professional car detailing for the highest standards. We transform your vehicle to new condition – inside and out, with attention to detail and premium products.
-
-Our Car Detailing Service:
-• **Interior Detailing** – Deep cleaning of seats, carpets, dashboard and all surfaces
-• **Exterior Polish** – Multi-stage polishing to remove scratches and swirl marks
-• **Ceramic Coating** – Long-lasting protection and high gloss for your paint
-• **Leather Conditioning** – Cleaning, care and waterproofing of leather seats
-• **Wheel Detailing** – Professional cleaning and optional sealing
-• **Engine Wash** – Gentle cleaning of the engine bay`,
-      ru: `Профессиональный детейлинг для самых высоких требований. Мы преображаем ваш автомобиль до состояния нового – внутри и снаружи, с вниманием к деталям и премиальными продуктами.
-
-Наш сервис Car Detailing:
-• **Детейлинг салона** – Глубокая чистка сидений, ковров, приборной панели и всех поверхностей
-• **Полировка кузова** – Многоступенчатая полировка для удаления царапин и голограмм
-• **Керамическое покрытие** – Долговременная защита и блеск для вашего лака
-• **Обработка кожи** – Чистка, уход и пропитка кожаных сидений
-• **Детейлинг дисков** – Профессиональная чистка и опционально защитное покрытие
-• **Мойка двигателя** – Бережная очистка моторного отсека`
-    },
-    images: [serviceDetailing]
   }
 };
 

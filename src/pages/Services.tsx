@@ -4,11 +4,7 @@ import Footer from '@/components/Footer';
 import ServiceCard from '@/components/ServiceCard';
 import { 
   Megaphone,
-  Trash2,
-  Settings,
-  Car,
-  Search,
-  Sparkles
+  Wrench
 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { TrainReveal, PopReveal } from '@/components/ScrollRevealText';
@@ -21,7 +17,7 @@ const Services = () => {
     window.scrollTo(0, 0);
   }, []);
   
-  // 6 core services
+  // 2 core services
   const services = [
     {
       title: t('service.marketing'),
@@ -30,34 +26,10 @@ const Services = () => {
       href: '/services/marketing',
     },
     {
-      title: t('service.entruempelung'),
-      description: t('service.entruempelung.desc'),
-      icon: Trash2,
-      href: '/services/entruempelung',
-    },
-    {
-      title: t('service.reparatur'),
-      description: t('service.reparatur.desc'),
-      icon: Settings,
-      href: '/services/reparatur',
-    },
-    {
-      title: t('service.auto'),
-      description: t('service.auto.desc'),
-      icon: Car,
-      href: '/services/autoservice',
-    },
-    {
-      title: t('service.autofind'),
-      description: t('service.autofind.desc'),
-      icon: Search,
-      href: '/services/autofind',
-    },
-    {
-      title: t('service.detailing'),
-      description: t('service.detailing.desc'),
-      icon: Sparkles,
-      href: '/services/detailing',
+      title: t('service.installation'),
+      description: t('service.installation.desc'),
+      icon: Wrench,
+      href: '/services/installation',
     },
   ];
 
@@ -104,7 +76,7 @@ const Services = () => {
               />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {services.map((service, index) => (
                 <PopReveal key={service.title} delay={index * 0.1}>
                   <ServiceCard
