@@ -17,6 +17,7 @@ const ContactSection = () => {
     phone: '',
     service: '',
     message: '',
+    honeypot: '', // Hidden field to catch bots
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -33,6 +34,7 @@ const ContactSection = () => {
           phone: formData.phone || undefined,
           service: formData.service || undefined,
           message: formData.message,
+          honeypot: formData.honeypot || undefined,
         },
       });
 
@@ -41,7 +43,7 @@ const ContactSection = () => {
       }
 
       setIsSubmitted(true);
-      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', service: '', message: '', honeypot: '' });
       
       const successMessage = language === 'de' ? 'Nachricht erfolgreich gesendet!' :
                             language === 'en' ? 'Message sent successfully!' :
@@ -307,6 +309,19 @@ const ContactSection = () => {
                   required
                 />
               </motion.div>
+              {/* Honeypot field - hidden from users, catches bots */}
+              <div className="absolute -left-[9999px] opacity-0 pointer-events-none" aria-hidden="true">
+                <label htmlFor="website">Website</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={formData.honeypot}
+                  onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
+                />
+              </div>
               <motion.div 
                 className="flex items-center justify-between pt-2"
                 initial={{ opacity: 0 }}
