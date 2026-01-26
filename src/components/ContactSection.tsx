@@ -78,11 +78,7 @@ const ContactSection = () => {
 
   const serviceOptions = [
     { value: 'marketing', label: t('service.marketing') },
-    { value: 'entruempelung', label: t('service.entruempelung') },
-    { value: 'reparatur', label: t('service.reparatur') },
-    { value: 'autoservice', label: t('service.auto') },
-    { value: 'autofind', label: t('service.autofind') },
-    { value: 'detailing', label: t('service.detailing') },
+    { value: 'installation', label: t('service.installation') },
     { value: 'other', label: otherServiceLabel },
   ];
 
