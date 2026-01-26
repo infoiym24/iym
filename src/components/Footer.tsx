@@ -1,4 +1,3 @@
-import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import iymLogo from '@/assets/iym-logo.png';
@@ -33,12 +32,6 @@ const Footer = () => {
     }
   };
 
-  const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  ];
 
   const footerLinks = [
     {
@@ -79,19 +72,6 @@ const Footer = () => {
             <p className="text-muted-foreground mb-6 max-w-sm">
               {t('hero.description')}
             </p>
-            {/* Social links */}
-            <div className="flex gap-4">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="w-10 h-10 rounded-lg bg-muted border border-border flex items-center justify-center text-muted-foreground hover:text-forest-light hover:bg-forest/10 hover:border-forest/30 transition-all duration-300"
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Links columns */}
