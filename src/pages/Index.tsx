@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import ServicesSection from '@/components/ServicesSection';
@@ -10,13 +10,34 @@ import Footer from '@/components/Footer';
 
 const Index = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const isInitialMount = useRef(true);
 
   useEffect(() => {
-    // Only scroll to top on initial page load (no hash) or direct navigation to /
-    if (!location.hash) {
-      window.scrollTo(0, 0);
+    // On initial page load (refresh or direct access), scroll to top and clear hash
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      
+      // If there's a hash from a page refresh (not from navigation), clear it and scroll to top
+      if (location.hash && window.performance) {
+        const navEntries = window.performance.getEntriesByType('navigation') as PerformanceNavigationTiming[];
+        const isPageRefresh = navEntries.length > 0 && navEntries[0].type === 'reload';
+        const isDirectAccess = navEntries.length > 0 && navEntries[0].type === 'navigate';
+        
+        if (isPageRefresh || isDirectAccess) {
+          // Remove hash and scroll to top
+          window.history.replaceState(null, '', '/');
+          window.scrollTo(0, 0);
+          return;
+        }
+      }
+      
+      // No hash - just scroll to top
+      if (!location.hash) {
+        window.scrollTo(0, 0);
+      }
     }
-  }, []);
+  }, [location.hash, navigate]);
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
