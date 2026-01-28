@@ -75,10 +75,15 @@ function getClientIP(req: Request): string {
 }
 
 function getCorsHeaders(origin: string | null): Record<string, string> {
-  const isAllowed = origin && (allowedOrigins.includes(origin) || origin.includes("lovable.app"));
+  const isAllowed = origin && (
+    allowedOrigins.includes(origin) || 
+    origin.includes("lovable.app") || 
+    origin.includes("lovableproject.com") ||
+    origin.includes("imyourman.de")
+  );
   return {
     "Access-Control-Allow-Origin": isAllowed ? origin : allowedOrigins[0],
-    "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+    "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
   };
 }
 
