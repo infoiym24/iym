@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { CheckCircle, ArrowLeft, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -8,6 +9,15 @@ import Footer from '@/components/Footer';
 
 const ThankYou = () => {
   const { language } = useLanguage();
+
+  // Scroll to top on page load
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    // Fallback for some browsers
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }, 50);
+  }, []);
 
   const content = {
     de: {
