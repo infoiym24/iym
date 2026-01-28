@@ -2,7 +2,10 @@ import { useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
+import RotatingTextSection from '@/components/RotatingTextSection';
 import ServicesSection from '@/components/ServicesSection';
+import ProcessSection from '@/components/ProcessSection';
+import SpecialOfferSection from '@/components/SpecialOfferSection';
 import GreenSeaSection from '@/components/GreenSeaSection';
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
@@ -43,7 +46,10 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
+        <RotatingTextSection />
         <ServicesSection />
+        <ProcessSection />
+        <SpecialOfferSection />
         <GreenSeaSection />
         <AboutSection />
         <ContactSection />
