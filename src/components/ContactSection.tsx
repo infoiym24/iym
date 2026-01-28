@@ -1,6 +1,7 @@
 import { Send, Loader2, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { GoldenHeading, SlideUpReveal } from './animations/BlurReveal';
 import { motion, useInView } from 'framer-motion';
@@ -9,6 +10,7 @@ import { toast } from 'sonner';
 
 const ContactSection = () => {
   const { t, language } = useLanguage();
+  const navigate = useNavigate();
   const formRef = useRef(null);
   const formInView = useInView(formRef, { once: true, margin: '-100px' });
   const [formData, setFormData] = useState({
@@ -42,15 +44,8 @@ const ContactSection = () => {
         throw error;
       }
 
-      setIsSubmitted(true);
-      setFormData({ name: '', email: '', phone: '', service: '', message: '', honeypot: '' });
-      
-      const successMessage = language === 'de' ? 'Nachricht erfolgreich gesendet!' :
-                            language === 'en' ? 'Message sent successfully!' :
-                            'Сообщение успешно отправлено!';
-      toast.success(successMessage);
-
-      setTimeout(() => setIsSubmitted(false), 5000);
+      // Redirect to thank you page
+      navigate('/danke');
     } catch (error: any) {
       console.error('Error sending message:', error);
       const errorMessage = language === 'de' ? 'Fehler beim Senden. Bitte versuchen Sie es erneut.' :
