@@ -188,7 +188,6 @@ Our services include:
           de: [
             'Mehrseitige Website (bis 5 Seiten)',
             'Individuelles Design',
-            'Admin-Dashboard für Inhalte',
             'Kontaktformular mit E-Mail-Benachrichtigung',
             'Social Media Einbindung',
             'Erweiterte SEO-Optimierung',
@@ -197,13 +196,11 @@ Our services include:
             'Google Analytics + Sitemap + robots.txt',
             'Page Speed Optimierung',
             'Bild-Optimierung',
-            'Kurze Backend-Schulung',
             '1 Monat Support'
           ],
           en: [
             'Multi-page Website (up to 5 pages)',
             'Custom Design',
-            'Admin Dashboard for Content',
             'Contact Form with Email Notifications',
             'Social Media Integration',
             'Advanced SEO Optimization',
@@ -212,13 +209,11 @@ Our services include:
             'Google Analytics + Sitemap + robots.txt',
             'Page Speed Optimization',
             'Image Optimization',
-            'Brief Backend Training',
             '1 Month Support'
           ],
           ru: [
             'Многостраничный сайт (до 5 страниц)',
             'Индивидуальный дизайн',
-            'Админ-панель для контента',
             'Контактная форма с email-уведомлениями',
             'Интеграция соцсетей',
             'Расширенная SEO-оптимизация',
@@ -227,7 +222,6 @@ Our services include:
             'Google Analytics + Sitemap + robots.txt',
             'Оптимизация скорости страницы',
             'Оптимизация изображений',
-            'Краткое обучение Backend',
             '1 месяц поддержки'
           ]
         }
@@ -238,8 +232,6 @@ Our services include:
         features: {
           de: [
             'Kompletter Online-Shop oder umfangreiche Website',
-            'UX-Konzept & Wireframes',
-            'Admin-Backend mit kompletter Schulung',
             'Terminbuchungssystem / Kalender',
             'Kundenverwaltung & Dashboard',
             'Payment-Integration (Stripe, PayPal)',
@@ -250,13 +242,10 @@ Our services include:
             'Performance-Tuning & Ladezeit-Optimierung',
             'Backups & Sicherheits-Hardening',
             'Cross-Browser-Tests & QA',
-            'Benutzerrollen & Dashboard-Moderation',
             '3 Monate Support & Wartung'
           ],
           en: [
             'Complete Online Shop or Comprehensive Website',
-            'UX Concept & Wireframes',
-            'Admin Backend with Full Training',
             'Appointment Booking System / Calendar',
             'Customer Management & Dashboard',
             'Payment Integration (Stripe, PayPal)',
@@ -267,13 +256,10 @@ Our services include:
             'Performance Tuning & Load Time Optimization',
             'Backups & Security Hardening',
             'Cross-Browser Testing & QA',
-            'User Roles & Dashboard Moderation',
             '3 Months Support & Maintenance'
           ],
           ru: [
             'Полный интернет-магазин или комплексный сайт',
-            'UX-концепция и прототипы',
-            'Админ-бэкенд с полным обучением',
             'Система бронирования / календарь',
             'Управление клиентами и панель управления',
             'Интеграция оплаты (Stripe, PayPal)',
@@ -284,7 +270,6 @@ Our services include:
             'Оптимизация производительности и загрузки',
             'Резервные копии и усиление безопасности',
             'Кросс-браузерное тестирование и QA',
-            'Роли пользователей и модерация панели',
             '3 месяца поддержки и обслуживания'
           ]
         }
