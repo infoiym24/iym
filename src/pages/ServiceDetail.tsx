@@ -1,13 +1,15 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useState, useEffect } from 'react';
 import DOMPurify from 'dompurify';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { 
-  Megaphone, Wrench, CheckCircle2, ArrowLeft, ExternalLink
+  Megaphone, Wrench, CheckCircle2, ArrowLeft, ExternalLink, Loader2
 } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
 
 // Helper function to safely render formatted text without XSS vulnerability
 const sanitizeAndFormatText = (text: string): string => {
@@ -328,12 +330,15 @@ Our services at a glance:
 const ServiceDetail = () => {
   const { serviceId } = useParams<{ serviceId: string }>();
   const { t, language } = useLanguage();
+  const navigate = useNavigate();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     service: '',
-    message: ''
+    message: '',
+    honeypot: '' // Hidden field to catch bots
   });
 
   // Scroll to top when component mounts or serviceId changes
@@ -413,18 +418,41 @@ const ServiceDetail = () => {
 
   const serviceOptions = [
     { value: 'marketing', label: t('service.marketing') },
-    { value: 'entruempelung', label: t('service.entruempelung') },
-    { value: 'reparatur', label: t('service.reparatur') },
-    { value: 'autoservice', label: t('service.auto') },
-    { value: 'autofind', label: t('service.autofind') },
-    { value: 'detailing', label: t('service.detailing') },
+    { value: 'installation', label: t('service.installation') },
     { value: 'other', label: otherServiceLabel },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || undefined,
+          service: formData.service || undefined,
+          message: formData.message,
+          honeypot: formData.honeypot || undefined,
+        },
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      // Redirect to thank you page
+      navigate('/danke');
+    } catch (error: any) {
+      console.error('Error sending message:', error);
+      const errorMessage = language === 'de' ? 'Fehler beim Senden. Bitte versuchen Sie es erneut.' :
+                          language === 'en' ? 'Failed to send. Please try again.' :
+                          'Ошибка отправки. Пожалуйста, попробуйте снова.';
+      toast.error(errorMessage);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const extendedDesc = service.extendedDescription?.[language] || service.extendedDescription?.de;
@@ -700,11 +728,33 @@ const ServiceDetail = () => {
                     />
                   </div>
                   
+                  {/* Honeypot field - hidden from users, catches bots */}
+                  <div className="absolute -left-[9999px] opacity-0 pointer-events-none" aria-hidden="true">
+                    <label htmlFor="website-detail">Website</label>
+                    <input
+                      type="text"
+                      id="website-detail"
+                      name="website-detail"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={formData.honeypot}
+                      onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
+                    />
+                  </div>
+                  
                   <button
                     type="submit"
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-3 px-6 rounded-xl transition-all duration-200 hover:scale-[1.02]"
+                    disabled={isSubmitting}
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-3 px-6 rounded-xl transition-all duration-200 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
                   >
-                    {submitLabel}
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        {language === 'de' ? 'Wird gesendet...' : language === 'en' ? 'Sending...' : 'Отправка...'}
+                      </>
+                    ) : (
+                      submitLabel
+                    )}
                   </button>
                 </form>
               </div>
