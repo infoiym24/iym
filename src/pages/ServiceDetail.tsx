@@ -193,7 +193,7 @@ Our services include:
             'Erweiterte SEO-Optimierung',
             'DSGVO-konforme Umsetzung aller Formulare',
             'Cookie-Banner mit Einstellungen',
-            'Google Analytics + Sitemap + robots.txt',
+            'Google Analytics Setup',
             'Page Speed Optimierung',
             'Bild-Optimierung',
             '1 Monat Support'
@@ -206,7 +206,7 @@ Our services include:
             'Advanced SEO Optimization',
             'GDPR-compliant Form Implementation',
             'Cookie Banner with Settings',
-            'Google Analytics + Sitemap + robots.txt',
+            'Google Analytics Setup',
             'Page Speed Optimization',
             'Image Optimization',
             '1 Month Support'
@@ -219,7 +219,7 @@ Our services include:
             'Расширенная SEO-оптимизация',
             'GDPR-совместимые формы',
             'Баннер cookies с настройками',
-            'Google Analytics + Sitemap + robots.txt',
+            'Google Analytics Setup',
             'Оптимизация скорости страницы',
             'Оптимизация изображений',
             '1 месяц поддержки'
@@ -236,12 +236,12 @@ Our services include:
             'Kundenverwaltung & Dashboard',
             'Payment-Integration (Stripe, PayPal)',
             'DSGVO-konformes Newsletter-System',
-            'Conversion-Tracking + Events',
+            
             'Mehrsprachigkeit',
             'Blog / News-Bereich',
             'Performance-Tuning & Ladezeit-Optimierung',
             'Backups & Sicherheits-Hardening',
-            'Cross-Browser-Tests & QA',
+            
             '3 Monate Support & Wartung'
           ],
           en: [
@@ -250,12 +250,12 @@ Our services include:
             'Customer Management & Dashboard',
             'Payment Integration (Stripe, PayPal)',
             'GDPR-compliant Newsletter System',
-            'Conversion Tracking + Events',
+            
             'Multi-language Support',
             'Blog / News Section',
             'Performance Tuning & Load Time Optimization',
             'Backups & Security Hardening',
-            'Cross-Browser Testing & QA',
+            
             '3 Months Support & Maintenance'
           ],
           ru: [
@@ -264,12 +264,12 @@ Our services include:
             'Управление клиентами и панель управления',
             'Интеграция оплаты (Stripe, PayPal)',
             'GDPR-совместимая система рассылки',
-            'Отслеживание конверсий + события',
+            
             'Многоязычность',
             'Блог / раздел новостей',
             'Оптимизация производительности и загрузки',
             'Резервные копии и усиление безопасности',
-            'Кросс-браузерное тестирование и QA',
+            
             '3 месяца поддержки и обслуживания'
           ]
         }
