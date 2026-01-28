@@ -148,41 +148,35 @@ Our services include:
           de: [
             'One-Page Website',
             'Responsives Design (Mobil & Desktop)',
-            'Kontaktformular',
             'Basis SEO-Optimierung',
             'SSL-Zertifikat inklusive',
             'DSGVO-Texte (Impressum, Datenschutz)',
-            'Cookie-Banner Integration',
+            'DSGVO-konforme Formular-Umsetzung',
+            'Cookie-Banner mit Einstellungen',
             'Domain + Hosting-Setup',
-            'Google Analytics Basis-Setup',
-            'Performance-Optimierung (Ladezeit)',
-            '1 Korrekturschleife'
+            'Performance-Optimierung (Ladezeit)'
           ],
           en: [
             'One-Page Website',
             'Responsive Design (Mobile & Desktop)',
-            'Contact Form',
             'Basic SEO Optimization',
             'SSL Certificate included',
             'GDPR Texts (Imprint, Privacy Policy)',
-            'Cookie Banner Integration',
+            'GDPR-compliant Form Implementation',
+            'Cookie Banner with Settings',
             'Domain + Hosting Setup',
-            'Google Analytics Basic Setup',
-            'Performance Optimization (Load Time)',
-            '1 Revision Round'
+            'Performance Optimization (Load Time)'
           ],
           ru: [
             'Одностраничный сайт',
             'Адаптивный дизайн (мобильный и десктоп)',
-            'Контактная форма',
             'Базовая SEO-оптимизация',
             'SSL-сертификат включён',
             'Тексты GDPR (импринт, политика конфиденциальности)',
-            'Интеграция баннера cookies',
+            'GDPR-совместимые формы',
+            'Баннер cookies с настройками',
             'Настройка домена и хостинга',
-            'Базовая настройка Google Analytics',
-            'Оптимизация производительности',
-            '1 раунд правок'
+            'Оптимизация производительности'
           ]
         }
       },
@@ -194,7 +188,7 @@ Our services include:
           de: [
             'Mehrseitige Website (bis 5 Seiten)',
             'Individuelles Design',
-            'CMS-Integration (selbst Inhalte pflegen)',
+            'Admin-Dashboard für Inhalte',
             'Kontaktformular mit E-Mail-Benachrichtigung',
             'Social Media Einbindung',
             'Erweiterte SEO-Optimierung',
@@ -203,14 +197,13 @@ Our services include:
             'Google Analytics + Sitemap + robots.txt',
             'Page Speed Optimierung',
             'Bild-Optimierung',
-            'Kurze CMS-Schulung',
-            '2 Korrekturschleifen',
+            'Kurze Backend-Schulung',
             '1 Monat Support'
           ],
           en: [
             'Multi-page Website (up to 5 pages)',
             'Custom Design',
-            'CMS Integration (manage content yourself)',
+            'Admin Dashboard for Content',
             'Contact Form with Email Notifications',
             'Social Media Integration',
             'Advanced SEO Optimization',
@@ -219,14 +212,13 @@ Our services include:
             'Google Analytics + Sitemap + robots.txt',
             'Page Speed Optimization',
             'Image Optimization',
-            'Brief CMS Training',
-            '2 Revision Rounds',
+            'Brief Backend Training',
             '1 Month Support'
           ],
           ru: [
             'Многостраничный сайт (до 5 страниц)',
             'Индивидуальный дизайн',
-            'Интеграция CMS (самостоятельное управление)',
+            'Админ-панель для контента',
             'Контактная форма с email-уведомлениями',
             'Интеграция соцсетей',
             'Расширенная SEO-оптимизация',
@@ -235,8 +227,7 @@ Our services include:
             'Google Analytics + Sitemap + robots.txt',
             'Оптимизация скорости страницы',
             'Оптимизация изображений',
-            'Краткое обучение CMS',
-            '2 раунда правок',
+            'Краткое обучение Backend',
             '1 месяц поддержки'
           ]
         }
@@ -248,7 +239,7 @@ Our services include:
           de: [
             'Kompletter Online-Shop oder umfangreiche Website',
             'UX-Konzept & Wireframes',
-            'CMS-Backend mit kompletter Schulung',
+            'Admin-Backend mit kompletter Schulung',
             'Terminbuchungssystem / Kalender',
             'Kundenverwaltung & Dashboard',
             'Payment-Integration (Stripe, PayPal)',
@@ -260,13 +251,12 @@ Our services include:
             'Backups & Sicherheits-Hardening',
             'Cross-Browser-Tests & QA',
             'Benutzerrollen & Dashboard-Moderation',
-            '3 Korrekturschleifen',
             '3 Monate Support & Wartung'
           ],
           en: [
             'Complete Online Shop or Comprehensive Website',
             'UX Concept & Wireframes',
-            'CMS Backend with Full Training',
+            'Admin Backend with Full Training',
             'Appointment Booking System / Calendar',
             'Customer Management & Dashboard',
             'Payment Integration (Stripe, PayPal)',
@@ -278,13 +268,12 @@ Our services include:
             'Backups & Security Hardening',
             'Cross-Browser Testing & QA',
             'User Roles & Dashboard Moderation',
-            '3 Revision Rounds',
             '3 Months Support & Maintenance'
           ],
           ru: [
             'Полный интернет-магазин или комплексный сайт',
             'UX-концепция и прототипы',
-            'CMS-бэкенд с полным обучением',
+            'Админ-бэкенд с полным обучением',
             'Система бронирования / календарь',
             'Управление клиентами и панель управления',
             'Интеграция оплаты (Stripe, PayPal)',
@@ -296,7 +285,6 @@ Our services include:
             'Резервные копии и усиление безопасности',
             'Кросс-браузерное тестирование и QA',
             'Роли пользователей и модерация панели',
-            '3 раунда правок',
             '3 месяца поддержки и обслуживания'
           ]
         }
