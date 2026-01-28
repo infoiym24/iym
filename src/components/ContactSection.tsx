@@ -57,9 +57,9 @@ const ContactSection = () => {
     }
   };
 
-  const serviceSelectLabel = language === 'de' ? 'Service auswählen (optional)' :
-                             language === 'en' ? 'Select Service (optional)' :
-                             'Выбрать услугу (опционально)';
+  const serviceSelectLabel = language === 'de' ? 'Service auswählen' :
+                             language === 'en' ? 'Select Service' :
+                             'Выбрать услугу';
 
   const otherServiceLabel = language === 'de' ? 'Andere Dienstleistung' :
                             language === 'en' ? 'Other Service' :
@@ -264,13 +264,14 @@ const ContactSection = () => {
                 transition={{ delay: 0.4, duration: 0.5 }}
               >
                 <label className="block text-sm font-medium text-foreground/90 mb-2 tracking-wide">
-                  {serviceSelectLabel}
+                  {serviceSelectLabel} <span className="text-primary">*</span>
                 </label>
                 <div className="relative">
                   <select
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                     className="w-full px-4 py-3.5 rounded-lg bg-card border border-primary/30 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none appearance-none cursor-pointer hover:border-primary/50 text-foreground"
+                    required
                   >
                     <option value="">{serviceSelectLabel}</option>
                     {serviceOptions.map((option) => (
