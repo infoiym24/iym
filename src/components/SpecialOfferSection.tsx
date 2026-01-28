@@ -3,13 +3,25 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
-import { Check, Sparkles, Gift, Globe, Shield, Clock } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Check, Sparkles, Gift, Globe, Shield, Clock, ArrowRight } from 'lucide-react';
 
 const SpecialOfferSection = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
   const { language } = useLanguage();
+  const navigate = useNavigate();
+
+  const handleNavigateToPackages = () => {
+    navigate('/services/marketing');
+    // Wait for navigation then scroll to packages section
+    setTimeout(() => {
+      const packagesSection = document.getElementById('packages');
+      if (packagesSection) {
+        packagesSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 150);
+  };
 
   const content = {
     de: {
@@ -30,7 +42,7 @@ const SpecialOfferSection = () => {
         { icon: Check, text: 'Kontaktformular' },
         { icon: Check, text: '1 Korrekturschleife' },
       ],
-      cta: 'Jetzt Angebot sichern',
+      cta: 'Jetzt Angebote vergleichen',
       guarantee: 'Zufriedenheitsgarantie',
     },
     en: {
@@ -51,7 +63,7 @@ const SpecialOfferSection = () => {
         { icon: Check, text: 'Contact form' },
         { icon: Check, text: '1 revision round' },
       ],
-      cta: 'Get this offer now',
+      cta: 'Compare packages now',
       guarantee: 'Satisfaction guarantee',
     },
     ru: {
@@ -72,7 +84,7 @@ const SpecialOfferSection = () => {
         { icon: Check, text: 'Контактная форма' },
         { icon: Check, text: '1 раунд правок' },
       ],
-      cta: 'Получить предложение',
+      cta: 'Сравнить пакеты',
       guarantee: 'Гарантия качества',
     },
   };
@@ -184,12 +196,10 @@ const SpecialOfferSection = () => {
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ delay: 0.6, duration: 0.6 }}
                   >
-                    <Link to="/services/marketing-webdesign">
-                      <Button variant="luxury" size="xl" className="w-full sm:w-auto">
-                        <Sparkles className="w-5 h-5 mr-2" />
+                    <Button variant="luxury" size="xl" className="w-full sm:w-auto" onClick={handleNavigateToPackages}>
+                        <ArrowRight className="w-5 h-5 mr-2" />
                         {currentContent.cta}
                       </Button>
-                    </Link>
                     <p className="text-muted-foreground text-sm mt-4 flex items-center gap-2">
                       <Shield className="w-4 h-4 text-primary" />
                       {currentContent.guarantee}
