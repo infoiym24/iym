@@ -17,7 +17,7 @@ const ProcessSection = () => {
         {
           number: '01',
           title: 'Kontakt aufnehmen',
-          description: 'Beschreiben Sie uns Ihr Anliegen. Telefonisch, per E-Mail oder über unser Kontaktformular. Wir melden uns schnellstmöglich zurück.',
+          description: 'Beschreiben Sie uns Ihr Anliegen. Persönlich, per E-Mail oder über unser Kontaktformular. Wir melden uns schnellstmöglich zurück.',
           features: ['Persönliche Beratung', 'Schnelle Antwort', 'Unverbindlich'],
         },
         {
