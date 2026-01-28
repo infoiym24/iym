@@ -597,7 +597,7 @@ const ServiceDetail = () => {
 
               {/* Pricing Packages Section */}
               {service.pricingPackages && service.pricingPackages.length > 0 && (
-                <div className="mb-8">
+                <div id="packages" className="mb-8 scroll-mt-32">
                   <h2 className="text-2xl font-semibold font-space-grotesk mb-6">
                     {language === 'de' ? 'Unsere Pakete' : language === 'en' ? 'Our Packages' : 'Наши пакеты'}
                   </h2>
@@ -625,11 +625,11 @@ const ServiceDetail = () => {
                           {pkg.price}
                         </p>
                         
-                        <ul className="space-y-3 flex-1">
+                        <ul className="space-y-3 flex-1" style={{ hyphens: 'none' }}>
                           {(pkg.features[language] || pkg.features.de).map((feature, fIndex) => (
                             <li key={fIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
                               <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                              <span>{feature}</span>
+                              <span style={{ hyphens: 'none' }}>{feature}</span>
                             </li>
                           ))}
                         </ul>
