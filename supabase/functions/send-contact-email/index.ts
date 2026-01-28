@@ -192,6 +192,7 @@ const handler = async (req: Request): Promise<Response> => {
       body: JSON.stringify({
         from: "IYM Contact Form <onboarding@resend.dev>",
         to: ["info.iym24@gmail.com"],
+        reply_to: [email],
         subject: `Neue Kontaktanfrage von ${safeName}`,
         html: `
           <div style="font-family: 'Montserrat', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: linear-gradient(135deg, #0a0f0a 0%, #1a2e1a 100%); padding: 40px; border-radius: 16px;">
