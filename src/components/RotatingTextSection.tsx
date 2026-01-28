@@ -1,5 +1,5 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useState, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { useInView } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -7,16 +7,18 @@ const RotatingTextSection = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: false, margin: '-100px' });
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
   const { language } = useLanguage();
 
   const quotes = {
     de: [
-      '"Die Website vom Bekannten war nett gemeint, aber gebracht hat sie nichts."',
-      '"Mit dem Baukasten hab ich ewig rumprobiert – professionell sah\'s nicht aus."',
-      '"Die eine Agentur sah ganz gut aus – aber einfach viel zu teuer."',
-      '"Andere stehen bei Google oben – ich war nirgends zu sehen."',
-      '"Website ändern – geht nicht und der, der es machen soll, ist nicht erreichbar."',
-      '"Meine aktuelle Agentur ist einfach viel zu langsam und nie zu erreichen."',
+      '„Die Website vom Bekannten war nett gemeint, aber gebracht hat sie nichts."',
+      '„Mit dem Baukasten hab ich ewig rumprobiert – professionell sah\'s nicht aus."',
+      '„Die eine Agentur sah ganz gut aus – aber einfach viel zu teuer."',
+      '„Andere stehen bei Google oben – ich war nirgends zu sehen."',
+      '„Website ändern – geht nicht und der, der es machen soll, ist nicht erreichbar."',
+      '„Meine aktuelle Agentur ist einfach viel zu langsam und nie zu erreichen."',
     ],
     en: [
       '"The website from a friend was well-meant, but it didn\'t bring any results."',
@@ -27,12 +29,12 @@ const RotatingTextSection = () => {
       '"My current agency is just too slow and never available."',
     ],
     ru: [
-      '"Сайт от знакомого был с добрыми намерениями, но результата не принёс."',
-      '"Я потратил кучу времени на конструктор – всё равно выглядело непрофессионально."',
-      '"Одно агентство выглядело хорошо – но слишком дорого."',
-      '"Другие в топе Google – а меня нигде не было видно."',
-      '"Изменить сайт нельзя – а тот, кто должен это делать, недоступен."',
-      '"Моё текущее агентство слишком медленное и никогда не на связи."',
+      '„Сайт от знакомого был с добрыми намерениями, но результата не принёс."',
+      '„Я потратил кучу времени на конструктор – всё равно выглядело непрофессионально."',
+      '„Одно агентство выглядело хорошо – но слишком дорого."',
+      '„Другие в топе Google – а меня нигде не было видно."',
+      '„Изменить сайт нельзя – а тот, кто должен это делать, недоступен."',
+      '„Моё текущее агентство слишком медленное и никогда не на связи."',
     ],
   };
 
@@ -44,16 +46,60 @@ const RotatingTextSection = () => {
 
   const currentQuotes = quotes[language] || quotes.de;
   const currentIntro = intro[language] || intro.de;
+  const fullText = currentQuotes[currentIndex];
+
+  // Typewriter effect
+  const typewriterEffect = useCallback(() => {
+    if (!isInView) return;
+
+    const typingSpeed = 40; // ms per character when typing
+    const deletingSpeed = 25; // ms per character when deleting
+    const pauseAfterTyping = 1500; // 1.5 seconds pause after full text
+    const pauseAfterDeleting = 300; // short pause before next quote
+
+    if (!isDeleting) {
+      // Typing
+      if (displayedText.length < fullText.length) {
+        const timeout = setTimeout(() => {
+          setDisplayedText(fullText.slice(0, displayedText.length + 1));
+        }, typingSpeed);
+        return () => clearTimeout(timeout);
+      } else {
+        // Finished typing, pause then start deleting
+        const timeout = setTimeout(() => {
+          setIsDeleting(true);
+        }, pauseAfterTyping);
+        return () => clearTimeout(timeout);
+      }
+    } else {
+      // Deleting
+      if (displayedText.length > 0) {
+        const timeout = setTimeout(() => {
+          setDisplayedText(displayedText.slice(0, -1));
+        }, deletingSpeed);
+        return () => clearTimeout(timeout);
+      } else {
+        // Finished deleting, move to next quote
+        const timeout = setTimeout(() => {
+          setIsDeleting(false);
+          setCurrentIndex((prev) => (prev + 1) % currentQuotes.length);
+        }, pauseAfterDeleting);
+        return () => clearTimeout(timeout);
+      }
+    }
+  }, [isInView, displayedText, fullText, isDeleting, currentQuotes.length]);
 
   useEffect(() => {
-    if (!isInView) return;
-    
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % currentQuotes.length);
-    }, 3000);
+    const cleanup = typewriterEffect();
+    return cleanup;
+  }, [typewriterEffect]);
 
-    return () => clearInterval(interval);
-  }, [isInView, currentQuotes.length]);
+  // Reset when language changes
+  useEffect(() => {
+    setDisplayedText('');
+    setCurrentIndex(0);
+    setIsDeleting(false);
+  }, [language]);
 
   return (
     <section ref={sectionRef} className="py-20 md:py-32 relative overflow-hidden">
@@ -88,26 +134,22 @@ const RotatingTextSection = () => {
             {currentIntro}
           </motion.p>
 
-          {/* Rotating quotes */}
-          <div className="h-24 md:h-32 flex items-center justify-center overflow-hidden">
-            <AnimatePresence mode="wait">
-              <motion.h2
-                key={currentIndex}
-                className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gradient-gold font-bold px-4"
-                initial={{ opacity: 0, y: 50, scale: 0.8, rotateX: -30 }}
-                animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
-                exit={{ opacity: 0, y: -50, scale: 0.8, rotateX: 30 }}
-                transition={{ 
-                  duration: 0.6, 
-                  ease: [0.34, 1.56, 0.64, 1],
-                }}
+          {/* Typewriter text */}
+          <div className="min-h-24 md:min-h-32 flex items-center justify-center">
+            <h2
+              className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gradient-gold font-bold px-4 text-center"
+              style={{
+                textShadow: '0 4px 30px rgba(212,175,55,0.3)',
+              }}
+            >
+              {displayedText}
+              <span 
+                className="inline-block w-[3px] h-[1em] bg-primary ml-1 align-middle"
                 style={{
-                  textShadow: '0 4px 30px rgba(212,175,55,0.3)',
+                  animation: 'blink 1s step-end infinite',
                 }}
-              >
-                {currentQuotes[currentIndex]}
-              </motion.h2>
-            </AnimatePresence>
+              />
+            </h2>
           </div>
 
           {/* Decorative dots indicator */}
@@ -140,6 +182,14 @@ const RotatingTextSection = () => {
           </motion.p>
         </div>
       </div>
+
+      {/* Cursor blink animation */}
+      <style>{`
+        @keyframes blink {
+          0%, 50% { opacity: 1; }
+          51%, 100% { opacity: 0; }
+        }
+      `}</style>
     </section>
   );
 };
