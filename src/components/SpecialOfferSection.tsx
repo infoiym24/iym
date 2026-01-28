@@ -27,7 +27,7 @@ const SpecialOfferSection = () => {
     de: {
       badge: 'Sonderangebot',
       title: 'Starter Website-Paket',
-      subtitle: 'Professionelle One-Page Website mit allem was Sie brauchen – rechtssicher & performant.',
+      subtitle: 'Professionelle One-Page Website mit allem was Sie brauchen. Rechtssicher & performant.',
       price: 'ab 500€',
       priceNote: 'netto',
       features: [

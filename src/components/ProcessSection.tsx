@@ -17,19 +17,19 @@ const ProcessSection = () => {
         {
           number: '01',
           title: 'Kontakt aufnehmen',
-          description: 'Beschreiben Sie uns Ihr Anliegen – telefonisch, per E-Mail oder über unser Kontaktformular. Wir melden uns schnellstmöglich zurück.',
+          description: 'Beschreiben Sie uns Ihr Anliegen. Telefonisch, per E-Mail oder über unser Kontaktformular. Wir melden uns schnellstmöglich zurück.',
           features: ['Persönliche Beratung', 'Schnelle Antwort', 'Unverbindlich'],
         },
         {
           number: '02',
           title: 'Umsetzung',
-          description: 'Unser Team macht sich an die Arbeit. Ob Fahrzeugüberführung, Entrümpelung oder Webdesign – wir kümmern uns professionell darum.',
+          description: 'Unser Team macht sich an die Arbeit. Ob Fahrzeugüberführung, Entrümpelung oder Webdesign, wir kümmern uns professionell darum.',
           features: ['Erfahrene Experten', 'Transparente Preise', 'Zuverlässig'],
         },
         {
           number: '03',
           title: 'Fertig!',
-          description: 'Sie lehnen sich zurück und genießen das Ergebnis. Zufriedenheit garantiert – oder wir finden gemeinsam eine Lösung.',
+          description: 'Sie lehnen sich zurück und genießen das Ergebnis. Zufriedenheit garantiert oder wir finden gemeinsam eine Lösung.',
           features: ['Qualitätsgarantie', 'Nachbetreuung', '100% Zufriedenheit'],
         },
       ],
