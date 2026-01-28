@@ -280,10 +280,20 @@ const handler = async (req: Request): Promise<Response> => {
     );
   } catch (error: any) {
     console.error("Error in send-contact-email function:", error);
+    
+    // Return generic error message to client - keep details in server logs only
+    const isValidationError = error.message?.includes('is required') || 
+                              error.message?.includes('Invalid email') ||
+                              error.message?.includes('must be less than');
+    
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ 
+        error: isValidationError 
+          ? error.message 
+          : "Unable to send message. Please try again later." 
+      }),
       {
-        status: 500,
+        status: isValidationError ? 400 : 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },
       }
     );
