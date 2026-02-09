@@ -145,7 +145,7 @@ Our services include:
     pricingPackages: [
       {
         name: { de: 'Starter', en: 'Starter', ru: 'Стартер' },
-        price: 'Ab 500€',
+        price: 'Ab 299€',
         features: {
           de: [
             'One-Page Website',
@@ -184,7 +184,7 @@ Our services include:
       },
       {
         name: { de: 'Business', en: 'Business', ru: 'Бизнес' },
-        price: 'Ab 1.000€',
+        price: 'Ab 499€',
         highlighted: true,
         features: {
           de: [
