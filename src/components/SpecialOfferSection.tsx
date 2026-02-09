@@ -28,7 +28,7 @@ const SpecialOfferSection = () => {
       badge: 'Sonderangebot',
       title: 'Starter Website-Paket',
       subtitle: 'Professionelle One-Page Website mit allem was Sie brauchen. Rechtssicher & performant.',
-      price: 'ab 500€',
+      price: 'ab 299€',
       priceNote: 'netto',
       features: [
         { icon: Globe, text: 'Domain + Hosting-Setup inklusive', highlight: true },
@@ -48,7 +48,7 @@ const SpecialOfferSection = () => {
       badge: 'Special Offer',
       title: 'Starter Website Package',
       subtitle: 'Professional one-page website with everything you need – legally compliant & performant.',
-      price: 'from €500',
+      price: 'from €299',
       priceNote: 'net',
       features: [
         { icon: Globe, text: 'Domain + Hosting Setup included', highlight: true },
@@ -68,7 +68,7 @@ const SpecialOfferSection = () => {
       badge: 'Специальное предложение',
       title: 'Стартовый пакет сайта',
       subtitle: 'Профессиональный одностраничный сайт со всем необходимым – юридически безопасный и быстрый.',
-      price: 'от 500€',
+      price: 'от 299€',
       priceNote: 'нетто',
       features: [
         { icon: Globe, text: 'Домен + хостинг включены', highlight: true },
