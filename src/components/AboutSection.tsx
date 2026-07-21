@@ -5,6 +5,7 @@ import { GoldenHeading, TrainRevealText, SlideUpReveal, StaggerContainer } from 
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { useInView } from 'framer-motion';
+import ParallaxScene from './three/ParallaxScene';
 
 const AboutSection = () => {
   const { t } = useLanguage();
@@ -25,8 +26,12 @@ const AboutSection = () => {
   const sectionDescription = t('about.section.description');
 
   return (
-    <section id="about" className="py-28 relative">
-      <div className="container mx-auto px-4">
+    <section id="about" className="py-28 relative overflow-hidden">
+      {/* 3D parallax accents */}
+      <div className="absolute inset-0 opacity-70">
+        <ParallaxScene variant="glass" />
+      </div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Left content */}
           <div>
@@ -89,24 +94,23 @@ const AboutSection = () => {
               transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               {/* Image container */}
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-primary/20">
+              <div className="relative rounded-2xl overflow-hidden paper-card">
                 <img 
                   src={aboutPortrait} 
                   alt="IYM Team" 
                   className="w-full h-auto object-cover aspect-square"
                 />
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
               </div>
               
               {/* Quote card overlay */}
               <motion.div 
-                className="absolute bottom-6 left-6 right-6 glass-luxury rounded-xl p-6 border border-primary/20"
+                className="absolute bottom-6 left-6 right-6 paper-card p-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={imageInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
               >
-                <blockquote className="text-lg italic text-primary text-center font-display">
+                <blockquote className="text-lg italic text-gradient-gold text-center font-display">
                   "Was auch immer Sie brauchen, wir haben den Mann für Ihren Job."
                 </blockquote>
               </motion.div>
