@@ -5,7 +5,7 @@ import { GoldenHeading, TrainRevealText, SlideUpReveal, StaggerContainer } from 
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { useInView } from 'framer-motion';
-import ParallaxScene from './three/ParallaxScene';
+
 
 const AboutSection = () => {
   const { t } = useLanguage();
@@ -27,10 +27,6 @@ const AboutSection = () => {
 
   return (
     <section id="about" className="py-28 relative overflow-hidden">
-      {/* 3D parallax accents */}
-      <div className="absolute inset-0 opacity-70">
-        <ParallaxScene variant="glass" />
-      </div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Left content */}

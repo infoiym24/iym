@@ -58,9 +58,9 @@ export default {
           dark: "hsl(38 55% 38%)",
         },
         forest: {
-          light: "hsl(0 0% 30%)",
-          DEFAULT: "hsl(0 0% 18%)",
-          dark: "hsl(0 0% 10%)",
+          light: "hsl(155 35% 20%)",
+          DEFAULT: "hsl(155 40% 12%)",
+          dark: "hsl(155 45% 7%)",
         },
         ink: {
           light: "hsl(0 0% 30%)",
