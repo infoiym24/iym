@@ -29,58 +29,33 @@ const GreenSeaSection = () => {
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.8 }}
     >
-      <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden rounded-2xl mx-auto max-w-7xl">
-        {/* Dark anthracite with gold accent background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-card via-background to-card" />
+      <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden rounded-3xl mx-auto max-w-7xl paper-card">
+        {/* Warm paper gradient */}
+        <div className="absolute inset-0" style={{ background: 'var(--gradient-paper)' }} />
         
         {/* Animated gold accent layers */}
         <div className="absolute inset-0">
           <motion.div 
-            className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full"
-            animate={{
-              scale: [1, 1.1, 1],
-              opacity: [0.08, 0.15, 0.08],
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-            style={{
-              background: 'radial-gradient(circle, hsl(42 75% 50% / 0.2) 0%, transparent 70%)',
-            }}
+            className="absolute top-1/4 left-1/4 w-[420px] h-[420px] rounded-full"
+            animate={{ scale: [1, 1.1, 1], opacity: [0.25, 0.4, 0.25] }}
+            transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+            style={{ background: 'radial-gradient(circle, hsl(42 70% 55% / 0.28) 0%, transparent 70%)' }}
           />
           <motion.div 
-            className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] rounded-full"
-            animate={{
-              scale: [1.1, 1, 1.1],
-              opacity: [0.12, 0.08, 0.12],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: 'easeInOut',
-              delay: 2,
-            }}
-            style={{
-              background: 'radial-gradient(circle, hsl(42 70% 45% / 0.18) 0%, transparent 70%)',
-            }}
+            className="absolute bottom-1/4 right-1/4 w-[360px] h-[360px] rounded-full"
+            animate={{ scale: [1.1, 1, 1.1], opacity: [0.2, 0.35, 0.2] }}
+            transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+            style={{ background: 'radial-gradient(circle, hsl(36 50% 75% / 0.4) 0%, transparent 70%)' }}
           />
         </div>
 
         {/* Gold accent line */}
         <motion.div 
           className="absolute top-1/2 left-0 right-0 h-px"
-          animate={{
-            backgroundPosition: ['-200% 0', '200% 0'],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
+          animate={{ backgroundPosition: ['-200% 0', '200% 0'] }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
           style={{
-            background: 'linear-gradient(90deg, transparent 0%, hsl(42 75% 50% / 0.4) 25%, hsl(42 80% 55% / 0.6) 50%, hsl(42 75% 50% / 0.4) 75%, transparent 100%)',
+            background: 'linear-gradient(90deg, transparent 0%, hsl(42 65% 50% / 0.4) 50%, transparent 100%)',
             backgroundSize: '200% 100%',
           }}
         />
@@ -116,10 +91,6 @@ const GreenSeaSection = () => {
             </motion.div>
           </div>
         </div>
-
-        {/* Edge fades */}
-        <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-background to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent" />
       </div>
     </motion.div>
   );
