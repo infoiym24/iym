@@ -85,84 +85,28 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-28 relative overflow-hidden">
-      {/* Forest green background with softer edges */}
-      <div className="absolute inset-0 bg-forest-dark" />
+      {/* Soft paper background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/40 to-background" />
       
-      {/* Animated floating particles/orbs */}
+      {/* Warm ambient orbs */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
-          className="absolute top-1/4 left-1/5 w-64 h-64 rounded-full"
-          animate={{
-            y: [0, -30, 0],
-            opacity: [0.15, 0.25, 0.15],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-          style={{
-            background: 'radial-gradient(circle, hsl(42 75% 50% / 0.2) 0%, transparent 70%)',
-          }}
+          className="absolute top-1/4 left-1/5 w-72 h-72 rounded-full"
+          animate={{ y: [0, -30, 0], opacity: [0.35, 0.5, 0.35], scale: [1, 1.1, 1] }}
+          transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+          style={{ background: 'radial-gradient(circle, hsl(42 65% 55% / 0.22) 0%, transparent 70%)' }}
         />
         <motion.div 
-          className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full"
-          animate={{
-            y: [0, 20, 0],
-            opacity: [0.1, 0.2, 0.1],
-            scale: [1.1, 1, 1.1],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: 'easeInOut',
-            delay: 2,
-          }}
-          style={{
-            background: 'radial-gradient(circle, hsl(42 70% 45% / 0.18) 0%, transparent 70%)',
-          }}
-        />
-        <motion.div 
-          className="absolute top-2/3 left-1/3 w-48 h-48 rounded-full"
-          animate={{
-            x: [-10, 10, -10],
-            opacity: [0.12, 0.18, 0.12],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: 'easeInOut',
-            delay: 1,
-          }}
-          style={{
-            background: 'radial-gradient(circle, hsl(155 45% 35% / 0.15) 0%, transparent 70%)',
-          }}
+          className="absolute bottom-1/3 right-1/4 w-96 h-96 rounded-full"
+          animate={{ y: [0, 20, 0], opacity: [0.25, 0.4, 0.25], scale: [1.1, 1, 1.1] }}
+          transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+          style={{ background: 'radial-gradient(circle, hsl(36 40% 70% / 0.35) 0%, transparent 70%)' }}
         />
       </div>
       
-      {/* Animated gold line across */}
-      <motion.div 
-        className="absolute top-1/2 left-0 right-0 h-px opacity-40"
-        animate={{
-          backgroundPosition: ['-200% 0', '200% 0'],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: 'linear',
-        }}
-        style={{
-          background: 'linear-gradient(90deg, transparent 0%, hsl(42 75% 50% / 0.5) 25%, hsl(42 80% 55% / 0.7) 50%, hsl(42 75% 50% / 0.5) 75%, transparent 100%)',
-          backgroundSize: '200% 100%',
-        }}
-      />
-      
-      {/* Gold accent decorations */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-primary/8 rounded-full blur-3xl" />
+      {/* Gold accent lines */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
@@ -183,7 +127,7 @@ const ContactSection = () => {
           <div className="gold-divider max-w-[200px] mx-auto mb-6" />
           
           <SlideUpReveal delay={0.3}>
-            <p className="text-foreground/80 text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               {sectionSubtitle}
             </p>
           </SlideUpReveal>
@@ -192,7 +136,7 @@ const ContactSection = () => {
         {/* Contact form */}
         <div className="max-w-2xl mx-auto" ref={formRef}>
           <motion.div 
-            className="rounded-2xl p-8 md:p-10 bg-card/90 backdrop-blur-xl border border-primary/20"
+            className="paper-card p-8 md:p-10"
             initial={{ opacity: 0, y: 40 }}
             animate={formInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
