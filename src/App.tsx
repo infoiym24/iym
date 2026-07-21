@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { CookieConsentProvider } from "./contexts/CookieConsentContext";
 import CookieBanner from "./components/CookieBanner";
+import SmoothScroll from "./components/SmoothScroll";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -28,21 +29,23 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/services/:serviceId" element={<ServiceDetail />} />
-              <Route path="/karriere" element={<Karriere />} />
-              <Route path="/agb" element={<AGB />} />
-              <Route path="/datenschutz" element={<Datenschutz />} />
-              <Route path="/impressum" element={<Impressum />} />
-              <Route path="/cookie-einstellungen" element={<CookieSettings />} />
-              <Route path="/danke" element={<ThankYou />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-            <CookieBanner />
+            <SmoothScroll>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/services/:serviceId" element={<ServiceDetail />} />
+                <Route path="/karriere" element={<Karriere />} />
+                <Route path="/agb" element={<AGB />} />
+                <Route path="/datenschutz" element={<Datenschutz />} />
+                <Route path="/impressum" element={<Impressum />} />
+                <Route path="/cookie-einstellungen" element={<CookieSettings />} />
+                <Route path="/danke" element={<ThankYou />} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+              <CookieBanner />
+            </SmoothScroll>
           </BrowserRouter>
         </TooltipProvider>
       </CookieConsentProvider>
