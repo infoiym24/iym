@@ -54,9 +54,9 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative pt-24 pb-8">
+    <footer className="relative pt-24 pb-8 bg-secondary/40">
       {/* Top border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-forest/40 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-foreground/15 to-transparent" />
 
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
@@ -86,7 +86,7 @@ const Footer = () => {
                   <li key={linkIndex}>
                     <button
                       onClick={() => handleLinkClick(link.href, !!link.isRoute)}
-                      className="text-muted-foreground hover:text-forest-light transition-colors duration-300 bg-transparent border-none cursor-pointer text-sm"
+                      className="text-muted-foreground hover:text-foreground transition-colors duration-300 bg-transparent border-none cursor-pointer text-sm"
                     >
                       {link.name}
                     </button>
