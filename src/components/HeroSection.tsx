@@ -36,7 +36,7 @@ const HeroSection = () => {
                 <motion.span
                   key={word}
                   className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold text-gradient-gold tracking-widest"
-                  style={{ textShadow: '0 2px 12px hsl(40 20% 96% / 0.9), 0 0 30px hsl(42 65% 55% / 0.25)' }}
+                  style={{ textShadow: '0 2px 12px hsl(155 40% 6% / 0.9), 0 0 30px hsl(42 85% 55% / 0.5)' }}
                   initial={{ opacity: 0, scale: 0.3, y: 30 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ 

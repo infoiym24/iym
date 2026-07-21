@@ -6,6 +6,7 @@ import RotatingTextSection from '@/components/RotatingTextSection';
 import ServicesSection from '@/components/ServicesSection';
 import ProcessSection from '@/components/ProcessSection';
 import SpecialOfferSection from '@/components/SpecialOfferSection';
+import ReferencesSection from '@/components/ReferencesSection';
 import GreenSeaSection from '@/components/GreenSeaSection';
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
@@ -50,6 +51,7 @@ const Index = () => {
         <ServicesSection />
         <ProcessSection />
         <SpecialOfferSection />
+        <ReferencesSection />
         <GreenSeaSection />
         <AboutSection />
         <ContactSection />
