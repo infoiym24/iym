@@ -53,14 +53,24 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         gold: {
-          light: "hsl(42 80% 60%)",
-          DEFAULT: "hsl(42 75% 50%)",
-          dark: "hsl(38 70% 40%)",
+          light: "hsl(42 65% 58%)",
+          DEFAULT: "hsl(42 55% 48%)",
+          dark: "hsl(38 55% 38%)",
         },
         forest: {
-          light: "hsl(155 40% 30%)",
-          DEFAULT: "hsl(155 45% 20%)",
-          dark: "hsl(155 35% 12%)",
+          light: "hsl(0 0% 30%)",
+          DEFAULT: "hsl(0 0% 18%)",
+          dark: "hsl(0 0% 10%)",
+        },
+        ink: {
+          light: "hsl(0 0% 30%)",
+          DEFAULT: "hsl(0 0% 12%)",
+          dark: "hsl(0 0% 6%)",
+        },
+        paper: {
+          light: "hsl(40 25% 98%)",
+          DEFAULT: "hsl(40 20% 96%)",
+          dark: "hsl(36 18% 90%)",
         },
       },
       borderRadius: {
