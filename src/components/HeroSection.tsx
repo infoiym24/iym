@@ -3,21 +3,18 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
 import heroLogo from '@/assets/hero-logo.png';
-import HeroScene from '@/components/three/HeroScene';
 
 const HeroSection = () => {
   const { t } = useLanguage();
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      {/* Soft light backdrop */}
+      {/* Ambient backdrop */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px] animate-pulse-slow" />
-        <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-foreground/5 rounded-full blur-[120px] animate-pulse-slow" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/15 rounded-full blur-[150px] animate-pulse-slow" />
+        <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-forest-light/20 rounded-full blur-[120px] animate-pulse-slow" style={{ animationDelay: '2s' }} />
       </div>
 
-      {/* WebGL 3D scene */}
-      <HeroScene />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto">
