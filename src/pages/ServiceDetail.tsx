@@ -5,7 +5,7 @@ import DOMPurify from 'dompurify';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { 
-  Megaphone, CheckCircle2, ArrowLeft, ExternalLink, Loader2
+  Megaphone, Monitor, Search, Target, CheckCircle2, ArrowLeft, ExternalLink, Loader2
 } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
@@ -60,10 +60,10 @@ interface ServiceInfo {
 }
 
 const serviceData: Record<string, ServiceInfo> = {
-  'marketing': {
-    titleKey: 'service.marketing',
-    descKey: 'service.marketing.desc',
-    icon: Megaphone,
+  'webdesign': {
+    titleKey: 'service.webdesign',
+    descKey: 'service.webdesign.desc',
+    icon: Monitor,
     features: [
       'Social Media Marketing & Management',
       'Webdesign & Entwicklung',
