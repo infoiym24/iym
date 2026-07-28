@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import RotatingTextSection from '@/components/RotatingTextSection';
+import AgencyShowcase from '@/components/AgencyShowcase';
 import ServicesSection from '@/components/ServicesSection';
 import ProcessSection from '@/components/ProcessSection';
 import SpecialOfferSection from '@/components/SpecialOfferSection';
@@ -47,6 +48,7 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
+        <AgencyShowcase />
         <RotatingTextSection />
         <ServicesSection />
         <ProcessSection />
