@@ -5,7 +5,7 @@ import DOMPurify from 'dompurify';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { 
-  Megaphone, Wrench, CheckCircle2, ArrowLeft, ExternalLink, Loader2
+  Megaphone, CheckCircle2, ArrowLeft, ExternalLink, Loader2
 } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
@@ -25,9 +25,6 @@ const sanitizeAndFormatText = (text: string): string => {
   });
 };
 
-// Import generated images
-import reparatur1 from '@/assets/reparatur-1.jpg';
-import reparatur2 from '@/assets/reparatur-2.jpg';
 
 interface PricingPackage {
   name: { de: string; en: string; ru: string };
@@ -278,53 +275,6 @@ Our services include:
       }
     ]
   },
-  'installation': {
-    titleKey: 'service.installation',
-    descKey: 'service.installation.desc',
-    icon: Wrench,
-    features: [
-      'Elektro-Kleinarbeiten',
-      'Türen & Fenster',
-      'Schlösser & Beschläge',
-      'Notfall-Reparaturen'
-    ],
-    featuresEn: [
-      'Electrical Work',
-      'Doors & Windows',
-      'Locks & Fittings',
-      'Emergency Repairs'
-    ],
-    featuresRu: [
-      'Электроработы',
-      'Двери и окна',
-      'Замки и фурнитура',
-      'Аварийный ремонт'
-    ],
-    extendedDescription: {
-      de: `Unser Installations & Reparaturservice bietet schnelle und zuverlässige Lösungen für alle alltäglichen Reparaturen und Installationen in Haus und Wohnung.
-
-Unsere Leistungen im Überblick:
-• **Elektro-Kleinarbeiten** – Steckdosen, Schalter, Lampen und andere elektrische Kleinreparaturen
-• **Türen & Fenster** – Klemmen, Quietschen, Dichtungen austauschen, Einstellungen
-• **Schlösser & Beschläge** – Schlossaustausch, Türgriffe, Scharniere und Möbelbeschläge
-• **Notfall-Reparaturen** – Schnelle Hilfe bei dringenden Problemen`,
-      en: `Our Installation & Repair Service offers fast and reliable solutions for all everyday repairs and installations in house and apartment.
-
-Our services at a glance:
-• **Electrical Work** – Outlets, switches, lamps and other small electrical repairs
-• **Doors & Windows** – Sticking, squeaking, seal replacement, adjustments
-• **Locks & Fittings** – Lock replacement, door handles, hinges and furniture fittings
-• **Emergency Repairs** – Quick help for urgent problems`,
-      ru: `Наш сервис монтажа и ремонта предлагает быстрые и надёжные решения для всех повседневных ремонтов и установок в доме и квартире.
-
-Наши услуги:
-• **Электроработы** – Розетки, выключатели, светильники и другой мелкий электроремонт
-• **Двери и окна** – Заедание, скрип, замена уплотнителей, регулировка
-• **Замки и фурнитура** – Замена замков, дверных ручек, петель и мебельной фурнитуры
-• **Аварийный ремонт** – Быстрая помощь при срочных проблемах`
-    },
-    images: [reparatur1, reparatur2]
-  }
 };
 
 const ServiceDetail = () => {
@@ -418,7 +368,8 @@ const ServiceDetail = () => {
 
   const serviceOptions = [
     { value: 'marketing', label: t('service.marketing') },
-    { value: 'installation', label: t('service.installation') },
+    { value: 'seo', label: language === 'de' ? 'SEO Optimierung' : language === 'en' ? 'SEO Optimization' : 'SEO оптимизация' },
+    { value: 'ads', label: language === 'de' ? 'Google Ads' : language === 'en' ? 'Google Ads' : 'Google Реклама' },
     { value: 'other', label: otherServiceLabel },
   ];
 
