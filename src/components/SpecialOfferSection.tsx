@@ -13,7 +13,7 @@ const SpecialOfferSection = () => {
   const navigate = useNavigate();
 
   const handleNavigateToPackages = () => {
-    navigate('/services/marketing');
+    navigate('/services/webdesign');
     // Wait for navigation then scroll to packages section
     setTimeout(() => {
       const packagesSection = document.getElementById('packages');

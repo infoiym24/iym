@@ -3,7 +3,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ServiceCard from '@/components/ServiceCard';
 import { 
-  Megaphone
+  Monitor, Megaphone, Search, Target
 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { TrainReveal, PopReveal } from '@/components/ScrollRevealText';
@@ -19,10 +19,28 @@ const Services = () => {
   // 2 core services
   const services = [
     {
+      title: t('service.webdesign'),
+      description: t('service.webdesign.desc'),
+      icon: Monitor,
+      href: '/services/webdesign',
+    },
+    {
       title: t('service.marketing'),
       description: t('service.marketing.desc'),
       icon: Megaphone,
-      href: '/services/marketing',
+      href: '/services/webdesign',
+    },
+    {
+      title: t('service.seo'),
+      description: t('service.seo.desc'),
+      icon: Search,
+      href: '/services/seo',
+    },
+    {
+      title: t('service.ads'),
+      description: t('service.ads.desc'),
+      icon: Target,
+      href: '/services/ads',
     },
   ];
 

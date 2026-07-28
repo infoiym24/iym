@@ -74,9 +74,10 @@ const ContactSection = () => {
                        '* Обязательные поля';
 
   const serviceOptions = [
+    { value: 'webdesign', label: t('service.webdesign') },
     { value: 'marketing', label: t('service.marketing') },
-    { value: 'seo', label: language === 'de' ? 'SEO Optimierung' : language === 'en' ? 'SEO Optimization' : 'SEO оптимизация' },
-    { value: 'ads', label: language === 'de' ? 'Google Ads' : language === 'en' ? 'Google Ads' : 'Google Реклама' },
+    { value: 'seo', label: t('service.seo') },
+    { value: 'ads', label: t('service.ads') },
     { value: 'other', label: otherServiceLabel },
   ];
 

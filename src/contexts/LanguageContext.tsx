@@ -33,16 +33,14 @@ const translations: Record<Language, Record<string, string>> = {
     'services.page.subtitle': 'Entdecken Sie unser komplettes Angebot. Von Handwerk bis Marketing – wir sind Ihr Partner für alle Fälle, zu fairen Preisen.',
     
     // Service Items
-    'service.marketing': 'Marketing & Webdesign',
-    'service.marketing.desc': 'Social Media Marketing, Webdesign und digitale Präsenz für Ihr Unternehmen.',
-    'service.handwerk': 'Handwerk & Renovierung',
-    'service.handwerk.desc': 'Professionelle Handwerksarbeiten, Renovierungen, Bohren, Anbringen und mehr.',
-    'service.transport': 'Transport',
-    'service.transport.desc': 'Zuverlässiger Transportservice für alle Ihre Bedürfnisse.',
-    'service.umzug': 'Umzugsservice',
-    'service.umzug.desc': 'Stressfreier Umzug mit professioneller Unterstützung von A bis Z.',
-    'service.installation': 'Installations & Reparaturservice',
-    'service.installation.desc': 'Elektro-Kleinarbeiten, Türen & Fenster, Schlösser und Notfall-Reparaturen.',
+    'service.webdesign': 'Webseiten Erstellung',
+    'service.webdesign.desc': 'Individuelle, moderne Websites & Online-Shops – responsiv, schnell und DSGVO-konform.',
+    'service.marketing': 'Marketing',
+    'service.marketing.desc': 'Social Media Marketing, Content-Erstellung und Branding für Ihre digitale Präsenz.',
+    'service.seo': 'SEO Optimierung',
+    'service.seo.desc': 'Bessere Sichtbarkeit bei Google – mehr organischer Traffic und qualifizierte Anfragen.',
+    'service.ads': 'Google Ads',
+    'service.ads.desc': 'Zielgerichtete Werbekampagnen mit maximaler Reichweite und messbaren Ergebnissen.',
     
     // About Section
     'about.section.label': 'Über IYM',
@@ -179,16 +177,14 @@ const translations: Record<Language, Record<string, string>> = {
     'services.page.subtitle': 'Discover our complete offer. From craftsmanship to marketing – we are your partner for all cases, at fair prices.',
     
     // Service Items
-    'service.marketing': 'Marketing & Web Design',
-    'service.marketing.desc': 'Social media marketing, web design and digital presence for your business.',
-    'service.handwerk': 'Craftsmanship & Renovation',
-    'service.handwerk.desc': 'Professional craftwork, renovations, drilling, mounting and more.',
-    'service.transport': 'Transport',
-    'service.transport.desc': 'Reliable transport service for all your needs.',
-    'service.umzug': 'Moving Service',
-    'service.umzug.desc': 'Stress-free moving with professional support from A to Z.',
-    'service.installation': 'Installation & Repair Service',
-    'service.installation.desc': 'Electrical work, doors & windows, locks and emergency repairs.',
+    'service.webdesign': 'Web Design',
+    'service.webdesign.desc': 'Custom, modern websites & online shops – responsive, fast and GDPR-compliant.',
+    'service.marketing': 'Marketing',
+    'service.marketing.desc': 'Social media marketing, content creation and branding for your digital presence.',
+    'service.seo': 'SEO Optimization',
+    'service.seo.desc': 'Better visibility on Google – more organic traffic and qualified leads.',
+    'service.ads': 'Google Ads',
+    'service.ads.desc': 'Targeted advertising campaigns with maximum reach and measurable results.',
     
     // About Section
     'about.section.label': 'About IYM',
@@ -325,16 +321,14 @@ const translations: Record<Language, Record<string, string>> = {
     'services.page.subtitle': 'Ознакомьтесь с нашим полным предложением. От ремесла до маркетинга – мы ваш партнер на все случаи жизни по справедливым ценам.',
     
     // Service Items
-    'service.marketing': 'Маркетинг и веб-дизайн',
-    'service.marketing.desc': 'Маркетинг в соцсетях, веб-дизайн и цифровое присутствие для вашего бизнеса.',
-    'service.handwerk': 'Ремесло и ремонт',
-    'service.handwerk.desc': 'Профессиональные ремесленные работы, ремонт, сверление, монтаж и многое другое.',
-    'service.transport': 'Транспорт',
-    'service.transport.desc': 'Надежные транспортные услуги для всех ваших потребностей.',
-    'service.umzug': 'Переезд',
-    'service.umzug.desc': 'Переезд без стресса с профессиональной поддержкой от А до Я.',
-    'service.installation': 'Монтаж и ремонт',
-    'service.installation.desc': 'Электроработы, двери и окна, замки и аварийный ремонт.',
+    'service.webdesign': 'Создание сайтов',
+    'service.webdesign.desc': 'Индивидуальные современные сайты и интернет-магазины – адаптивные, быстрые, GDPR.',
+    'service.marketing': 'Маркетинг',
+    'service.marketing.desc': 'Маркетинг в соцсетях, создание контента и брендинг для вашего цифрового присутствия.',
+    'service.seo': 'SEO оптимизация',
+    'service.seo.desc': 'Лучшая видимость в Google – больше органического трафика и заявок.',
+    'service.ads': 'Google Реклама',
+    'service.ads.desc': 'Целевые рекламные кампании с максимальным охватом и измеримыми результатами.',
     
     // About Section
     'about.section.label': 'О IYM',
