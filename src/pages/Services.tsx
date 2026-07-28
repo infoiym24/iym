@@ -28,7 +28,7 @@ const Services = () => {
       title: t('service.marketing'),
       description: t('service.marketing.desc'),
       icon: Megaphone,
-      href: '/services/marketing',
+      href: '/services/webdesign',
     },
     {
       title: t('service.seo'),
