@@ -321,16 +321,14 @@ const translations: Record<Language, Record<string, string>> = {
     'services.page.subtitle': 'Ознакомьтесь с нашим полным предложением. От ремесла до маркетинга – мы ваш партнер на все случаи жизни по справедливым ценам.',
     
     // Service Items
-    'service.marketing': 'Маркетинг и веб-дизайн',
-    'service.marketing.desc': 'Маркетинг в соцсетях, веб-дизайн и цифровое присутствие для вашего бизнеса.',
-    'service.handwerk': 'Ремесло и ремонт',
-    'service.handwerk.desc': 'Профессиональные ремесленные работы, ремонт, сверление, монтаж и многое другое.',
-    'service.transport': 'Транспорт',
-    'service.transport.desc': 'Надежные транспортные услуги для всех ваших потребностей.',
-    'service.umzug': 'Переезд',
-    'service.umzug.desc': 'Переезд без стресса с профессиональной поддержкой от А до Я.',
-    'service.installation': 'Монтаж и ремонт',
-    'service.installation.desc': 'Электроработы, двери и окна, замки и аварийный ремонт.',
+    'service.webdesign': 'Создание сайтов',
+    'service.webdesign.desc': 'Индивидуальные современные сайты и интернет-магазины – адаптивные, быстрые, GDPR.',
+    'service.marketing': 'Маркетинг',
+    'service.marketing.desc': 'Маркетинг в соцсетях, создание контента и брендинг для вашего цифрового присутствия.',
+    'service.seo': 'SEO оптимизация',
+    'service.seo.desc': 'Лучшая видимость в Google – больше органического трафика и заявок.',
+    'service.ads': 'Google Реклама',
+    'service.ads.desc': 'Целевые рекламные кампании с максимальным охватом и измеримыми результатами.',
     
     // About Section
     'about.section.label': 'О IYM',
