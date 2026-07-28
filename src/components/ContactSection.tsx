@@ -75,7 +75,8 @@ const ContactSection = () => {
 
   const serviceOptions = [
     { value: 'marketing', label: t('service.marketing') },
-    { value: 'installation', label: t('service.installation') },
+    { value: 'seo', label: language === 'de' ? 'SEO Optimierung' : language === 'en' ? 'SEO Optimization' : 'SEO оптимизация' },
+    { value: 'ads', label: language === 'de' ? 'Google Ads' : language === 'en' ? 'Google Ads' : 'Google Реклама' },
     { value: 'other', label: otherServiceLabel },
   ];
 

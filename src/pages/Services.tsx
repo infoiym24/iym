@@ -3,8 +3,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ServiceCard from '@/components/ServiceCard';
 import { 
-  Megaphone,
-  Wrench
+  Megaphone
 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { TrainReveal, PopReveal } from '@/components/ScrollRevealText';
@@ -24,12 +23,6 @@ const Services = () => {
       description: t('service.marketing.desc'),
       icon: Megaphone,
       href: '/services/marketing',
-    },
-    {
-      title: t('service.installation'),
-      description: t('service.installation.desc'),
-      icon: Wrench,
-      href: '/services/installation',
     },
   ];
 
