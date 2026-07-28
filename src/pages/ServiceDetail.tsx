@@ -275,6 +275,165 @@ Our services include:
       }
     ]
   },
+  'marketing': {
+    titleKey: 'service.marketing',
+    descKey: 'service.marketing.desc',
+    icon: Megaphone,
+    features: [
+      'Social Media Management',
+      'Content-Erstellung (Foto, Video, Text)',
+      'Branding & Corporate Design',
+      'Community Management',
+      'Kampagnen-Konzeption'
+    ],
+    featuresEn: [
+      'Social Media Management',
+      'Content Creation (Photo, Video, Text)',
+      'Branding & Corporate Design',
+      'Community Management',
+      'Campaign Concept'
+    ],
+    featuresRu: [
+      'Управление соцсетями',
+      'Создание контента (фото, видео, текст)',
+      'Брендинг и фирменный стиль',
+      'Управление сообществом',
+      'Концепция кампаний'
+    ],
+    extendedDescription: {
+      de: `Wir bringen Ihre Marke sichtbar ins digitale Rampenlicht. Von Social Media über Content bis zum ganzheitlichen Branding – wir entwickeln Marketing-Strategien, die zu Ihrem Unternehmen passen und echte Ergebnisse liefern.
+
+Unsere Leistungen:
+• **Social Media Management** – Instagram, Facebook, TikTok & LinkedIn professionell betreut
+• **Content-Erstellung** – Hochwertige Fotos, Videos und Texte, die Ihre Zielgruppe ansprechen
+• **Branding** – Logo, Corporate Design und konsistente visuelle Identität
+• **Kampagnen** – Kreative Konzepte für Produkt-Launches, Aktionen und Events`,
+      en: `We put your brand into the digital spotlight. From social media and content to holistic branding – we develop marketing strategies that fit your business and deliver real results.
+
+Our services:
+• **Social Media Management** – Professional handling of Instagram, Facebook, TikTok & LinkedIn
+• **Content Creation** – High-quality photos, videos and texts that engage your audience
+• **Branding** – Logo, corporate design and consistent visual identity
+• **Campaigns** – Creative concepts for product launches, promotions and events`,
+      ru: `Мы выводим ваш бренд в цифровой центр внимания. От соцсетей и контента до целостного брендинга – мы разрабатываем маркетинговые стратегии, которые подходят вашему бизнесу и приносят реальные результаты.
+
+Наши услуги:
+• **Управление соцсетями** – Профессиональное ведение Instagram, Facebook, TikTok и LinkedIn
+• **Создание контента** – Качественные фото, видео и тексты для вашей аудитории
+• **Брендинг** – Логотип, фирменный стиль и единая визуальная айдентика
+• **Кампании** – Креативные концепции запусков продуктов, акций и мероприятий`
+    }
+  },
+  'seo': {
+    titleKey: 'service.seo',
+    descKey: 'service.seo.desc',
+    icon: Search,
+    features: [
+      'Keyword-Recherche & Analyse',
+      'OnPage-Optimierung',
+      'Technisches SEO (Ladezeit, Struktur)',
+      'Content-Strategie',
+      'Google Search Console Setup',
+      'Monatliches Reporting'
+    ],
+    featuresEn: [
+      'Keyword Research & Analysis',
+      'OnPage Optimization',
+      'Technical SEO (speed, structure)',
+      'Content Strategy',
+      'Google Search Console Setup',
+      'Monthly Reporting'
+    ],
+    featuresRu: [
+      'Исследование ключевых слов и анализ',
+      'OnPage-оптимизация',
+      'Техническое SEO (скорость, структура)',
+      'Контент-стратегия',
+      'Настройка Google Search Console',
+      'Ежемесячная отчётность'
+    ],
+    extendedDescription: {
+      de: `Sichtbar werden bei Google – nachhaltig und mit Strategie. Wir optimieren Ihre Website so, dass sie von den richtigen Menschen gefunden wird und Ihnen dauerhaft qualifizierte Anfragen bringt.
+
+Unser SEO-Vorgehen:
+• **Analyse & Keywords** – Wir finden heraus, wonach Ihre Kunden wirklich suchen
+• **OnPage-Optimierung** – Titel, Meta-Beschreibungen, Struktur und interne Verlinkung
+• **Technisches SEO** – Ladezeit, mobile Optimierung, saubere Struktur
+• **Content-Strategie** – Inhalte, die ranken und Ihre Zielgruppe abholen
+• **Reporting** – Transparente monatliche Auswertung Ihrer Rankings und Traffic-Entwicklung`,
+      en: `Get visible on Google – sustainably and with strategy. We optimize your website so it gets found by the right people and delivers qualified leads long-term.
+
+Our SEO approach:
+• **Analysis & Keywords** – We find out what your customers really search for
+• **OnPage Optimization** – Titles, meta descriptions, structure and internal linking
+• **Technical SEO** – Load time, mobile optimization, clean structure
+• **Content Strategy** – Content that ranks and speaks to your audience
+• **Reporting** – Transparent monthly reports on rankings and traffic development`,
+      ru: `Стать видимым в Google – надёжно и со стратегией. Мы оптимизируем ваш сайт так, чтобы его находили нужные люди и вы получали квалифицированные заявки.
+
+Наш подход к SEO:
+• **Анализ и ключевые слова** – Узнаём, что действительно ищут ваши клиенты
+• **OnPage-оптимизация** – Заголовки, мета-описания, структура и внутренние ссылки
+• **Техническое SEO** – Скорость, мобильная оптимизация, чистая структура
+• **Контент-стратегия** – Контент, который ранжируется и отвечает вашей аудитории
+• **Отчётность** – Прозрачные ежемесячные отчёты о позициях и трафике`
+    }
+  },
+  'ads': {
+    titleKey: 'service.ads',
+    descKey: 'service.ads.desc',
+    icon: Target,
+    features: [
+      'Google Ads Kampagnen-Setup',
+      'Keyword- & Zielgruppen-Recherche',
+      'Anzeigen-Texte & Creatives',
+      'Conversion-Tracking',
+      'Laufende Optimierung',
+      'Transparentes Reporting'
+    ],
+    featuresEn: [
+      'Google Ads Campaign Setup',
+      'Keyword & Audience Research',
+      'Ad Copy & Creatives',
+      'Conversion Tracking',
+      'Ongoing Optimization',
+      'Transparent Reporting'
+    ],
+    featuresRu: [
+      'Настройка кампаний Google Ads',
+      'Исследование ключевых слов и аудитории',
+      'Тексты объявлений и креативы',
+      'Отслеживание конверсий',
+      'Постоянная оптимизация',
+      'Прозрачная отчётность'
+    ],
+    extendedDescription: {
+      de: `Google Ads, die wirklich performen. Wir bauen Kampagnen auf, die genau die Menschen erreichen, die nach Ihrem Angebot suchen – und optimieren laufend, damit jeder Euro Werbebudget maximalen Return bringt.
+
+Unsere Google Ads Leistungen:
+• **Kampagnen-Setup** – Suchanzeigen, Display, YouTube und Performance Max
+• **Keyword-Strategie** – Die richtigen Suchbegriffe zum richtigen Preis
+• **Anzeigen-Texte & Creatives** – Klickstarke Ads, die konvertieren
+• **Conversion-Tracking** – Wir messen, was zählt: Anrufe, Formulare, Käufe
+• **Laufende Optimierung** – Wöchentliche Anpassungen für bessere Ergebnisse`,
+      en: `Google Ads that actually perform. We build campaigns that reach exactly the people searching for your offer – and continuously optimize so every euro of ad spend delivers maximum return.
+
+Our Google Ads services:
+• **Campaign Setup** – Search ads, Display, YouTube and Performance Max
+• **Keyword Strategy** – The right search terms at the right price
+• **Ad Copy & Creatives** – Click-worthy ads that convert
+• **Conversion Tracking** – We measure what counts: calls, forms, purchases
+• **Ongoing Optimization** – Weekly adjustments for better results`,
+      ru: `Google Ads, которые действительно работают. Мы создаём кампании, которые находят именно тех людей, что ищут ваше предложение – и постоянно оптимизируем, чтобы каждый евро рекламного бюджета давал максимальную отдачу.
+
+Наши услуги Google Ads:
+• **Настройка кампаний** – Поиск, дисплей, YouTube и Performance Max
+• **Стратегия ключевых слов** – Правильные запросы по правильной цене
+• **Тексты и креативы** – Кликабельные объявления, которые конвертируют
+• **Отслеживание конверсий** – Измеряем то, что важно: звонки, формы, покупки
+• **Постоянная оптимизация** – Еженедельные корректировки для лучших результатов`
+    }
+  }
 };
 
 const ServiceDetail = () => {
@@ -367,9 +526,10 @@ const ServiceDetail = () => {
                             'Другая услуга';
 
   const serviceOptions = [
+    { value: 'webdesign', label: t('service.webdesign') },
     { value: 'marketing', label: t('service.marketing') },
-    { value: 'seo', label: language === 'de' ? 'SEO Optimierung' : language === 'en' ? 'SEO Optimization' : 'SEO оптимизация' },
-    { value: 'ads', label: language === 'de' ? 'Google Ads' : language === 'en' ? 'Google Ads' : 'Google Реклама' },
+    { value: 'seo', label: t('service.seo') },
+    { value: 'ads', label: t('service.ads') },
     { value: 'other', label: otherServiceLabel },
   ];
 
