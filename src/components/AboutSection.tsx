@@ -1,10 +1,11 @@
 import { CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import aboutPortrait from '@/assets/about-portrait.jpg';
+import dmitriyPortrait from '@/assets/dmitriy-gazarov.webp.asset.json';
 import { GoldenHeading, TrainRevealText, SlideUpReveal, StaggerContainer } from './animations/BlurReveal';
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { useInView } from 'framer-motion';
+
 
 
 const AboutSection = () => {
@@ -89,14 +90,16 @@ const AboutSection = () => {
               animate={imageInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              {/* Image container */}
-              <div className="relative rounded-2xl overflow-hidden paper-card">
-                <img 
-                  src={aboutPortrait} 
-                  alt="IYM Team" 
-                  className="w-full h-auto object-cover aspect-square"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+              {/* Image container with golden frame */}
+              <div className="relative rounded-2xl overflow-hidden border border-primary/40 p-2 bg-gradient-to-br from-primary/10 via-transparent to-forest/10">
+                <div className="rounded-xl overflow-hidden">
+                  <img 
+                    src={dmitriyPortrait.url} 
+                    alt="Dmitriy Gazarov — IYM I'm Your Man" 
+                    className="w-full h-auto object-cover aspect-[3/4]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+                </div>
               </div>
               
               {/* Quote card overlay */}
