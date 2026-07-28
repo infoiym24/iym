@@ -50,7 +50,7 @@ const Index = () => {
         <HeroSection />
         <AgencyShowcase />
         <RotatingTextSection />
-        <ServicesSection />
+        
         <ProcessSection />
         <SpecialOfferSection />
         <ReferencesSection />
